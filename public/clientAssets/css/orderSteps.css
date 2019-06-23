@@ -1,0 +1,175 @@
+.bs-wizard {
+    margin-top: 40px;
+}
+
+/*Form Wizard*/
+.bs-wizard {
+    border-bottom: solid 1px #e0e0e0;
+    padding: 0 0 10px 0;
+}
+
+.bs-wizard > .bs-wizard-step {
+    padding: 0;
+    position: relative;
+}
+
+.bs-wizard > .bs-wizard-step + .bs-wizard-step {
+}
+
+.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
+    color: #595959;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.bs-wizard > .bs-wizard-step .bs-wizard-info {
+    color: #999;
+    font-size: 14px;
+}
+
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: #ff6c80;
+    top: 70px;
+    right: 50%;
+    margin-top: -15px;
+    margin-right: -15px;
+    border-radius: 50%;
+}
+
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
+    content: ' ';
+    width: 14px;
+    height: 14px;
+    background: #E52540;
+    border-radius: 50px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.bs-wizard > .bs-wizard-step > .progress {
+    position: relative;
+    border-radius: 0px;
+    height: 8px;
+    box-shadow: none;
+    margin: 20px 0;
+}
+
+.bs-wizard > .bs-wizard-step > .progress > .progress-bar {
+    width: 0px;
+    box-shadow: none;
+    background: #f5b1ba;
+}
+
+.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {
+    width: 100%;
+}
+
+.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {
+    width: 50%;
+}
+
+.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {
+    width: 0%;
+}
+
+.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {
+    width: 100%;
+}
+
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {
+    background-color: rgba(230, 226, 226, 0.68);
+}
+
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {
+    opacity: 0;
+}
+
+.bs-wizard > .bs-wizard-step:first-child > .progress {
+    right: 50%;
+    width: 50%;
+}
+
+.bs-wizard > .bs-wizard-step:last-child > .progress {
+    width: 50%;
+}
+
+.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {
+    pointer-events: none;
+}
+
+.progress {
+    background-color: rgba(230, 226, 226, 0.68);
+}
+
+.steps {
+    padding: 2em 9em;
+}
+
+.categoryDivs {
+    background: rgba(0, 0, 0, .14);
+    padding: 6px;
+    margin: 5px 0;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s all ease
+}
+
+.categoryDivs p {
+    text-align: center;
+    font-size: 11px;
+}
+
+.categoryDivs:hover {
+    opacity: 0.8;
+    border: 2px solid;
+}
+
+.properties label, .upload label {
+    font-weight: bold;
+    margin-top: 1.3em;
+}
+
+.upload input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: #e52531;
+    color: #FFF;
+    border-radius: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.properties hr, .upload hr {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    border: 0;
+    border-top: 2px solid #e2e2e2;
+}
+
+.properties small {
+    font-size: 70%;
+}
+
+.price {
+    position: relative;
+    margin-top: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    display: block;
+    font-weight: bold;
+    clear: both;
+}
+.alertify-logs{
+    z-index: 999999999999999999999 !important;
+}
