@@ -6,6 +6,7 @@ use App\BestCustomer;
 use App\option;
 use App\pricelist;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,8 +24,9 @@ class AppServiceProvider extends ServiceProvider
             $bestCustomers = BestCustomer::all();
             $phone = option::where('option_name', 'phone')->first()->option_value;
             $email = option::where('option_name', 'email')->first()->option_value;
-            $prices=pricelist::orderBy('priority')->get();
-            $view->with(['address' => $address, 'phone' => $phone, 'email' => $email,'bestCustomers'=>$bestCustomers,'prices'=>$prices]);
+            $prices = pricelist::orderBy('priority')->get();
+            $cart = count(Session::get('cart'));
+            $view->with(['cart' => $cart, 'address' => $address, 'phone' => $phone, 'email' => $email, 'bestCustomers' => $bestCustomers, 'prices' => $prices]);
         });
 
     }

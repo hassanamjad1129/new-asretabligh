@@ -44,19 +44,23 @@
                 مدیریت برترین مشتریان
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.bestCustomers.index') }}"><i class="icon-folder-alt"></i>لیست برترین مشتریان</a>
+                <a class="nav-link" href="{{ route('admin.bestCustomers.index') }}"><i class="icon-folder-alt"></i>لیست
+                    برترین مشتریان</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.admins.index')}}"><i class="icon-user-unfollow"></i> مدیران</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.slideshow.index')}}"><i class="icon-user-unfollow"></i> اسلایدشو</a>
+                <a class="nav-link" href="{{route('admin.slideshow.index')}}"><i class="icon-user-unfollow"></i>
+                    اسلایدشو</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="icon-camera"></i> تنظیمات</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.shipping.index') }}"><i class="icon-truck"></i> روش های ارسال</a>
+            </li>
         </ul>
     </nav>
 </div>

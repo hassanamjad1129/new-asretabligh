@@ -70,13 +70,18 @@ class ProductPriceController extends Controller
             'min.*' => 'required',
             'max.*' => 'required',
             'single_price.*' => 'required',
-            'double_price.*' => 'required'
+            'double_price.*' => 'required',
+            'coworker_single_price.*' => 'required',
+            'coworker_double_price.*' => 'required',
+
         ], [
             'value.*.required' => 'مشخصات سفارش الزامی است',
             'min.*.required' => 'تعداد حداقل الزامی است',
             'max.*.required' => 'تعداد حداکثر الزامی است',
             'single_price.*.required' => 'قیمت یک رو الزامی است',
             'double_price.*.required' => 'قیمت دو رو الزامی است',
+            'coworker_single_price.*.required' => 'قیمت یک رو همکار الزامی است',
+            'coworker_double_price.*.required' => 'قیمت دو رو همکار الزامی است',
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
@@ -88,6 +93,8 @@ class ProductPriceController extends Controller
                 $productPrice->max = $request->input("max_{$item}");
                 $productPrice->single_price = str_replace(",", "", $request->input("single_price_{$item}"));
                 $productPrice->double_price = str_replace(",", "", $request->input("double_price_{$item}"));
+                $productPrice->coworker_single_price = str_replace(",", "", $request->input("coworker_single_price_{$item}"));
+                $productPrice->coworker_double_price = str_replace(",", "", $request->input("coworker_double_price_{$item}"));
                 $productPrice->update();
             }
         $values = [];
@@ -104,6 +111,8 @@ class ProductPriceController extends Controller
                 $product_price->max = $request->input('max')[$key];
                 $product_price->single_price = str_replace(",", "", $request->input('single_price')[$key]);
                 $product_price->double_price = str_replace(",", "", $request->input('double_price')[$key]);
+                 $product_price->coworker_single_price = str_replace(",", "", $request->input('coworker_single_price')[$key]);
+                $product_price->coworker_double_price = str_replace(",", "", $request->input('coworker_double_price')[$key]);
                 $product_price->values = $value_id;
                 $product_price->save();
             }

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="loginWrapper">
                 <div class="col-md-6">
-                    <form action="/customer/login" id="loginForm" method="post">
+                    <form action="/customer/login?previous={{ url()->previous() }}" id="loginForm" method="post">
                         @csrf
                         <h3><i class="fa fa-sign-in" style="font-size: 20px;margin-left: 6px;"></i>ورود</h3>
                         <h5 style="margin-top: 20px">مشخصات را با دقت پر کنید</h5>

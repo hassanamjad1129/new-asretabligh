@@ -23,13 +23,22 @@ class LoginController extends Controller
     use AuthenticatesUsers, LogsoutGuard {
         LogsoutGuard::logout insteadof AuthenticatesUsers;
     }
-
     /**
      * Where to redirect users after login / registration.
      *
      * @var string
      */
     public $redirectTo = '/customer/home';
+
+
+    public function redirectTo()
+    {
+        if (request()->has('previous')) {
+            $this->redirectTo = request()->get('previous');
+        }
+
+        return $this->redirectTo ?? '/customer/home';
+    }
 
     /**
      * Create a new controller instance.

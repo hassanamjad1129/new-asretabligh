@@ -130,8 +130,8 @@
                                 </li>
 
                                 <li style="margin-right: 14px;">
-                                    <a href="/cart/payment" style="padding:6px"><span class="badge"
-                                                                                      style="position: relative;right: 5px;bottom: 15px;">{{ ta_persian_num(ATCart::content()->count()) }}</span><i
+                                    <a href="{{ route('cart') }}" style="padding:6px"><span class="badge"
+                                                                                      style="position: relative;right: 5px;bottom: 15px;">{{ ta_persian_num($cart) }}</span><i
                                                 class="fa fa-shopping-cart fa-2x"></i>
                                         <p style="position: relative;display: inline;bottom: 4px;">سبد خرید</p></a>
                                 </li>

@@ -11,6 +11,7 @@ use App\option;
 use App\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class siteController extends Controller
@@ -47,5 +48,17 @@ class siteController extends Controller
     public function getValuePicture(ProductValue $value)
     {
         return Storage::download($value->picture);
+    }
+
+    public function cart()
+    {
+        $carts = Session::get('cart');
+        return view('customer.showAllCarts', ['carts' => $carts]);
+    }
+
+    public function removeFromCart($id)
+    {
+        Session::forget('cart.' . $id);
+        return back()->withErrors(['عملیات با موفقیت انجام شد'],'success');
     }
 }

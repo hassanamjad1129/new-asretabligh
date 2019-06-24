@@ -2,6 +2,11 @@
 @section('extraStyles')
     <link href="/css/select2.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        .card-header {
+            padding: 0.5rem 5px
+        }
+    </style>
 @endsection
 @section('extraScripts')
     <script src="/js/jQuery.min.js"></script>
@@ -59,19 +64,19 @@
         function addOrderPrice(id) {
             $("#Prices").append("<div id=\"addOrderPrice_" + i + "\">\n" +
                 "<div class=\"col-md-12\">\n" +
-                "                        <div class=\"col-md-2\">\n" +
+                "                        <div class=\"col-md-1\">\n" +
                 "                            <div class=\"card\">\n" +
-                "                                <div class=\"card-header\">تعداد حداقل</div>\n" +
+                "                                <div class=\"card-header\"> حداقل</div>\n" +
                 "                                <input type=\"number\" name=\"min[]\" class=\"form-control\"/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
-                "                        <div class=\"col-md-2\">\n" +
+                "                        <div class=\"col-md-1\">\n" +
                 "                            <div class=\"card\">\n" +
-                "                                <div class=\"card-header\">تعداد حداکثر</div>\n" +
+                "                                <div class=\"card-header\"> حداکثر</div>\n" +
                 "                                <input type=\"number\" name=\"max[]\" class=\"form-control\"/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
-                "                        <div class=\"col-md-3\">\n" +
+                "                        <div class=\"col-md-2\">\n" +
                 "                            <div class=\"card\">\n" +
                 "                                <div class=\"card-header\">قیمت یک رو<span class=\"tag tag-primary\">ریال</span></div>\n" +
                 "                                <input type=\"text\" name=\"single_price[]\" class=\"price form-control\"\n" +
@@ -79,10 +84,25 @@
                 "                               <input type=\"hidden\" name=\"product_id[]\" value=\"" + id + "\"/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
-                "                        <div class=\"col-md-3\">\n" +
+                "                        <div class=\"col-md-2\">\n" +
                 "                            <div class=\"card\">\n" +
                 "                                <div class=\"card-header\">قیمت دو رو<span class=\"tag tag-primary\">ریال</span></div>\n" +
                 "                                <input type=\"text\" name=\"double_price[]\" class=\"price form-control\"\n" +
+                "                                       value=\"\"/>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"col-md-2\">\n" +
+                "                            <div class=\"card\">\n" +
+                "                                <div class=\"card-header\">قیمت یک رو همکار<span class=\"tag tag-primary\">ریال</span></div>\n" +
+                "                                <input type=\"text\" name=\"coworker_single_price[]\" class=\"price form-control\"\n" +
+                "                                       value=\"\"/>\n" +
+                "                               <input type=\"hidden\" name=\"product_id[]\" value=\"" + id + "\"/>\n" +
+                "                            </div>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"col-md-2\">\n" +
+                "                            <div class=\"card\">\n" +
+                "                                <div class=\"card-header\">قیمت دو رو همکار<span class=\"tag tag-primary\">ریال</span></div>\n" +
+                "                                <input type=\"text\" name=\"coworker_double_price[]\" class=\"price form-control\"\n" +
                 "                                       value=\"\"/>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
@@ -155,33 +175,46 @@
             });
         }
 
-        function addProductPrice(id, min, max, single_price,double_price) {
+        function addProductPrice(id, min, max, single_price, double_price, coworker_single_price, coworker_double_price) {
 
             $("#Prices").append("<div class=\"created_price\">\n" +
                 "     <div id=\"createdPrice_" + id + "\">\n" +
                 "    <div class=\"col-md-12\">\n" +
-                "        <div class=\"col-md-2\">\n" +
+                "        <div class=\"col-md-1\">\n" +
                 "            <div class=\"card\">\n" +
-                "                <div class=\"card-header\">تعداد حداقل</div>\n" +
+                "                <div class=\"card-header\"> حداقل</div>\n" +
                 "                <input type=\"number\" name=\"min_" + id + "\" class=\"form-control\" value=\"" + min + "\"/>\n" +
                 "            </div>\n" +
                 "        </div>\n" +
-                "        <div class=\"col-md-2\">\n" +
+                "        <div class=\"col-md-1\">\n" +
                 "            <div class=\"card\">\n" +
-                "                <div class=\"card-header\">تعداد حداکثر</div>\n" +
+                "                <div class=\"card-header\"> حداکثر</div>\n" +
                 "                <input type=\"number\" name=\"max_" + id + "\" class=\"form-control\" value=\"" + max + "\"/>\n" +
                 "            </div>\n" +
                 "        </div>\n" +
-                "        <div class=\"col-md-3\">\n" +
+                "        <div class=\"col-md-2\">\n" +
                 "            <div class=\"card\">\n" +
                 "                <div class=\"card-header\">قیمت یک رو<span class=\"tag tag-primary\">ریال</span></div>\n" +
                 "                <input type=\"text\" name=\"single_price_" + id + "\" class=\"price form-control\" value=\"" + single_price + "\"/>\n" +
                 "            </div>\n" +
                 "        </div>\n" +
-                "        <div class=\"col-md-3\">\n" +
+                "        <div class=\"col-md-2\">\n" +
                 "            <div class=\"card\">\n" +
                 "                <div class=\"card-header\">قیمت دو رو<span class=\"tag tag-primary\">ریال</span></div>\n" +
                 "                <input type=\"text\" name=\"double_price_" + id + "\" class=\"price form-control\" value=\"" + double_price + "\"/>\n" +
+                "                <input type=\"hidden\" name=\"price_id[]\" value=\"" + id + "\"/>\n" +
+                "            </div>\n" +
+                "        </div>\n" +
+                "        <div class=\"col-md-2\">\n" +
+                "            <div class=\"card\">\n" +
+                "                <div class=\"card-header\">قیمت یک رو همکار<span class=\"tag tag-primary\">ریال</span></div>\n" +
+                "                <input type=\"text\" name=\"coworker_single_price_" + id + "\" class=\"price form-control\" value=\"" + coworker_single_price + "\"/>\n" +
+                "            </div>\n" +
+                "        </div>\n" +
+                "        <div class=\"col-md-2\">\n" +
+                "            <div class=\"card\">\n" +
+                "                <div class=\"card-header\">قیمت دو رو همکار<span class=\"tag tag-primary\">ریال</span></div>\n" +
+                "                <input type=\"text\" name=\"coworker_double_price_" + id + "\" class=\"price form-control\" value=\"" + coworker_double_price + "\"/>\n" +
                 "                <input type=\"hidden\" name=\"price_id[]\" value=\"" + id + "\"/>\n" +
                 "            </div>\n" +
                 "        </div>\n" +
@@ -228,7 +261,7 @@
                 _token: '{{csrf_token()}}'
             }, function (data, status) {
                 data.forEach(function (item, index) {
-                    addProductPrice(data[index].id, data[index].min, data[index].max, data[index].single_price, data[index].double_price);
+                    addProductPrice(data[index].id, data[index].min, data[index].max, data[index].single_price, data[index].double_price, data[index].coworker_single_price, data[index].coworker_double_price);
                 })
             });
             $.post('/admin/ajaxProductProperties', {value_id: id, _token: '{{csrf_token()}}'}, function (data, status) {

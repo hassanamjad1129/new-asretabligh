@@ -20,6 +20,8 @@ class ProductPricesTable extends Migration
             $table->string('values');
             $table->unsignedBigInteger('single_price');
             $table->unsignedBigInteger('double_price');
+            $table->unsignedBigInteger('coworker_single_price');
+            $table->unsignedBigInteger('coworker_double_price');
             $table->unsignedInteger('min');
             $table->unsignedInteger('max');
             $table->timestamps();

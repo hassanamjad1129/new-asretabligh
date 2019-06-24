@@ -16,6 +16,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::resource('categories', 'CategoryController');
         Route::resource('pCategories', 'PostCategoryController');
         Route::resource('bestCustomers', 'BestCustomersController');
+        Route::resource('shipping', 'ShippingController');
         //Get Picture of Category
         Route::get('/categories/getPicture/{category}', 'CategoryController@categoryPicture')->name('categoryPicture');
         //Get Picture of Subcategories
@@ -26,7 +27,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::resource('/product/{product}/productProperties', 'ProductPropertyController');
         Route::get('/productAnswers/getPicture/{productAnswer}', 'ProductPropertyController@ProductAnswer')->name('ProductAnswer');
         Route::get('product/{product}/productProperties/{productProperty}/productAnswer/{productValue}', 'ProductPropertyController@destroyValue')->name('destroyValue');
-        Route::resource('/{category}/products/{product}/productPrice', 'productPriceController');
+        Route::resource('/{category}/products/{product}/productPrice', 'ProductPriceController');
         Route::resource('/{category}/products/{product}/productFile', 'productFileController');
 
         Route::post('/ajaxProductProperties', 'ProductPriceController@ajaxProductProperties');
