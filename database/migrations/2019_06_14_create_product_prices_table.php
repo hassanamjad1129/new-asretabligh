@@ -23,7 +23,7 @@ class ProductPricesTable extends Migration
             $table->unsignedBigInteger('coworker_single_price');
             $table->unsignedBigInteger('coworker_double_price');
             $table->unsignedInteger('min');
-            $table->unsignedInteger('max');
+            $table->unsignedInteger('max')->nullable();
             $table->timestamps();
         });
     }

@@ -49,55 +49,61 @@
                         <tbody>
                         <?php $i = 1;
                         $sum = 0;?>
-                        @foreach($carts as $key=>$cart)
-                            <tr>
-                                <td style="font-weight: bold">{{ ta_persian_num($i++) }}</td>
-                                <td><input type="checkbox" name="carts[]" style="width: 20px;height:20px"
-                                           value="{{ $key }}"
-                                           id=""></td>
-                                <?php
-                                $product = \App\Models\Product::find($cart['product']);
-                                ?>
-                                <td>{{ $product->category->name.' '.$product->name }}</td>
-                                <td><?php
-                                    $data = explode('-', $cart['data']);
-                                    foreach ($data as $value) {
-                                        $value = \App\Models\ProductValue::find($value);
-                                        echo ta_persian_num($value->property->name) . ':' . ta_persian_num($value->name) . '<br/>';
-                                    }
-                                    if ($cart['type'] == 'single') {
-                                        echo "نوع کار : یک رو";
-                                    } else {
-                                        echo "نوع کار : دو رو";
-                                    }
-                                    ?></td>
-                                <td>
+                        @if($carts)
+                            @foreach($carts as $key=>$cart)
+                                <tr>
+                                    <td style="font-weight: bold">{{ ta_persian_num($i++) }}</td>
+                                    <td><input type="checkbox" name="carts[]" style="width: 20px;height:20px"
+                                               value="{{ $key }}"
+                                               id=""></td>
                                     <?php
-                                    $fileSplited = explode('.', $cart['files']['front']);
+                                    $product = \App\Models\Product::find($cart['product']);
                                     ?>
-                                    <img src="{{ $fileSplited[count($fileSplited)-1]=='pdf'?'/clientAssets/img/icons8-pdf-128.png':asset('orderFiles/'.$cart['files']['front']) }}"
-                                         style="width: 100px" alt="">
-                                    <?php
-                                    $fileSplited = explode('.', $cart['files']['back']);
-                                    ?>
+                                    <td>{{ $product->category->name.' '.$product->name }}</td>
+                                    <td><?php
+                                        $data = explode('-', $cart['data']);
+                                        foreach ($data as $value) {
+                                            $value = \App\Models\ProductValue::find($value);
+                                            echo ta_persian_num($value->property->name) . ':' . ta_persian_num($value->name) . '<br/>';
+                                        }
+                                        if ($cart['type'] == 'single') {
+                                            echo "نوع کار : یک رو";
+                                        } else {
+                                            echo "نوع کار : دو رو";
+                                        }
+                                        ?></td>
+                                    <td>
+                                        <?php
+                                        $fileSplited = explode('.', $cart['files']['front']);
+                                        ?>
+                                        <img src="{{ $fileSplited[count($fileSplited)-1]=='pdf'?'/clientAssets/img/icons8-pdf-128.png':asset('orderFiles/'.$cart['files']['front']) }}"
+                                             style="width: 100px" alt="">
+                                        <?php
+                                        $fileSplited = explode('.', $cart['files']['back']);
+                                        ?>
 
-                                    <img src="{{ $fileSplited[count($fileSplited)-1]=='pdf'?'/clientAssets/img/icons8-pdf-128.png':asset('orderFiles/'.$cart['files']['back']) }}"
-                                         style="width: 100px;" alt="">
-                                </td>
-                                <td>
+                                        <img src="{{ $fileSplited[count($fileSplited)-1]=='pdf'?'/clientAssets/img/icons8-pdf-128.png':asset('orderFiles/'.$cart['files']['back']) }}"
+                                             style="width: 100px;" alt="">
+                                    </td>
+                                    <td>
+                                        <?php
+                                        echo "در انتظار پرداخت";
+                                        ?></td>
                                     <?php
-                                    echo "در انتظار پرداخت";
-                                    ?></td>
-                                <?php
-                                $sum += $cart['price'];
-                                ?>
-                                <td>{{ ta_persian_num(number_format($cart['price'])) }} ریال</td>
-                                <td><a href="{{ url('/cart/'.$key.'/remove') }}" class="deleteBTN"><i
-                                                class="fa fa-trash-o"
-                                                style="font-size: 23px;color:#d60000"
-                                                aria-hidden="true"></i></a></td>
+                                    $sum += $cart['price'];
+                                    ?>
+                                    <td>{{ ta_persian_num(number_format($cart['price'])) }} ریال</td>
+                                    <td><a href="{{ url('/cart/'.$key.'/remove') }}" class="deleteBTN"><i
+                                                    class="fa fa-trash-o"
+                                                    style="font-size: 23px;color:#d60000"
+                                                    aria-hidden="true"></i></a></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="8" style="text-align: center;font-size: 1.7rem">آیتمی در سبد خرید شما وجود ندارد</td>
                             </tr>
-                        @endforeach
+                        @endif
                         </tbody>
                         <tfoot>
                         <td colspan="6">جمع کل :</td>

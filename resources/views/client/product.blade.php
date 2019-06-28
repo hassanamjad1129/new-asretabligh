@@ -132,6 +132,34 @@
 
                             @endif
                         </div>
+                        <div class="col-md-12">
+                            <label for="" v="service" style="font-weight: bold;font-size:15px;margin-top:10px">خدمات اضافی</label>
+                            <div>
+                                <input type="radio" style="display: none" val="service"
+                                       id="service-0"
+                                       name="service"
+                                       value="">
+                                <label for="service-0" class="col-md-3" style="padding: 0 5px">
+                                    <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                        <p style="text-align: center">ندارد</p>
+                                    </div>
+                                </label>
+                            </div>
+                            @foreach($product->services as $service)
+                                <div>
+                                    <input type="radio" style="display: none" val="service"
+                                           id="service-{{ $service->id }}"
+                                           name="service"
+                                           value="{{ $service->id }}">
+                                    <label for="service-{{ $service->id }}" class="col-md-3" style="padding: 0 5px">
+                                        <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                            <p style="text-align: center">{{ $service->name }}</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+
                     </div>
                     <div class="col-md-4">
                         <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت : </h4>

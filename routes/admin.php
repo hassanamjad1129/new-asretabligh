@@ -17,6 +17,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::resource('pCategories', 'PostCategoryController');
         Route::resource('bestCustomers', 'BestCustomersController');
         Route::resource('shipping', 'ShippingController');
+        Route::resource('service', 'ServiceController');
         //Get Picture of Category
         Route::get('/categories/getPicture/{category}', 'CategoryController@categoryPicture')->name('categoryPicture');
         //Get Picture of Subcategories
@@ -42,6 +43,21 @@ Route::group(['middleware' => 'admin'], function () {
         Route::resource('slideshow', 'SlideshowController');
         Route::get('/slideshow/delete/{id}', 'SlideshowController@destroy');
         Route::post('/slideshow/setPriority', 'SlideshowController@setPriority')->middleware('admin');
+
+        Route::get('service/{service}/products', 'ServiceController@products')->name('service.products');
+        Route::post('service/{service}/products', 'ServiceController@updateProducts');
+
+        Route::resource('/services/{service}/serviceProperties', 'ServicePropertyController');
+        Route::get('/serviceAnswers/getPicture/{serviceAnswer}', 'ServicePropertyController@ServiceAnswer')->name('ServiceAnswer');
+        Route::get('services/{service}/serviceProperties/{serviceProperty}/serviceAnswer/{serviceValue}', 'ServicePropertyController@destroyValue')->name('destroyServiceValue');
+        Route::resource('services/{service}/servicePrice', 'ServicePriceController');
+
+        Route::post('/ajaxServiceProperties', 'ServicePriceController@ajaxServiceProperties');
+        Route::post('/ajaxServiceAnswers', 'ServicePriceController@ServiceAnswers');
+        Route::post('/ajaxServicePrices', 'ServicePriceController@ajaxServicePrices');
+        Route::post('/ajaxRemoveServicePrice', 'ServicePriceController@ajaxRemoveServicePrice');
+        Route::post('/ajaxServiceSubmitForm', 'ServicePriceController@ajaxSubmitForm');
+
 
     });
 });

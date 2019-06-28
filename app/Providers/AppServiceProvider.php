@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
             $phone = option::where('option_name', 'phone')->first()->option_value;
             $email = option::where('option_name', 'email')->first()->option_value;
             $prices = pricelist::orderBy('priority')->get();
-            $cart = count(Session::get('cart'));
+            $cart = Session::get('cart') ? count(Session::get('cart')) : 0;
             $view->with(['cart' => $cart, 'address' => $address, 'phone' => $phone, 'email' => $email, 'bestCustomers' => $bestCustomers, 'prices' => $prices]);
         });
 

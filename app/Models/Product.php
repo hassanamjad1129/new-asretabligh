@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Service;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -16,8 +17,9 @@ class Product extends Model
         return $this->hasMany(ProductProperty::class, 'product_id');
     }
 
-    public function ProductFiles()
+
+    public function services()
     {
-        return $this->hasMany(ProductFile::class, 'product_id');
+        return $this->belongsToMany(Service::class, 'product_services');
     }
 }

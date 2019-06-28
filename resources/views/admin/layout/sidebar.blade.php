@@ -61,6 +61,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.shipping.index') }}"><i class="icon-truck"></i> روش های ارسال</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.service.index') }}"><i class="icon-truck"></i> خدمات اضافی</a>
+            </li>
         </ul>
     </nav>
 </div>
