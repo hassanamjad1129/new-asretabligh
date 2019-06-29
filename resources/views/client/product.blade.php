@@ -298,10 +298,10 @@
         $("input[name=type]").change(function () {
             if ($(this).val() == "single") {
                 type = "single";
-            } else if ($(this).val() == 'double') {
+            } else {
                 type = "double";
             }
-        })
+        });
         @if($product->typeRelatedFile)
         $("input[name=type]").change(function () {
             $("#frontPic").attr('src', '');
