@@ -433,7 +433,7 @@
 
                 var Percentage = (current * 100) / max;
                 console.log(Percentage);
-                var percentVal = Number(Percentage) + '%';
+                var percentVal = parseInt(Percentage) + '%';
                 $(".progress-bar-striped").attr('aria-valuenow', Percentage);
                 $(".progress-bar-striped").text(percentVal);
                 $(".progress-bar-striped").css('width', percentVal);
