@@ -278,7 +278,6 @@
             }
         });
         $("input[name=qty]").change(function () {
-            type =
             if (pageCount)
                 $.ajax({
                     type: "post",
