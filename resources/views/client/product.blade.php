@@ -278,6 +278,7 @@
             }
         });
         $("input[name=qty]").change(function () {
+            type =
             if (pageCount)
                 $.ajax({
                     type: "post",
@@ -294,6 +295,13 @@
                     }
                 })
         });
+        $("input[name=type]").change(function () {
+            if ($(this).val() == "single") {
+                type = "single";
+            } else if ($(this).val() == 'double') {
+                type = "double";
+            }
+        })
         @if($product->typeRelatedFile)
         $("input[name=type]").change(function () {
             $("#frontPic").attr('src', '');
