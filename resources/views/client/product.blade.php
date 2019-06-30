@@ -133,7 +133,8 @@
                             @endif
                         </div>
                         <div class="col-md-12">
-                            <label for="" v="service" style="font-weight: bold;font-size:15px;margin-top:10px">خدمات اضافی</label>
+                            <label for="" v="service" style="font-weight: bold;font-size:15px;margin-top:10px">خدمات
+                                اضافی</label>
                             <div>
                                 <input type="radio" style="display: none" val="service"
                                        id="service-0"
@@ -244,6 +245,8 @@
             const id = $(this).attr('val');
             if ($(this).attr('name') !== 'type')
                 data[$(this).attr('name')] = $(this).val();
+            else
+                type = $(this).val()
             if ($(`li[v=${id}]`).length) {
                 $(`li[v=${id}]`).text($(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text())
             } else {
@@ -290,6 +293,13 @@
                         $("#finalPrice").text(response);
                     }
                 })
+        });
+        $("input[name=type]").change(function () {
+            if ($(this).val() == "single") {
+                type = "single";
+            } else {
+                type = "double";
+            }
         });
         @if($product->typeRelatedFile)
         $("input[name=type]").change(function () {
@@ -423,7 +433,7 @@
 
                 var Percentage = (current * 100) / max;
                 console.log(Percentage);
-                var percentVal = Percentage + '%';
+                var percentVal = parseInt(Percentage) + '%';
                 $(".progress-bar-striped").attr('aria-valuenow', Percentage);
                 $(".progress-bar-striped").text(percentVal);
                 $(".progress-bar-striped").css('width', percentVal);
