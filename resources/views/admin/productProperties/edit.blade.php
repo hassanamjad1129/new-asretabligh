@@ -24,7 +24,7 @@
         function addAnswer() {
             $("#answer").append("<div class=\"clearfix\"></div>\n" +
                 "                                <div class=\"col-md-6\">\n" +
-                    "<label>مقدار</label>"+
+                "<label>مقدار</label>" +
                 "                                    <input type=\"text\" name=\"answer[]\" id=\"answer_" + i + "\" class=\"form-control\"\n" +
                 "                                        />\n" +
                 "                                </div>\n" +
@@ -129,27 +129,7 @@
                                 </button>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-6" style="margin-top: 1.5rem">
-                                <label for="">وابستگی</label>
-                                <button type="button" class="btn btn-sm tag tag-primary">اختیاری</button>
-                                <select class="js-example-basic-single form-control" name="dependency">
-                                    @if($productProperty->value_id!=null)
-                                        <option value="{{$productProperty->value_id}}"
-                                                selected>{{($productProperty->GetNameOfProductPropertyName($productProperty->id))}}
-                                            -{{($productProperty->GetNameOfProductValue($productProperty->value_id))}}
 
-                                        </option>
-                                    @else
-                                        <option value="0" selected>مشخصات وابستگی را وارد کنید</option>
-                                    @endif
-                                    @foreach($productProperties as  $Property)
-                                        @foreach($Property->ProductValues()->where('id','!=',$productProperty->value_id)->get() as $productAnswer)
-                                            <option value="{{$productAnswer->id}}" {{($Property->value_id==$productAnswer->id)?'selected':''}}>{{$Property->name}}
-                                                - {{$productAnswer->name}}</option>
-                                        @endforeach
-                                    @endforeach
-                                </select>
-                            </div>
                         </div>
                     </div>
                 @endif
