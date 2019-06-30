@@ -52,7 +52,12 @@ class ProductPriceController extends Controller
 
     public function ajaxProductPrices(Request $request)
     {
-        $productPrices = ProductPrice::where('values', $request->values_id)->get();
+        // Sort Value of Properties
+        $values = explode('-', $request->values_id);
+        sort($values);
+        $values=implode("-",$values);
+
+        $productPrices = ProductPrice::where('values', $values)->get();
         return $productPrices;
     }
 
@@ -111,7 +116,7 @@ class ProductPriceController extends Controller
                 $product_price->max = $request->input('max')[$key];
                 $product_price->single_price = str_replace(",", "", $request->input('single_price')[$key]);
                 $product_price->double_price = str_replace(",", "", $request->input('double_price')[$key]);
-                 $product_price->coworker_single_price = str_replace(",", "", $request->input('coworker_single_price')[$key]);
+                $product_price->coworker_single_price = str_replace(",", "", $request->input('coworker_single_price')[$key]);
                 $product_price->coworker_double_price = str_replace(",", "", $request->input('coworker_double_price')[$key]);
                 $product_price->values = $value_id;
                 $product_price->save();

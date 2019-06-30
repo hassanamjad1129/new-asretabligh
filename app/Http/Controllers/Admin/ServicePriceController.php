@@ -75,6 +75,7 @@ class ServicePriceController extends Controller
 
     public function ajaxSubmitForm(Request $request)
     {
+        $service = Service::find($request->service);
         $validator = Validator::make($request->all(), [
             'value.*' => 'required',
             'min.*' => 'required',
@@ -113,10 +114,10 @@ class ServicePriceController extends Controller
         if ($request->min)
             foreach ($request->min as $key => $value) {
                 $service_price = new ServicePrice();
-                $service_price->product_id = $request->input('product_id')[$key];
+                $service_price->service_id = $service->id;
                 $service_price->min = $request->input('min')[$key];
                 $service_price->max = $request->input('max')[$key];
-                if ($service_price->service->allow_type) {
+                if ($service->allow_type) {
                     $service_price->single_price = str_replace(",", "", $request->input('single_price')[$key]);
                     $service_price->double_price = str_replace(",", "", $request->input('double_price')[$key]);
                     $service_price->coworker_single_price = str_replace(",", "", $request->input('coworker_single_price')[$key]);

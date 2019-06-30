@@ -37,7 +37,7 @@
                 // }
             });
 
-            $.post('/admin/ajaxSubmitForm', myForm, function (data, status) {
+            $.post('/admin/ajaxServiceSubmitForm', myForm, function (data, status) {
                 if (data.errors) {
                     $('.alert-danger').show();
                     data.errors.forEach(function (item, index) {
@@ -356,7 +356,7 @@
             قیمت محصول
         </div>
         <div class="card-block">
-            <form action="{{ route('admin.productPrice.store',[$category,$subcategory,$product]) }}"
+            <form action="{{ route('admin.servicePrice.store',[$service]) }}"
                   enctype="multipart/form-data"
                   method="post" id="myForm">
                 @csrf
@@ -399,6 +399,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-md-6" style="margin-top: 0.5rem !important;">
+                    <input type="hidden" name="service" value="{{ $service->id }}">
                     <button type="button" class="btn btn-success" onclick="submitForm()">ثبت قیمت</button>
                 </div>
             </form>
