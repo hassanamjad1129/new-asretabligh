@@ -74,7 +74,7 @@
                             <label for="">پاسخ های مشخصه</label>
                             <div id="answer">
                                 <?php $i = 1;?>
-                                @foreach($serviceAnswers as $key=>$serviceAnswer)
+                                @foreach($serviceProperty->ServiceValues as $key=>$serviceAnswer)
                                     <div class="clearfix"></div>
                                     <div class="card">
                                         <div class="card-block">

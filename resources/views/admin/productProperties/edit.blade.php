@@ -135,7 +135,7 @@
                                 <select class="js-example-basic-single form-control" name="dependency">
                                     @if($productProperty->value_id!=null)
                                         <option value="{{$productProperty->value_id}}"
-                                                selected>{{($productProperty->GetNameOfProductPropertyName($productProperty->value_id))}}
+                                                selected>{{($productProperty->GetNameOfProductPropertyName($productProperty->id))}}
                                             -{{($productProperty->GetNameOfProductValue($productProperty->value_id))}}
 
                                         </option>

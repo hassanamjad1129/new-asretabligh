@@ -31,7 +31,7 @@
                                            href="{{ route('admin.service.edit',[$service]) }}">ویرایش</a>
                                     </li>
                                     <li><a class="btn btn-sm"
-                                           href="#">ویژگی خدمات</a>
+                                           href="{{ route('admin.serviceProperties.index',[$service]) }}">ویژگی خدمات</a>
                                     </li>
                                     <li>
                                         <form action="{{ route('admin.service.destroy',[$service]) }}"

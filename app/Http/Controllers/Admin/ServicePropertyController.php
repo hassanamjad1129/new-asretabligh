@@ -93,7 +93,7 @@ class ServicePropertyController extends Controller
                     $serviceProperties->name = $request->name;
                     $serviceProperties->type = 'selectable';
                     $serviceProperties->description = $request->description;
-                    $serviceProperties->product_id = $service->id;
+                    $serviceProperties->service_id = $service->id;
                     if ($request->dependency != 0)
                         $serviceProperties->value_id = $request->dependency;
                     $serviceProperties->save();
@@ -154,9 +154,9 @@ class ServicePropertyController extends Controller
     public function edit(Service $service, ServiceProperty $serviceProperty)
     {
 
-        $serviceProperty = $service->ServiceProperties()->where('id', '<>', $serviceProperty->id)->get();
-        $serviceAnswers = $serviceProperty->ServiceValues()->get();
-        return view('admin.serviceProperties.edit', ['service' => $service, 'serviceProperty' => $serviceProperty, 'serviceAnswers' => $serviceAnswers, 'serviceProperties' => $serviceProperty]);
+        $serviceProperties = $service->ServiceProperties()->where('id', '<>', $serviceProperty->id);
+        $serviceProperties = $serviceProperties->get();
+        return view('admin.services.properties.edit', ['service' => $service, 'serviceProperties' => $serviceProperties, 'serviceProperty' => $serviceProperty]);
     }
 
     /**
