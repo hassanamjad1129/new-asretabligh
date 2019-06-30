@@ -129,26 +129,7 @@
                                 </button>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-6" style="margin-top: 1.5rem">
-                                <label for="">وابستگی</label>
-                                <button type="button" class="btn btn-sm tag tag-primary">اختیاری</button>
-                                <select class="js-example-basic-single form-control" name="dependency">
-                                    @if($serviceProperty->value_id!=null)
-                                        <option value="{{$serviceProperty->value_id}}"
-                                                selected>{{($serviceProperty->GetNameOfProductPropertyName($serviceProperty->value_id))}}
-                                            -{{($serviceProperty->GetNameOfServiceValue($serviceProperty->value_id))}}
-                                        </option>
-                                    @else
-                                        <option value="0" selected>مشخصات وابستگی را وارد کنید</option>
-                                    @endif
-                                    @foreach($serviceProperties as  $Property)
-                                        @foreach($Property->ServiceValues()->where('id','!=',$serviceProperty->value_id)->get() as $serviceAnswer)
-                                            <option value="{{$serviceAnswer->id}}" {{($Property->value_id==$serviceAnswer->id)?'selected':''}}>{{$Property->name}}
-                                                - {{$serviceAnswer->name}}</option>
-                                        @endforeach
-                                    @endforeach
-                                </select>
-                            </div>
+
                         </div>
                     </div>
                 @endif
