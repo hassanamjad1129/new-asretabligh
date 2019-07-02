@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Paper;
 use App\Service;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,5 +22,10 @@ class Product extends Model
     public function services()
     {
         return $this->belongsToMany(Service::class, 'product_services');
+    }
+
+    public function Papers()
+    {
+        return $this->belongsToMany(Paper::class, 'paper_products');
     }
 }

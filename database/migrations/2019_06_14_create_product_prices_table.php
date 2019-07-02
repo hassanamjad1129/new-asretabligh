@@ -15,8 +15,13 @@ class ProductPricesTable extends Migration
     {
         Schema::create('product_prices', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->ondelete('cascade');
+
+            $table->unsignedBigInteger('paper_id');
+            $table->foreign('paper_id')->references('id')->on('papers')->ondelete('cascade');
+
             $table->string('values');
             $table->unsignedBigInteger('single_price');
             $table->unsignedBigInteger('double_price');

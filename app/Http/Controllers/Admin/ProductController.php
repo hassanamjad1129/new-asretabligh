@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Paper;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -174,5 +175,18 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect(route('admin.products.index', ['category' => $category]))->withErrors('عملیات با موفقیت انجام شد', 'success');
+    }
+
+
+    public function papers(Category $category, Product $product)
+    {
+        $papers = Paper::all();
+        return view('admin.products.papers', ['papers' => $papers, 'product' => $product]);
+    }
+
+    public function updatePapers(Category $category, Product $product, Request $request)
+    {
+        $product->Papers()->sync($request->papers);
+        return redirect(route('admin.products.index', ['category' => $product->category_id]))->withErrors('عملیات با موفقیت انجام شد', 'success');
     }
 }

@@ -11,6 +11,7 @@ use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ProductPriceController extends Controller
 {
@@ -55,9 +56,9 @@ class ProductPriceController extends Controller
         // Sort Value of Properties
         $values = explode('-', $request->values_id);
         sort($values);
-        $values=implode("-",$values);
+        $values = implode("-", $values);
 
-        $productPrices = ProductPrice::where('values', $values)->get();
+        $productPrices = ProductPrice::where('paper_id', $request->paper)->where('values', $values)->get();
         return $productPrices;
     }
 
@@ -78,6 +79,7 @@ class ProductPriceController extends Controller
             'double_price.*' => 'required',
             'coworker_single_price.*' => 'required',
             'coworker_double_price.*' => 'required',
+            'paper' => ['required', Rule::exists('papers', 'id')]
 
         ], [
             'value.*.required' => 'مشخصات سفارش الزامی است',
@@ -94,6 +96,7 @@ class ProductPriceController extends Controller
         if ($request->price_id)
             foreach ($request->price_id as $key => $item) {
                 $productPrice = productPrice::findOrFail($request->price_id[$key]);
+                $productPrice->paper_id = $request->paper;
                 $productPrice->min = $request->input("min_{$item}");
                 $productPrice->max = $request->input("max_{$item}");
                 $productPrice->single_price = str_replace(",", "", $request->input("single_price_{$item}"));
@@ -111,6 +114,7 @@ class ProductPriceController extends Controller
         if ($request->min)
             foreach ($request->min as $key => $value) {
                 $product_price = new ProductPrice();
+                $product_price->paper_id = $request->paper;
                 $product_price->product_id = $request->input('product_id')[$key];
                 $product_price->min = $request->input('min')[$key];
                 $product_price->max = $request->input('max')[$key];

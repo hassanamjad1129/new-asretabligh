@@ -22,6 +22,26 @@
     </script>
     <script>
         var i = 2;
+        var paper = null;
+        $("select[name=paper]").change(function () {
+            paper = $(this).val()
+            var values = [];
+            $(".js-example-basic-single option:selected").each(function () {
+                values.push(this.value);
+            });
+            $("#Prices").html("");
+            $.post('/admin/ajaxProductPrices', {
+                    values_id: values.sort().join('-'),
+                    paper: paper,
+                    _token: '{{csrf_token()}}'
+                },
+                function (data, status) {
+                    data.forEach(function (item, index) {
+                        addProductPrice(data[index].id, data[index].min, data[index].max, data[index].single_price, data[index].double_price, data[index].coworker_single_price, data[index].coworker_double_price);
+                    })
+                }
+            );
+        });
 
         function submitForm() {
             var myForm = ($("#myForm").serialize());
@@ -257,13 +277,17 @@
             });
             $("#Prices").html("");
             $.post('/admin/ajaxProductPrices', {
-                values_id: values.sort().join('-'),
-                _token: '{{csrf_token()}}'
-            }, function (data, status) {
-                data.forEach(function (item, index) {
-                    addProductPrice(data[index].id, data[index].min, data[index].max, data[index].single_price, data[index].double_price, data[index].coworker_single_price, data[index].coworker_double_price);
-                })
-            });
+                    values_id: values.sort().join('-'),
+                    paper: paper,
+                    _token: '{{csrf_token()}}'
+                },
+                function (data, status) {
+                    data.forEach(function (item, index) {
+                        addProductPrice(data[index].id, data[index].min, data[index].max, data[index].single_price, data[index].double_price, data[index].coworker_single_price, data[index].coworker_double_price);
+                    })
+                }
+            );
+
             $.post('/admin/ajaxProductProperties', {value_id: id, _token: '{{csrf_token()}}'}, function (data, status) {
                 data.forEach(function (item, index) {
                     addElement(data[index].id, data[index].type, data[index].name, i);
@@ -292,7 +316,7 @@
                   enctype="multipart/form-data"
                   method="post" id="myForm">
                 @csrf
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
                             <label for="">عنوان دسته</label>
@@ -304,7 +328,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
                             <label for="">عنوان محصول</label>
@@ -312,6 +336,22 @@
                         <div class="card-body">
                             <input type="text" name="title" class="form-control" value="{{$product->title}}"
                                    disabled/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="">سایز کاغذ</label>
+                        </div>
+                        <div class="card-body">
+                            <select name="paper" id="" class="form-control">
+                                <option value="">انتخاب کنید ...</option>
+                                @foreach($product->Papers as $paper)
+                                    <option value="{{ $paper->id }}">{{ $paper->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>

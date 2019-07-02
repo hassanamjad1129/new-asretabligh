@@ -45,7 +45,8 @@ class ServicePriceController extends Controller
     public function create(Service $service)
     {
         $serviceProperties = $service->ServiceProperties()->where('value_id', null)->get();
-        return view('admin.services.prices.create', ['service' => $service, 'serviceProperties' => $serviceProperties]);
+        $papers = $service->Papers;
+        return view('admin.services.prices.create', ['service' => $service, 'serviceProperties' => $serviceProperties, 'papers' => $papers]);
     }
 
     public function ajaxServiceProperties(Request $request)
@@ -62,7 +63,7 @@ class ServicePriceController extends Controller
 
     public function ajaxServicePrices(Request $request)
     {
-        $productPrices = ServicePrice::where('values', $request->values_id)->get();
+        $productPrices = ServicePrice::where('service_id', $request->service)->where('paper_id', $request->paper)->where('values', $request->values_id)->get();
         return $productPrices;
     }
 

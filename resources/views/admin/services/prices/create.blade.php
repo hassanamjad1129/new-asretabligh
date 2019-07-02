@@ -22,6 +22,30 @@
     </script>
     <script>
         var i = 2;
+        var paper = [];
+        $("select[name=paper]").change(function () {
+            $("#Prices").html("");
+            var values = [];
+            $(".js-example-basic-single option:selected").each(function () {
+                values.push(this.value);
+            });
+            paper = $(this).val();
+            $.post('/admin/ajaxServicePrices', {
+                values_id: values.length ? values.sort().join('-') : null,
+                _token: '{{csrf_token()}}',
+                paper: paper,
+                service: "{{ $service->id }}"
+            }, function (data, status) {
+                data.forEach(function (item, index) {
+                    @if($service->allow_type)
+                    addProductPrice(data[index].id, data[index].min, data[index].max, data[index].single_price, data[index].double_price, data[index].coworker_single_price, data[index].coworker_double_price);
+                    @else
+                    addProductPrice(data[index].id, data[index].min, data[index].max, data[index].price, data[index].coworker_price);
+                    @endif
+                })
+            });
+
+        });
 
         function submitForm() {
             var myForm = ($("#myForm").serialize());
@@ -362,6 +386,17 @@
                 @csrf
                 <label>مشخصات سفارش</label>
                 <div class="clearfix"></div>
+                <div class="col-md-6" style="margin-bottom: 1rem">
+                    <label for="">کاغذ</label>
+                    <select name="paper" id="" class="form-control">
+                        <option value="">انتخاب کنید ...</option>
+                        @foreach($papers as $paper)
+                            <option value="{{ $paper->id }}">{{ $paper->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+
                 <div id="properties">
                     @foreach($serviceProperties as $serviceProperty)
                         <div class="col-md-6">

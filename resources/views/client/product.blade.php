@@ -159,6 +159,7 @@
                                     </label>
                                 </div>
                             @endforeach
+                            <div id="services"></div>
                         </div>
 
                     </div>
@@ -237,22 +238,38 @@
 
 @section('extraScripts')
     <script>
+        function countProperties(obj) {
+            var count = 0;
+
+            for (var property in obj) {
+                if (Object.prototype.hasOwnProperty.call(obj, property)) {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
         var pageCount = 0;
         const product ={{ $product->id }};
         var data = {};
+        var service = {};
         var type = "";
-        $("input[type=radio]").change(function (e) {
+        $("body").on("change", "input[type=radio]", function (e) {
             const id = $(this).attr('val');
-            if ($(this).attr('name') !== 'type')
+
+            if ($(this).attr('name') !== 'type' && $(this).attr('name') !== 'service' && !$(this).hasClass("service"))
                 data[$(this).attr('name')] = $(this).val();
-            else
-                type = $(this).val()
+            else if ($(this).attr('name') === 'type')
+                type = $(this).val();
+            else if ($(this).hasClass("service"))
+                service[$(this).attr('name')] = $(this).val();
             if ($(`li[v=${id}]`).length) {
                 $(`li[v=${id}]`).text($(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text())
             } else {
                 $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
             }
-            if (pageCount)
+            if (pageCount && !countProperties(service))
                 $.ajax({
                     type: "post",
                     url: "{{ route("fetchOrderPrice") }}",
@@ -267,6 +284,22 @@
                         $("#finalPrice").text(response);
                     }
                 })
+            else if (pageCount && countProperties(service))
+                $.ajax({
+                    type: "post",
+                    url: "{{ route("fetchServicePrice") }}",
+                    data: {
+                        pageCount: pageCount,
+                        qty: $("input[name=qty]").val(),
+                        product: product,
+                        data: data,
+                        type: type,
+                        service: service
+                    },
+                    success: function (response) {
+                        $("#finalPrice").text(response);
+                    }
+                })
         });
 
         $("select").change(function (e) {
@@ -276,6 +309,51 @@
             } else {
                 $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).find("option:selected").text() + `</li>`)
             }
+        });
+        $("input[name=service]").change(function () {
+            $.ajax({
+                type: "post",
+                url: "{{ route('fetchServiceProperties') }}",
+                data: {
+                    service: $(this).val()
+                },
+                success: function (response) {
+                    response = JSON.parse(response);
+                    for (var service in response) {
+                        service = response[service];
+                        console.log(service);
+                        $("#services").append("" +
+                            "<div class=\"col-md-12\">\n" +
+                            "<label v=\"s-" + service['id'] + "\" for=\"\"\n" +
+                            "style=\"font-weight: bold;font-size:15px;margin-top:10px\">" + service['name'] + "\n" +
+                            "</label>\n" +
+                            "<div class=\"clearfix\"></div>\n"
+                        );
+                        for (var value in service['values']) {
+                            value = service['values'][value];
+                            $("#services").append("" +
+                                "<div>\n" +
+                                "<input type=\"radio\" style=\"display: none\" val=\"s-" + service['id'] + "\"\n" +
+                                "id=\"s-" + value['id'] + "\"\n" +
+                                "name=\"service-" + service['id'] + "\" class='service' \n" +
+                                "value=\"" + value['id'] + "\">\n" +
+                                "<label for=\"s-" + value['id'] + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
+                                "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                (value['picture'] ?
+                                    "<img src=\"/getValuePicture/" + value['id'] + "\" style=\"width: 100%\"\n" +
+                                    "alt=\"\">\n" + "\n" : "") +
+                                "<p style=\"text-align: center\">" + value['name'] + "</p>\n" +
+                                "</div>\n" +
+                                "</label>\n" +
+                                "</div>\n"
+                            );
+
+                        }
+                        $("#services").append("</div>\n" + "<div class=\"clearfix\"></div>\n");
+
+                    }
+                }
+            });
         });
         $("input[name=qty]").change(function () {
             if (pageCount)
@@ -365,20 +443,38 @@
                     } else {
                         $(".orderSpecification ul").append(`<li v='file'>تعداد صفحات : ${response}</li>`)
                     }
-                    $.ajax({
-                        type: "post",
-                        url: "{{ route("fetchOrderPrice") }}",
-                        data: {
-                            pageCount: pageCount,
-                            qty: $("input[name=qty]").val(),
-                            product: product,
-                            data: data,
-                            type: type
-                        },
-                        success: function (response) {
-                            $("#finalPrice").text(response);
-                        }
-                    })
+                    console.log(countProperties(service))
+                    if (pageCount && countProperties(service)==0)
+                        $.ajax({
+                            type: "post",
+                            url: "{{ route("fetchOrderPrice") }}",
+                            data: {
+                                pageCount: pageCount,
+                                qty: $("input[name=qty]").val(),
+                                product: product,
+                                data: data,
+                                type: type
+                            },
+                            success: function (response) {
+                                $("#finalPrice").text(response);
+                            }
+                        })
+                    else if (pageCount && countProperties(service))
+                        $.ajax({
+                            type: "post",
+                            url: "{{ route("fetchServicePrice") }}",
+                            data: {
+                                pageCount: pageCount,
+                                qty: $("input[name=qty]").val(),
+                                product: product,
+                                data: data,
+                                type: type,
+                                service: service
+                            },
+                            success: function (response) {
+                                $("#finalPrice").text(response);
+                            }
+                        })
 
                 },
                 error: function (xhr, ajaxOptions, thrownError) {

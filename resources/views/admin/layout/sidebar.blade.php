@@ -19,6 +19,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.paper.index')}}">
+                    <i class="icon-camrecorder"></i>مدیریت کاغذ ها
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.user.index')}}"><i class="icon-user"></i> مدیریت کاربران</a>
             </li>
             @can('مدیریت دسترسی ها')

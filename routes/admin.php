@@ -25,6 +25,9 @@ Route::group(['middleware' => 'admin'], function () {
         Route::resource('/categories/{category}/subcategories', 'SubcategoryController');
         Route::get('/Products/getPicture/{product}', 'ProductController@productPicture')->name('productPicture');
         Route::resource('/{category}/products', 'ProductController');
+        Route::get('/{category}/products/{product}/papers', 'ProductController@papers')->name('products.papers');
+        Route::post('/{category}/products/{product}/papers', 'ProductController@updatePapers');
+
         Route::resource('/product/{product}/productProperties', 'ProductPropertyController');
         Route::get('/productAnswers/getPicture/{productAnswer}', 'ProductPropertyController@ProductAnswer')->name('ProductAnswer');
         Route::get('product/{product}/productProperties/{productProperty}/productAnswer/{productValue}', 'ProductPropertyController@destroyValue')->name('destroyValue');
@@ -58,7 +61,9 @@ Route::group(['middleware' => 'admin'], function () {
         Route::post('/ajaxRemoveServicePrice', 'ServicePriceController@ajaxRemoveServicePrice');
         Route::post('/ajaxServiceSubmitForm', 'ServicePriceController@ajaxSubmitForm');
 
-
+        Route::resource('paper', 'PaperController');
+        Route::get('paper/{paper}/products', 'PaperController@products')->name('paper.products');
+        Route::post('paper/{paper}/products', 'PaperController@updateProducts');
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');

@@ -15,9 +15,15 @@ class CreateServicePricesTable extends Migration
     {
         Schema::create('service_prices', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services')->ondelete('cascade');
+
+            $table->unsignedBigInteger('paper_id');
+            $table->foreign('paper_id')->references('id')->on('papers')->ondelete('cascade');
+
             $table->string('values');
+
             $table->unsignedBigInteger('price')->nullable();
             $table->unsignedBigInteger('single_price')->nullable();
             $table->unsignedBigInteger('double_price')->nullable();

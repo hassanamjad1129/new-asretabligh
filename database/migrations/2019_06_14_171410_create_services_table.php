@@ -25,7 +25,9 @@ class CreateServicesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('paper_id');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
+            $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });

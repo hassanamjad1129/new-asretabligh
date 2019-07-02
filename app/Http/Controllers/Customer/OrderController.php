@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Customer;
 
 use App\Models\Product;
 use App\Models\ProductPrice;
+use App\ServicePrice;
+use App\ServiceProperty;
 use Howtomakeaturn\PDFInfo\PDFInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -71,6 +73,106 @@ class OrderController extends Controller
                 return ta_persian_num(number_format($prices->double_price * $count) . " ریال");
             }
         }
+
+    }
+
+    public function fetchServiceProperties(Request $request)
+    {
+        $service = $request->service;
+        $properties = ServiceProperty::where('service_id', $request->service)->get();
+        $serviceProperties = [];
+        foreach ($properties as $key => $property) {
+            $serviceProperties[$key]['name'] = $property->name;
+            $serviceProperties[$key]['id'] = $property->id;
+            foreach ($property->ServiceValues as $key2 => $value) {
+                $serviceProperties[$key]['values'][$key2]['name'] = $value->name;
+                $serviceProperties[$key]['values'][$key2]['id'] = $value->id;
+                $serviceProperties[$key]['values'][$key2]['picture'] = $value->picture;
+            }
+        }
+        return json_encode($serviceProperties);
+    }
+
+    public function fetchServicePrice(Request $request)
+    {
+        $answers = [];
+        foreach ($request->data as $index => $value) {
+            $answers[] = $value;
+        }
+        sort($answers);
+        $answers = implode('-', $answers);
+        $product = Product::find($request->product);
+
+        if ($product->category->count_paper) {
+            if ($product->typeRelatedFile and $request->type == 'double') {
+                $count = $request->qty * ceil($request->pageCount / 2);
+            } else
+                $count = $request->qty * $request->pageCount;
+        } else
+            $count = $request->qty;
+
+        $prices = ProductPrice::where('product_id', $request->product)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
+            $query->where('max', '>=', $count)->whereOr('max', '');
+        })->first();
+        if (auth()->guard('customer')->user()) {
+            if ($request->type == 'single') {
+                $values = [];
+                foreach ($request->service as $key => $service) {
+                    $values[] = $service;
+                }
+                sort($values);
+                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                    $query->where('max', '>=', $count)->whereOr('max', '');
+                })->first();
+                if ($servicePrices->service->allow_type)
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_single_price) * $count) . " ریال");
+                else
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_price) * $count) . " ریال");
+            } else {
+                $values = [];
+                foreach ($request->service as $key => $service) {
+                    $values[] = $service;
+                }
+                sort($values);
+                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                    $query->where('max', '>=', $count)->whereOr('max', '');
+                })->first();
+                if ($servicePrices->service->allow_type)
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_double_price) * $count) . " ریال");
+                else
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_price) * $count) . " ریال");
+
+            }
+        } else {
+            if ($request->type == 'single') {
+                $values = [];
+                foreach ($request->service as $key => $service) {
+                    $values[] = $service;
+                }
+                sort($values);
+                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                    $query->where('max', '>=', $count)->whereOr('max', '');
+                })->first();
+                if ($servicePrices->service->allow_type)
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->single_price) * $count) . " ریال");
+                else
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->price) * $count) . " ریال");
+            } else {
+                $values = [];
+                foreach ($request->service as $key => $service) {
+                    $values[] = $service;
+                }
+                sort($values);
+                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                    $query->where('max', '>=', $count)->whereOr('max', '');
+                })->first();
+                if ($servicePrices->service->allow_type)
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->double_price) * $count) . " ریال");
+                else
+                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->price) * $count) . " ریال");
+            }
+        }
+
 
     }
 

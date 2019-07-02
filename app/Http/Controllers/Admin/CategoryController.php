@@ -71,7 +71,7 @@ class CategoryController extends Controller
         $category = new Category();
         $category->status = ($request->status == "on") ? 1 : 0;
         $category->name = $request->name;
-        $category->count_paper = $request->count_paper;
+        $category->count_paper = $request->count_pages == "yes" ? true : false;
         $category->picture = $this->uploadFile($request->picture, $this->categoriesPicturePath());
         $category->description = $request->description;
         $category->save();
