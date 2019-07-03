@@ -22,7 +22,8 @@
     </script>
     <script>
         var i = 2;
-        var paper = [];
+        var paper = "";
+        var service = {{ $service->id }}
         $("select[name=paper]").change(function () {
             $("#Prices").html("");
             var values = [];
@@ -70,7 +71,7 @@
                 }
                 // sweetAlert.onClose;
 
-                if (data.success)
+                if (data.success) {
                     Swal.fire({
                         position: 'center',
                         type: 'success',
@@ -78,6 +79,26 @@
                         showConfirmButton: true,
                         confirmButtonText: 'باشه'
                     })
+                    var values = [];
+                    $(".js-example-basic-single option:selected").each(function () {
+                        values.push(this.value);
+                    });
+                    $("#Prices").html("");
+                    $.post('/admin/ajaxServicePrices', {
+                        paper: paper,
+                        service: service,
+                        values_id: values.sort().join('-'),
+                        _token: '{{csrf_token()}}'
+                    }, function (data, status) {
+                        data.forEach(function (item, index) {
+                            @if($service->allow_type)
+                            addProductPrice(data[index].id, data[index].min, data[index].max, data[index].single_price, data[index].double_price, data[index].coworker_single_price, data[index].coworker_double_price);
+                            @else
+                            addProductPrice(data[index].id, data[index].min, data[index].max, data[index].price, data[index].coworker_price);
+                            @endif
+                        })
+                    });
+                }
             });
         }
 
@@ -345,6 +366,8 @@
             });
             $("#Prices").html("");
             $.post('/admin/ajaxServicePrices', {
+                paper: paper,
+                service: service,
                 values_id: values.sort().join('-'),
                 _token: '{{csrf_token()}}'
             }, function (data, status) {

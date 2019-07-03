@@ -81,10 +81,12 @@ class ServicePriceController extends Controller
             'value.*' => 'required',
             'min.*' => 'required',
             'max.*' => 'required',
+            'paper' => 'required'
         ], [
             'value.*.required' => 'مشخصات سفارش الزامی است',
             'min.*.required' => 'تعداد حداقل الزامی است',
             'max.*.required' => 'تعداد حداکثر الزامی است',
+            'paper.required' => 'تعیین نوع کاغذ الزامی است',
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
@@ -116,6 +118,7 @@ class ServicePriceController extends Controller
             foreach ($request->min as $key => $value) {
                 $service_price = new ServicePrice();
                 $service_price->service_id = $service->id;
+                $service_price->paper_id = $request->paper;
                 $service_price->min = $request->input('min')[$key];
                 $service_price->max = $request->input('max')[$key];
                 if ($service->allow_type) {

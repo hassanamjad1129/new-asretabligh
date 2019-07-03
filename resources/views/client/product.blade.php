@@ -1,16 +1,16 @@
 @extends('client.layout.master')
 @section('content')
     <style>
-        input[type="radio"] + label > div {
+        input[type="radio"] + label > div, input[type="checkbox"] + label > div {
             transition: all 0.2s ease;
             cursor: pointer;
         }
 
-        input[type="radio"]:checked + label > div {
+        input[type="radio"]:checked + label > div, input[type="checkbox"]:checked + label > div {
             background-color: #e52531 !important;
         }
 
-        input[type="radio"]:checked + label > div > p {
+        input[type="radio"]:checked + label > div > p, input[type="checkbox"]:checked + label > div > p {
             color: #FFF !important;
         }
 
@@ -55,6 +55,28 @@
                     <div class="col-md-8">
                         <h3 style="margin-bottom: 2rem;font-weight: bold;"><i class="fa fa-shopping-bag"></i> ثبت سفارش
                         </h3>
+                        <div class="col-md-12">
+                            <label v="paper" for=""
+                                   style="font-weight: bold;font-size:15px;margin-top:10px">سایز فایل
+                            </label>
+                            <div class="clearfix"></div>
+                            @foreach($papers as $paper)
+                                <div>
+                                    <input type="radio" style="display: none" val="paper"
+                                           id="paper-{{ $paper->id }}"
+                                           name="paper"
+                                           value="{{ $paper->id }}">
+                                    <label for="paper-{{ $paper->id }}" class="col-md-3" style="padding: 0 5px">
+                                        <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                            <p style="text-align: center">{{ $paper->name }}</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            @endforeach
+
+                        </div>
+
+                        <div class="clearfix"></div>
                         @foreach($properties as $index=>$property)
                             <div class="col-md-12">
                                 <label v="p-{{ $property->id }}" for=""
@@ -132,33 +154,23 @@
 
                             @endif
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="serviceWrapper" style="display: none;">
                             <label for="" v="service" style="font-weight: bold;font-size:15px;margin-top:10px">خدمات
                                 اضافی</label>
                             <div>
-                                <input type="radio" style="display: none" val="service"
+                                <input type="checkbox" style="display: none" val="service"
                                        id="service-0"
-                                       name="service"
-                                       value="">
+                                       name="service[]"
+                                       value="none">
                                 <label for="service-0" class="col-md-3" style="padding: 0 5px">
                                     <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
                                         <p style="text-align: center">ندارد</p>
                                     </div>
                                 </label>
                             </div>
-                            @foreach($product->services as $service)
-                                <div>
-                                    <input type="radio" style="display: none" val="service"
-                                           id="service-{{ $service->id }}"
-                                           name="service"
-                                           value="{{ $service->id }}">
-                                    <label for="service-{{ $service->id }}" class="col-md-3" style="padding: 0 5px">
-                                        <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
-                                            <p style="text-align: center">{{ $service->name }}</p>
-                                        </div>
-                                    </label>
-                                </div>
-                            @endforeach
+                            <div id="mainServices">
+
+                            </div>
                             <div id="services"></div>
                         </div>
 
@@ -195,7 +207,7 @@
                             <button id="sendOrder" class="btn btn-danger"
                                     style="display: none;    width: 100% !important;
     position: relative;
-    bottom: 60px;
+    bottom: 0px;
     padding: 0.8rem 0;
     font-weight: bold;
     border-radius: 10px;">ثبت سفارش
@@ -203,7 +215,7 @@
                         @elseif(!$product->typeRelatedFile or  $product->type=='double' or  $product->type=='single')
                             <button id="sendOrder" class="btn btn-danger" style="    width: 100% !important;
     position: relative;
-    bottom: 60px;
+    bottom: 0px;
     padding: 0.8rem 0;
     font-weight: bold;
     border-radius: 10px;">ثبت
@@ -255,15 +267,24 @@
         var data = {};
         var service = {};
         var type = "";
+        var paper = "";
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $("body").on("change", "input[type=radio]", function (e) {
             const id = $(this).attr('val');
 
-            if ($(this).attr('name') !== 'type' && $(this).attr('name') !== 'service' && !$(this).hasClass("service"))
+            if ($(this).attr('name') !== 'type' && $(this).attr('name') !== 'service' && $(this).attr('name') !== 'paper' && $(this).attr('name') !== 'service-type' && !$(this).hasClass("service"))
                 data[$(this).attr('name')] = $(this).val();
             else if ($(this).attr('name') === 'type')
                 type = $(this).val();
             else if ($(this).hasClass("service"))
                 service[$(this).attr('name')] = $(this).val();
+            else if ($(this).attr('name') === 'paper')
+                paper = $(this).val();
+
             if ($(`li[v=${id}]`).length) {
                 $(`li[v=${id}]`).text($(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text())
             } else {
@@ -278,6 +299,7 @@
                         qty: $("input[name=qty]").val(),
                         product: product,
                         data: data,
+                        paper: paper,
                         type: type
                     },
                     success: function (response) {
@@ -293,6 +315,8 @@
                         qty: $("input[name=qty]").val(),
                         product: product,
                         data: data,
+                        paper: paper,
+
                         type: type,
                         service: service
                     },
@@ -310,51 +334,131 @@
                 $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).find("option:selected").text() + `</li>`)
             }
         });
-        $("input[name=service]").change(function () {
+
+        $("input[name=paper]").change(function () {
+
             $.ajax({
                 type: "post",
-                url: "{{ route('fetchServiceProperties') }}",
+                url: "{{ route('fetchPaperServices') }}",
                 data: {
-                    service: $(this).val()
+                    paper: $(this).val(),
+                    product:{{ $product->id }}
                 },
                 success: function (response) {
+                    $("#serviceWrapper").show();
+                    $("#mainServices").html("");
                     response = JSON.parse(response);
-                    for (var service in response) {
-                        service = response[service];
-                        console.log(service);
-                        $("#services").append("" +
-                            "<div class=\"col-md-12\">\n" +
-                            "<label v=\"s-" + service['id'] + "\" for=\"\"\n" +
-                            "style=\"font-weight: bold;font-size:15px;margin-top:10px\">" + service['name'] + "\n" +
-                            "</label>\n" +
-                            "<div class=\"clearfix\"></div>\n"
-                        );
-                        for (var value in service['values']) {
-                            value = service['values'][value];
-                            $("#services").append("" +
-                                "<div>\n" +
-                                "<input type=\"radio\" style=\"display: none\" val=\"s-" + service['id'] + "\"\n" +
-                                "id=\"s-" + value['id'] + "\"\n" +
-                                "name=\"service-" + service['id'] + "\" class='service' \n" +
-                                "value=\"" + value['id'] + "\">\n" +
-                                "<label for=\"s-" + value['id'] + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
-                                "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
-                                (value['picture'] ?
-                                    "<img src=\"/getValuePicture/" + value['id'] + "\" style=\"width: 100%\"\n" +
-                                    "alt=\"\">\n" + "\n" : "") +
-                                "<p style=\"text-align: center\">" + value['name'] + "</p>\n" +
-                                "</div>\n" +
-                                "</label>\n" +
-                                "</div>\n"
-                            );
-
-                        }
-                        $("#services").append("</div>\n" + "<div class=\"clearfix\"></div>\n");
-
+                    for (var item in response) {
+                        $("#mainServices").append("    <div>\n" +
+                            "                                    <input type=\"checkbox\" allow_type='" + response[item]['allow_type'] + "' style=\"display: none\" val=\"service\"\n" +
+                            "                                           id=\"service-" + response[item].id + "\"\n" +
+                            "                                           name=\"service[]\"\n" +
+                            "                                           value=\"" + response[item].id + "\">\n" +
+                            "                                    <label for=\"service-" + response[item].id + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
+                            "                                        <div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                            "                                            <p style=\"text-align: center\">" + response[item].name + "</p>\n" +
+                            "                                        </div>\n" +
+                            "                                    </label>\n" +
+                            "                                </div>\n" +
+                            "                            ")
                     }
                 }
             });
         });
+
+        $("body").on('click', "input[name='service[]']", function (el) {
+            if ($(el.target).is(":not(:checked)")) {
+                $(".service-" + $(el.target).val()).remove();
+            } else {
+                if ($(el.target).val() === 'none') {
+                    $("div[class^='service-']").remove();
+                    $("input[name='service[]']").prop('checked', false);
+                } else {
+                    $.ajax({
+                        type: "post",
+                        url: "{{ route('fetchServiceProperties') }}",
+                        data: {
+                            service: $(el.target).val()
+                        },
+                        success: function (response) {
+                            response = JSON.parse(response);
+                            var str = "<div class='service-" + $(el.target).val() + "'>";
+                            for (var service in response) {
+                                service = response[service];
+                                console.log(service);
+                                str += "<div class=\"col-md-12\">\n" +
+                                    "<label v=\"s-" + service['id'] + "\" for=\"\"\n" +
+                                    "style=\"font-weight: bold;font-size:15px;margin-top:10px\">" + service['name'] + "\n" +
+                                    "</label>\n" +
+                                    "<div class=\"clearfix\"></div>\n";
+                                for (var value in service['values']) {
+                                    value = service['values'][value];
+                                    str += ("" +
+                                        "<div>\n" +
+                                        "<input type=\"radio\" style=\"display: none\" val=\"s-" + service['id'] + "\"\n" +
+                                        "id=\"s-" + value['id'] + "\"\n" +
+                                        "name=\"service-" + service['id'] + "\" class='service' \n" +
+                                        "value=\"" + value['id'] + "\">\n" +
+                                        "<label for=\"s-" + value['id'] + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
+                                        "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                        (value['picture'] ?
+                                            "<img src=\"/getValuePicture/" + value['id'] + "\" style=\"width: 100%\"\n" +
+                                            "alt=\"\">\n" + "\n" : "") +
+                                        "<p style=\"text-align: center\">" + value['name'] + "</p>\n" +
+                                        "</div>\n" +
+                                        "</label>\n" +
+                                        "</div>\n"
+                                    );
+
+                                }
+                                str += "</div>\n" + "<div class=\"clearfix\"></div>\n";
+
+
+                            }
+                            if ($(el.target).attr('allow_type') == 1) {
+                                str += "<div class=\"col-md-6\">\n" +
+                                    "<label v=\"typeService" + "\" for=\"\"\n" +
+                                    "style=\"font-weight: bold;font-size:15px;margin-top:10px\"> نوع کار \n" +
+                                    "</label>\n" +
+                                    "<div class=\"clearfix\"></div>\n"
+                                str += "    <div>\n" +
+                                    "<input name=\"service-type\" style=\"display: none\" id=\"service-type-1\"\n" +
+                                    "type=\"radio\" val=\"typeService\"\n" +
+                                    "value=\"single\"/>\n" +
+                                    "<label for=\"service-type-1\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
+                                    "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                    "<p style=\"text-align: center\">یک رو</p>\n" +
+                                    "</div>\n" +
+                                    "</label>\n" +
+                                    "</div>";
+                                str += "<div>\n" +
+                                    "<input name=\"service-type\" style=\"display: none\" id=\"service-type-2\" type=\"radio\" val=\"typeService\"\n" +
+                                    "\n" +
+                                    "value=\"double\"/>\n" +
+                                    "<label for=\"service-type-2\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
+                                    "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                    "<p style=\"text-align: center\">دو رو</p>\n" +
+                                    "</div>\n" +
+                                    "</label>\n" +
+                                    "</div></div>";
+
+                                /*str += "<div class=\"col-md-12\">\n" +
+                                    "<label v=\"sf-" + 1 + "\" for=\"\"\n" +
+                                    "style=\"font-weight: bold;font-size:15px;margin-top:10px\"> آپلود فایل \n" +
+                                    "</label>\n" +
+                                    "<div class=\"clearfix\"></div>\n";
+                                str += "<div class='col-md-6' style='padding-right:0'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-6'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='back-file' id='back-file' style='display: none' /></div><div class='clearfix' />";
+*/
+
+                            }
+                            $("#services").append(str + "</div><hr>");
+                        }
+                    });
+                }
+            }
+
+        })
+        ;
         $("input[name=qty]").change(function () {
             if (pageCount)
                 $.ajax({
@@ -365,6 +469,8 @@
                         qty: $("input[name=qty]").val(),
                         product: product,
                         data: data,
+                        paper: paper,
+
                         type: type
                     },
                     success: function (response) {
@@ -377,6 +483,13 @@
                 type = "single";
             } else {
                 type = "double";
+            }
+        });
+        $("input[name=service-type]").change(function () {
+            if ($(this).val() == "single") {
+                serviceType = "single";
+            } else {
+                serviceType = "double";
             }
         });
         @if($product->typeRelatedFile)
@@ -396,92 +509,33 @@
             }
         });
         @endif
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+        $("input[name=service-type]").change(function () {
+            $("#serviceFrontPic").attr('src', '');
+            $("#serviceBackPic").attr('src', '');
+            if ($(this).val() == "single") {
+                serviceType = "single";
+                $(".service-files").html("<div class='col-md-6'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none'/></div><div class='clearfix' />");
+            } else if ($(this).val() == 'double') {
+                serviceType = "double";
+                $(".service-files").html("<div class='col-md-6'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-6'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='back-file' id='back-file' style='display: none' /></div><div class='clearfix' />");
             }
         });
 
-        $("body").on('change', "input[name='front-file']", function () {
+        $("body").on('change', "input[name='service-front-file']", function () {
             readFrontURL(this);
         });
-        $("body").on('change', "input[name='back-file']", function () {
+        $("body").on('change', "input[name='service-back-file']", function () {
             readBackURL(this);
         });
-        $("body").on('change', "input[name='front-file'],input[name='back-file']", function (e) {
+        $("body").on('change', "input[name='service-front-file'],input[name='service-back-file']", function (e) {
             var formData = new FormData();
 
             formData.append('product', product);
-            formData.append('front-file', $("input[name='front-file']")[0].files[0]);
-            if ($("input[name='back-file']").length)
-                formData.append('back-file', $("input[name='back-file']")[0].files[0]);
-            swal({
-                title: '',
-                html: "<center><img src='/images/loading.gif' /><p>در حال اپلود فایل لطفا شکیبا باشید ...</p><br /><div class='progress'><div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='width:0%'>0%</div></div></center>",
-                confirmButtonText: "باشه",
-                allowOutsideClick: false
-            });
-            swal.disableButtons();
-            $.ajax({
-                url: '{{ route('checkFiles') }}',
-                type: "post",
-                data: formData,
-                processData: false,
-                contentType: false,
-                xhr: function () {
-                    var myXhr = $.ajaxSettings.xhr();
-                    if (myXhr.upload) {
-                        myXhr.upload.addEventListener('progress', progress, false);
-                    }
-                    return myXhr;
-                },
-                success: function (response) {
-                    swal.close();
-                    pageCount = response;
-                    if ($("li[v=file]").length) {
-                        $("li[v=file]").text("تعداد صفحات :" + response)
-                    } else {
-                        $(".orderSpecification ul").append(`<li v='file'>تعداد صفحات : ${response}</li>`)
-                    }
-                    console.log(countProperties(service))
-                    if (pageCount && countProperties(service)==0)
-                        $.ajax({
-                            type: "post",
-                            url: "{{ route("fetchOrderPrice") }}",
-                            data: {
-                                pageCount: pageCount,
-                                qty: $("input[name=qty]").val(),
-                                product: product,
-                                data: data,
-                                type: type
-                            },
-                            success: function (response) {
-                                $("#finalPrice").text(response);
-                            }
-                        })
-                    else if (pageCount && countProperties(service))
-                        $.ajax({
-                            type: "post",
-                            url: "{{ route("fetchServicePrice") }}",
-                            data: {
-                                pageCount: pageCount,
-                                qty: $("input[name=qty]").val(),
-                                product: product,
-                                data: data,
-                                type: type,
-                                service: service
-                            },
-                            success: function (response) {
-                                $("#finalPrice").text(response);
-                            }
-                        })
+            formData.append('service-front-file', $("input[name='service-front-file']")[0].files[0]);
+            if ($("input[name='service-back-file']").length)
+                formData.append('service-back-file', $("input[name='service-back-file']")[0].files[0]);
 
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    swal.close();
-
-                }
-            })
         });
 
         function readFrontURL(input) {
@@ -512,6 +566,43 @@
                         $('#backPic').attr('src', e.target.result).addClass('img-thumbnail');
                     } else {
                         $('#backPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                    }
+
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        function readFront2URL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    const splitedFile = input.files[0].name.split('.');
+                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                        $('#serviceFrontPic').attr('src', e.target.result).addClass('img-thumbnail');
+                    } else {
+                        $('#serviceFrontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                    }
+
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        function readBack2URL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const splitedFile = input.files[0].name.split('.');
+                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                        $('#serviceBackPic').attr('src', e.target.result).addClass('img-thumbnail');
+                    } else {
+                        $('#serviceBackPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
                     }
 
                 }

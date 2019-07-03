@@ -19,6 +19,7 @@ Route::get('getValuePicture/{value}', 'siteController@getValuePicture')->name('g
 Route::get('product/{product}', 'ProductController@show')->name('showProduct');
 Route::post('checkFiles', 'Customer\OrderController@checkFiles')->name('checkFiles');
 Route::post('fetchServiceProperties', 'Customer\OrderController@fetchServiceProperties')->name('fetchServiceProperties');
+Route::post('fetchPaperServices', 'Customer\OrderController@fetchPaperServices')->name('fetchPaperServices');
 Route::post('fetchOrderPrice', 'Customer\OrderController@fetchOrderPrice')->name('fetchOrderPrice');
 Route::post('fetchServicePrice', 'Customer\OrderController@fetchServicePrice')->name('fetchServicePrice');
 Route::post('storeOrder', 'Customer\OrderController@storeCart')->name('storeCart');

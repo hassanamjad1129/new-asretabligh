@@ -10,6 +10,7 @@ use Howtomakeaturn\PDFInfo\PDFInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use ATCart;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -57,7 +58,7 @@ class OrderController extends Controller
         } else
             $count = $request->qty;
 
-        $prices = ProductPrice::where('product_id', $request->product)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
+        $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
         if (auth()->guard('customer')->user()) {
@@ -74,6 +75,12 @@ class OrderController extends Controller
             }
         }
 
+    }
+
+    public function fetchPaperServices(Request $request)
+    {
+        $services = DB::table('product_services')->where('paper_id', $request->paper)->where('product_id', $request->product)->join('services', 'product_services.service_id', '=', 'services.id')->select(['services.id', 'services.name','allow_type'])->get();
+        return json_encode($services);
     }
 
     public function fetchServiceProperties(Request $request)
