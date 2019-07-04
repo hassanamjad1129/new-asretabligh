@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ServicePriceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ServicePriceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/services/prices/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/services/prices/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="419" column="59" selection-start-line="419" selection-start-column="59" selection-end-line="419" selection-end-column="59" />
+            <state relative-caret-position="170">
+              <caret line="433" column="12" lean-forward="true" selection-start-line="433" selection-start-column="12" selection-end-line="433" selection-end-column="12" />
               <folding>
                 <element signature="e#2234#2290#0#HTML" expanded="true" />
                 <element signature="e#2801#2822#0#HTML" expanded="true" />
@@ -555,12 +545,12 @@
       <workItem from="1561888375549" duration="13557000" />
       <workItem from="1561985904963" duration="10944000" />
       <workItem from="1562048445890" duration="649000" />
-      <workItem from="1562151002790" duration="9970000" />
+      <workItem from="1562151002790" duration="10107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145422000" />
+    <option name="totallyTimeSpent" value="145559000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -573,13 +563,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1008" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23852721" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.23852721" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" weight="0.32576618" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.32536975" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -995,8 +984,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="419" column="59" selection-start-line="419" selection-start-column="59" selection-end-line="419" selection-end-column="59" />
+        <state relative-caret-position="170">
+          <caret line="433" column="12" lean-forward="true" selection-start-line="433" selection-start-column="12" selection-end-line="433" selection-end-column="12" />
           <folding>
             <element signature="e#2234#2290#0#HTML" expanded="true" />
             <element signature="e#2801#2822#0#HTML" expanded="true" />
