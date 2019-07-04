@@ -528,7 +528,7 @@
         $("body").on('change', "input[name='back-file']", function () {
             readBackURL(this);
         });
-         $("body").on('change', "input[name='service-front-file']", function () {
+        $("body").on('change', "input[name='service-front-file']", function () {
             readFront2URL(this);
         });
         $("body").on('change', "input[name='service-back-file']", function () {
@@ -551,101 +551,165 @@
             formData.append('service-front-file', $("input[name='service-front-file']")[0].files[0]);
             if ($("input[name='service-back-file']").length)
                 formData.append('service-back-file', $("input[name='service-back-file']")[0].files[0]);
-
-        });
-
-        function readFrontURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    const splitedFile = input.files[0].name.split('.');
-                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                        $('#frontPic').attr('src', e.target.result).addClass('img-thumbnail');
+            swal({
+                title: '',
+                html: "<center><img src='/images/loading.gif' /><p>در حال اپلود فایل لطفا شکیبا باشید ...</p><br /><div class='progress'><div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='width:0%'>0%</div></div></center>",
+                confirmButtonText: "باشه",
+                allowOutsideClick: false
+            });
+            swal.disableButtons();
+            $.ajax({
+                url: '{{ route('checkFiles') }}',
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var myXhr = $.ajaxSettings.xhr();
+                    if (myXhr.upload) {
+                        myXhr.upload.addEventListener('progress', progress, false);
+                    }
+                    return myXhr;
+                },
+                success: function (response) {
+                    swal.close();
+                    pageCount = response;
+                    if ($("li[v=file]").length) {
+                        $("li[v=file]").text("تعداد صفحات :" + response)
                     } else {
-                        $('#frontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                        $(".orderSpecification ul").append(`<li v='file'>تعداد صفحات : ${response}</li>`)
+                    }
+                    console.log(countProperties(service))
+                    if (pageCount && countProperties(service) == 0)
+                        $.ajax({
+                            type: "post",
+                            url: "{{ route("fetchOrderPrice") }}",
+                            data: {
+                                pageCount: pageCount,
+                                qty: $("input[name=qty]").val(),
+                                product: product,
+                                data: data,
+                                type: type
+                            },
+                            success: function (response) {
+                                $("#finalPrice").text(response);
+                            }
+                        })
+                    else if (pageCount && countProperties(service))
+                        $.ajax({
+                            type: "post",
+                            url: "{{ route("fetchServicePrice") }}",
+                            data: {
+                                pageCount: pageCount,
+                                qty: $("input[name=qty]").val(),
+                                product: product,
+                                data: data,
+                                type: type,
+                                service: service
+                            },
+                            success: function (response) {
+                                $("#finalPrice").text(response);
+                            }
+                        })
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    swal.close();
+                }
+
+            });
+
+            function readFrontURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        const splitedFile = input.files[0].name.split('.');
+                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                            $('#frontPic').attr('src', e.target.result).addClass('img-thumbnail');
+                        } else {
+                            $('#frontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                        }
+
                     }
 
+                    reader.readAsDataURL(input.files[0]);
                 }
-
-                reader.readAsDataURL(input.files[0]);
             }
-        }
 
 
-        function readBackURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+            function readBackURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    const splitedFile = input.files[0].name.split('.');
-                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                        $('#backPic').attr('src', e.target.result).addClass('img-thumbnail');
-                    } else {
-                        $('#backPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                    reader.onload = function (e) {
+                        const splitedFile = input.files[0].name.split('.');
+                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                            $('#backPic').attr('src', e.target.result).addClass('img-thumbnail');
+                        } else {
+                            $('#backPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                        }
+
                     }
 
+                    reader.readAsDataURL(input.files[0]);
                 }
-
-                reader.readAsDataURL(input.files[0]);
             }
-        }
 
 
-        function readFront2URL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    const splitedFile = input.files[0].name.split('.');
-                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                        $('#serviceFrontPic').attr('src', e.target.result).addClass('img-thumbnail');
-                    } else {
-                        $('#serviceFrontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+            function readFront2URL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        const splitedFile = input.files[0].name.split('.');
+                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                            $('#serviceFrontPic').attr('src', e.target.result).addClass('img-thumbnail');
+                        } else {
+                            $('#serviceFrontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                        }
+
                     }
 
+                    reader.readAsDataURL(input.files[0]);
                 }
-
-                reader.readAsDataURL(input.files[0]);
             }
-        }
 
 
-        function readBack2URL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+            function readBack2URL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    const splitedFile = input.files[0].name.split('.');
-                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                        $('#serviceBackPic').attr('src', e.target.result).addClass('img-thumbnail');
-                    } else {
-                        $('#serviceBackPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                    reader.onload = function (e) {
+                        const splitedFile = input.files[0].name.split('.');
+                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                            $('#serviceBackPic').attr('src', e.target.result).addClass('img-thumbnail');
+                        } else {
+                            $('#serviceBackPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
+                        }
+
                     }
 
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-
-        function progress(e) {
-
-            if (e.lengthComputable) {
-                var max = e.total;
-                var current = e.loaded;
-
-                var Percentage = (current * 100) / max;
-                console.log(Percentage);
-                var percentVal = parseInt(Percentage) + '%';
-                $(".progress-bar-striped").attr('aria-valuenow', Percentage);
-                $(".progress-bar-striped").text(percentVal);
-                $(".progress-bar-striped").css('width', percentVal);
-
-
-                if (Percentage >= 100) {
-                    // process completed
+                    reader.readAsDataURL(input.files[0]);
                 }
             }
-        }
+
+
+            function progress(e) {
+
+                if (e.lengthComputable) {
+                    var max = e.total;
+                    var current = e.loaded;
+
+                    var Percentage = (current * 100) / max;
+                    console.log(Percentage);
+                    var percentVal = parseInt(Percentage) + '%';
+                    $(".progress-bar-striped").attr('aria-valuenow', Percentage);
+                    $(".progress-bar-striped").text(percentVal);
+                    $(".progress-bar-striped").css('width', percentVal);
+
+
+                    if (Percentage >= 100) {
+                        // process completed
+                    }
+                }
+            }
     </script>
 @endsection
