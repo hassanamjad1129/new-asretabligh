@@ -522,11 +522,17 @@
             }
         });
 
-        $("body").on('change', "input[name='service-front-file']", function () {
+        $("body").on('change', "input[name='front-file']", function () {
             readFrontURL(this);
         });
-        $("body").on('change', "input[name='service-back-file']", function () {
+        $("body").on('change', "input[name='back-file']", function () {
             readBackURL(this);
+        });
+         $("body").on('change', "input[name='service-front-file']", function () {
+            readFront2URL(this);
+        });
+        $("body").on('change', "input[name='service-back-file']", function () {
+            readBack2URL(this);
         });
         $("body").on('change', "input[name='service-front-file'],input[name='service-back-file']", function (e) {
             var formData = new FormData();
