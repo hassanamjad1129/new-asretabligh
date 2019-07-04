@@ -588,6 +588,7 @@
                                 pageCount: pageCount,
                                 qty: $("input[name=qty]").val(),
                                 product: product,
+                                paper:paper,
                                 data: data,
                                 type: type
                             },
@@ -604,6 +605,7 @@
                                 qty: $("input[name=qty]").val(),
                                 product: product,
                                 data: data,
+                                paper:paper,
                                 type: type,
                                 service: service
                             },
