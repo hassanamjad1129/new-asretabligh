@@ -548,9 +548,9 @@
             var formData = new FormData();
 
             formData.append('product', product);
-            formData.append('service-front-file', $("input[name='service-front-file']")[0].files[0]);
-            if ($("input[name='service-back-file']").length)
-                formData.append('service-back-file', $("input[name='service-back-file']")[0].files[0]);
+            formData.append('front-file', $("input[name='front-file']")[0].files[0]);
+            if ($("input[name='back-file']").length)
+                formData.append('back-file', $("input[name='back-file']")[0].files[0]);
             swal({
                 title: '',
                 html: "<center><img src='/images/loading.gif' /><p>در حال اپلود فایل لطفا شکیبا باشید ...</p><br /><div class='progress'><div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='width:0%'>0%</div></div></center>",
