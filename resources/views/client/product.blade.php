@@ -544,6 +544,16 @@
 
         });
 
+        $("body").on('change', "input[name='front-file'],input[name='back-file']", function (e) {
+            var formData = new FormData();
+
+            formData.append('product', product);
+            formData.append('service-front-file', $("input[name='service-front-file']")[0].files[0]);
+            if ($("input[name='service-back-file']").length)
+                formData.append('service-back-file', $("input[name='service-back-file']")[0].files[0]);
+
+        });
+
         function readFrontURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
