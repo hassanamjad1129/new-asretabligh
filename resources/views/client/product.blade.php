@@ -617,99 +617,100 @@
                 }
 
             });
+        });
 
-            function readFrontURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        const splitedFile = input.files[0].name.split('.');
-                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                            $('#frontPic').attr('src', e.target.result).addClass('img-thumbnail');
-                        } else {
-                            $('#frontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
-                        }
-
+        function readFrontURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    const splitedFile = input.files[0].name.split('.');
+                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                        $('#frontPic').attr('src', e.target.result).addClass('img-thumbnail');
+                    } else {
+                        $('#frontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
                     }
 
-                    reader.readAsDataURL(input.files[0]);
                 }
+
+                reader.readAsDataURL(input.files[0]);
             }
+        }
 
 
-            function readBackURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+        function readBackURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-                    reader.onload = function (e) {
-                        const splitedFile = input.files[0].name.split('.');
-                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                            $('#backPic').attr('src', e.target.result).addClass('img-thumbnail');
-                        } else {
-                            $('#backPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
-                        }
-
+                reader.onload = function (e) {
+                    const splitedFile = input.files[0].name.split('.');
+                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                        $('#backPic').attr('src', e.target.result).addClass('img-thumbnail');
+                    } else {
+                        $('#backPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
                     }
 
-                    reader.readAsDataURL(input.files[0]);
                 }
+
+                reader.readAsDataURL(input.files[0]);
             }
+        }
 
 
-            function readFront2URL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        const splitedFile = input.files[0].name.split('.');
-                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                            $('#serviceFrontPic').attr('src', e.target.result).addClass('img-thumbnail');
-                        } else {
-                            $('#serviceFrontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
-                        }
-
+        function readFront2URL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    const splitedFile = input.files[0].name.split('.');
+                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                        $('#serviceFrontPic').attr('src', e.target.result).addClass('img-thumbnail');
+                    } else {
+                        $('#serviceFrontPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
                     }
 
-                    reader.readAsDataURL(input.files[0]);
                 }
+
+                reader.readAsDataURL(input.files[0]);
             }
+        }
 
 
-            function readBack2URL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+        function readBack2URL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-                    reader.onload = function (e) {
-                        const splitedFile = input.files[0].name.split('.');
-                        if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
-                            $('#serviceBackPic').attr('src', e.target.result).addClass('img-thumbnail');
-                        } else {
-                            $('#serviceBackPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
-                        }
-
+                reader.onload = function (e) {
+                    const splitedFile = input.files[0].name.split('.');
+                    if (splitedFile[(splitedFile.length) - 1] === 'jpeg' || splitedFile[splitedFile.length - 1] === 'jpg') {
+                        $('#serviceBackPic').attr('src', e.target.result).addClass('img-thumbnail');
+                    } else {
+                        $('#serviceBackPic').attr('src', '/clientAssets/img/icons8-pdf-128.png').addClass('img-thumbnail');
                     }
 
-                    reader.readAsDataURL(input.files[0]);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        function progress(e) {
+
+            if (e.lengthComputable) {
+                var max = e.total;
+                var current = e.loaded;
+
+                var Percentage = (current * 100) / max;
+                console.log(Percentage);
+                var percentVal = parseInt(Percentage) + '%';
+                $(".progress-bar-striped").attr('aria-valuenow', Percentage);
+                $(".progress-bar-striped").text(percentVal);
+                $(".progress-bar-striped").css('width', percentVal);
+
+
+                if (Percentage >= 100) {
+                    // process completed
                 }
             }
-
-
-            function progress(e) {
-
-                if (e.lengthComputable) {
-                    var max = e.total;
-                    var current = e.loaded;
-
-                    var Percentage = (current * 100) / max;
-                    console.log(Percentage);
-                    var percentVal = parseInt(Percentage) + '%';
-                    $(".progress-bar-striped").attr('aria-valuenow', Percentage);
-                    $(".progress-bar-striped").text(percentVal);
-                    $(".progress-bar-striped").css('width', percentVal);
-
-
-                    if (Percentage >= 100) {
-                        // process completed
-                    }
-                }
-            }
+        }
     </script>
 @endsection
