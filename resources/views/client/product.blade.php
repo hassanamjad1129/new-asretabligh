@@ -387,10 +387,27 @@
                 $(".service-" + $(el.target).val()).remove();
             } else {
                 if ($(el.target).val() === 'none') {
-                    services=[];
+                    services = [];
                     service = {};
                     $("div[class^='service-']").remove();
                     $("input[name='service[]']").prop('checked', false);
+                    if (pageCount)
+                        $.ajax({
+                            type: "post",
+                            url: "{{ route("fetchOrderPrice") }}",
+                            data: {
+                                pageCount: pageCount,
+                                qty: $("input[name=qty]").val(),
+                                product: product,
+                                data: data,
+                                paper: paper,
+                                type: type,
+                            },
+                            success: function (response) {
+                                $("#finalPrice").text(response);
+                            }
+                        })
+
                 } else {
                     $.ajax({
                         type: "post",
