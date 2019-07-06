@@ -387,6 +387,8 @@
                 $(".service-" + $(el.target).val()).remove();
             } else {
                 if ($(el.target).val() === 'none') {
+                    services=[];
+                    service = {};
                     $("div[class^='service-']").remove();
                     $("input[name='service[]']").prop('checked', false);
                 } else {
