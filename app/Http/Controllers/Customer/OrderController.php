@@ -51,13 +51,13 @@ class OrderController extends Controller
         $product = Product::find($request->product);
 
         if ($product->category->count_paper) {
-            if (!$product->typeRelatedFile and $request->type == 'double') {
+            if ($product->typeRelatedFile and $request->type == 'double') {
                 $count = $request->qty * ceil($request->pageCount / 2);
             } else
                 $count = $request->qty * $request->pageCount;
         } else
             $count = $request->qty;
-
+        dd($count);
         $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
