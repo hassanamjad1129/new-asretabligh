@@ -15,6 +15,7 @@ Route::get('/', 'siteController@index');
 Route::get('getProductPicture/{product}', 'siteController@getProductPicture');
 Route::get('getCategoryPicture/{category}', 'siteController@getCategoryPicture');
 Route::get('getValuePicture/{value}', 'siteController@getValuePicture')->name('getValuePicture');
+Route::get('getServicePicture/{service}', 'siteController@getServicePicture')->name('getServicePicture');
 
 Route::get('product/{product}', 'ProductController@show')->name('showProduct');
 Route::post('checkFiles', 'Customer\OrderController@checkFiles')->name('checkFiles');

@@ -9,6 +9,8 @@ use App\Models\ProductValue;
 use App\Models\Slideshow;
 use App\option;
 use App\post;
+use App\Service;
+use App\ServiceValue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
@@ -48,6 +50,11 @@ class siteController extends Controller
     public function getValuePicture(ProductValue $value)
     {
         return Storage::download($value->picture);
+    }
+
+    public function getServicePicture(ServiceValue $service)
+    {
+        return Storage::download($service->picture);
     }
 
     public function cart()

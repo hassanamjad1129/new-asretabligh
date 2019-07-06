@@ -266,17 +266,22 @@
         const product ={{ $product->id }};
         var data = {};
         var service = {};
+        var serviceFiles = {};
+
         var type = "";
         var paper = "";
+        var services = [];
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+
         $("body").on("change", "input[type=radio]", function (e) {
             const id = $(this).attr('val');
 
-            if ($(this).attr('name') !== 'type' && $(this).attr('name') !== 'service' && $(this).attr('name') !== 'paper' && $(this).attr('name') !== 'service-type' && !$(this).hasClass("service"))
+            if ($(this).attr('name') !== 'type' && $(this).attr('name') !== 'service' && $(this).attr('name') !== 'paper' && !$(this).hasClass('service-type') && !$(this).hasClass("service"))
                 data[$(this).attr('name')] = $(this).val();
             else if ($(this).attr('name') === 'type')
                 type = $(this).val();
@@ -290,6 +295,10 @@
             } else {
                 $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
             }
+            services = []
+            $.each($("input[name='service[]']:checked"), function () {
+                services.push($(this).val());
+            });
             if (pageCount && !countProperties(service))
                 $.ajax({
                     type: "post",
@@ -300,13 +309,17 @@
                         product: product,
                         data: data,
                         paper: paper,
-                        type: type
+                        type: type,
                     },
                     success: function (response) {
                         $("#finalPrice").text(response);
                     }
                 })
-            else if (pageCount && countProperties(service))
+            else if (pageCount && countProperties(service) && !$(this).hasClass('service-type')) {
+                services = []
+                $.each($("input[name='service[]']:checked"), function () {
+                    services.push($(this).val());
+                });
                 $.ajax({
                     type: "post",
                     url: "{{ route("fetchServicePrice") }}",
@@ -316,14 +329,17 @@
                         product: product,
                         data: data,
                         paper: paper,
-
                         type: type,
-                        service: service
+                        service: service,
+                        services: services,
+                        serviceFiles: serviceFiles
+
                     },
                     success: function (response) {
                         $("#finalPrice").text(response);
                     }
                 })
+            }
         });
 
         $("select").change(function (e) {
@@ -383,9 +399,10 @@
                         success: function (response) {
                             response = JSON.parse(response);
                             var str = "<div class='service-" + $(el.target).val() + "'>";
+                            var thisService = "";
                             for (var service in response) {
                                 service = response[service];
-                                console.log(service);
+                                thisService = service['id'];
                                 str += "<div class=\"col-md-12\">\n" +
                                     "<label v=\"s-" + service['id'] + "\" for=\"\"\n" +
                                     "style=\"font-weight: bold;font-size:15px;margin-top:10px\">" + service['name'] + "\n" +
@@ -402,7 +419,7 @@
                                         "<label for=\"s-" + value['id'] + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
                                         "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
                                         (value['picture'] ?
-                                            "<img src=\"/getValuePicture/" + value['id'] + "\" style=\"width: 100%\"\n" +
+                                            "<img src=\"/getServicePicture/" + value['id'] + "\" style=\"width: 100%\"\n" +
                                             "alt=\"\">\n" + "\n" : "") +
                                         "<p style=\"text-align: center\">" + value['name'] + "</p>\n" +
                                         "</div>\n" +
@@ -418,11 +435,11 @@
                             if ($(el.target).attr('allow_type') == 1) {
                                 str += "<div class=\"col-md-6\">\n" +
                                     "<label v=\"typeService" + "\" for=\"\"\n" +
-                                    "style=\"font-weight: bold;font-size:15px;margin-top:10px\"> نوع کار \n" +
+                                    "style=\"font-weight: bold;font-size:15px;margin-top:10px\"> نوع کار خدمات \n" +
                                     "</label>\n" +
                                     "<div class=\"clearfix\"></div>\n"
                                 str += "    <div>\n" +
-                                    "<input name=\"service-type\" style=\"display: none\" id=\"service-type-1\"\n" +
+                                    "<input class='service-type' name=\"service-type-" + thisService + "\" serviceID='" + thisService + "'  style=\"display: none\" id=\"service-type-1\"\n" +
                                     "type=\"radio\" val=\"typeService\"\n" +
                                     "value=\"single\"/>\n" +
                                     "<label for=\"service-type-1\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
@@ -432,7 +449,7 @@
                                     "</label>\n" +
                                     "</div>";
                                 str += "<div>\n" +
-                                    "<input name=\"service-type\" style=\"display: none\" id=\"service-type-2\" type=\"radio\" val=\"typeService\"\n" +
+                                    "<input class='service-type' name=\"service-type-" + thisService + "\" serviceID='" + thisService + "'  style=\"display: none\" id=\"service-type-2\" type=\"radio\" val=\"typeService\"\n" +
                                     "\n" +
                                     "value=\"double\"/>\n" +
                                     "<label for=\"service-type-2\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
@@ -440,18 +457,19 @@
                                     "<p style=\"text-align: center\">دو رو</p>\n" +
                                     "</div>\n" +
                                     "</label>\n" +
-                                    "</div></div>";
+                                    "</div></div><div class='clearfix'></div><div class='row' id='service-file-" + thisService + "'></div>";
 
-                                /*str += "<div class=\"col-md-12\">\n" +
+                                /*
+                                str += "<div class=\"col-md-12\">\n" +
                                     "<label v=\"sf-" + 1 + "\" for=\"\"\n" +
                                     "style=\"font-weight: bold;font-size:15px;margin-top:10px\"> آپلود فایل \n" +
                                     "</label>\n" +
                                     "<div class=\"clearfix\"></div>\n";
                                 str += "<div class='col-md-6' style='padding-right:0'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-6'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='back-file' id='back-file' style='display: none' /></div><div class='clearfix' />";
-*/
+                                */
 
                             }
-                            $("#services").append(str + "</div><hr>");
+                            $("#services").append(str + "<hr></div>");
                         }
                     });
                 }
@@ -460,7 +478,7 @@
         })
         ;
         $("input[name=qty]").change(function () {
-            if (pageCount)
+            if (pageCount && countProperties(service) == 0)
                 $.ajax({
                     type: "post",
                     url: "{{ route("fetchOrderPrice") }}",
@@ -477,19 +495,36 @@
                         $("#finalPrice").text(response);
                     }
                 })
+            else if (pageCount && countProperties(service)) {
+                services = []
+                $.each($("input[name='service[]']:checked"), function () {
+                    services.push($(this).val());
+                });
+                $.ajax({
+                    type: "post",
+                    url: "{{ route("fetchServicePrice") }}",
+                    data: {
+                        pageCount: pageCount,
+                        qty: $("input[name=qty]").val(),
+                        product: product,
+                        data: data,
+                        paper: paper,
+                        type: type,
+                        service: service,
+                        services: services,
+                        serviceFiles: serviceFiles
+                    },
+                    success: function (response) {
+                        $("#finalPrice").text(response);
+                    }
+                })
+            }
         });
         $("input[name=type]").change(function () {
             if ($(this).val() == "single") {
                 type = "single";
             } else {
                 type = "double";
-            }
-        });
-        $("input[name=service-type]").change(function () {
-            if ($(this).val() == "single") {
-                serviceType = "single";
-            } else {
-                serviceType = "double";
             }
         });
         @if($product->typeRelatedFile)
@@ -510,16 +545,44 @@
         });
         @endif
 
-        $("input[name=service-type]").change(function () {
+        $("body").on('change', ".service-type", function () {
             $("#serviceFrontPic").attr('src', '');
             $("#serviceBackPic").attr('src', '');
-            if ($(this).val() == "single") {
+            const serviceID = $(this).attr('serviceID');
+            if ($(this).val() === "single") {
+                serviceFiles[serviceID] = "single";
                 serviceType = "single";
-                $(".service-files").html("<div class='col-md-6'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none'/></div><div class='clearfix' />");
-            } else if ($(this).val() == 'double') {
+                $("#service-file-" + serviceID).html("<div class='col-md-6'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none'/></div><div class='clearfix' />");
+            } else if ($(this).val() === 'double') {
+                serviceFiles[serviceID] = "double";
                 serviceType = "double";
-                $(".service-files").html("<div class='col-md-6'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-6'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='back-file' id='back-file' style='display: none' /></div><div class='clearfix' />");
+                $("#service-file-" + serviceID).html("<div class='col-md-6'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none' /></div><div class='col-md-6'><label for='service-back-file-" + serviceID + "'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='service-back-file-" + serviceID + "' id='service-back-file-" + serviceID + "' style='display: none' /></div><div class='clearfix' />");
+
             }
+
+            services = []
+            $.each($("input[name='service[]']:checked"), function () {
+                services.push($(this).val());
+            });
+            $.ajax({
+                type: "post",
+                url: "{{ route("fetchServicePrice") }}",
+                data: {
+                    pageCount: pageCount,
+                    qty: $("input[name=qty]").val(),
+                    product: product,
+                    data: data,
+                    paper: paper,
+                    type: type,
+                    service: service,
+                    services: services,
+                    serviceFiles: serviceFiles
+
+                },
+                success: function (response) {
+                    $("#finalPrice").text(response);
+                }
+            })
         });
 
         $("body").on('change', "input[name='front-file']", function () {
@@ -579,7 +642,6 @@
                     } else {
                         $(".orderSpecification ul").append(`<li v='file'>تعداد صفحات : ${response}</li>`)
                     }
-                    console.log(countProperties(service))
                     if (pageCount && countProperties(service) == 0)
                         $.ajax({
                             type: "post",
@@ -588,7 +650,7 @@
                                 pageCount: pageCount,
                                 qty: $("input[name=qty]").val(),
                                 product: product,
-                                paper:paper,
+                                paper: paper,
                                 data: data,
                                 type: type
                             },
@@ -596,7 +658,11 @@
                                 $("#finalPrice").text(response);
                             }
                         })
-                    else if (pageCount && countProperties(service))
+                    else if (pageCount && countProperties(service)) {
+                        services = []
+                        $.each($("input[name='service[]']:checked"), function () {
+                            services.push($(this).val());
+                        });
                         $.ajax({
                             type: "post",
                             url: "{{ route("fetchServicePrice") }}",
@@ -605,14 +671,18 @@
                                 qty: $("input[name=qty]").val(),
                                 product: product,
                                 data: data,
-                                paper:paper,
+                                paper: paper,
                                 type: type,
-                                service: service
+                                service: service,
+                                services: services,
+                                serviceFiles: serviceFiles
+
                             },
                             success: function (response) {
                                 $("#finalPrice").text(response);
                             }
                         })
+                    }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     swal.close();

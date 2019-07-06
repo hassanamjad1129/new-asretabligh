@@ -79,7 +79,7 @@ class OrderController extends Controller
 
     public function fetchPaperServices(Request $request)
     {
-        $services = DB::table('product_services')->where('paper_id', $request->paper)->where('product_id', $request->product)->join('services', 'product_services.service_id', '=', 'services.id')->select(['services.id', 'services.name','allow_type'])->get();
+        $services = DB::table('product_services')->where('paper_id', $request->paper)->where('product_id', $request->product)->join('services', 'product_services.service_id', '=', 'services.id')->select(['services.id', 'services.name', 'allow_type'])->get();
         return json_encode($services);
     }
 
@@ -153,30 +153,42 @@ class OrderController extends Controller
         } else {
             if ($request->type == 'single') {
                 $values = [];
-                foreach ($request->service as $key => $service) {
-                    $values[] = $service;
+                $sum = 0;
+                foreach ($request->services as $service) {
+                    foreach ($request->service as $key => $thisService) {
+                        $values[] = $thisService;
+                    }
+                    sort($values);
+                    $servicePrices = ServicePrice::where('service_id', $service)->where('paper_id', $request->paper)->where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                        $query->where('max', '>=', $count)->whereOr('max', '');
+                    })->first();
+                    if ($servicePrices->service->allow_type) {
+                        if ($request->serviceFiles[$service] == 'single')
+                            $sum += $servicePrices->single_price;
+                        elseif ($request->serviceFiles[$service] == 'double')
+                            $sum += $servicePrices->double_price;
+                    } else
+                        $sum += $servicePrices->price;
                 }
-                sort($values);
-                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
-                    $query->where('max', '>=', $count)->whereOr('max', '');
-                })->first();
-                if ($servicePrices->service->allow_type)
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->single_price) * $count) . " ریال");
-                else
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->price) * $count) . " ریال");
+                return ta_persian_num(number_format(($prices->single_price + $sum) * $count) . " ریال");
+
             } else {
                 $values = [];
-                foreach ($request->service as $key => $service) {
-                    $values[] = $service;
+                $sum = 0;
+                foreach ($request->services as $service) {
+                    foreach ($request->service as $key => $thisService) {
+                        $values[] = $thisService;
+                    }
+                    sort($values);
+                    $servicePrices = ServicePrice::where('service_id', $service)->where('paper_id', $request->paper)->where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                        $query->where('max', '>=', $count)->whereOr('max', '');
+                    })->first();
+                    if ($servicePrices->service->allow_type)
+                        $sum += $servicePrices->double_price;
+                    else
+                        $sum += $servicePrices->price;
                 }
-                sort($values);
-                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
-                    $query->where('max', '>=', $count)->whereOr('max', '');
-                })->first();
-                if ($servicePrices->service->allow_type)
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->double_price) * $count) . " ریال");
-                else
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->price) * $count) . " ریال");
+                return ta_persian_num(number_format(($prices->double_price + $sum) * $count) . " ریال");
             }
         }
 
