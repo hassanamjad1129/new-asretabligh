@@ -57,7 +57,7 @@ class OrderController extends Controller
                 $count = $request->qty * $request->pageCount;
         } else
             $count = $request->qty;
-        dd($count);
+
         $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
