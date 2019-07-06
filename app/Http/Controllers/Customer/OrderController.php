@@ -51,7 +51,7 @@ class OrderController extends Controller
         $product = Product::find($request->product);
 
         if ($product->category->count_paper) {
-            if ($product->typeRelatedFile and $request->type == 'double') {
+            if ($product->typeRelatedFile == false and $request->type == 'double') {
                 $count = $request->qty * ceil($request->pageCount / 2);
             } else
                 $count = $request->qty * $request->pageCount;
