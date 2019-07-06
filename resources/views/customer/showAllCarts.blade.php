@@ -91,8 +91,13 @@
                                         ?></td>
                                     <?php
                                     $sum += $cart['price'];
+                                    $servicePrice = 0;
+                                    foreach ($cart['services'] as $service) {
+                                        $servicePrice += $service['price'];
+                                    }
+                                    $sum += $servicePrice;
                                     ?>
-                                    <td>{{ ta_persian_num(number_format($cart['price'])) }} ریال</td>
+                                    <td>{{ ta_persian_num(number_format($cart['price']+$servicePrice)) }} ریال</td>
                                     <td><a href="{{ url('/cart/'.$key.'/remove') }}" class="deleteBTN"><i
                                                     class="fa fa-trash-o"
                                                     style="font-size: 23px;color:#d60000"
@@ -101,7 +106,9 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;font-size: 1.7rem">آیتمی در سبد خرید شما وجود ندارد</td>
+                                <td colspan="8" style="text-align: center;font-size: 1.7rem">آیتمی در سبد خرید شما وجود
+                                    ندارد
+                                </td>
                             </tr>
                         @endif
                         </tbody>

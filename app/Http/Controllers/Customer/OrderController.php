@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Customer;
 
 use App\Models\Product;
 use App\Models\ProductPrice;
+use App\Service;
 use App\ServicePrice;
 use App\ServiceProperty;
+use App\shipping;
 use Howtomakeaturn\PDFInfo\PDFInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -111,7 +113,7 @@ class OrderController extends Controller
         $product = Product::find($request->product);
 
         if ($product->category->count_paper) {
-            if ($product->typeRelatedFile and $request->type == 'double') {
+            if ($product->typeRelatedFile == false and $request->type == 'double') {
                 $count = $request->qty * ceil($request->pageCount / 2);
             } else
                 $count = $request->qty * $request->pageCount;
@@ -123,49 +125,66 @@ class OrderController extends Controller
         })->first();
         if (auth()->guard('customer')->user()) {
             if ($request->type == 'single') {
-                $values = [];
-                foreach ($request->service as $key => $service) {
-                    $values[] = $service;
+                $sum = 0;
+                foreach ($request->services as $service) {
+                    $service = Service::find($service);
+                    foreach ($service->ServiceProperties as $property) {
+                        if ($request->has('service.service-' . $property->id))
+                            $values[] = $request->service['service-' . $property->id];
+                    }
+                    sort($values);
+                    $servicePrices = ServicePrice::where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
+                        $query->where('max', '>=', $count)->whereOr('max', '');
+                    })->first();
+                    if ($servicePrices->service->allow_type) {
+                        if ($request->serviceFiles[$service->id] == 'single')
+                            $sum += $servicePrices->coworker_single_price;
+                        elseif ($request->serviceFiles[$service->id] == 'double')
+                            $sum += $servicePrices->coworker_double_price;
+                    } else
+                        $sum += $servicePrices->coworker_price;
                 }
-                sort($values);
-                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
-                    $query->where('max', '>=', $count)->whereOr('max', '');
-                })->first();
-                if ($servicePrices->service->allow_type)
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_single_price) * $count) . " ریال");
-                else
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_price) * $count) . " ریال");
+                return ta_persian_num(number_format(($prices->coworker_single_price + $sum) * $count) . " ریال");
             } else {
-                $values = [];
-                foreach ($request->service as $key => $service) {
-                    $values[] = $service;
+                $sum = 0;
+                foreach ($request->services as $service) {
+                    $service = Service::find($service);
+                    foreach ($service->ServiceProperties as $property) {
+                        if ($request->has('service.service-' . $property->id))
+                            $values[] = $request->service['service-' . $property->id];
+                    }
+                    sort($values);
+                    $servicePrices = ServicePrice::where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
+                        $query->where('max', '>=', $count)->whereOr('max', '');
+                    })->first();
+                    if ($servicePrices->service->allow_type) {
+                        if ($request->serviceFiles[$service->id] == 'single')
+                            $sum += $servicePrices->coworker_single_price;
+                        elseif ($request->serviceFiles[$service->id] == 'double')
+                            $sum += $servicePrices->coworker_double_price;
+                    } else
+                        $sum += $servicePrices->coworker_price;
                 }
-                sort($values);
-                $servicePrices = ServicePrice::where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
-                    $query->where('max', '>=', $count)->whereOr('max', '');
-                })->first();
-                if ($servicePrices->service->allow_type)
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_double_price) * $count) . " ریال");
-                else
-                    return ta_persian_num(number_format(($prices->coworker_single_price + $servicePrices->coworker_price) * $count) . " ریال");
-
+                return ta_persian_num(number_format(($prices->coworker_double_price + $sum) * $count) . " ریال");
             }
         } else {
             if ($request->type == 'single') {
                 $values = [];
                 $sum = 0;
                 foreach ($request->services as $service) {
-                    foreach ($request->service as $key => $thisService) {
-                        $values[] = $thisService;
+                    $service = Service::find($service);
+                    foreach ($service->ServiceProperties as $property) {
+                        if ($request->has('service.service-' . $property->id))
+                            $values[] = $request->service['service-' . $property->id];
                     }
                     sort($values);
-                    $servicePrices = ServicePrice::where('service_id', $service)->where('paper_id', $request->paper)->where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                    $servicePrices = ServicePrice::where('service_id', $service->id)->where('paper_id', $request->paper)->where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
                     if ($servicePrices->service->allow_type) {
-                        if ($request->serviceFiles[$service] == 'single')
+                        if ($request->serviceFiles[$service->id] == 'single')
                             $sum += $servicePrices->single_price;
-                        elseif ($request->serviceFiles[$service] == 'double')
+                        elseif ($request->serviceFiles[$service->id] == 'double')
                             $sum += $servicePrices->double_price;
                     } else
                         $sum += $servicePrices->price;
@@ -176,23 +195,28 @@ class OrderController extends Controller
                 $values = [];
                 $sum = 0;
                 foreach ($request->services as $service) {
-                    foreach ($request->service as $key => $thisService) {
-                        $values[] = $thisService;
+                    $service = Service::find($service);
+                    foreach ($service->ServiceProperties as $property) {
+                        if ($request->has('service.service-' . $property->id))
+                            $values[] = $request->service['service-' . $property->id];
                     }
                     sort($values);
-                    $servicePrices = ServicePrice::where('service_id', $service)->where('paper_id', $request->paper)->where('values', $values)->where('min', '<=', $count)->where(function ($query) use ($count) {
+                    $servicePrices = ServicePrice::where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
-                    if ($servicePrices->service->allow_type)
-                        $sum += $servicePrices->double_price;
-                    else
+                    if ($servicePrices->service->allow_type) {
+                        if ($request->serviceFiles[$service->id] == 'single')
+                            $sum += $servicePrices->single_price;
+                        elseif ($request->serviceFiles[$service->id] == 'double')
+                            $sum += $servicePrices->double_price;
+                    } else
                         $sum += $servicePrices->price;
                 }
                 return ta_persian_num(number_format(($prices->double_price + $sum) * $count) . " ریال");
+
             }
+
         }
-
-
     }
 
     public function storeCart(Request $request)
@@ -211,7 +235,7 @@ class OrderController extends Controller
         if ($product->category->count_paper) {
             $count = $request->qty;
             if ($request->type == 'double') {
-                if ($product->typeRelatedFile) {
+                if ($product->typeRelatedFile == false) {
                     $splitedFile = explode('.', $request->session()->get('file.' . $request->product . '.front-file'));
                     if ($splitedFile[count($splitedFile) - 1] == 'pdf') {
                         $pdf = new PDFInfo(public_path('/orderFiles/' . ($request->session()->get('file.' . $request->product . '.front-file'))));
@@ -266,7 +290,49 @@ class OrderController extends Controller
                 $price = $prices->double_price * $count;
             }
         }
-
+        $services = [];
+        foreach ($request->service as $key => $service) {
+            $values = [];
+            $servicePrice = 0;
+            $service = Service::find($service);
+            foreach ($service->ServiceProperties as $property) {
+                if ($request->has('service-' . $property->id))
+                    $values[] = $request->input('service-' . $property->id);
+            }
+            sort($values);
+            $servicePrices = ServicePrice::where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
+                $query->where('max', '>=', $count)->whereOr('max', '');
+            })->first();
+            $services[$key]['id'] = $service->id;
+            $services[$key]['properties'] = $values;
+            if ($servicePrices->service->allow_type) {
+                if ($request->input('service-type-' . $service->id) == 'single') {
+                    if (auth()->guard('customer')->user())
+                        $servicePrice = $servicePrices->coworker_single_price;
+                    else
+                        $servicePrice = $servicePrices->single_price;
+                } elseif ($request->input('service-type-' . $service->id) == 'double') {
+                    if (auth()->guard('customer')->user())
+                        $servicePrice = $servicePrices->coworker_double_price;
+                    else
+                        $servicePrice = $servicePrices->double_price;
+                }
+            } else
+                $servicePrice = $servicePrices->price;
+            $services[$key]['price'] = $servicePrice;
+            $services[$key]['type'] = $request->input('service-type-' . $service->id);
+            if ($servicePrices->service->allow_type) {
+                if ($request->input('service-type-' . $service->id) == 'single')
+                    $services[$key]['files'] = [
+                        'front' => $request->input('service-front-file-' . $service->id)
+                    ];
+                else
+                    $services[$key]['files'] = [
+                        'front' => $request->input('service-front-file-' . $service->id),
+                        'back' => $request->input('service-back-file-' . $service->id)
+                    ];
+            }
+        }
         $request->session()->push('cart', [
             'files' => [
                 'front' => $request->session()->get('file.' . $request->product . '.front-file'),
@@ -276,7 +342,8 @@ class OrderController extends Controller
             'qty' => $request->qty,
             'type' => $request->type,
             'data' => $data,
-            'price' => $price
+            'price' => $price,
+            'services' => $services
         ]);
         $request->session()->forget('file.' . $request->product . '.front-file');
         $request->session()->forget('file.' . $request->product . '.back-file');
@@ -285,7 +352,12 @@ class OrderController extends Controller
 
     public function finalStep(Request $request)
     {
-        dd($request->all());
+        $shippings = shipping::all();
+        $carts = [];
+        foreach ($request->carts as $cart) {
+            $carts[] = $request->session()->get('cart.' . $cart);
+        }
+        return view('customer.finalStep', ['shippings' => $shippings, 'carts' => $carts]);
     }
 
 }
