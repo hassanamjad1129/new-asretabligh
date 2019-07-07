@@ -43,7 +43,7 @@
                 <img src="{{ url('getProductPicture/'.$product->id) }}" style="width: 100%;padding: 2rem" alt="">
                 <h4 style="text-align: center;color:#d60000;font-weight: bold">{{ $product->title }}</h4>
                 <div style="margin-top: 1rem">
-                    <p style="    line-height: 25px;">{!! nl2br($product->description) !!}</p>
+                    <p style="text-align:justify;line-height: 22px;font-size:0.95rem">{!! nl2br($product->description) !!}</p>
                 </div>
             </div>
         </div>
