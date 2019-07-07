@@ -181,6 +181,7 @@ class OrderController extends Controller
                     $servicePrices = ServicePrice::where('service_id', $service->id)->where('paper_id', $request->paper)->where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
+                    dd($servicePrices);
                     if ($servicePrices->service->allow_type) {
                         if ($request->serviceFiles[$service->id] == 'single')
                             $sum += $servicePrices->single_price;
