@@ -144,7 +144,7 @@ class OrderController extends Controller
                     } else
                         $sum += $servicePrices->coworker_price;
                 }
-                return ta_persian_num(number_format(($prices->coworker_single_price + $sum) * $count) . " ریال");
+                return ta_persian_num(number_format((($prices->coworker_single_price * $count) + $sum)) . " ریال");
             } else {
                 $sum = 0;
                 foreach ($request->services as $service) {
@@ -165,7 +165,7 @@ class OrderController extends Controller
                     } else
                         $sum += $servicePrices->coworker_price;
                 }
-                return ta_persian_num(number_format(($prices->coworker_double_price + $sum) * $count) . " ریال");
+                return ta_persian_num(number_format((($prices->coworker_double_price * $count) + $sum)) . " ریال");
             }
         } else {
             if ($request->type == 'single') {
@@ -189,7 +189,7 @@ class OrderController extends Controller
                     } else
                         $sum += $servicePrices->price;
                 }
-                return ta_persian_num(number_format(($prices->single_price + $sum) * $count) . " ریال");
+                return ta_persian_num(number_format((($prices->single_price * $count) + $sum)) . " ریال");
 
             } else {
                 $values = [];
@@ -204,7 +204,6 @@ class OrderController extends Controller
                     $servicePrices = ServicePrice::where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
-                    dd($servicePrices);
 
                     if ($servicePrices->service->allow_type) {
                         if ($request->serviceFiles[$service->id] == 'single')
@@ -214,7 +213,7 @@ class OrderController extends Controller
                     } else
                         $sum += $servicePrices->price;
                 }
-                return ta_persian_num(number_format(($prices->double_price + $sum) * $count) . " ریال");
+                return ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال");
 
             }
 
