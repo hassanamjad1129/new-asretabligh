@@ -361,6 +361,24 @@
                     product:{{ $product->id }}
                 },
                 success: function (response) {
+                    $("#services").html("");
+                    if (pageCount)
+                        $.ajax({
+                            type: "post",
+                            url: "{{ route("fetchOrderPrice") }}",
+                            data: {
+                                pageCount: pageCount,
+                                qty: $("input[name=qty]").val(),
+                                product: product,
+                                data: data,
+                                paper: paper,
+                                type: type,
+                            },
+                            success: function (response) {
+                                $("#finalPrice").text(response);
+                            }
+                        })
+
                     $("#serviceWrapper").show();
                     $("#mainServices").html("");
                     response = JSON.parse(response);
@@ -421,7 +439,7 @@
                             var thisService = "";
                             for (var service in response) {
                                 service = response[service];
-                                thisService =  $(el.target).val();
+                                thisService = $(el.target).val();
                                 str += "<div class=\"col-md-12\">\n" +
                                     "<label v=\"s-" + service['id'] + "\" for=\"\"\n" +
                                     "style=\"font-weight: bold;font-size:15px;margin-top:10px\">" + service['name'] + "\n" +
