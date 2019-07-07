@@ -123,7 +123,6 @@ class OrderController extends Controller
         $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
-        dd($prices);
         if (auth()->guard('customer')->user()) {
             if ($request->type == 'single') {
                 $sum = 0;
