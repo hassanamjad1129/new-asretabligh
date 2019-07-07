@@ -250,7 +250,6 @@ class OrderController extends Controller
                             else
                                 $sum += ($servicePrices->double_price * $request->qty);
                         }
-                        dd($sum);
                     } else {
                         if ($service->paper_count)
                             $sum += ($servicePrices->price * $count);
@@ -259,6 +258,7 @@ class OrderController extends Controller
 
                     }
                 }
+                dd($prices->double_price);
                 return ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال");
 
             }
