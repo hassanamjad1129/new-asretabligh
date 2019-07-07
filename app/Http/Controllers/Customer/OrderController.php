@@ -119,7 +119,6 @@ class OrderController extends Controller
                 $count = $request->qty * $request->pageCount;
         } else
             $count = $request->qty;
-        dd($count);
         $prices = ProductPrice::where('product_id', $request->product)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
@@ -137,12 +136,23 @@ class OrderController extends Controller
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
                     if ($servicePrices->service->allow_type) {
-                        if ($request->serviceFiles[$service->id] == 'single')
-                            $sum += $servicePrices->coworker_single_price;
-                        elseif ($request->serviceFiles[$service->id] == 'double')
-                            $sum += $servicePrices->coworker_double_price;
-                    } else
-                        $sum += $servicePrices->coworker_price;
+                        if ($request->serviceFiles[$service->id] == 'single') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->coworker_single_price * $count);
+                            else
+                                $sum += ($servicePrices->coworker_single_price * $request->qty);
+                        } elseif ($request->serviceFiles[$service->id] == 'double') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->coworker_double_price * $count);
+                            else
+                                $sum += ($servicePrices->coworker_double_price * $request->qty);
+                        }
+                    } else {
+                        if ($service->paper_count)
+                            $sum += ($servicePrices->coworker_price * $count);
+                        else
+                            $sum += ($servicePrices->coworker_price * $request->qty);
+                    }
                 }
                 return ta_persian_num(number_format((($prices->coworker_single_price * $count) + $sum)) . " ریال");
             } else {
@@ -158,12 +168,23 @@ class OrderController extends Controller
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
                     if ($servicePrices->service->allow_type) {
-                        if ($request->serviceFiles[$service->id] == 'single')
-                            $sum += $servicePrices->coworker_single_price;
-                        elseif ($request->serviceFiles[$service->id] == 'double')
-                            $sum += $servicePrices->coworker_double_price;
-                    } else
-                        $sum += $servicePrices->coworker_price;
+                        if ($request->serviceFiles[$service->id] == 'single') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->coworker_single_price * $count);
+                            else
+                                $sum += ($servicePrices->coworker_single_price * $request->qty);
+                        } elseif ($request->serviceFiles[$service->id] == 'double') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->coworker_double_price * $count);
+                            else
+                                $sum += ($servicePrices->coworker_double_price * $request->qty);
+                        }
+                    } else {
+                        if ($service->paper_count)
+                            $sum += ($servicePrices->coworker_price * $count);
+                        else
+                            $sum += ($servicePrices->coworker_price * $request->qty);
+                    }
                 }
                 return ta_persian_num(number_format((($prices->coworker_double_price * $count) + $sum)) . " ریال");
             }
@@ -182,12 +203,23 @@ class OrderController extends Controller
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
                     if ($servicePrices->service->allow_type) {
-                        if ($request->serviceFiles[$service->id] == 'single')
-                            $sum += $servicePrices->single_price;
-                        elseif ($request->serviceFiles[$service->id] == 'double')
-                            $sum += $servicePrices->double_price;
-                    } else
-                        $sum += $servicePrices->price;
+                        if ($request->serviceFiles[$service->id] == 'single') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->coworker_single_price * $count);
+                            else
+                                $sum += ($servicePrices->coworker_single_price * $request->qty);
+                        } elseif ($request->serviceFiles[$service->id] == 'double') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->coworker_double_price * $count);
+                            else
+                                $sum += ($servicePrices->coworker_double_price * $request->qty);
+                        }
+                    } else {
+                        if ($service->paper_count)
+                            $sum += ($servicePrices->coworker_price * $count);
+                        else
+                            $sum += ($servicePrices->coworker_price * $request->qty);
+                    }
                 }
                 return ta_persian_num(number_format((($prices->single_price * $count) + $sum)) . " ریال");
 
@@ -206,12 +238,24 @@ class OrderController extends Controller
                     })->first();
 
                     if ($servicePrices->service->allow_type) {
-                        if ($request->serviceFiles[$service->id] == 'single')
-                            $sum += $servicePrices->single_price;
-                        elseif ($request->serviceFiles[$service->id] == 'double')
-                            $sum += $servicePrices->double_price;
-                    } else
-                        $sum += $servicePrices->price;
+                        if ($request->serviceFiles[$service->id] == 'single') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->single_price * $count);
+                            else
+                                $sum += ($servicePrices->single_price * $request->qty);
+                        } elseif ($request->serviceFiles[$service->id] == 'double') {
+                            if ($service->paper_count)
+                                $sum += ($servicePrices->double_price * $count);
+                            else
+                                $sum += ($servicePrices->double_price * $request->qty);
+                        }
+                    } else {
+                        if ($service->paper_count)
+                            $sum += ($servicePrices->price * $count);
+                        else
+                            $sum += ($servicePrices->price * $request->qty);
+
+                    }
                 }
                 return ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال");
 

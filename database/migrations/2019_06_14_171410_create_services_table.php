@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->boolean('allow_type')->default(0);
+            $table->boolean('paper_count')->default(0);
             $table->timestamps();
         });
 
