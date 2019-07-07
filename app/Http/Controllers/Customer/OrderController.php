@@ -123,6 +123,7 @@ class OrderController extends Controller
         $prices = ProductPrice::where('product_id', $request->product)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
+        dd($prices);
         if (auth()->guard('customer')->user()) {
             if ($request->type == 'single') {
                 $sum = 0;
@@ -258,7 +259,6 @@ class OrderController extends Controller
 
                     }
                 }
-                dd($prices->double_price);
                 return ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال");
 
             }
