@@ -421,7 +421,7 @@
                             var thisService = "";
                             for (var service in response) {
                                 service = response[service];
-                                thisService = service['id'];
+                                thisService =  $(el.target).val();
                                 str += "<div class=\"col-md-12\">\n" +
                                     "<label v=\"s-" + service['id'] + "\" for=\"\"\n" +
                                     "style=\"font-weight: bold;font-size:15px;margin-top:10px\">" + service['name'] + "\n" +
