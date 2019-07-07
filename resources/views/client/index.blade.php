@@ -77,8 +77,8 @@
 
     <div class="news-demo" style="margin-top: 2rem">
         <div class="about" style="margin-bottom: 25px;">
-            <div class=" title wow fadeInUp animated" style=""><h2 style="text-align: center">لیست
-                    <span>خدمات</span></h2>
+            <div class=" title wow fadeInUp animated" style=""><h2 style="text-align: center">ثبت سفارش
+                    <span>سریع</span></h2>
             </div>
             <div class="img-title wow fadeInUp animated" style="position:relative;top:5px"></div>
         </div>
