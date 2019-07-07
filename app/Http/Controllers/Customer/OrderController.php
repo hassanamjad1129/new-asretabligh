@@ -119,6 +119,7 @@ class OrderController extends Controller
                 $count = $request->qty * $request->pageCount;
         } else
             $count = $request->qty;
+
         $prices = ProductPrice::where('product_id', $request->product)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
@@ -249,6 +250,7 @@ class OrderController extends Controller
                             else
                                 $sum += ($servicePrices->double_price * $request->qty);
                         }
+                        dd($sum);
                     } else {
                         if ($service->paper_count)
                             $sum += ($servicePrices->price * $count);

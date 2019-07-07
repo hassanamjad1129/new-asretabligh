@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_14_171410_create_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_14_171410_create_services_table.php" afterDir="false" />
-    </list>
+    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
-              <caret line="154" column="21" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="21" />
+            <state relative-caret-position="336">
+              <caret line="116" column="8" lean-forward="true" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
               <folding>
                 <element signature="e#49#72#0#PHP" expanded="true" />
               </folding>
@@ -542,12 +539,12 @@
       <workItem from="1562151002790" duration="10107000" />
       <workItem from="1562226814393" duration="10153000" />
       <workItem from="1562391654729" duration="9551000" />
-      <workItem from="1562494430133" duration="5046000" />
+      <workItem from="1562494430133" duration="5454000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170309000" />
+    <option name="totallyTimeSpent" value="170717000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -564,9 +561,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2054429" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2054429" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.28100115" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.28100115" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -997,8 +994,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="154" column="21" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="21" />
+        <state relative-caret-position="336">
+          <caret line="116" column="8" lean-forward="true" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
           <folding>
             <element signature="e#49#72#0#PHP" expanded="true" />
           </folding>
