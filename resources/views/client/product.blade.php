@@ -294,8 +294,8 @@
                 $(`li[v=${id}]`).text($(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text())
             } else {
                 if ($(this).hasClass("service") || $(this).hasClass('service-type')) {
-                    const service = $(this).attr('val').replace("s-", "");
-                    $(".orderSpecification ul").append(`<li class='serviceList' service_id='${service}'  v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
+                    const service = $(this).attr('service');
+                    $(".orderSpecification ul").append(`<li class='serviceList' service='${service}'  v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
                 } else
                     $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
 
@@ -406,8 +406,8 @@
 
         $("body").on('click', "input[name='service[]']", function (el) {
             if ($(el.target).is(":not(:checked)")) {
-                console.log($("li[service_id=" + $(el.target).val() + "]"));
-                $("li[service_id=" + $(el.target).val() + "]").remove();
+                console.log($("li[service=" + $(el.target).val() + "]"));
+                $("li[service=" + $(el.target).val() + "]").remove();
                 $(".service-" + $(el.target).val()).remove();
             } else {
                 if ($(el.target).val() === 'none') {
@@ -456,7 +456,7 @@
                                     value = service['values'][value];
                                     str += ("" +
                                         "<div>\n" +
-                                        "<input type=\"radio\" style=\"display: none\" val=\"s-" + service['id'] + "\"\n" +
+                                        "<input type=\"radio\" style=\"display: none\" service='" + thisService + "' val=\"s-" + service['id'] + "\"\n" +
                                         "id=\"s-" + value['id'] + "\"\n" +
                                         "name=\"service-" + service['id'] + "\" class='service' \n" +
                                         "value=\"" + value['id'] + "\">\n" +
@@ -484,7 +484,7 @@
                                     "<div class=\"clearfix\"></div>\n"
                                 str += "    <div>\n" +
                                     "<input class='service-type' name=\"service-type-" + thisService + "\" serviceID='" + thisService + "'  style=\"display: none\" id=\"service-type-1\"\n" +
-                                    "type=\"radio\" val=\"typeService\"\n" +
+                                    "type=\"radio\" service='" + thisService + "' val=\"typeService\"\n" +
                                     "value=\"single\"/>\n" +
                                     "<label for=\"service-type-1\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
                                     "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
@@ -493,7 +493,7 @@
                                     "</label>\n" +
                                     "</div>";
                                 str += "<div>\n" +
-                                    "<input class='service-type' name=\"service-type-" + thisService + "\" serviceID='" + thisService + "'  style=\"display: none\" id=\"service-type-2\" type=\"radio\" val=\"typeService\"\n" +
+                                    "<input class='service-type' service='" + thisService + "' name=\"service-type-" + thisService + "\" serviceID='" + thisService + "'  style=\"display: none\" id=\"service-type-2\" type=\"radio\" val=\"typeService\"\n" +
                                     "\n" +
                                     "value=\"double\"/>\n" +
                                     "<label for=\"service-type-2\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +

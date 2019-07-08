@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="408" column="44" selection-start-line="408" selection-start-column="44" selection-end-line="408" selection-end-column="44" />
+            <state relative-caret-position="252">
+              <caret line="296" column="57" selection-start-line="296" selection-start-column="57" selection-end-line="296" selection-end-column="57" />
               <folding>
                 <element signature="e#1208#1272#0#HTML" expanded="true" />
                 <element signature="e#1408#1466#0#HTML" expanded="true" />
@@ -162,7 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onchan</find>
       <find>addProductPrice</find>
       <find>&lt;/f</find>
       <find>ValidationStore</find>
@@ -192,6 +191,7 @@
       <find>if ($request-&gt;serviceFiles[$service</find>
       <find>dd</find>
       <find>not:</find>
+      <find>val</find>
     </findStrings>
     <replaceStrings>
       <replace>#d52027</replace>
@@ -563,12 +563,12 @@
       <workItem from="1562151002790" duration="10107000" />
       <workItem from="1562226814393" duration="10153000" />
       <workItem from="1562391654729" duration="9551000" />
-      <workItem from="1562494430133" duration="10290000" />
+      <workItem from="1562494430133" duration="11452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175553000" />
+    <option name="totallyTimeSpent" value="176715000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -988,8 +988,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="408" column="44" selection-start-line="408" selection-start-column="44" selection-end-line="408" selection-end-column="44" />
+        <state relative-caret-position="252">
+          <caret line="296" column="57" selection-start-line="296" selection-start-column="57" selection-end-line="296" selection-end-column="57" />
           <folding>
             <element signature="e#1208#1272#0#HTML" expanded="true" />
             <element signature="e#1408#1466#0#HTML" expanded="true" />
