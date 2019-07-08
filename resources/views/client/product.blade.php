@@ -406,7 +406,7 @@
 
         $("body").on('click', "input[name='service[]']", function (el) {
             if ($(el.target).is(":not(:checked)")) {
-                $("li[serviceID=" + $(el.target).val() + "]").remove();
+                $("li[serviceid=" + $(el.target).val() + "]").remove();
                 $(".service-" + $(el.target).val()).remove();
             } else {
                 if ($(el.target).val() === 'none') {
