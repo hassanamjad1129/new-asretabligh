@@ -295,7 +295,7 @@
             } else {
                 if ($(this).hasClass("service") || $(this).hasClass('service-type')) {
                     const service = $(this).attr('val').replace("s-", "");
-                    $(".orderSpecification ul").append(`<li class='serviceList' serviceID='${service}'  v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
+                    $(".orderSpecification ul").append(`<li class='serviceList' service_id='${service}'  v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
                 } else
                     $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
 
@@ -406,8 +406,8 @@
 
         $("body").on('click', "input[name='service[]']", function (el) {
             if ($(el.target).is(":not(:checked)")) {
-                console.log($("li[serviceid=" + $(el.target).val() + "]"));
-                $("li[serviceid=" + $(el.target).val() + "]").remove();
+                console.log($("li[service_id=" + $(el.target).val() + "]"));
+                $("li[service_id=" + $(el.target).val() + "]").remove();
                 $(".service-" + $(el.target).val()).remove();
             } else {
                 if ($(el.target).val() === 'none') {
