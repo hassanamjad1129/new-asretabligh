@@ -293,9 +293,10 @@
             if ($(`li[v=${id}]`).length) {
                 $(`li[v=${id}]`).text($(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text())
             } else {
-                if ($(this).hasClass("service") || $(this).hasClass('service-type'))
-                    $(".orderSpecification ul").append(`<li class='serviceList' v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
-                else
+                if ($(this).hasClass("service") || $(this).hasClass('service-type')) {
+                    const service = $(this).attr('val').replace("s-", "");
+                    $(".orderSpecification ul").append(`<li class='serviceList' serviceID='${service}'  v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
+                } else
                     $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
 
             }
@@ -388,17 +389,16 @@
                     response = JSON.parse(response);
                     for (var item in response) {
                         $("#mainServices").append("    <div>\n" +
-                            "                                    <input type=\"checkbox\" allow_type='" + response[item]['allow_type'] + "' style=\"display: none\" val=\"service\"\n" +
-                            "                                           id=\"service-" + response[item].id + "\"\n" +
-                            "                                           name=\"service[]\"\n" +
-                            "                                           value=\"" + response[item].id + "\">\n" +
-                            "                                    <label for=\"service-" + response[item].id + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
-                            "                                        <div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
-                            "                                            <p style=\"text-align: center\">" + response[item].name + "</p>\n" +
-                            "                                        </div>\n" +
-                            "                                    </label>\n" +
-                            "                                </div>\n" +
-                            "                            ")
+                            "<input type=\"checkbox\" allow_type='" + response[item]['allow_type'] + "' style=\"display: none\" val=\"service\"\n" +
+                            "id=\"service-" + response[item].id + "\"\n" +
+                            "name=\"service[]\"\n" +
+                            "value=\"" + response[item].id + "\">\n" +
+                            "<label for=\"service-" + response[item].id + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
+                            "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                            "<p style=\"text-align: center\">" + response[item].name + "</p>\n" +
+                            "</div>\n" +
+                            "</label>\n" +
+                            "</div>\n")
                     }
                 }
             });
@@ -406,6 +406,7 @@
 
         $("body").on('click', "input[name='service[]']", function (el) {
             if ($(el.target).is(":not(:checked)")) {
+                $("li[serviceID=" + $(el.target).val() + "]").remove();
                 $(".service-" + $(el.target).val()).remove();
             } else {
                 if ($(el.target).val() === 'none') {
