@@ -293,7 +293,11 @@
             if ($(`li[v=${id}]`).length) {
                 $(`li[v=${id}]`).text($(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text())
             } else {
-                $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
+                if ($(this).hasClass("service") || $(this).hasClass('service-type'))
+                    $(".orderSpecification ul").append(`<li class='serviceList' v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
+                else
+                    $(".orderSpecification ul").append(`<li v='${id}'>` + $(`label[v=${id}]`).text() + " : " + $(this).parent().children('label').text() + `</li>`)
+
             }
             services = []
             $.each($("input[name='service[]']:checked"), function () {
@@ -407,6 +411,7 @@
                 if ($(el.target).val() === 'none') {
                     services = [];
                     service = {};
+                    $("li[class='serviceList']").remove();
                     $("div[class^='service-']").remove();
                     $("input[name='service[]']").prop('checked', false);
                     if (pageCount)
