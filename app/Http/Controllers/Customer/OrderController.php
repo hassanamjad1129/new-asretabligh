@@ -320,7 +320,7 @@ class OrderController extends Controller
             }
         } else
             $count = $request->qty;
-        $prices = ProductPrice::where('product_id', $request->product)->where('values', $data)->where('min', '<=', $count)->where(function ($query) use ($count) {
+        $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $data)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
         if (auth()->guard('customer')->user()) {
@@ -346,22 +346,36 @@ class OrderController extends Controller
                     $values[] = $request->input('service-' . $property->id);
             }
             sort($values);
-            $servicePrices = ServicePrice::where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
+            $servicePrices = ServicePrice::where('paper_id', $request->paper)->where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
                 $query->where('max', '>=', $count)->whereOr('max', '');
             })->first();
             $services[$key]['id'] = $service->id;
             $services[$key]['properties'] = $values;
             if ($servicePrices->service->allow_type) {
                 if ($request->input('service-type-' . $service->id) == 'single') {
-                    if (auth()->guard('customer')->user())
-                        $servicePrice = $servicePrices->coworker_single_price;
-                    else
-                        $servicePrice = $servicePrices->single_price;
+                    if (auth()->guard('customer')->user()) {
+                        if ($service->paper_count)
+                            $servicePrice = ($servicePrices->coworker_single_price * $count);
+                        else
+                            $servicePrice = ($servicePrices->coworker_single_price * $request->qty);
+                    } else {
+                        if ($service->paper_count)
+                            $servicePrice = ($servicePrices->single_price * $count);
+                        else
+                            $servicePrice = ($servicePrices->single_price * $request->qty);
+                    }
                 } elseif ($request->input('service-type-' . $service->id) == 'double') {
-                    if (auth()->guard('customer')->user())
-                        $servicePrice = $servicePrices->coworker_double_price;
-                    else
-                        $servicePrice = $servicePrices->double_price;
+                    if (auth()->guard('customer')->user()) {
+                        if ($service->paper_count)
+                            $servicePrice = ($servicePrices->coworker_double_price * $count);
+                        else
+                            $servicePrice = ($servicePrices->coworker_double_price * $request->qty);
+                    } else {
+                        if ($service->paper_count)
+                            $servicePrice = ($servicePrices->double_price * $count);
+                        else
+                            $servicePrice = ($servicePrices->double_price * $request->qty);
+                    }
                 }
             } else
                 $servicePrice = $servicePrices->price;
