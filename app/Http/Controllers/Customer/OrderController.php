@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Customer;
 
 use App\Models\Product;
 use App\Models\ProductPrice;
+use App\Order;
+use App\OrderItem;
 use App\Service;
 use App\ServicePrice;
 use App\ServiceProperty;
@@ -13,6 +15,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use ATCart;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class OrderController extends Controller
 {
@@ -417,7 +421,86 @@ class OrderController extends Controller
         foreach ($request->carts as $cart) {
             $carts[] = $request->session()->get('cart.' . $cart);
         }
-        return view('customer.finalStep', ['shippings' => $shippings, 'carts' => $carts]);
+        return view('customer.finalStep', ['shippings' => $shippings, 'carts' => $carts, 'indexes' => $request->carts]);
+    }
+
+    public function storeOrder(Request $request)
+    {
+        $validator = $this->storeOrderValidation($request);
+        if ($validator->fails())
+            return back()->withErrors([$validator], 'failed');
+        if ($this->checkCart($request))
+            return back()->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
+        $sum = 0;
+        foreach ($request->indexes as $cart) {
+            $cart = $request->session()->get('cart.' . $cart);
+            $sum += $cart['price'];
+            $servicePrice = 0;
+            foreach ($cart['services'] as $service) {
+                $servicePrice += $service['price'];
+            }
+            $sum += $servicePrice;
+        }
+        if ($request->payment_method == 'money_bag' and !$this->checkCredit($sum))
+            return back()->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
+        $shipping = shipping::find($request->shipping);
+        if ($shipping->take_address and !$request->address)
+            return back()->withErrors(['خطا! آدرس را وارد کنید'], 'failed')->withInput();
+        $order = $this->storeOrderObject($request, $sum);
+
+    }
+
+    private function storeOrderObject(Request $request, $sum, $transaction_id = null)
+    {
+        $order = new Order();
+        $order->transaction_id = $transaction_id;
+        $order->total = $sum;
+        $order->payed = 0;
+        $order->address = $request->address;
+        $order->delivery_method = $request->shipping;
+        $order->discount = null;
+        $order->payment_method = $request->payment_method;
+        $order->save();
+        return $order;
+    }
+
+    private function storeOrderItems($cart, Order $order)
+    {
+        $product = Product::find($cart['product']);
+        $orderItem = new OrderItem();
+        $orderItem->order_id = $order->id;
+        $orderItem->product_id = $product->id;
+        $orderItem->category_id = $product->category_id;
+        $orderItem->data = $cart['data'];
+        $orderItem->price = $cart['price'];
+        $orderItem->type = $cart['type'];
+
+    }
+
+    private function checkCredit($totalPrice)
+    {
+        if (auth()->guard('customer')->user()->credit < $totalPrice)
+            return false;
+        return true;
+    }
+
+    private function checkCart(Request $request)
+    {
+        foreach ($request->cart as $cart) {
+            if (!$request->session()->has('cart.' . $cart)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private function storeOrderValidation(Request $request)
+    {
+        return Validator::make($request->all(), [
+            'cart' => ['required', 'array', 'present'],
+            'shipping' => ['required', Rule::exists('shippings', 'id')],
+            'payment_method' => ['required', Rule::in(['online', 'money_bag'])]
+        ]);
     }
 
 }

@@ -7,7 +7,7 @@
     <section class="content">
         <div class="card">
             <div class="card-header">
-                <h2>روش ارسال سفارشات</h2>
+                <h5>روش ارسال سفارشات</h5>
             </div><!-- /.box-header -->
             <div class="card-block">
                 <a href="{{ route('admin.shipping.create') }}" class="btn btn-success">ایجاد روش جدید</a>
@@ -29,10 +29,12 @@
                             <td>{{ $shipping->status?"غیرفعال":"فعال" }}</td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{ route('shippings.edit',[$shipping->id]) }}" class="btn btn-warning">ویرایش
+                                    <a href="{{ route('admin.shipping.edit',[$shipping->id]) }}"
+                                       class="btn btn-primary">ویرایش
                                         اطلاعات</a>
                                     @if(!$shipping->status)
-                                        <form action="{{ route('shippings.destroy',[$shipping->id]) }}" method="post"
+                                        <form action="{{ route('admin.shipping.destroy',[$shipping->id]) }}"
+                                              method="post"
                                               style="display: inline">
                                             @csrf
                                             @method('delete')
@@ -44,7 +46,7 @@
                                             </button>
                                         </form>
                                     @else
-                                        <a href="{{ route('shippings.restore',[$shipping->id]) }}"
+                                        <a href="{{ route('admin.shipping.restore',[$shipping->id]) }}"
                                            class="btn btn-danger">بازگردانی روش</a>
                                     @endif
                                 </div>

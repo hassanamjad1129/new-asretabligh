@@ -15,6 +15,10 @@ class CreateOrderItemServiceFilesTable extends Migration
     {
         Schema::create('order_item_service_files', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('order_item_service_id');
+            $table->foreign('order_item_service_id')->references('id')->on('order_item_services')->onDelete('cascade');
+            $table->string('front_file');
+            $table->string('back_file')->nullable();
             $table->timestamps();
         });
     }

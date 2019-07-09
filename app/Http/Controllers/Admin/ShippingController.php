@@ -22,7 +22,7 @@ class ShippingController extends Controller
         $shipping->icon = $request->filepath;
         $shipping->price = $request->price;
         $shipping->save();
-        return redirect(route('admin.shippings.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+        return redirect(route('admin.shipping.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
     public function edit(shipping $shipping)
@@ -38,7 +38,7 @@ class ShippingController extends Controller
         $shipping->icon = $request->filepath;
         $shipping->price = $request->price;
         $shipping->save();
-        return redirect(route('admin.shippings.index'))->withErrors(['عملیات با موفقیت انجام شد.'], 'success');
+        return redirect(route('admin.shipping.index'))->withErrors(['عملیات با موفقیت انجام شد.'], 'success');
     }
 
     public function index()
@@ -50,14 +50,14 @@ class ShippingController extends Controller
     public function destroy(shipping $shipping)
     {
         $shipping->delete();
-        return redirect(route('admin.shippings.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+        return redirect(route('admin.shipping.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
     public function restore(shipping $shipping)
     {
         $shipping->status = 0;
         $shipping->save();
-        return redirect(route('admin.shippings.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+        return redirect(route('admin.shipping.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
 }
