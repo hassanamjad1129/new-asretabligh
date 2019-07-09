@@ -132,6 +132,8 @@ class OrderController extends Controller
                 $sum = 0;
                 foreach ($request->services as $service) {
                     $service = Service::find($service);
+                    $values = [];
+
                     foreach ($service->ServiceProperties as $property) {
                         if ($request->has('service.service-' . $property->id))
                             $values[] = $request->service['service-' . $property->id];
@@ -164,6 +166,8 @@ class OrderController extends Controller
                 $sum = 0;
                 foreach ($request->services as $service) {
                     $service = Service::find($service);
+                    $values = [];
+
                     foreach ($service->ServiceProperties as $property) {
                         if ($request->has('service.service-' . $property->id))
                             $values[] = $request->service['service-' . $property->id];
@@ -198,13 +202,13 @@ class OrderController extends Controller
                 $values = [];
                 $sum = 0;
                 foreach ($request->services as $service) {
+                    $values = [];
                     $service = Service::find($service);
                     foreach ($service->ServiceProperties as $property) {
                         if ($request->has('service.service-' . $property->id))
                             $values[] = $request->service['service-' . $property->id];
                     }
                     sort($values);
-                    dump($values);
                     $servicePrices = ServicePrice::where('service_id', $service->id)->where('paper_id', $request->paper)->where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
@@ -234,6 +238,8 @@ class OrderController extends Controller
                 $sum = 0;
                 foreach ($request->services as $service) {
                     $service = Service::find($service);
+                    $values = [];
+
                     foreach ($service->ServiceProperties as $property) {
                         if ($request->has('service.service-' . $property->id))
                             $values[] = $request->service['service-' . $property->id];
