@@ -204,7 +204,7 @@ class OrderController extends Controller
                             $values[] = $request->service['service-' . $property->id];
                     }
                     sort($values);
-                    dd($values);
+                    dump($values);
                     $servicePrices = ServicePrice::where('service_id', $service->id)->where('paper_id', $request->paper)->where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
                         $query->where('max', '>=', $count)->whereOr('max', '');
                     })->first();
