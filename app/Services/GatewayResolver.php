@@ -160,6 +160,7 @@ class GatewayResolver
         $this->port->setConfig($this->config); // injects config
         $this->port->setPortName($name); // injects config
         $this->port->boot();
+
         return $this;
     }
 }

@@ -461,10 +461,14 @@ class OrderController extends Controller
         } else {
             try {
                 $gateway = Gateway::make(new Irankish());
+
+
                 $gateway->price($sum / 10)->ready();
+                dd($gateway);
                 $transID = $gateway->transactionId();
                 $order->transaction_id = $transID;
                 $order->save();
+
                 return $gateway->redirect();
             } catch (Exception $e) {
                 return $e->getMessage();

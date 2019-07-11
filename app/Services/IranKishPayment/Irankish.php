@@ -40,7 +40,13 @@ class Irankish extends PortAbstract implements PortInterface
      */
     public function ready()
     {
-        $this->sendPayRequest();
+        try {
+            $this->sendPayRequest();
+        } catch (IrankishException $e) {
+            dd($e);
+        } catch (SoapFault $e) {
+            dd($e);
+        }
         return $this;
     }
 
@@ -100,6 +106,7 @@ class Irankish extends PortAbstract implements PortInterface
         if ($response->MakeTokenResult->result == false) {
             $this->transactionFailed();
             $this->newLog($response->MakeTokenResult->result, $response->MakeTokenResult->message);
+            dd($response);
             throw new IrankishException;
         }
         $this->refId = $response->MakeTokenResult->token;
