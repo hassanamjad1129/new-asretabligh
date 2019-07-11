@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/GatewayResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/GatewayResolver.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/IranKishPayment/Irankish.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/IranKishPayment/Irankish.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Services/IranKishPayment/Irankish.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="99" column="40" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="40" />
+            <state relative-caret-position="125">
+              <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
               <folding>
                 <element signature="e#50#80#0#PHP" expanded="true" />
               </folding>
@@ -532,12 +530,12 @@
       <workItem from="1562391654729" duration="9551000" />
       <workItem from="1562494430133" duration="23659000" />
       <workItem from="1562682018299" duration="1213000" />
-      <workItem from="1562825639948" duration="9387000" />
+      <workItem from="1562825639948" duration="9624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199522000" />
+    <option name="totallyTimeSpent" value="199759000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -554,9 +552,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.52122015" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.52122015" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.61904764" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.4160401" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -949,8 +947,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/IranKishPayment/Irankish.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="99" column="40" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="40" />
+        <state relative-caret-position="125">
+          <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
           <folding>
             <element signature="e#50#80#0#PHP" expanded="true" />
           </folding>

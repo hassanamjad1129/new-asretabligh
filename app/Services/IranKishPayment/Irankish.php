@@ -18,7 +18,7 @@ class Irankish extends PortAbstract implements PortInterface
      *
      * @var string
      */
-    protected $serverUrl = 'https://ikc.shaparak.ir/XToken/Tokens.xml';
+    protected $serverUrl = 'https://ikc.shaparak.ir/XTocken/Tockens.xml';
     /**
      * Address of SOAP server for verify payment
      *
