@@ -510,7 +510,7 @@ class OrderController extends Controller
 
     private function checkCart(Request $request)
     {
-        foreach ($request->cart as $cart) {
+        foreach ($request->indexes as $cart) {
             if (!$request->session()->has('cart.' . $cart)) {
                 return false;
             }
