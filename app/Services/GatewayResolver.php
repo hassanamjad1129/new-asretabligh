@@ -33,10 +33,12 @@ class GatewayResolver
      * @var Mellat|Saman|Sadad|Zarinpal|Payir|Parsian|Irankish
      */
     protected $port;
+
     /**
      * Gateway constructor.
      * @param null $config
      * @param null $port
+     * @throws PortNotFoundException
      */
     public function __construct($config = null, $port = null)
     {
@@ -68,10 +70,12 @@ class GatewayResolver
             Enum::SAMANMOBILE,
         ];
     }
+
     /**
      * Call methods of current driver
      *
      * @return mixed
+     * @throws PortNotFoundException
      */
     public function __call($name, $arguments)
     {
@@ -89,10 +93,11 @@ class GatewayResolver
     {
         return DB::table($this->config->get('gateway.table'));
     }
+
     /**
      * Callback
      *
-     * @return $this->port
+     * @return Irankish|Mellat|Parsian|Payir|Sadad|Saman|Zarinpal ->port
      *
      * @throws InvalidRequestException
      * @throws NotFoundTransactionException

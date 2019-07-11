@@ -47,7 +47,7 @@ return [
         'merchant-id'     => 'J3F8',
         'description'     => 'سفارش چاپ آنلاین',
         'sha1-key'   => '22338240992352910814917221751200141041845518824222260',
-        'callback-url'   => '/',
+        'callback-url'   => '/order/verifyOrder',
     ],
 
     //--------------------------------
