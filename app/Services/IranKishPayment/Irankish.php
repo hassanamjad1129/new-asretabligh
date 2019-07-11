@@ -5,7 +5,6 @@ namespace App\Services\IranKishPayment;
 
 
 use Illuminate\Support\Facades\Input;
-use Larautility\Gateway\Enum;
 use Larautility\Gateway\PortAbstract;
 use Larautility\Gateway\PortInterface;
 use SoapClient;
@@ -74,6 +73,7 @@ class Irankish extends PortAbstract implements PortInterface
      * @return void
      *
      * @throws IrankishException
+     * @throws SoapFault
      */
     protected function sendPayRequest()
     {

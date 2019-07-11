@@ -9,6 +9,7 @@ use App\OrderItem;
 use App\Service;
 use App\ServicePrice;
 use App\ServiceProperty;
+use App\Services\Gateway;
 use App\Services\IranKishPayment\Irankish;
 use App\shipping;
 use Exception;
@@ -19,8 +20,6 @@ use ATCart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Larautility\Gateway\Gateway;
-use Larautility\Gateway\Mellat\Mellat;
 
 class OrderController extends Controller
 {
