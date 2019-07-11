@@ -418,7 +418,7 @@ class OrderController extends Controller
             'data' => $data,
             'price' => $price,
             'services' => $services,
-            'paper' => $request->paper_id
+            'paper' => $request->paper
         ]);
         $request->session()->forget('file.' . $request->product . '.front-file');
         $request->session()->forget('file.' . $request->product . '.back-file');
