@@ -15,7 +15,6 @@
     form.appendChild(hiddenField2);
     document.body.appendChild(form);
     form.submit();
-    document.body.removeChild(form);
 </script>
 </body>
 </html>
