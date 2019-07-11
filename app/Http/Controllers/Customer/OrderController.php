@@ -465,7 +465,6 @@ class OrderController extends Controller
 
 
                 $gateway->price($sum / 10)->ready();
-                dd($gateway);
                 $transID = $gateway->transactionId();
                 $order->transaction_id = $transID;
                 $order->save();

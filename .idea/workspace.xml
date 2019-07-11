@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/IranKishPayment/Irankish.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/IranKishPayment/Irankish.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/gateway.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/gateway.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="464" lean-forward="true" selection-start-line="464" selection-end-line="464" />
+            <state relative-caret-position="258">
+              <caret line="466" column="52" selection-start-line="466" selection-start-column="52" selection-end-line="466" selection-end-column="52" />
               <folding>
                 <element signature="e#49#72#0#PHP" expanded="true" />
               </folding>
@@ -541,12 +539,12 @@
       <workItem from="1562391654729" duration="9551000" />
       <workItem from="1562494430133" duration="23659000" />
       <workItem from="1562682018299" duration="1213000" />
-      <workItem from="1562825639948" duration="11516000" />
+      <workItem from="1562825639948" duration="11824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201651000" />
+    <option name="totallyTimeSpent" value="201959000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -958,8 +956,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="464" lean-forward="true" selection-start-line="464" selection-end-line="464" />
+        <state relative-caret-position="258">
+          <caret line="466" column="52" selection-start-line="466" selection-start-column="52" selection-end-line="466" selection-end-column="52" />
           <folding>
             <element signature="e#49#72#0#PHP" expanded="true" />
           </folding>
