@@ -19,7 +19,8 @@
         "laravel/telescope": "^2.0",
         "laravel/tinker": "^1.0",
         "morilog/jalali": "^3.1",
-        "unisharp/laravel-filemanager": "^1.9"
+        "unisharp/laravel-filemanager": "^1.9",
+      "ext-soap": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

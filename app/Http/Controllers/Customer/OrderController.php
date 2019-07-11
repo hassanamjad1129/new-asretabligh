@@ -9,6 +9,7 @@ use App\OrderItem;
 use App\Service;
 use App\ServicePrice;
 use App\ServiceProperty;
+use App\Services\IranKishPayment\Irankish;
 use App\shipping;
 use Exception;
 use Howtomakeaturn\PDFInfo\PDFInfo;
@@ -460,7 +461,7 @@ class OrderController extends Controller
             return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
         } else {
             try {
-                $gateway = Gateway::make(new Mellat());
+                $gateway = Gateway::make(new Irankish());
                 $gateway->price($sum / 10)->ready();
                 $transID = $gateway->transactionId();
                 $order->transaction_id = $transID;
