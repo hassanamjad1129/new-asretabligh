@@ -23,7 +23,7 @@
     <div class="container">
         <div class="col-xs-12">
             <h3 style="text-align: center;font-weight: bold;margin-bottom: 2rem">تایید نهایی سبد خرید</h3>
-            <form action="#" method="post">
+            <form action="{{ route('customer.storeOrder') }}" method="post">
                 @csrf
                 <table class="table-striped table-bordered table-hover" style="width:100%">
                     <thead>

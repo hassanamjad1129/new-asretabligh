@@ -28,5 +28,5 @@ Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@show
 Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function () {
     Route::get('/home', 'HomeController@dashboard')->name('customerHome')->middleware('customer');
     Route::post('/finalStep','OrderController@finalStep')->name('finalStep');
-
+    Route::post('storeOrder','OrderController@storeOrder')->name('storeOrder');
 });
