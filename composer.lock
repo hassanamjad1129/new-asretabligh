@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7727690483612a05dd32aa57da731505",
+    "content-hash": "a791f7fce2cb3e053704b9815eecd565",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -847,6 +847,91 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
+            "name": "larautility/gateway",
+            "version": "3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/larautility/gateway.git",
+                "reference": "42d0ff95ec9197fdabb720baedca0f05e671b95d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/larautility/gateway/zipball/42d0ff95ec9197fdabb720baedca0f05e671b95d",
+                "reference": "42d0ff95ec9197fdabb720baedca0f05e671b95d",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^1.26.3 || ^2.0",
+                "paypal/rest-api-sdk-php": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larautility\\Gateway\\GatewayServiceProvider"
+                    ],
+                    "aliases": {
+                        "Gateway": "Larautility\\Gateway\\Gateway"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larautility\\Gateway\\": "src/",
+                    "Larautility\\Gateway\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MohammadReza Honarkhah",
+                    "email": "m.honar@gmail.com"
+                },
+                {
+                    "name": "Hamed Pakdaman",
+                    "email": "pakdaman.it@gmail.com"
+                },
+                {
+                    "name": "Amir Khorsandi",
+                    "email": "Khorsandi@me.com"
+                }
+            ],
+            "description": "A Laravel package for connecting to all Iranian's payment  gateways",
+            "homepage": "https://github.com/larautility/gateway",
+            "keywords": [
+                "Bank",
+                "Meli",
+                "Payline",
+                "asan-pardakht",
+                "dargah",
+                "gateway",
+                "ipay",
+                "iran",
+                "iranian-banks",
+                "jahanpay",
+                "laravel",
+                "mellat",
+                "pardakht",
+                "parsian",
+                "pasargad",
+                "pay",
+                "pay-ir",
+                "payment",
+                "paypal",
+                "persian-banks",
+                "poolport",
+                "port",
+                "sadad",
+                "saman",
+                "shaparak",
+                "zarinpal"
+            ],
+            "time": "2019-05-18T10:21:33+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v5.8.27",
             "source": {
@@ -1600,6 +1685,55 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "paypal/rest-api-sdk-php",
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/72e2f2466975bf128a31e02b15110180f059fc04",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "time": "2019-01-04T20:04:25+00:00"
         },
         {
             "name": "phpoption/phpoption",

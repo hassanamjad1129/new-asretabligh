@@ -41,6 +41,7 @@
                             <th> عنوان سفارش</th>
                             <th>جزییات سفارش</th>
                             <th>فایل های ارسالی</th>
+                            <th>سری</th>
                             <th>وضعیت سبد</th>
                             <th>مبلغ کل</th>
                             <th>عملیات</th>
@@ -85,6 +86,7 @@
                                         <img src="{{ $fileSplited[count($fileSplited)-1]=='pdf'?'/clientAssets/img/icons8-pdf-128.png':asset('orderFiles/'.$cart['files']['back']) }}"
                                              style="width: 100px;" alt="">
                                     </td>
+                                    <td>{{ $cart['qty'] }}</td>
                                     <td>
                                         <?php
                                         echo "در انتظار پرداخت";
@@ -106,14 +108,14 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;font-size: 1.7rem">آیتمی در سبد خرید شما وجود
+                                <td colspan="9" style="text-align: center;font-size: 1.7rem">آیتمی در سبد خرید شما وجود
                                     ندارد
                                 </td>
                             </tr>
                         @endif
                         </tbody>
                         <tfoot>
-                        <td colspan="6">جمع کل :</td>
+                        <td colspan="7">جمع کل :</td>
                         <td colspan="2">{{ ta_persian_num(number_format($sum)) }} ریال</td>
                         </tfoot>
                     </table>

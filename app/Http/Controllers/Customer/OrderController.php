@@ -10,6 +10,7 @@ use App\Service;
 use App\ServicePrice;
 use App\ServiceProperty;
 use App\shipping;
+use Exception;
 use Howtomakeaturn\PDFInfo\PDFInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,6 +18,8 @@ use ATCart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Larautility\Gateway\Gateway;
+use Larautility\Gateway\Mellat\Mellat;
 
 class OrderController extends Controller
 {
@@ -414,7 +417,8 @@ class OrderController extends Controller
             'type' => $request->type,
             'data' => $data,
             'price' => $price,
-            'services' => $services
+            'services' => $services,
+            'paper' => $request->paper_id
         ]);
         $request->session()->forget('file.' . $request->product . '.front-file');
         $request->session()->forget('file.' . $request->product . '.back-file');
@@ -438,23 +442,34 @@ class OrderController extends Controller
             return back()->withErrors([$validator], 'failed');
         if ($this->checkCart($request))
             return back()->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
-        $sum = 0;
-        foreach ($request->indexes as $cart) {
-            $cart = $request->session()->get('cart.' . $cart);
-            $sum += $cart['price'];
-            $servicePrice = 0;
-            foreach ($cart['services'] as $service) {
-                $servicePrice += $service['price'];
-            }
-            $sum += $servicePrice;
-        }
+        $sum = $this->getSumOfOrderPrices($request);
+
         if ($request->payment_method == 'money_bag' and !$this->checkCredit($sum))
             return back()->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
+
         $shipping = shipping::find($request->shipping);
         if ($shipping->take_address and !$request->address)
             return back()->withErrors(['خطا! آدرس را وارد کنید'], 'failed')->withInput();
-        $order = $this->storeOrderObject($request, $sum);
 
+        $order = $this->storeOrderObject($request, $sum);
+        $this->storeItems($request, $order);
+        if ($request->payment_method == 'money_bag') {
+            $this->reduceMoneyBag($sum);
+            $order->status = 1;
+            $request->session()->forget('cart');
+            return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+        } else {
+            try {
+                $gateway = Gateway::make(new Mellat());
+                $gateway->price($sum / 10)->ready();
+                $transID = $gateway->transactionId();
+                $order->transaction_id = $transID;
+                $order->save();
+                return $gateway->redirect();
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
     }
 
     private function storeOrderObject(Request $request, $sum, $transaction_id = null)
@@ -481,7 +496,9 @@ class OrderController extends Controller
         $orderItem->data = $cart['data'];
         $orderItem->price = $cart['price'];
         $orderItem->type = $cart['type'];
-
+        $orderItem->paper_id = $cart['paper'];
+        $orderItem->qty = $cart['qty'];
+        $orderItem->save();
     }
 
     private function checkCredit($totalPrice)
@@ -508,6 +525,36 @@ class OrderController extends Controller
             'shipping' => ['required', Rule::exists('shippings', 'id')],
             'payment_method' => ['required', Rule::in(['online', 'money_bag'])]
         ]);
+    }
+
+    private function getSumOfOrderPrices(Request $request)
+    {
+        $sum = 0;
+        foreach ($request->indexes as $cart) {
+            $cart = $request->session()->get('cart.' . $cart);
+            $sum += $cart['price'];
+            $servicePrice = 0;
+            foreach ($cart['services'] as $service) {
+                $servicePrice += $service['price'];
+            }
+            $sum += $servicePrice;
+        }
+        return $sum;
+    }
+
+    private function storeItems(Request $request, Order $order)
+    {
+        foreach ($request->indexes as $cart) {
+            $cart = $request->session()->get('cart.' . $cart);
+            $this->storeOrderItems($cart, $order);
+        }
+    }
+
+    private function reduceMoneyBag($sum)
+    {
+        $customer = auth()->guard('customer')->user();
+        $customer->credit = $customer->credit - $sum;
+        $customer->save();
     }
 
 }
