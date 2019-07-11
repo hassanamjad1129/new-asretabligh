@@ -12,12 +12,12 @@ return [
     // Zarinpal gateway
     //--------------------------------
     'zarinpal' => [
-        'merchant-id'  => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-        'type'         => 'zarin-gate',             // Types: [zarin-gate || normal]
-        'callback-url' => '/',
-        'server'       => 'germany',                // Servers: [germany || iran || test]
+        'merchant-id'  => '553e012e-ef08-4bdd-9da7-107d5bef37d4',
+        'type'         => 'normal',             // Types: [zarin-gate || normal]
+        'callback-url' => '/order/verifyOrder',
+        'server'       => 'iran',                // Servers: [germany || iran || test]
         'email'        => 'email@gmail.com',
-        'mobile'       => '09xxxxxxxxx',
+        'mobile'       => '09120424421',
         'description'  => 'description',
     ],
 

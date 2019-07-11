@@ -20,6 +20,7 @@ use ATCart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Larautility\Gateway\Zarinpal\Zarinpal;
 
 class OrderController extends Controller
 {
@@ -460,7 +461,7 @@ class OrderController extends Controller
             return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
         } else {
             try {
-                $gateway = Gateway::make(new Irankish());
+                $gateway = Gateway::make(new zarinpal());
 
 
                 $gateway->price($sum / 10)->ready();
