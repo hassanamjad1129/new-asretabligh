@@ -476,7 +476,7 @@ class OrderController extends Controller
     {
         $order = new Order();
         $order->transaction_id = $transaction_id;
-        $order->total = $sum;
+        $order->total_price = $sum;
         $order->payed = 0;
         $order->address = $request->address;
         $order->delivery_method = $request->shipping;
