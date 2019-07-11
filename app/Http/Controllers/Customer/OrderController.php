@@ -530,7 +530,7 @@ class OrderController extends Controller
     private function getSumOfOrderPrices(Request $request)
     {
         $sum = 0;
-        foreach ($request->indexes as $cart) {
+        foreach ($request->cart as $cart) {
             $cart = $request->session()->get('cart.' . $cart);
             $sum += $cart['price'];
             $servicePrice = 0;
@@ -544,7 +544,7 @@ class OrderController extends Controller
 
     private function storeItems(Request $request, Order $order)
     {
-        foreach ($request->indexes as $cart) {
+        foreach ($request->cart as $cart) {
             $cart = $request->session()->get('cart.' . $cart);
             $this->storeOrderItems($cart, $order);
         }
