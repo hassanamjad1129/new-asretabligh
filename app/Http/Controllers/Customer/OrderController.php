@@ -439,17 +439,17 @@ class OrderController extends Controller
     {
         $validator = $this->storeOrderValidation($request);
         if ($validator->fails())
-            return back()->withErrors([$validator], 'failed');
+            return redirect(route('cart'))->withErrors([$validator], 'failed');
         if ($this->checkCart($request))
-            return back()->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
+            return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
         $sum = $this->getSumOfOrderPrices($request);
 
         if ($request->payment_method == 'money_bag' and !$this->checkCredit($sum))
-            return back()->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
+            return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
 
         $shipping = shipping::find($request->shipping);
         if ($shipping->take_address and !$request->address)
-            return back()->withErrors(['خطا! آدرس را وارد کنید'], 'failed')->withInput();
+            return redirect(route('cart'))->withErrors(['خطا! آدرس را وارد کنید'], 'failed')->withInput();
 
         $order = $this->storeOrderObject($request, $sum);
         $this->storeItems($request, $order);
