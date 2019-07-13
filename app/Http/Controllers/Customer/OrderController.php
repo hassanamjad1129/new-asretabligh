@@ -579,6 +579,10 @@ class OrderController extends Controller
             'cart' => ['required', 'array', 'present'],
             'shipping' => ['required', Rule::exists('shippings', 'id')],
             'payment_method' => ['required', Rule::in(['online', 'money_bag'])]
+        ],[
+            'cart.required'=>'آیتمی برای سفارش انتخاب نشده است',
+            'shipping.required'=>'روشی جهت ارسال سفارش انتخاب نشده است',
+            'shipping.exists'=>'روش ارسال انتخاب شده نامعتبر است'
         ]);
     }
 
