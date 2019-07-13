@@ -485,7 +485,7 @@ class OrderController extends Controller
                 $gateway = Gateway::make(new zarinpal());
 
 
-                $gateway->price($sum / 10)->ready();
+                $gateway->price($sum)->ready();
                 $transID = $gateway->transactionId();
                 $order->transaction_id = $transID;
                 $order->save();

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="" />
+    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/customer.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="624" column="50" selection-start-line="624" selection-start-column="50" selection-end-line="624" selection-end-column="50" />
+            <state relative-caret-position="274">
+              <caret line="487" column="36" selection-start-line="487" selection-start-column="36" selection-end-line="487" selection-end-column="36" />
               <folding>
                 <element signature="e#49#72#0#PHP" expanded="true" />
               </folding>
@@ -28,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_07_155834_create_order_items_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="287">
+              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -49,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/customer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="35" />
+            <state relative-caret-position="343">
+              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -58,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
+            <state relative-caret-position="262">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
@@ -235,11 +238,11 @@
         <option value="$PROJECT_DIR$/resources/views/client/product.blade.php" />
         <option value="$PROJECT_DIR$/app/Order.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/routes/customer.php" />
         <option value="$PROJECT_DIR$/config/gateway.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_07_155824_create_orders_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_07_155834_create_order_items_table.php" />
+        <option value="$PROJECT_DIR$/routes/customer.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" />
       </list>
     </option>
   </component>
@@ -551,12 +554,12 @@
       <workItem from="1562494430133" duration="23659000" />
       <workItem from="1562682018299" duration="1213000" />
       <workItem from="1562825639948" duration="13179000" />
-      <workItem from="1563001034712" duration="3409000" />
+      <workItem from="1563001034712" duration="4173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206723000" />
+    <option name="totallyTimeSpent" value="207487000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -569,6 +572,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1008" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
@@ -964,34 +968,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/gateway.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="624" column="50" selection-start-line="624" selection-start-column="50" selection-end-line="624" selection-end-column="50" />
-          <folding>
-            <element signature="e#49#72#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1004,8 +984,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_07_155834_create_order_items_table.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/customer.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="487" column="36" selection-start-line="487" selection-start-column="36" selection-end-line="487" selection-end-column="36" />
+          <folding>
+            <element signature="e#49#72#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

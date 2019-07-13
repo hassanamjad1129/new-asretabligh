@@ -29,6 +29,6 @@ Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function (
     Route::get('/home', 'HomeController@dashboard')->name('customerHome')->middleware('customer');
     Route::post('/finalStep', 'OrderController@finalStep')->name('finalStep');
     Route::post('storeOrder', 'OrderController@storeOrder')->name('storeOrder');
-    Route::post('/order/verifyOrder', 'OrderController@verifyOrder');
+    Route::get('/order/verifyOrder', 'OrderController@verifyOrder');
 
 });
