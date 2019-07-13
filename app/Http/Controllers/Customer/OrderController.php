@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Larautility\Gateway\Exceptions\RetryException;
+use Larautility\Gateway\Mellat\Mellat;
 use Larautility\Gateway\Zarinpal\Zarinpal;
 
 class OrderController extends Controller
@@ -455,6 +456,10 @@ class OrderController extends Controller
         return view('customer.finalStep', ['shippings' => $shippings, 'carts' => $carts, 'indexes' => $request->carts]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|string
+     */
     public function storeOrder(Request $request)
     {
         $validator = $this->storeOrderValidation($request);
@@ -482,7 +487,7 @@ class OrderController extends Controller
             return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
         } else {
             try {
-                $gateway = Gateway::make(new zarinpal());
+                $gateway = Gateway::make(new Mellat());
 
 
                 $gateway->price($sum)->ready();
@@ -503,6 +508,7 @@ class OrderController extends Controller
         $order = new Order();
         $order->transaction_id = $transaction_id;
         $order->total_price = $sum;
+        $order->user_id = auth()->guard('customer')->user()->id;
         $order->payed = 0;
         $order->address = $request->address;
         $order->delivery_method = $request->shipping;
@@ -524,6 +530,7 @@ class OrderController extends Controller
         $orderItem->type = $cart['type'];
         $orderItem->paper_id = $cart['paper'];
         $orderItem->qty = $cart['qty'];
+        $orderItem->user_id = auth()->guard('customer')->user()->id;
         $orderItem->save();
         if ($cart['services'])
             $this->storeOrderItemServices($cart, $orderItem);
@@ -579,10 +586,10 @@ class OrderController extends Controller
             'cart' => ['required', 'array', 'present'],
             'shipping' => ['required', Rule::exists('shippings', 'id')],
             'payment_method' => ['required', Rule::in(['online', 'money_bag'])]
-        ],[
-            'cart.required'=>'آیتمی برای سفارش انتخاب نشده است',
-            'shipping.required'=>'روشی جهت ارسال سفارش انتخاب نشده است',
-            'shipping.exists'=>'روش ارسال انتخاب شده نامعتبر است'
+        ], [
+            'cart.required' => 'آیتمی برای سفارش انتخاب نشده است',
+            'shipping.required' => 'روشی جهت ارسال سفارش انتخاب نشده است',
+            'shipping.exists' => 'روش ارسال انتخاب شده نامعتبر است'
         ]);
     }
 
@@ -647,6 +654,12 @@ class OrderController extends Controller
             echo $e->getMessage();
         }
 
+    }
+
+    public function index()
+    {
+        $orders = orderItem::where('status', '>=', 1)->where('user_id', auth()->guard('customer')->user()->id)->latest()->get();
+        return view('customer.orders.index', ['orders' => $orders]);
     }
 
 }
