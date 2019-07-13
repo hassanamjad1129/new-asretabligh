@@ -492,6 +492,7 @@ class OrderController extends Controller
 
                 return $gateway->redirect();
             } catch (Exception $e) {
+
                 return $e->getMessage();
             }
         }
