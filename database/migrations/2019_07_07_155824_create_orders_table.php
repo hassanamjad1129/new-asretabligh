@@ -22,6 +22,11 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('delivery_method');
             $table->foreign('delivery_method')->references('id')->on('shippings')->onDelete('cascade');
             $table->string('discount')->nullable();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('customers')->onDelete('cascade');
+
+
             $table->enum('payment_method', ['money_bag', 'online']);
             $table->timestamps();
         });

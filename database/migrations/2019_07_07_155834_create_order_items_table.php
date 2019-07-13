@@ -31,6 +31,11 @@ class CreateOrderItemsTable extends Migration
 
             $table->unsignedBigInteger('paper_id');
             $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('customers')->onDelete('cascade');
+
+
             $table->integer('status')->default(0);
             $table->unsignedInteger('qty')->default(1);
 
