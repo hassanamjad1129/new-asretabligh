@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\ProductPrice;
 use App\Order;
 use App\OrderItem;
+use App\OrderItemService;
+use App\OrderItemServiceFile;
 use App\Service;
 use App\ServicePrice;
 use App\ServiceProperty;
@@ -352,62 +354,76 @@ class OrderController extends Controller
             }
         }
         $services = [];
-        foreach ($request->service as $key => $service) {
-            $values = [];
-            $servicePrice = 0;
-            $service = Service::find($service);
-            foreach ($service->ServiceProperties as $property) {
-                if ($request->has('service-' . $property->id))
-                    $values[] = $request->input('service-' . $property->id);
-            }
-            sort($values);
-            $servicePrices = ServicePrice::where('paper_id', $request->paper)->where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
-                $query->where('max', '>=', $count)->whereOr('max', '');
-            })->first();
-            $services[$key]['id'] = $service->id;
-            $services[$key]['properties'] = $values;
-            if ($servicePrices->service->allow_type) {
-                if ($request->input('service-type-' . $service->id) == 'single') {
-                    if (auth()->guard('customer')->user()) {
-                        if ($service->paper_count)
-                            $servicePrice = ($servicePrices->coworker_single_price * $count);
-                        else
-                            $servicePrice = ($servicePrices->coworker_single_price * $request->qty);
-                    } else {
-                        if ($service->paper_count)
-                            $servicePrice = ($servicePrices->single_price * $count);
-                        else
-                            $servicePrice = ($servicePrices->single_price * $request->qty);
+        if ($request->service)
+            foreach ($request->service as $key => $service) {
+                $values = [];
+                $servicePrice = 0;
+                $service = Service::find($service);
+                foreach ($service->ServiceProperties as $property) {
+                    if ($request->has('service-' . $property->id))
+                        $values[] = $request->input('service-' . $property->id);
+                }
+                sort($values);
+                $servicePrices = ServicePrice::where('paper_id', $request->paper)->where('values', implode("-", $values))->where('min', '<=', $count)->where(function ($query) use ($count) {
+                    $query->where('max', '>=', $count)->whereOr('max', '');
+                })->first();
+                $services[$key]['id'] = $service->id;
+                $services[$key]['properties'] = $values;
+                if ($servicePrices->service->allow_type) {
+                    if ($request->input('service-type-' . $service->id) == 'single') {
+                        if (auth()->guard('customer')->user()) {
+                            if ($service->paper_count)
+                                $servicePrice = ($servicePrices->coworker_single_price * $count);
+                            else
+                                $servicePrice = ($servicePrices->coworker_single_price * $request->qty);
+                        } else {
+                            if ($service->paper_count)
+                                $servicePrice = ($servicePrices->single_price * $count);
+                            else
+                                $servicePrice = ($servicePrices->single_price * $request->qty);
+                        }
+                    } elseif ($request->input('service-type-' . $service->id) == 'double') {
+                        if (auth()->guard('customer')->user()) {
+                            if ($service->paper_count)
+                                $servicePrice = ($servicePrices->coworker_double_price * $count);
+                            else
+                                $servicePrice = ($servicePrices->coworker_double_price * $request->qty);
+                        } else {
+                            if ($service->paper_count)
+                                $servicePrice = ($servicePrices->double_price * $count);
+                            else
+                                $servicePrice = ($servicePrices->double_price * $request->qty);
+                        }
                     }
-                } elseif ($request->input('service-type-' . $service->id) == 'double') {
-                    if (auth()->guard('customer')->user()) {
-                        if ($service->paper_count)
-                            $servicePrice = ($servicePrices->coworker_double_price * $count);
-                        else
-                            $servicePrice = ($servicePrices->coworker_double_price * $request->qty);
+                } else
+                    $servicePrice = $servicePrices->price;
+                $services[$key]['price'] = $servicePrice;
+                $services[$key]['type'] = $request->input('service-type-' . $service->id);
+                if ($servicePrices->service->allow_type) {
+                    if ($request->input('service-type-' . $service->id) == 'single') {
+                        $destinationPath = 'ServiceFiles'; // upload path
+                        $extension = $request->file('service-front-file-' . $service->id)->getClientOriginalExtension(); // getting image extension
+                        $fileName = rand(1111111111, 99999999999) . '.' . $extension; // rename image
+                        $request->file('service-front-file-' . $service->id)->move($destinationPath, $fileName); // uploading file to given path
+                        $services[$key]['files'] = [
+                            'front' => $destinationPath . "/" . $fileName
+                        ];
                     } else {
-                        if ($service->paper_count)
-                            $servicePrice = ($servicePrices->double_price * $count);
-                        else
-                            $servicePrice = ($servicePrices->double_price * $request->qty);
+                        $destinationPath = 'ServiceFiles'; // upload path
+                        $frontExtension = $request->file('service-front-file-' . $service->id)->getClientOriginalExtension(); // getting image extension
+                        $backExtension = $request->file('service-back-file-' . $service->id)->getClientOriginalExtension(); // getting image extension
+                        $frontFileName = rand(1111111111, 99999999999) . '.' . $frontExtension; // rename image
+                        $backFileName = rand(1111111111, 99999999999) . '.' . $backExtension; // rename image
+                        $request->file('service-front-file-' . $service->id)->move($destinationPath, $frontFileName); // uploading file to given path
+                        $request->file('service-back-file-' . $service->id)->move($destinationPath, $backFileName); // uploading file to given path
+
+                        $services[$key]['files'] = [
+                            'front' => $destinationPath . "/" . $frontFileName,
+                            'back' => $destinationPath . "/" . $backFileName
+                        ];
                     }
                 }
-            } else
-                $servicePrice = $servicePrices->price;
-            $services[$key]['price'] = $servicePrice;
-            $services[$key]['type'] = $request->input('service-type-' . $service->id);
-            if ($servicePrices->service->allow_type) {
-                if ($request->input('service-type-' . $service->id) == 'single')
-                    $services[$key]['files'] = [
-                        'front' => $request->input('service-front-file-' . $service->id)
-                    ];
-                else
-                    $services[$key]['files'] = [
-                        'front' => $request->input('service-front-file-' . $service->id),
-                        'back' => $request->input('service-back-file-' . $service->id)
-                    ];
             }
-        }
         $request->session()->push('cart', [
             'files' => [
                 'front' => $request->session()->get('file.' . $request->product . '.front-file'),
@@ -454,6 +470,7 @@ class OrderController extends Controller
 
         $order = $this->storeOrderObject($request, $sum);
         $this->storeItems($request, $order);
+
         if ($request->payment_method == 'money_bag') {
             $this->reduceMoneyBag($sum);
             $order->status = 1;
@@ -503,6 +520,35 @@ class OrderController extends Controller
         $orderItem->paper_id = $cart['paper'];
         $orderItem->qty = $cart['qty'];
         $orderItem->save();
+        if ($cart['services'])
+            $this->storeOrderItemServices($cart, $orderItem);
+    }
+
+    private function storeOrderItemServices($cart, OrderItem $orderItem)
+    {
+        if ($cart['services'])
+            foreach ($cart['services'] as $service) {
+                $orderItemService = new OrderItemService();
+                $orderItemService->order_item_id = $orderItem->id;
+                $orderItemService->service_id = $service['id'];
+                $orderItemService->data = $service['properties'];
+                $orderItemService->price = $service['price'];
+                if (isset($service['type']))
+                    $orderItemService->type = $service['type'];
+                $orderItemService->save();
+                if (isset($service['type']))
+                    $this->storeOrderItemServiceFiles($orderItemService, $service['files']);
+            }
+    }
+
+    private function storeOrderItemServiceFiles(OrderItemService $orderItemService, $files)
+    {
+        $orderItemServiceFile = new OrderItemServiceFile();
+        $orderItemServiceFile->order_item_service_id = $orderItemService->id;
+        $orderItemServiceFile->front_file = $files['front'];
+        if (isset($files['back']))
+            $orderItemServiceFile->back_file = $files['back'];
+        $orderItemServiceFile->save();
     }
 
     private function checkCredit($totalPrice)
@@ -559,6 +605,15 @@ class OrderController extends Controller
         $customer = auth()->guard('customer')->user();
         $customer->credit = $customer->credit - $sum;
         $customer->save();
+    }
+
+
+    public function verifyOrder(Request $request)
+    {
+        $order = Order::where('transaction_id', $request->transaction_id)->firstOrFail();
+        $order->payed = 1;
+        $order->save();
+        //foreach ($order->)
     }
 
 }

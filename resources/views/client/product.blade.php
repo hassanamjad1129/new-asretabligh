@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="col-md-9">
-            <form action="{{ route('storeCart') }}" id="orderForm" method="post">
+            <form action="{{ route('storeCart') }}" id="orderForm" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="product" value="{{$product->id}}">
                 <div style="padding: 1rem;background: #FFF;box-shadow: 0 0 10px #BBB;overflow: hidden;">
