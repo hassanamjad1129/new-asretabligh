@@ -14,7 +14,7 @@ return [
     'zarinpal' => [
         'merchant-id'  => '553e012e-ef08-4bdd-9da7-107d5bef37d4',
         'type'         => 'normal',             // Types: [zarin-gate || normal]
-        'callback-url' => '/order/verifyOrder',
+        'callback-url' => 'customer/order/verifyOrder',
         'server'       => 'iran',                // Servers: [germany || iran || test]
         'email'        => 'email@gmail.com',
         'mobile'       => '09120424421',

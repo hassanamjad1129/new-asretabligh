@@ -22,6 +22,7 @@ use ATCart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Larautility\Gateway\Exceptions\RetryException;
 use Larautility\Gateway\Zarinpal\Zarinpal;
 
 class OrderController extends Controller
@@ -474,7 +475,8 @@ class OrderController extends Controller
         if ($request->payment_method == 'money_bag') {
             $this->reduceMoneyBag($sum);
             $order->status = 1;
-            $request->session()->forget('cart');
+            foreach ($request->cart as $cart)
+                $request->session()->forget('cart.' . $cart);
             return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
         } else {
             try {
@@ -610,10 +612,34 @@ class OrderController extends Controller
 
     public function verifyOrder(Request $request)
     {
-        $order = Order::where('transaction_id', $request->transaction_id)->firstOrFail();
-        $order->payed = 1;
-        $order->save();
-        //foreach ($order->)
+        try {
+
+            $gateway = Gateway::verify();
+
+            $order = Order::where('transaction_id', $request->transaction_id)->firstOrFail();
+            $order->payed = 1;
+            $order->save();
+            foreach ($order->orderItems as $orderItem) {
+                $orderItem->status = 1;
+                $orderItem->save();
+                $request->session()->forget('cart');
+            }
+            return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+
+        } catch (RetryException $e) {
+
+            // تراکنش قبلا سمت بانک تاییده شده است و
+            // کاربر احتمالا صفحه را مجددا رفرش کرده است
+            // لذا تنها فاکتور خرید قبل را مجدد به کاربر نمایش میدهیم
+
+            echo $e->getMessage() . "<br>";
+
+        } catch (Exception $e) {
+
+            // نمایش خطای بانک
+            echo $e->getMessage();
+        }
+
     }
 
 }
