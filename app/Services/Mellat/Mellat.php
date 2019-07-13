@@ -6,6 +6,7 @@ use App\Services\PortAbstract;
 use DateTime;
 use Illuminate\Support\Facades\Input;
 use App\Services\IranKishPayment\Enum;
+use Larautility\Gateway\Mellat\MellatException;
 use SoapClient;
 use Larautility\Gateway\PortInterface;
 use SoapFault;
