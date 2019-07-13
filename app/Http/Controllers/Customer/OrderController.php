@@ -459,7 +459,7 @@ class OrderController extends Controller
     {
         $validator = $this->storeOrderValidation($request);
         if ($validator->fails())
-            return redirect(route('cart'))->withErrors([$validator], 'failed');
+            return redirect(route('cart'))->withErrors($validator, 'failed');
         /*if ($this->checkCart($request))
             return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();*/
         $sum = $this->getSumOfOrderPrices($request);
