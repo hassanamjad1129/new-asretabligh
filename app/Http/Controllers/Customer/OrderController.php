@@ -447,6 +447,8 @@ class OrderController extends Controller
     {
         $shippings = shipping::all();
         $carts = [];
+        if (!$request->carts)
+            return back()->withErrors(['هیچ محصولی انتخاب نشده است'], 'failed');
         foreach ($request->carts as $cart) {
             $carts[] = $request->session()->get('cart.' . $cart);
         }

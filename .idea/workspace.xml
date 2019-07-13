@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_07_155824_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_07_155824_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_07_155834_create_order_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_07_155834_create_order_items_table.php" afterDir="false" />
-    </list>
+    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_07_155834_create_order_items_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="343">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
@@ -554,12 +551,12 @@
       <workItem from="1562494430133" duration="23659000" />
       <workItem from="1562682018299" duration="1213000" />
       <workItem from="1562825639948" duration="13179000" />
-      <workItem from="1563001034712" duration="3057000" />
+      <workItem from="1563001034712" duration="3409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206371000" />
+    <option name="totallyTimeSpent" value="206723000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -572,13 +569,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1008" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.22358592" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.22358592" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.2923777" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.2923777" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -1009,7 +1005,7 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_07_155834_create_order_items_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
