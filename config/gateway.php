@@ -28,7 +28,7 @@ return [
         'username'     => 'chop98',
         'password'     => '39633230',
         'terminalId'   => 1924404,
-        'callback-url' => '/order/verifyOrder'
+        'callback-url' => 'customer/order/verifyOrder'
     ],
 
     //--------------------------------
