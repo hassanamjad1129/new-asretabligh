@@ -7887,8 +7887,6 @@ a.badge:hover, a.badge:focus {
 
 .thumbnail {
     display: block;
-    padding: 4px;
-    margin-bottom: 20px
 }
 
 .thumbnail > img, .thumbnail a > img {
