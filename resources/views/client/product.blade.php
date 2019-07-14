@@ -159,7 +159,7 @@
                             @endif
                         </div>
                         <div class="col-md-12" id="serviceWrapper" style="display: none;">
-                            <label for="" v="service" style="font-weight: bold;font-size:15px;margin-top:10px">خدمات
+                            <label for="" v="service" style="font-weight: bold;font-size:1.65rem;margin-top:10px;margin-bottom:1rem"><i class="fa fa-plus-circle" style="color: #d60000;"></i> خدمات
                                 اضافی</label>
                             <div>
                                 <input type="checkbox" style="display: none" val="service"
