@@ -53,7 +53,9 @@
                 <input type="hidden" name="product" value="{{$product->id}}">
                 <div style="padding: 1rem;background: #FFF;box-shadow: 0 0 10px #BBB;overflow: hidden;">
                     <div class="col-md-8">
-                        <h3 style="margin-bottom: 2rem;font-weight: bold;"><i class="fa fa-shopping-bag"></i> ثبت سفارش
+                        <h3 style="margin-bottom: 2rem;font-weight: bold;    font-size: 1.65rem;
+    margin-top: 1rem;
+    color: #D60000;"><i class="fa fa-shopping-bag"></i> ثبت سفارش
                         </h3>
                         <div class="col-md-12">
                             <label v="paper" for=""
