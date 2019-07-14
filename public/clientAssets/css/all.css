@@ -7902,8 +7902,12 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 
 .thumbnail .caption {
     padding: 9px 0;
-    color: #FDFDFD;
-    background: #111;
+    color: #666;
+    margin-top: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.75);
 }
 
 .alert {
