@@ -19724,3 +19724,9 @@ button.close:hover {
     border-right: 1px solid #CCC;
     border-top: 1px solid #CCC;
 }
+
+@media (min-width: 992px) {
+    .col-md-3 {
+        padding: 0 0.4rem
+    }
+}
