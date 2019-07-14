@@ -58,6 +58,8 @@
     color: #D60000;"><i class="fa fa-shopping-bag"></i> ثبت سفارش
                         </h3>
                         <div class="col-md-12">
+                            <label for="">عنوان سفارش</label>
+                            <input type="text" class="form-control" name="title">
                             <label v="paper" for=""
                                    style="font-weight: bold;font-size:15px;margin-top:10px">سایز فایل
                             </label>
