@@ -19619,6 +19619,7 @@ button.close:hover {
 .thumbnail {
     border: 1px solid rgba(0, 0, 0, .2);
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .categories {
