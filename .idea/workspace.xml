@@ -60,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="7903" column="19" selection-start-line="7903" selection-start-column="19" selection-end-line="7903" selection-end-column="19" />
+            <state relative-caret-position="302">
+              <caret line="19731" column="27" selection-start-line="19731" selection-start-column="27" selection-end-line="19731" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -145,7 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>servii</find>
       <find>GetNameOfProductValue</find>
       <find>submit</find>
       <find>produc</find>
@@ -175,6 +174,7 @@
       <find>path</find>
       <find>transaction_id</find>
       <find>dd</find>
+      <find>.thumbnail</find>
     </findStrings>
     <replaceStrings>
       <replace>#d52027</replace>
@@ -569,12 +569,12 @@
       <workItem from="1562825639948" duration="13179000" />
       <workItem from="1563001034712" duration="5967000" />
       <workItem from="1563015582605" duration="6640000" />
-      <workItem from="1563034120454" duration="3153000" />
+      <workItem from="1563034120454" duration="4086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219074000" />
+    <option name="totallyTimeSpent" value="220007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -591,9 +591,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2289221" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2289221" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.2923777" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.2923777" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -1025,8 +1025,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="7903" column="19" selection-start-line="7903" selection-start-column="19" selection-end-line="7903" selection-end-column="19" />
+        <state relative-caret-position="302">
+          <caret line="19731" column="27" selection-start-line="19731" selection-start-column="27" selection-end-line="19731" selection-end-column="27" />
         </state>
       </provider>
     </entry>
