@@ -43,6 +43,10 @@
                         <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
                     </div>
                 </div>
+                <div class="col-xs-12">
+                    <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
+                    <p style="line-height: 2rem">{!! nl2br($orderItem->description) !!}</p>
+                </div>
             </div>
         </div>
     </div>

@@ -131,8 +131,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+            <state relative-caret-position="420">
+              <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
               <folding>
                 <element signature="e#268#295#0#HTML" expanded="true" />
                 <element signature="e#368#437#0#HTML" expanded="true" />
@@ -154,6 +154,8 @@
                 <element signature="e#1964#1991#0#HTML" expanded="true" />
                 <element signature="e#2219#2288#0#HTML" expanded="true" />
                 <element signature="e#2335#2365#0#HTML" expanded="true" />
+                <element signature="e#2644#2713#0#HTML" expanded="true" />
+                <element signature="e#2736#2761#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -634,12 +636,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="5559000" />
+      <workItem from="1563261536946" duration="6218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75305000" />
+    <option name="totallyTimeSpent" value="75964000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1131,8 +1133,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+        <state relative-caret-position="420">
+          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
           <folding>
             <element signature="e#268#295#0#HTML" expanded="true" />
             <element signature="e#368#437#0#HTML" expanded="true" />
@@ -1154,6 +1156,8 @@
             <element signature="e#1964#1991#0#HTML" expanded="true" />
             <element signature="e#2219#2288#0#HTML" expanded="true" />
             <element signature="e#2335#2365#0#HTML" expanded="true" />
+            <element signature="e#2644#2713#0#HTML" expanded="true" />
+            <element signature="e#2736#2761#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
