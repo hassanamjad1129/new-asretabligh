@@ -481,7 +481,7 @@ class OrderController extends Controller
 
         if ($request->payment_method == 'money_bag') {
             $this->reduceMoneyBag($sum);
-            $order->status = 1;
+            $order->payed = 1;
             $order->save();
             foreach ($request->cart as $cart)
                 $request->session()->forget('cart.' . $cart);
