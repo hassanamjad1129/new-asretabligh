@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    public $redirectTo = '/customer/home';
+    public $redirectTo = '/customer/orders';
 
 
     public function redirectTo()
@@ -37,7 +37,7 @@ class LoginController extends Controller
             $this->redirectTo = request()->get('previous');
         }
 
-        return $this->redirectTo ?? '/customer/home';
+        return $this->redirectTo ?? '/customer/orders';
     }
 
     /**

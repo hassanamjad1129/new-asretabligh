@@ -120,7 +120,7 @@
                                         ، {{ Auth::guard('customer')->user()->name }}</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{ url('/customer/home') }}"
-                                               onclick="window.location = '{{ url('customer/home') }}'"><i
+                                               onclick="window.location = '{{ url('customer/orders') }}'"><i
                                                         class="fa fa-sign-in"></i> مشاهده پروفایل</a></li>
                                         <li><a href="{{ url('/customer/logout') }}"
                                                onclick="window.location = '{{ url('customer/logout') }}'"><i
