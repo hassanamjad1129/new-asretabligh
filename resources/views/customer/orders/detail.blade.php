@@ -51,15 +51,15 @@
                             $format = explode('.', $orderItem->files->front_file)[1];
                             if($format == 'pdf'){
                             ?>
-                            <a href="{{ url($orderItem->files->front_file) }}">
+                            <a href="{{ url('/orderFiles/'.$orderItem->files->front_file) }}">
                                 <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
                                      alt=""/>
                             </a>
                             <?php
                             }else{
                             ?>
-                            <a href="{{ url($orderItem->files->front_file) }}">
-                                <img src="{{ asset($orderItem->files->front_file) }}" style="width: 100%"
+                            <a href="{{ url('/orderFiles/'.$orderItem->files->front_file) }}">
+                                <img src="{{ asset('/orderFiles/'.$orderItem->files->front_file) }}" style="width: 100%"
                                      alt="">
                             </a>
                             <?php
