@@ -71,7 +71,7 @@
                     @endif
                     <input type="file" name="avatar" class="form-control">
                 </div>
-
+                <div class="clearfix"></div>
                 <br>
 
             </form>
