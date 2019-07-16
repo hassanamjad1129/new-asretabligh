@@ -482,6 +482,7 @@ class OrderController extends Controller
         if ($request->payment_method == 'money_bag') {
             $this->reduceMoneyBag($sum);
             $order->status = 1;
+            $order->save();
             foreach ($request->cart as $cart)
                 $request->session()->forget('cart.' . $cart);
             return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
@@ -543,7 +544,7 @@ class OrderController extends Controller
                 $orderItemService = new OrderItemService();
                 $orderItemService->order_item_id = $orderItem->id;
                 $orderItemService->service_id = $service['id'];
-                $orderItemService->data = $service['properties'];
+                $orderItemService->data = implode('-', $service['properties']);
                 $orderItemService->price = $service['price'];
                 if (isset($service['type']))
                     $orderItemService->type = $service['type'];
