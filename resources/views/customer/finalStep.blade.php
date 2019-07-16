@@ -127,7 +127,7 @@
                         <label for="shipping-{{ $shipping->id }}" style="width: 100%">
                             <div style="background:rgba(0,0,0,.1);padding:1rem;margin-top:1rem;border-radius:5px">
                                 <img src="{{ asset($shipping->icon) }}" style="width: 35%" alt="">
-                                <h4 style="display:inline-block;text-align: center;margin-top: 1rem;vertical-align:middle">{{  $shipping->name }}
+                                <h4 style="display:inline-block;text-align: center;    line-height: 3rem;vertical-align:middle">{{  $shipping->name }}
                                     <br>
                                     <small>
                                         هزینه : {{ ta_persian_num(number_format($shipping->price)) }} ریال
