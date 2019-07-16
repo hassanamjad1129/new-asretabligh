@@ -193,6 +193,7 @@
                         @endif
 
                     </div>
+                    <div class="clearfix"></div>
                     <br>
                 @endforeach
             </div>
