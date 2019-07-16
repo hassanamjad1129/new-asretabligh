@@ -138,8 +138,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
+            <state relative-caret-position="360">
+              <caret line="129" column="127" selection-start-line="129" selection-start-column="127" selection-end-line="129" selection-end-column="127" />
+              <folding>
+                <element signature="e#6505#6524#0#HTML" expanded="true" />
+                <element signature="e#6679#6771#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -611,12 +615,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="13956000" />
+      <workItem from="1563261536946" duration="14107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83702000" />
+    <option name="totallyTimeSpent" value="83853000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -633,9 +637,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2457356" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2457356" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.3277592" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -1180,8 +1184,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
+        <state relative-caret-position="360">
+          <caret line="129" column="127" selection-start-line="129" selection-start-column="127" selection-end-line="129" selection-end-column="127" />
+          <folding>
+            <element signature="e#6505#6524#0#HTML" expanded="true" />
+            <element signature="e#6679#6771#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

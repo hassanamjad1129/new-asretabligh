@@ -126,8 +126,8 @@
                                id="shipping-{{ $shipping->id }}">
                         <label for="shipping-{{ $shipping->id }}" style="width: 100%">
                             <div style="background:rgba(0,0,0,.1);padding:1rem;margin-top:1rem;border-radius:5px">
-                                <img src="{{ asset($shipping->icon) }}" style="width: 100%" alt="">
-                                <h4 style="text-align: center;margin-top: 1rem;">{{  $shipping->name }}</h4>
+                                <img src="{{ asset($shipping->icon) }}" style="width: 35%" alt="">
+                                <h4 style="display:inline-block;text-align: center;margin-top: 1rem;vertical-align: text-bottom">{{  $shipping->name }}</h4>
                             </div>
                         </label>
 
