@@ -49,7 +49,9 @@
                     <hr>
                 </div>
                 <div class="clearfix"></div>
-                <h4 style="font-weight: bold">خدمات پس از چاپ</h4>
+                <div class="col-xs-12">
+                    <h4 style="font-weight: bold">خدمات پس از چاپ</h4>
+                </div>
                 @foreach($orderItem->services as $service)
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
