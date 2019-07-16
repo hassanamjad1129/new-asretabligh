@@ -48,7 +48,8 @@
                     <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
                     <hr>
                 </div>
-                <h4>خدمات پس از چاپ</h4>
+                <div class="clearfix"></div>
+                <h4 style="font-weight: bold">خدمات پس از چاپ</h4>
                 @foreach($orderItem->services as $service)
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
