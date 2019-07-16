@@ -73,6 +73,7 @@
                 <div class="clearfix"></div>
                 <br>
                 <button type="submit" class="btn btn-danger" style="float:left">بروزرسانی</button>
+                <div class="clearfix"></div>
 
             </form>
         </div>
