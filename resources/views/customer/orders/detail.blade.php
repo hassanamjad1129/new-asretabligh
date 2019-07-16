@@ -30,7 +30,12 @@
                     </div>
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold">وضعیت سفارش :</h5>
-                        <p style="padding: 1rem;background: #329941;color: #FFF;">{{ $orderItem->getStatus() }}</p>
+                        <p style="    padding: 0.5rem;
+    background: #329941;
+    color: #FFF;
+    width: auto;
+    display: inline-block;
+    border-radius: 2rem;">{{ $orderItem->getStatus() }}</p>
                     </div>
 
                 </div>

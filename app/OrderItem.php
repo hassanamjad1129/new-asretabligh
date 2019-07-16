@@ -36,7 +36,7 @@ class OrderItem extends Model
             $value = ProductValue::find($value);
             if (!$value)
                 continue;
-            echo $value->property->name . " : " . $value->name . "<br />";
+            echo ta_persian_num($value->property->name . " : " . $value->name . "<br />");
         }
     }
 
