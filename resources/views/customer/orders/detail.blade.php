@@ -58,6 +58,14 @@
                             <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">عنوان خدمت :</h5>
                             <p style="display: inline-block">{{ $service->service->name }}</p>
                         </div>
+                        <div style="margin-bottom: 1rem">
+                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">مشخصات :</h5>
+                            <p style="line-height: 2rem">{!! $service->getData() !!}</p>
+                            @if($service->type)
+                                <p style="line-height: 2rem">{{ $service->getType() }}</p>
+                            @endif
+                        </div>
+
                     </div>
                     <div class="col-md-6"></div>
 
