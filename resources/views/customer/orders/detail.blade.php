@@ -62,7 +62,7 @@
                             <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">مشخصات :</h5>
                             <p style="line-height: 2rem">{!! $service->getData() !!}</p>
                             @if($service->type)
-                                <p style="line-height: 2rem">{{ $service->getType() }}</p>
+                                <p style="line-height: 2rem">نوع کار : {{ $service->getType() }}</p>
                             @endif
                         </div>
 
