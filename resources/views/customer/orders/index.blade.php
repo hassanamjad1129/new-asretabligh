@@ -13,8 +13,12 @@
         <div class="panel panel-default" id="panel">
             <div class="panel-body">
                 <div style="margin-top: 1rem">
-                <a href="" style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.2rem">سفارشات آماده شده</a>
-                <a href="" style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.2rem">سفارشات در حال انجام</a>
+                    <a href=""
+                       style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.2rem">سفارشات
+                        آماده شده</a>
+                    <a href=""
+                       style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.2rem">سفارشات
+                        در حال انجام</a>
                 </div>
                 <div class="clearfix"></div>
                 <table class="table-striped table-bordered table-hover" style="width: 100%;margin-top:2rem">
@@ -37,8 +41,10 @@
                             <td>{{ ta_persian_num(jdate(strtotime($order->created_at))->format(' H:i Y/m/d')) }}</td>
                             <td>{{ ta_persian_num($order->qty) }}</td>
                             <td>{{ta_persian_num(number_format($order->getTotalPrice())) }} ریال</td>
-                            <td>عادی</td>
-                            <td><a href="{{ route('customer.orderDetail',[$order]) }}" style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:0.2rem 1rem;margin-top: 1rem;margin-bottom: 1rem">جزییات</a></td>
+                            <td>{{ $order->getStatus() }}</td>
+                            <td><a href="{{ route('customer.orderDetail',[$order]) }}"
+                                   style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:0.2rem 1rem;margin-top: 1rem;margin-bottom: 1rem">جزییات</a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
