@@ -46,7 +46,7 @@
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
                         <div class="clearfix"></div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <?php
                             $format = explode('.', $orderItem->files->front_file)[1];
                             if($format == 'pdf'){
@@ -66,7 +66,29 @@
                             }
                             ?>
                         </div>
-
+                        @if($orderItem->type=='double' and $orderItem->product->typeRelatedFile)
+                            <div class="col-md-5">
+                                <?php
+                                $format = explode('.', $orderItem->files->back_file)[1];
+                                if($format == 'pdf'){
+                                ?>
+                                <a href="{{ url('/orderFiles/'.$orderItem->files->back_file) }}" target="_blank">
+                                    <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
+                                         alt=""/>
+                                </a>
+                                <?php
+                                }else{
+                                ?>
+                                <a href="{{ url('/orderFiles/'.$orderItem->files->back_file) }}" target="_blank">
+                                    <img src="{{ asset('/orderFiles/'.$orderItem->files->back_file) }}"
+                                         style="width: 100%"
+                                         alt="">
+                                </a>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        @endif
                     </div>
 
                 </div>
@@ -100,6 +122,7 @@
                             <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }}
                                 ریال</p>
                         </div>
+
                     </div>
 
                 @endforeach
