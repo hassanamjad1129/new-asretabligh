@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/OrderItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrderItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -129,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+            <state relative-caret-position="330">
+              <caret line="41" column="61" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
               <folding>
                 <element signature="e#268#295#0#HTML" expanded="true" />
                 <element signature="e#321#351#0#HTML" expanded="true" />
@@ -146,16 +145,18 @@
                 <element signature="e#1639#1666#0#HTML" expanded="true" />
                 <element signature="e#1696#1743#0#HTML" expanded="true" />
                 <element signature="e#1790#1844#0#HTML" expanded="true" />
+                <element signature="e#1964#1991#0#HTML" expanded="true" />
+                <element signature="e#2021#2068#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/OrderItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="80" column="88" selection-start-line="80" selection-start-column="88" selection-end-line="80" selection-end-column="88" />
+            <state relative-caret-position="332">
+              <caret line="78" column="32" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -305,8 +306,8 @@
         <option value="$PROJECT_DIR$/routes/customer.php" />
         <option value="$PROJECT_DIR$/resources/views/customer/orders/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" />
-        <option value="$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/OrderItem.php" />
+        <option value="$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -626,12 +627,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="5136000" />
+      <workItem from="1563261536946" duration="5288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74882000" />
+    <option name="totallyTimeSpent" value="75034000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1114,10 +1115,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/OrderItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="78" column="32" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+        <state relative-caret-position="330">
+          <caret line="41" column="61" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
           <folding>
             <element signature="e#268#295#0#HTML" expanded="true" />
             <element signature="e#321#351#0#HTML" expanded="true" />
@@ -1130,14 +1138,9 @@
             <element signature="e#1639#1666#0#HTML" expanded="true" />
             <element signature="e#1696#1743#0#HTML" expanded="true" />
             <element signature="e#1790#1844#0#HTML" expanded="true" />
+            <element signature="e#1964#1991#0#HTML" expanded="true" />
+            <element signature="e#2021#2068#0#HTML" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/OrderItem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="80" column="88" selection-start-line="80" selection-start-column="88" selection-end-line="80" selection-end-column="88" />
         </state>
       </provider>
     </entry>
