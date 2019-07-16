@@ -16,50 +16,60 @@
             <h4>مشخصات شما</h4>
             <hr>
             <form action="" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                @csrf
                 <div class="row">
-                    <div class="col-md-6">
-                        <label for="">نام نام خانوادگی</label>
-                        <input type="text" name="name" id="name" value="{{ Auth::guard('customer')->user()->name }}"
-                               class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="">پست الکترونیکی</label>
-                        <input name="email" class="form-control" id="email"
-                               value="{{ Auth::guard('customer')->user()->email }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="">شماره همراه </label>
-                        <input type="text" name="phone" disabled="disabled" class="form-control" id="phone"
-                               value="{{ Auth::guard('customer')->user()->phone }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="">شماره تماس ثابت </label>
-                        <input type="text" name="tel" class="form-control" id="tel"
-                               value="{{ Auth::guard('customer')->user()->tel }}">
-                    </div>
+                    <div class="col-md-9">
+                        <div class="col-md-6">
+                            <label for="">نام نام خانوادگی</label>
+                            <input type="text" name="name" id="name" value="{{ Auth::guard('customer')->user()->name }}"
+                                   class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">پست الکترونیکی</label>
+                            <input name="email" class="form-control" id="email"
+                                   value="{{ Auth::guard('customer')->user()->email }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">شماره همراه </label>
+                            <input type="text" name="phone" disabled="disabled" class="form-control" id="phone"
+                                   value="{{ Auth::guard('customer')->user()->phone }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">شماره تماس ثابت </label>
+                            <input type="text" name="tel" class="form-control" id="tel"
+                                   value="{{ Auth::guard('customer')->user()->tel }}">
+                        </div>
 
-                    <div class="col-md-12">
-                        <label for="">آدرس</label>
-                        <textarea name="address" id="" cols="30" rows="3"
-                                  class="form-control">{{ auth()->guard('customer')->user()->address }}</textarea>
-                    </div>
+                        <div class="col-md-12">
+                            <label for="">آدرس</label>
+                            <textarea name="address" id="" cols="30" rows="3"
+                                      class="form-control">{{ auth()->guard('customer')->user()->address }}</textarea>
+                        </div>
 
-                    <div class="col-xs-12">
-                        <br>
-                        <label for="">جنسیت</label>
-                        <div class="clearfix"></div>
-                        <input type="radio" name="gender"
-                               {{ auth()->guard('customer')->user()->gender=='male'?"checked":""}} value="male"
-                               id="male">
-                        <label for="male">آقا</label>
-                        <input type="radio" name="gender"
-                               {{ auth()->guard('customer')->user()->gender=='female'?"checked":""}} value="female"
-                               id="female">
-                        <label for="female">خانم</label>
-                        <button type="submit" class="btn btn-danger" style="float:left">بروزرسانی</button>
+                        <div class="col-xs-12">
+                            <br>
+                            <label for="">جنسیت</label>
+                            <div class="clearfix"></div>
+                            <input type="radio" name="gender"
+                                   {{ auth()->guard('customer')->user()->gender=='male'?"checked":""}} value="male"
+                                   id="male">
+                            <label for="male">آقا</label>
+                            <input type="radio" name="gender"
+                                   {{ auth()->guard('customer')->user()->gender=='female'?"checked":""}} value="female"
+                                   id="female">
+                            <label for="female">خانم</label>
+                            <button type="submit" class="btn btn-danger" style="float:left">بروزرسانی</button>
+                        </div>
                     </div>
-
+                    <div class="col-md-3">
+                        @if(auth()->guard('customer')->user()->avatar)
+                            <img src="{{ asset(auth()->guard('customer')->user()->avatar) }}" style="width: 100%;"
+                                 alt="">
+                        @else
+                            <img src="/clientAssets/img/Neutral-placeholder-profile.jpg" style="width: 100%;" alt="">
+                        @endif
+                        <input type="file" name="avatar" class="form-control">
+                    </div>
 
                 </div>
                 <br>
