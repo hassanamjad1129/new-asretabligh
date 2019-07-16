@@ -131,14 +131,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+            <state relative-caret-position="60">
+              <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
               <folding>
                 <element signature="e#268#295#0#HTML" expanded="true" />
                 <element signature="e#368#437#0#HTML" expanded="true" />
                 <element signature="e#486#516#0#HTML" expanded="true" />
                 <element signature="e#477#504#0#HTML" expanded="true" />
                 <element signature="e#530#564#0#HTML" expanded="true" />
+                <element signature="e#842#872#0#HTML" expanded="true" />
+                <element signature="e#945#975#0#HTML" expanded="true" />
+                <element signature="e#1034#1064#0#HTML" expanded="true" />
                 <element signature="e#698#725#0#HTML" expanded="true" />
                 <element signature="e#1133#1202#0#HTML" expanded="true" />
                 <element signature="e#1249#1279#0#HTML" expanded="true" />
@@ -631,12 +634,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="5413000" />
+      <workItem from="1563261536946" duration="5559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75159000" />
+    <option name="totallyTimeSpent" value="75305000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1128,14 +1131,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state relative-caret-position="60">
+          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
           <folding>
             <element signature="e#268#295#0#HTML" expanded="true" />
             <element signature="e#368#437#0#HTML" expanded="true" />
             <element signature="e#486#516#0#HTML" expanded="true" />
             <element signature="e#477#504#0#HTML" expanded="true" />
             <element signature="e#530#564#0#HTML" expanded="true" />
+            <element signature="e#842#872#0#HTML" expanded="true" />
+            <element signature="e#945#975#0#HTML" expanded="true" />
+            <element signature="e#1034#1064#0#HTML" expanded="true" />
             <element signature="e#698#725#0#HTML" expanded="true" />
             <element signature="e#1133#1202#0#HTML" expanded="true" />
             <element signature="e#1249#1279#0#HTML" expanded="true" />
