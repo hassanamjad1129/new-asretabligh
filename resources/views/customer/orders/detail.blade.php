@@ -39,7 +39,7 @@
     border-radius: 2rem;">{{ $orderItem->getStatus() }}</p>
                     </div>
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">تیراژ سفارش :</h5>
+                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش :</h5>
                         <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
                     </div>
                 </div>
