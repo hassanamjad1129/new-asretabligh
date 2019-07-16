@@ -67,7 +67,12 @@
                         </div>
 
                     </div>
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 1rem">
+                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">هزینه خدمت :</h5>
+                            <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }} ریال</p>
+                        </div>
+                    </div>
 
                 @endforeach
             </div>
