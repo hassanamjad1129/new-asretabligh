@@ -58,7 +58,6 @@
                                    {{ auth()->guard('customer')->user()->gender=='female'?"checked":""}} value="female"
                                    id="female">
                             <label for="female">خانم</label>
-                            <button type="submit" class="btn btn-danger" style="float:left">بروزرسانی</button>
                         </div>
                     </div>
                 </div>
@@ -73,6 +72,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <br>
+                <button type="submit" class="btn btn-danger" style="float:left">بروزرسانی</button>
 
             </form>
         </div>
