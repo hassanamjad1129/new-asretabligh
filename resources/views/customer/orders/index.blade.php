@@ -14,10 +14,10 @@
             <div class="panel-body">
                 <div style="margin-top: 1rem">
                     <a href=""
-                       style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.2rem">سفارشات
+                       style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.05rem">سفارشات
                         آماده شده</a>
                     <a href=""
-                       style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.2rem">سفارشات
+                       style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size:1.05rem">سفارشات
                         در حال انجام</a>
                 </div>
                 <div class="clearfix"></div>
