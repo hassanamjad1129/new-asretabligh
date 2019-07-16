@@ -46,7 +46,8 @@
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
                         <div class="clearfix"></div>
-                        <div class="col-md-5">
+                        <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+    border-radius: 0.8rem;">
                             <?php
                             $format = explode('.', $orderItem->files->front_file)[1];
                             if($format == 'pdf'){
@@ -54,6 +55,8 @@
                             <a href="{{ url('/orderFiles/'.$orderItem->files->front_file) }}" target="_blank">
                                 <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
                                      alt=""/>
+                                <p style="text-align: center">فایل رو</p>
+
                             </a>
                             <?php
                             }else{
@@ -61,13 +64,16 @@
                             <a href="{{ url('/orderFiles/'.$orderItem->files->front_file) }}" target="_blank">
                                 <img src="{{ asset('/orderFiles/'.$orderItem->files->front_file) }}" style="width: 100%"
                                      alt="">
+                                <p style="text-align: center">فایل رو</p>
+
                             </a>
                             <?php
                             }
                             ?>
                         </div>
                         @if($orderItem->type=='double' and $orderItem->product->typeRelatedFile)
-                            <div class="col-md-5">
+                            <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+    border-radius: 0.8rem;">
                                 <?php
                                 $format = explode('.', $orderItem->files->back_file)[1];
                                 if($format == 'pdf'){
@@ -75,6 +81,7 @@
                                 <a href="{{ url('/orderFiles/'.$orderItem->files->back_file) }}" target="_blank">
                                     <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
                                          alt=""/>
+                                    <p style="text-align: center">فایل پشت</p>
                                 </a>
                                 <?php
                                 }else{
@@ -83,6 +90,8 @@
                                     <img src="{{ asset('/orderFiles/'.$orderItem->files->back_file) }}"
                                          style="width: 100%"
                                          alt="">
+                                    <p style="text-align: center">فایل پشت</p>
+
                                 </a>
                                 <?php
                                 }
@@ -122,6 +131,65 @@
                             <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }}
                                 ریال</p>
                         </div>
+                        @if($service->type)
+                            <div style="margin-bottom: 1rem">
+                                <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های خدمت
+                                    :</h5>
+                                <div class="clearfix"></div>
+                                <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+    border-radius: 0.8rem;">
+                                    <?php
+                                    $format = explode('.', $service->files->front_file)[1];
+                                    if($format == 'pdf'){
+                                    ?>
+                                    <a href="{{ url($service->files->front_file) }}" target="_blank">
+                                        <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}"
+                                             style="width: 100%"
+                                             alt=""/>
+                                        <p style="text-align: center">فایل رو</p>
+
+                                    </a>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <a href="{{ url($service->files->front_file) }}" target="_blank">
+                                        <img src="{{ asset($service->files->front_file) }}" style="width: 100%"
+                                             alt="">
+                                        <p style="text-align: center">فایل رو</p>
+
+                                    </a>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                @if($service->type=='double')
+                                    <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+    border-radius: 0.8rem;">
+                                        <?php
+                                        $format = explode('.', $service->files->back_file)[1];
+                                        if($format == 'pdf'){
+                                        ?>
+                                        <a href="{{ url($service->files->back_file) }}"
+                                           target="_blank">
+                                            <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}"
+                                                 style="width: 100%"
+                                                 alt=""/>
+                                            <p style="text-align: center">فایل پشت</p>
+                                        </a>
+                                        <?php
+                                        }else{
+                                        ?>
+                                        <a href="{{ url($service->files->back_file) }}"
+                                           target="_blank">
+                                            <img src="{{ asset($service->files->back_file) }}" style="width: 100%"
+                                                 alt="">
+                                            <p style="text-align: center">فایل پشت</p>
+                                        </a>
+                                        <?php } ?>
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
 
                     </div>
 

@@ -12,6 +12,11 @@ class OrderItemService extends Model
         return $this->belongsTo(Service::class);
     }
 
+    public function files()
+    {
+        return $this->hasOne(OrderItemServiceFile::class);
+    }
+
     public function getData()
     {
         $values = explode('-', $this->data);
