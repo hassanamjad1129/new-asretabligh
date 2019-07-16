@@ -62,7 +62,6 @@
                                 <img src="{{ asset($orderItem->files->front_file) }}" style="width: 100%"
                                      alt="">
                             </a>
-
                             <?php
                             }
                             ?>
