@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-xs-12">
                     <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
-                    <p style="line-height: 2rem">{!! nl2br($orderItem->description) !!}</p>
+                    <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
                 </div>
             </div>
         </div>
