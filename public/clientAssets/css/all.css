@@ -7905,7 +7905,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: rgba(255,255,255,0.75);
+    background: rgba(255, 255, 255, 0.75);
 }
 
 .alert {
@@ -11349,8 +11349,8 @@ nav, nav .active, nav .search, nav.menu ul li {
     font-family: Sans;
     font-style: normal;
     font-weight: 400;
-    src: url(../fonts/IRANSansWeb.eot);
-    src: url(../fonts/IRANSansWeb.eot?#iefix) format('embedded-opentype'), url(../fonts/IRANSansWeb.woff2) format('woff2'), url(../fonts/IRANSansWeb.woff) format('woff'), url(../fonts/IANSansWeb.ttf) format('truetype')
+    src: url(../fonts/eot/iranyekanwebmedium.eot);
+    src: url(../fonts/eot/iranyekanwebmedium.eot?#iefix) format('embedded-opentype'), url(../fonts/woff/iranyekanwebmedium.woff) format('woff2'), url(../fonts/woff/iranyekanwebmedium.woff) format('woff'), url(../fonts/ttf/iranyekanwebmedium.ttf) format('truetype')
 }
 
 @font-face {

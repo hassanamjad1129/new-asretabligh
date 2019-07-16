@@ -5,7 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebblack.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebbold.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebextrablack.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebextrabold.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanweblight.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebmedium.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebregular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebthin.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebblack.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebbold.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebextrablack.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebextrabold.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanweblight.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebmedium.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebregular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebthin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebblack.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebbold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebextrablack.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebextrabold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanweblight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebmedium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebregular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebthin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebblack.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebbold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebextrablack.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebextrabold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanweblight.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebmedium.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebregular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebthin.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/clientAssets/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/clientAssets/css/all.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,15 +55,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1075">
               <caret line="121" column="77" selection-start-line="121" selection-start-column="77" selection-end-line="121" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-462">
-              <caret line="657" column="44" selection-start-line="657" selection-start-column="44" selection-end-line="657" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -62,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="332">
-              <caret line="38" column="55" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="55" />
+              <caret line="38" column="55" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="55" />
               <folding>
                 <element signature="e#268#295#0#HTML" expanded="true" />
                 <element signature="e#368#437#0#HTML" expanded="true" />
@@ -135,7 +158,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -144,6 +167,15 @@
                 <element signature="e#6505#6524#0#HTML" expanded="true" />
                 <element signature="e#6679#6765#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="11352" column="222" selection-start-line="11352" selection-start-column="222" selection-end-line="11352" selection-end-column="222" />
             </state>
           </provider>
         </entry>
@@ -165,7 +197,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/customer/layout/dashboardMaster.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -174,7 +206,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/customer/layout/sidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="1" column="93" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="93" />
+              <caret line="1" column="93" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="93" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#!!top" expanded="true" />
@@ -217,6 +249,7 @@
       <find>.categoriesWrapper</find>
       <find>price</find>
       <find>fetchO</find>
+      <find>sans</find>
     </findStrings>
     <replaceStrings>
       <replace>#d52027</replace>
@@ -253,7 +286,6 @@
         <option value="$PROJECT_DIR$/app/Customer.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_13_133914_create_customers_table.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/public/clientAssets/css/all.css" />
         <option value="$PROJECT_DIR$/resources/views/customer/product.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/siteController.php" />
@@ -280,6 +312,7 @@
         <option value="$PROJECT_DIR$/resources/views/customer/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customer/showAllCarts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" />
+        <option value="$PROJECT_DIR$/public/clientAssets/css/all.css" />
       </list>
     </option>
   </component>
@@ -467,6 +500,47 @@
             <path>
               <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
               <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="clientAssets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="clientAssets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="clientAssets" type="462c0819:PsiDirectoryNode" />
+              <item name="fonts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="clientAssets" type="462c0819:PsiDirectoryNode" />
+              <item name="fonts" type="462c0819:PsiDirectoryNode" />
+              <item name="eot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="clientAssets" type="462c0819:PsiDirectoryNode" />
+              <item name="fonts" type="462c0819:PsiDirectoryNode" />
+              <item name="woff" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -527,22 +601,22 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/customer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/clientAssets/fonts" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\new-asretabligh\resources\views\client" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\new-asretabligh\public\clientAssets\fonts" />
       <recent name="C:\Projects\new-asretabligh\resources\views\customer" />
       <recent name="C:\Projects\new-asretabligh\public\clientAssets\img" />
       <recent name="C:\Projects\new-asretabligh\public" />
       <recent name="C:\Projects\new-asretabligh\public\clientAssets\js" />
-      <recent name="C:\Projects\new-asretabligh\public\clientAssets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\new-asretabligh\resources\views\client" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -615,12 +689,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="14549000" />
+      <workItem from="1563261536946" duration="14786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84295000" />
+    <option name="totallyTimeSpent" value="84532000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -637,9 +711,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2457356" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2457356" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.3277592" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -778,13 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589230">
-          <caret line="19641" column="18" selection-start-line="19641" selection-start-column="18" selection-end-line="19641" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1057,7 +1124,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
-          <caret line="38" column="55" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="55" />
+          <caret line="38" column="55" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="55" />
           <folding>
             <element signature="e#268#295#0#HTML" expanded="true" />
             <element signature="e#368#437#0#HTML" expanded="true" />
@@ -1130,7 +1197,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/customer/layout/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="1" column="93" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="93" />
+          <caret line="1" column="93" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="93" />
           <folding>
             <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#!!top" expanded="true" />
@@ -1142,7 +1209,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/customer/layout/dashboardMaster.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1190,6 +1257,13 @@
             <element signature="e#6505#6524#0#HTML" expanded="true" />
             <element signature="e#6679#6765#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="11352" column="222" selection-start-line="11352" selection-start-column="222" selection-end-line="11352" selection-end-column="222" />
         </state>
       </provider>
     </entry>
