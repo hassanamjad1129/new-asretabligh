@@ -490,7 +490,7 @@ class OrderController extends Controller
             }
             foreach ($request->cart as $cart)
                 $request->session()->forget('cart.' . $cart);
-            return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+            return redirect(route('customer.orders'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
         } else {
             try {
                 $gateway = Gateway::make(new Mellat());
@@ -538,7 +538,7 @@ class OrderController extends Controller
         $orderItem->qty = $cart['qty'];
         $orderItem->user_id = auth()->guard('customer')->user()->id;
         $orderItem->save();
-        $this->storeOrderItemFiles($orderItem,$cart['files']);
+        $this->storeOrderItemFiles($orderItem, $cart['files']);
         if ($cart['services'])
             $this->storeOrderItemServices($cart, $orderItem);
     }
@@ -655,7 +655,7 @@ class OrderController extends Controller
                 $orderItem->save();
                 $request->session()->forget('cart');
             }
-            return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+            return redirect(route('customer.orders'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
 
         } catch (RetryException $e) {
 

@@ -110,6 +110,7 @@
                 <div class="col-xs-12">
                     <h4 style="font-weight: bold;margin-bottom: 1rem">خدمات پس از چاپ</h4>
                 </div>
+
                 @foreach($orderItem->services as $service)
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
@@ -192,7 +193,7 @@
                         @endif
 
                     </div>
-
+                    <br>
                 @endforeach
             </div>
         </div>
