@@ -16,7 +16,7 @@
             background-color: #e52531 !important;
         }
 
-        input[type="radio"]:checked + label > div > h4, input[type="checkbox"]:checked + label > div > h4 {
+        input[type="radio"]:checked + label > div > h4, input[type="radio"]:checked + label > div > h4 > small, input[type="checkbox"]:checked + label > div > h4, input[type="checkbox"]:checked + label > div > h4 > small {
             color: #FFF !important;
         }
     </style>

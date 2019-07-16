@@ -138,8 +138,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="129" column="121" selection-start-line="129" selection-start-column="121" selection-end-line="129" selection-end-column="121" />
+            <state relative-caret-position="360">
+              <caret line="18" column="220" selection-start-line="18" selection-start-column="220" selection-end-line="18" selection-end-column="220" />
               <folding>
                 <element signature="e#6505#6524#0#HTML" expanded="true" />
                 <element signature="e#6679#6765#0#HTML" expanded="true" />
@@ -615,12 +615,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="14415000" />
+      <workItem from="1563261536946" duration="14549000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84161000" />
+    <option name="totallyTimeSpent" value="84295000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1184,8 +1184,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="129" column="121" selection-start-line="129" selection-start-column="121" selection-end-line="129" selection-end-column="121" />
+        <state relative-caret-position="360">
+          <caret line="18" column="220" selection-start-line="18" selection-start-column="220" selection-end-line="18" selection-end-column="220" />
           <folding>
             <element signature="e#6505#6524#0#HTML" expanded="true" />
             <element signature="e#6679#6765#0#HTML" expanded="true" />
