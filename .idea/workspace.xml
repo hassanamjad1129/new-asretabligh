@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/OrderItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrderItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -132,12 +131,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+            <state relative-caret-position="420">
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
               <folding>
                 <element signature="e#268#295#0#HTML" expanded="true" />
+                <element signature="e#321#351#0#HTML" expanded="true" />
                 <element signature="e#477#504#0#HTML" expanded="true" />
+                <element signature="e#530#564#0#HTML" expanded="true" />
                 <element signature="e#698#725#0#HTML" expanded="true" />
+                <element signature="e#950#980#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -618,12 +620,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="4334000" />
+      <workItem from="1563261536946" duration="4422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74080000" />
+    <option name="totallyTimeSpent" value="74168000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1115,12 +1117,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+        <state relative-caret-position="420">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding>
             <element signature="e#268#295#0#HTML" expanded="true" />
+            <element signature="e#321#351#0#HTML" expanded="true" />
             <element signature="e#477#504#0#HTML" expanded="true" />
+            <element signature="e#530#564#0#HTML" expanded="true" />
             <element signature="e#698#725#0#HTML" expanded="true" />
+            <element signature="e#950#980#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
