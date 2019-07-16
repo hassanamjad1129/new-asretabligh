@@ -3,7 +3,7 @@
     <style>
         .table-striped td, .table-striped th {
             padding: 20px 10px;
-            font-size: 1.2rem;
+            font-size: 1.0rem;
             text-align: center;
         }
     </style>
