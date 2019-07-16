@@ -119,7 +119,7 @@
                                                 class="flaticon-black"></i>@endif سلام
                                         ، {{ Auth::guard('customer')->user()->name }}</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ url('/customer/home') }}"
+                                        <li><a href="{{ url('/customer/orders') }}"
                                                onclick="window.location = '{{ url('customer/orders') }}'"><i
                                                         class="fa fa-sign-in"></i> مشاهده پروفایل</a></li>
                                         <li><a href="{{ url('/customer/logout') }}"
