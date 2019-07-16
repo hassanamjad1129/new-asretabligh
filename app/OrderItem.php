@@ -71,4 +71,14 @@ class OrderItem extends Model
         }
     }
 
+    public function getPaperName()
+    {
+        return ta_persian_num($this->paper->name);
+    }
+
+    public function getOrderDate()
+    {
+        return ta_persian_num(jdate(strtotime($this->created_at))->format('H:i Y/m/d'));
+    }
+
 }

@@ -14,7 +14,7 @@
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold">
                             مشخصات محصول :
                         </h5>
-                        <p>سایز فایل : {{ $orderItem->paper->name }}</p>
+                        <p>سایز فایل : {{ $orderItem->getPaperName() }}</p>
                         <p>{!! $orderItem->getData() !!} </p>
                         <p>نوع سفارش : {{ $orderItem->getType() }}</p>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="col-md-6">
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold">تاریخ ثبت سفارش :</h5>
-                        <p>{{ jdate(strtotime($orderItem->created_at))->format('H:i Y/m/d') }}</p>
+                        <p>{{ $orderItem->getOrderDate() }}</p>
                     </div>
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold">وضعیت سفارش :</h5>
