@@ -46,7 +46,19 @@
                 <div class="col-xs-12">
                     <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
                     <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
+                    <hr>
                 </div>
+                <h4>خدمات پس از چاپ</h4>
+                @foreach($orderItem->services as $service)
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 1rem">
+                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">عنوان خدمت :</h5>
+                            <p style="display: inline-block">{{ $service->service->name }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+
+                @endforeach
             </div>
         </div>
     </div>
