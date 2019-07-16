@@ -61,17 +61,17 @@
                             <button type="submit" class="btn btn-danger" style="float:left">بروزرسانی</button>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        @if(auth()->guard('customer')->user()->avatar)
-                            <img src="{{ asset(auth()->guard('customer')->user()->avatar) }}" style="width: 100%;"
-                                 alt="">
-                        @else
-                            <img src="/clientAssets/img/Neutral-placeholder-profile.jpg" style="width: 100%;" alt="">
-                        @endif
-                        <input type="file" name="avatar" class="form-control">
-                    </div>
-
                 </div>
+                <div class="col-md-3">
+                    @if(auth()->guard('customer')->user()->avatar)
+                        <img src="{{ asset(auth()->guard('customer')->user()->avatar) }}" style="width: 100%;"
+                             alt="">
+                    @else
+                        <img src="/clientAssets/img/Neutral-placeholder-profile.jpg" style="width: 100%;" alt="">
+                    @endif
+                    <input type="file" name="avatar" class="form-control">
+                </div>
+
                 <br>
 
             </form>
