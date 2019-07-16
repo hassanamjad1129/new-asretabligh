@@ -53,4 +53,22 @@ class OrderItem extends Model
         return $this->type == 'single' ? "یک رو" : "دو رو";
     }
 
+    public function getStatus()
+    {
+        switch ($this->status) {
+            case 1:
+                return "تایید مالی";
+                break;
+            case 2:
+                return "در حال انجام";
+                break;
+            case 3:
+                return "آماده تحویل";
+                break;
+            case 4:
+                return "تحویل داده شده";
+                break;
+        }
+    }
+
 }
