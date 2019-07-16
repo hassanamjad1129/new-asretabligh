@@ -662,4 +662,9 @@ class OrderController extends Controller
         return view('customer.orders.index', ['orders' => $orders]);
     }
 
+    public function orderDetail(OrderItem $orderItem)
+    {
+        return view('customer.orders.detail', ['orderItem' => $orderItem]);
+    }
+
 }

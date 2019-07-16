@@ -32,4 +32,5 @@ Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function (
     Route::get('/order/verifyOrder', 'OrderController@verifyOrder');
     Route::post('/order/verifyOrder', 'OrderController@verifyOrder');
     Route::get('orders', 'OrderController@index');
+    Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orderDetail');
 });

@@ -38,7 +38,7 @@
                             <td>{{ ta_persian_num($order->qty) }}</td>
                             <td>{{ ta_persian_num(number_format($order->price)) }} ریال</td>
                             <td>عادی</td>
-                            <td><a href="" style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:0.2rem 1rem;margin-top: 1rem;margin-bottom: 1rem">جزییات</a></td>
+                            <td><a href="{{ route('customer.orderDetail',[$order]) }}" style="border-radius:5px;background-image: linear-gradient(#D60000, #ee5046);color:#FFF;padding:0.2rem 1rem;margin-top: 1rem;margin-bottom: 1rem">جزییات</a></td>
                         </tr>
                     @endforeach
                     </tbody>
