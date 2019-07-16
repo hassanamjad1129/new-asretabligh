@@ -483,6 +483,10 @@ class OrderController extends Controller
             $this->reduceMoneyBag($sum);
             $order->payed = 1;
             $order->save();
+            foreach ($order->orderItems as $orderItem) {
+                $orderItem->status = 1;
+                $orderItem->save();
+            }
             foreach ($request->cart as $cart)
                 $request->session()->forget('cart.' . $cart);
             return redirect('/')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
