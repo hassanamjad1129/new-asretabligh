@@ -5,14 +5,22 @@
     <div class="col-xs-12">
         <div class="panel panel-default" id="panel">
             <div class="panel-body">
-                <h4>محصول انتخابی :</h4>
-                <p>{{ $orderItem->category->name." ".$orderItem->product->title }}</p>
-                <h4>
-                    مشخصات محصول :
-                </h4>
-                <p>{!! $orderItem->getData() !!} </p>
-                <h4>قیمت نهایی : </h4>
-                <p>{{ ta_persian_num(number_format($orderItem->getTotalPrice())) }} ریال</p>
+                <div style="margin-bottom: 1rem">
+                    <h5>محصول انتخابی :</h5>
+                    <p>{{ $orderItem->category->name." ".$orderItem->product->title }}</p>
+                </div>
+                <div style="margin-bottom: 1rem">
+                    <h5>
+                        مشخصات محصول :
+                    </h5>
+                    <p>سایز فایل : {{ $orderItem->paper->name }}</p>
+                    <p>{!! $orderItem->getData() !!} </p>
+                    <p>نوع سفارش : {{ $orderItem->getType() }}</p>
+                </div>
+                <div style="margin-bottom: 1rem">
+                    <h5>قیمت نهایی : </h5>
+                    <p>{{ ta_persian_num(number_format($orderItem->getTotalPrice())) }} ریال</p>
+                </div>
             </div>
         </div>
     </div>

@@ -19,6 +19,11 @@ class OrderItem extends Model
         return $this->belongsTo(Product::class);
     }
 
+    public function paper()
+    {
+        return $this->belongsTo(Paper::class);
+    }
+
     public function services()
     {
         return $this->hasMany(OrderItemService::class);
@@ -41,6 +46,11 @@ class OrderItem extends Model
         foreach ($this->services as $service)
             $sum += $service->price;
         return $sum;
+    }
+
+    public function getType()
+    {
+        return $this->type == 'single' ? "یک رو" : "دو رو";
     }
 
 }
