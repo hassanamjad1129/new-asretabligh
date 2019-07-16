@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\ProductPrice;
 use App\Order;
 use App\OrderItem;
+use App\OrderItemFile;
 use App\OrderItemService;
 use App\OrderItemServiceFile;
 use App\Service;
@@ -537,6 +538,7 @@ class OrderController extends Controller
         $orderItem->qty = $cart['qty'];
         $orderItem->user_id = auth()->guard('customer')->user()->id;
         $orderItem->save();
+        $this->storeOrderItemFiles($orderItem,$cart['files']);
         if ($cart['services'])
             $this->storeOrderItemServices($cart, $orderItem);
     }
@@ -566,6 +568,16 @@ class OrderController extends Controller
         if (isset($files['back']))
             $orderItemServiceFile->back_file = $files['back'];
         $orderItemServiceFile->save();
+    }
+
+    private function storeOrderItemFiles(OrderItem $orderItem, $files)
+    {
+        $orderItemFile = new OrderItemFile();
+        $orderItemFile->order_item_id = $orderItem->id;
+        $orderItemFile->front_file = $files['front'];
+        if (isset($files['back']))
+            $orderItemFile->back_file = $files['back'];
+        $orderItemFile->save();
     }
 
     private function checkCredit($totalPrice)

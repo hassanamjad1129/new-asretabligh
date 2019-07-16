@@ -42,6 +42,33 @@
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش :</h5>
                         <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
                     </div>
+
+                    <div style="margin-bottom: 1rem">
+                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
+                        <div class="col-md-6">
+                            <?php
+                            $format = explode('.', $orderItem->files)[1];
+                            if($format == 'pdf'){
+                            ?>
+                            <a href="{{ url($orderItem->files->front_file) }}">
+                                <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
+                                     alt="">
+                            </a>
+                            <?php
+                            }else{
+                            ?>
+                            <a href="{{ url($orderItem->files->front_file) }}">
+                                <img src="{{ asset($orderItem->files->front_file) }}" style="width: 100%"
+                                     alt="">
+                            </a>
+
+                            <?php
+                            }
+                            ?>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div class="col-xs-12">
                     <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
@@ -70,7 +97,8 @@
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
                             <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">هزینه خدمت :</h5>
-                            <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }} ریال</p>
+                            <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }}
+                                ریال</p>
                         </div>
                     </div>
 

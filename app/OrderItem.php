@@ -29,6 +29,11 @@ class OrderItem extends Model
         return $this->hasMany(OrderItemService::class);
     }
 
+    public function files()
+    {
+        return $this->hasOne(OrderItemFile::class);
+    }
+
     public function getData()
     {
         $values = explode('-', $this->data);
@@ -80,5 +85,6 @@ class OrderItem extends Model
     {
         return ta_persian_num(jdate(strtotime($this->created_at))->format('H:i Y/m/d'));
     }
+
 
 }
