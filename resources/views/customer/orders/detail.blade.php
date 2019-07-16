@@ -46,7 +46,7 @@
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
                         <div class="clearfix"></div>
-                        <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+                        <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.25);
     border-radius: 0.8rem;">
                             <?php
                             $format = explode('.', $orderItem->files->front_file)[1];
@@ -72,7 +72,7 @@
                             ?>
                         </div>
                         @if($orderItem->type=='double' and $orderItem->product->typeRelatedFile)
-                            <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+                            <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.25);
     border-radius: 0.8rem;">
                                 <?php
                                 $format = explode('.', $orderItem->files->back_file)[1];
@@ -137,7 +137,7 @@
                                 <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های خدمت
                                     :</h5>
                                 <div class="clearfix"></div>
-                                <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+                                <div class="col-md-5" style="padding: 0.5rem;border: 1px solid rgba(0,0,0,.25);
     border-radius: 0.8rem;">
                                     <?php
                                     $format = explode('.', $service->files->front_file)[1];

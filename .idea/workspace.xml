@@ -60,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="195" column="42" selection-start-line="195" selection-start-column="42" selection-end-line="195" selection-end-column="42" />
+            <state relative-caret-position="542">
+              <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
               <folding>
                 <element signature="e#268#295#0#HTML" expanded="true" />
                 <element signature="e#368#437#0#HTML" expanded="true" />
@@ -85,7 +85,6 @@
                 <element signature="e#2335#2365#0#HTML" expanded="true" />
                 <element signature="e#2582#2609#0#HTML" expanded="true" />
                 <element signature="e#2639#2708#0#HTML" expanded="true" />
-                <element signature="e#2831#2904#0#HTML" expanded="true" />
                 <element signature="e#3065#3084#0#HTML" expanded="true" />
                 <element signature="e#3450#3476#0#HTML" expanded="true" />
                 <element signature="e#3520#3539#0#HTML" expanded="true" />
@@ -115,7 +114,7 @@
                 <element signature="e#8408#8434#0#HTML" expanded="true" />
                 <element signature="e#8793#8812#0#HTML" expanded="true" />
                 <element signature="e#8893#8919#0#HTML" expanded="true" />
-                <element signature="e#9239#9312#0#HTML" expanded="true" />
+                <element signature="e#9479#9572#0#HTML" expanded="true" />
                 <element signature="e#9743#9762#0#HTML" expanded="true" />
                 <element signature="e#9852#9878#0#HTML" expanded="true" />
                 <element signature="e#10300#10319#0#HTML" expanded="true" />
@@ -599,12 +598,12 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="11506000" />
+      <workItem from="1563261536946" duration="11680000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81252000" />
+    <option name="totallyTimeSpent" value="81426000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1099,8 +1098,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="195" column="42" selection-start-line="195" selection-start-column="42" selection-end-line="195" selection-end-column="42" />
+        <state relative-caret-position="542">
+          <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
           <folding>
             <element signature="e#268#295#0#HTML" expanded="true" />
             <element signature="e#368#437#0#HTML" expanded="true" />
@@ -1124,7 +1123,6 @@
             <element signature="e#2335#2365#0#HTML" expanded="true" />
             <element signature="e#2582#2609#0#HTML" expanded="true" />
             <element signature="e#2639#2708#0#HTML" expanded="true" />
-            <element signature="e#2831#2904#0#HTML" expanded="true" />
             <element signature="e#3065#3084#0#HTML" expanded="true" />
             <element signature="e#3450#3476#0#HTML" expanded="true" />
             <element signature="e#3520#3539#0#HTML" expanded="true" />
@@ -1154,7 +1152,7 @@
             <element signature="e#8408#8434#0#HTML" expanded="true" />
             <element signature="e#8793#8812#0#HTML" expanded="true" />
             <element signature="e#8893#8919#0#HTML" expanded="true" />
-            <element signature="e#9239#9312#0#HTML" expanded="true" />
+            <element signature="e#9479#9572#0#HTML" expanded="true" />
             <element signature="e#9743#9762#0#HTML" expanded="true" />
             <element signature="e#9852#9878#0#HTML" expanded="true" />
             <element signature="e#10300#10319#0#HTML" expanded="true" />
