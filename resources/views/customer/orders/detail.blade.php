@@ -47,7 +47,7 @@
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
                         <div class="col-md-6">
                             <?php
-                            $format = explode('.', $orderItem->files)[1];
+                            $format = explode('.', $orderItem->files->front_file)[1];
                             if($format == 'pdf'){
                             ?>
                             <a href="{{ url($orderItem->files->front_file) }}">
