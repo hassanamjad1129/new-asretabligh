@@ -50,7 +50,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-xs-12">
-                    <h4 style="font-weight: bold">خدمات پس از چاپ</h4>
+                    <h4 style="font-weight: bold;margin-bottom: 1rem">خدمات پس از چاپ</h4>
                 </div>
                 @foreach($orderItem->services as $service)
                     <div class="col-md-6">
