@@ -194,7 +194,7 @@
 
                     </div>
                     <div class="clearfix"></div>
-                    <br>
+                    <hr>
                 @endforeach
             </div>
         </div>
