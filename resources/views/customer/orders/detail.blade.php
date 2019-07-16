@@ -165,7 +165,7 @@
                                 </div>
                                 @if($service->type=='double')
                                     <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
-    border-radius: 0.8rem;">
+    border-radius: 0.8rem;    padding: 0.5rem;">
                                         <?php
                                         $format = explode('.', $service->files->back_file)[1];
                                         if($format == 'pdf'){
