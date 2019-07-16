@@ -80,11 +80,13 @@
                                         <img src="{{ $fileSplited[count($fileSplited)-1]=='pdf'?'/clientAssets/img/icons8-pdf-128.png':asset('orderFiles/'.$cart['files']['front']) }}"
                                              style="width: 100px" alt="">
                                         <?php
+                                        if($cart['files']['back']){
                                         $fileSplited = explode('.', $cart['files']['back']);
                                         ?>
 
                                         <img src="{{ $fileSplited[count($fileSplited)-1]=='pdf'?'/clientAssets/img/icons8-pdf-128.png':asset('orderFiles/'.$cart['files']['back']) }}"
                                              style="width: 100px;" alt="">
+                                        <?php } ?>
                                     </td>
                                     <td>{{ $cart['qty'] }}</td>
                                     <td>
