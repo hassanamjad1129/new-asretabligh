@@ -45,6 +45,7 @@
 
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
+                        <div class="clearfix"></div>
                         <div class="col-md-6">
                             <?php
                             $format = explode('.', $orderItem->files->front_file)[1];
@@ -52,7 +53,7 @@
                             ?>
                             <a href="{{ url($orderItem->files->front_file) }}">
                                 <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
-                                     alt="">
+                                     alt=""/>
                             </a>
                             <?php
                             }else{
