@@ -96,9 +96,7 @@
                             <li>
                                 <a href="{{ url('shop') }}">فروشگاه</a>
                             </li>
-                            <li>
-                                <a href="{{ url('/order') }}">سفارش
-                                    آنلاین</a></li>
+
                             <li><a href="{{ url('/rules') }}">قوانین و مقرارت</a></li>
                             <li><a href="{{ url('/aboutUs') }}">درباره ما</a></li>
                             <li><a href="{{ url('/contactUs') }}">تماس با ما</a></li>
@@ -163,8 +161,6 @@
                                         @endforeach
                                     </ul>
                                 </li>
-
-                                <li class="link"><a href="{{ url('/order') }}">سفارش آنلاین</a></li>
                                 <li class="link"><a href="{{ url('/rules') }}">قوانین و مقرارت</a></li>
                                 <li class="link"><a href="{{ url('/aboutUs') }}">درباره ما</a></li>
                                 <li class="link"><a href="{{ url('/contactUs') }}">تماس با ما</a></li>
