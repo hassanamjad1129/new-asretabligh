@@ -107,7 +107,8 @@
     border-bottom-right-radius: 1rem;
     font-size: 1.5rem;
     padding: 0.7rem 0;">{{ $category->name }}</p>
-                        <img src="{{ url('/getCategoryPicture/'.$category->id) }}" style="width: 100%;margin-top: 2rem;"
+                        <img src="{{ url('/getCategoryPicture/'.$category->id) }}" style="width: 100%;margin-top: 2rem;    border-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);"
                              alt="">
                         <p style="margin-top: 1rem">{{ $category->description }}</p>
                     </div>
