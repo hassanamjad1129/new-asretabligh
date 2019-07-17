@@ -11,7 +11,7 @@ Route::get('/home', function () {
 
     return view('customer.home');
 })->name('home');
-
+Route::post('/home', 'HomeController@updateProfile');
 Route::get('/login', 'CustomerAuth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'CustomerAuth\LoginController@login');
 Route::get('/logout', 'CustomerAuth\LoginController@logout')->name('logout');
