@@ -109,7 +109,7 @@
     padding: 0.7rem 0;">{{ $category->name }}</p>
                         <img src="{{ url('/getCategoryPicture/'.$category->id) }}" style="width: 100%;margin-top: 2rem;"
                              alt="">
-                        <p>{{ $category->description }}</p>
+                        <p style="margin-top: 1rem">{{ $category->description }}</p>
                     </div>
                     <div class="col-md-9 col-sm-6">
                         @foreach($category->products as $product)
