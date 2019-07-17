@@ -36,8 +36,8 @@
                         </div>
                         <div class="col-md-6">
                             <label for="">شماره تماس ثابت </label>
-                            <input type="text" name="tel" class="form-control" id="tel"
-                                   value="{{ Auth::guard('customer')->user()->tel }}">
+                            <input type="text" name="telephone" class="form-control" id="tel"
+                                   value="{{ Auth::guard('customer')->user()->telephone }}">
                         </div>
 
                         <div class="col-md-12">
