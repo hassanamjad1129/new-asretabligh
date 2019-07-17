@@ -88,8 +88,8 @@
                             <li style="width: 80px" class="dropdown"><a href="#" class="dropdown-toggle"
                                                                         data-toggle="dropdown" data-hover="dropdown">محصولات</a>
                                 <ul class="dropdown-menu">
-                                    @foreach($prices as $price)
-                                        <li><a href="{{ url('priceList/'.$price->name) }}">{{ $price->name }}</a></li>
+                                    @foreach($categories as $category)
+                                        <li><a href="{{ url('/') }}">{{ $category->name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
