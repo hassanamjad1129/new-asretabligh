@@ -11,7 +11,6 @@ Route::get('/home', function () {
 
     return view('customer.home');
 })->name('home');
-Route::post('/home', 'HomeController@updateProfile');
 Route::get('/login', 'CustomerAuth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'CustomerAuth\LoginController@login');
 Route::get('/logout', 'CustomerAuth\LoginController@logout')->name('logout');
@@ -27,6 +26,7 @@ Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@show
 
 Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function () {
     Route::get('/home', 'HomeController@dashboard')->name('customerHome')->middleware('customer');
+    Route::post('/home', 'HomeController@updateProfile');
     Route::post('/finalStep', 'OrderController@finalStep')->name('finalStep');
     Route::post('storeOrder', 'OrderController@storeOrder')->name('storeOrder');
     Route::get('/order/verifyOrder', 'OrderController@verifyOrder');
