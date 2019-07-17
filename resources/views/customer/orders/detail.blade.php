@@ -46,7 +46,7 @@
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
                         <div class="clearfix"></div>
-                        <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.25);
+                        <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
                             <?php
                             $format = explode('.', $orderItem->files->front_file)[1];
@@ -55,7 +55,8 @@
                             <a href="{{ url('/orderFiles/'.$orderItem->files->front_file) }}" target="_blank">
                                 <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
                                      alt=""/>
-                                <p style="text-align: center">فایل رو</p>
+                                <p style="text-align: center;color: #545454;font-weight: bold;
+    font-size: 1.3rem;">فایل رو</p>
 
                             </a>
                             <?php
@@ -64,7 +65,9 @@
                             <a href="{{ url('/orderFiles/'.$orderItem->files->front_file) }}" target="_blank">
                                 <img src="{{ asset('/orderFiles/'.$orderItem->files->front_file) }}" style="width: 100%"
                                      alt="">
-                                <p style="text-align: center">فایل رو</p>
+                                <p style="text-align: center;    color: #545454;
+    font-weight: bold;
+    font-size: 1.3rem;">فایل رو</p>
 
                             </a>
                             <?php
@@ -72,7 +75,7 @@
                             ?>
                         </div>
                         @if($orderItem->type=='double' and $orderItem->product->typeRelatedFile)
-                            <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.25);
+                            <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
                                 <?php
                                 $format = explode('.', $orderItem->files->back_file)[1];
@@ -81,7 +84,9 @@
                                 <a href="{{ url('/orderFiles/'.$orderItem->files->back_file) }}" target="_blank">
                                     <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}" style="width: 100%"
                                          alt=""/>
-                                    <p style="text-align: center">فایل پشت</p>
+                                    <p style="text-align: center;    color: #545454;
+    font-weight: bold;
+    font-size: 1.3rem;">فایل پشت</p>
                                 </a>
                                 <?php
                                 }else{
@@ -90,7 +95,9 @@
                                     <img src="{{ asset('/orderFiles/'.$orderItem->files->back_file) }}"
                                          style="width: 100%"
                                          alt="">
-                                    <p style="text-align: center">فایل پشت</p>
+                                    <p style="text-align: center;    color: #545454;
+    font-weight: bold;
+    font-size: 1.3rem;">فایل پشت</p>
 
                                 </a>
                                 <?php
@@ -137,7 +144,7 @@
                                 <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های خدمت
                                     :</h5>
                                 <div class="clearfix"></div>
-                                <div class="col-md-5" style="padding: 0.5rem;border: 1px solid rgba(0,0,0,.25);
+                                <div class="col-md-5" style="padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
                                     <?php
                                     $format = explode('.', $service->files->front_file)[1];
@@ -147,7 +154,9 @@
                                         <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}"
                                              style="width: 100%"
                                              alt=""/>
-                                        <p style="text-align: center">فایل رو</p>
+                                        <p style="text-align: center;    color: #545454;
+    font-weight: bold;
+    font-size: 1.3rem;">فایل رو</p>
 
                                     </a>
                                     <?php
@@ -156,7 +165,9 @@
                                     <a href="{{ url($service->files->front_file) }}" target="_blank">
                                         <img src="{{ asset($service->files->front_file) }}" style="width: 100%"
                                              alt="">
-                                        <p style="text-align: center">فایل رو</p>
+                                        <p style="text-align: center;    color: #545454;
+    font-weight: bold;
+    font-size: 1.3rem;">فایل رو</p>
 
                                     </a>
                                     <?php
@@ -164,7 +175,7 @@
                                     ?>
                                 </div>
                                 @if($service->type=='double')
-                                    <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.25);
+                                    <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;    padding: 0.5rem;">
                                         <?php
                                         $format = explode('.', $service->files->back_file)[1];
@@ -175,7 +186,9 @@
                                             <img src="{{ asset('/clientAssets/img/icons8-pdf-128.png') }}"
                                                  style="width: 100%"
                                                  alt=""/>
-                                            <p style="text-align: center">فایل پشت</p>
+                                            <p style="text-align: center;    color: #545454;
+    font-weight: bold;
+    font-size: 1.3rem;">فایل پشت</p>
                                         </a>
                                         <?php
                                         }else{
@@ -184,7 +197,9 @@
                                            target="_blank">
                                             <img src="{{ asset($service->files->back_file) }}" style="width: 100%"
                                                  alt="">
-                                            <p style="text-align: center">فایل پشت</p>
+                                            <p style="text-align: center;    color: #545454;
+    font-weight: bold;
+    font-size: 1.3rem;">فایل پشت</p>
                                         </a>
                                         <?php } ?>
                                     </div>
