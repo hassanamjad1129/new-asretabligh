@@ -115,7 +115,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-xs-12">
-                    <h4 style="font-weight: bold;margin-bottom: 1rem">خدمات پس از چاپ</h4>
+                    <h5 style="font-weight: bold;margin-bottom: 1rem">خدمات پس از چاپ</h5>
                 </div>
 
                 @foreach($orderItem->services as $service)
