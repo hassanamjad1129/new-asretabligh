@@ -7,30 +7,30 @@
             <div class="card-block">
                 <div class="col-md-6">
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">محصول انتخابی :</h5>
+                        <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">محصول انتخابی :</h6>
                         <p style="display: inline-block">{{ $orderItem->category->name." ".$orderItem->product->title }}</p>
                     </div>
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold">
+                        <h6 style="margin-bottom: 0.5rem;font-weight: bold">
                             مشخصات محصول :
-                        </h5>
+                        </h6>
                         <p style="line-height: 2rem;">سایز فایل : {{ $orderItem->getPaperName() }}</p>
                         <p style="line-height: 2rem;">{!! $orderItem->getData() !!} </p>
                         <p style="line-height: 2rem;">نوع سفارش : {{ $orderItem->getType() }}</p>
                     </div>
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">قیمت نهایی : </h5>
+                        <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">قیمت نهایی : </h6>
                         <p style="display: inline-block">{{ ta_persian_num(number_format($orderItem->getTotalPrice())) }}
                             ریال</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">تاریخ ثبت سفارش :</h5>
+                        <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">تاریخ ثبت سفارش :</h6>
                         <p style="display: inline-block">{{ $orderItem->getOrderDate() }}</p>
                     </div>
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">وضعیت سفارش :</h5>
+                        <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">وضعیت سفارش :</h6>
                         <p style="    padding: 0.5rem;
     background: #329941;
     color: #FFF;
@@ -39,12 +39,12 @@
     border-radius: 2rem;">{{ $orderItem->getStatus() }}</p>
                     </div>
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش :</h5>
+                        <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش :</h6>
                         <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
                     </div>
 
                     <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
+                        <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h6>
                         <div class="clearfix"></div>
                         <div class="col-md-3" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
@@ -109,7 +109,7 @@
 
                 </div>
                 <div class="col-xs-12">
-                    <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
+                    <h6 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h6>
                     <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
                     <hr>
                 </div>
@@ -121,11 +121,11 @@
                 @foreach($orderItem->services as $service)
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
-                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">عنوان خدمت :</h5>
+                            <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">عنوان خدمت :</h6>
                             <p style="display: inline-block">{{ $service->service->name }}</p>
                         </div>
                         <div style="margin-bottom: 1rem">
-                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">مشخصات :</h5>
+                            <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">مشخصات :</h6>
                             <p style="line-height: 2rem">{!! $service->getData() !!}</p>
                             @if($service->type)
                                 <p style="line-height: 2rem">نوع کار : {{ $service->getType() }}</p>
@@ -135,14 +135,14 @@
                     </div>
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
-                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">هزینه خدمت :</h5>
+                            <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">هزینه خدمت :</h6>
                             <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }}
                                 ریال</p>
                         </div>
                         @if($service->type)
                             <div style="margin-bottom: 1rem">
-                                <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های خدمت
-                                    :</h5>
+                                <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های خدمت
+                                    :</h6>
                                 <div class="clearfix"></div>
                                 <div class="col-md-3" style="padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
