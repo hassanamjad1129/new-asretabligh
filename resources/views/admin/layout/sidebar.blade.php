@@ -26,7 +26,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.user.index')}}"><i class="icon-user"></i> مدیریت کاربران</a>
             </li>
-            @can('مدیریت دسترسی ها')
+            <li class="nav-title">
+                مدیریت سفارشات
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.orders.index')}}"><i class="icon-user"></i> سفارشات در حال انجام</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.orders.finished')}}"><i class="icon-user"></i> سفارشات تحویل داده شده</a>
+            </li>
+
+        @can('مدیریت دسترسی ها')
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.roles.index')}}"><i class="icon-user-follow"></i>گروه های
                         مدیریتی</a>

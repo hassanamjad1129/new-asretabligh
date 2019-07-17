@@ -64,16 +64,11 @@ Route::group(['middleware' => 'admin'], function () {
         Route::resource('paper', 'PaperController');
         Route::get('paper/{paper}/products', 'PaperController@products')->name('paper.products');
         Route::post('paper/{paper}/products', 'PaperController@updateProducts');
+
+        Route::get('orders','OrderController@index')->name('admin.orders.index');
+        Route::get('orders/finished','OrderController@finished')->name('admin.orders.finished');
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');
 Route::post('/login', 'AdminAuth\LoginController@login')->middleware('web');
 Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
-
-Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
-Route::post('/register', 'AdminAuth\RegisterController@register');
-
-Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
-Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
-Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
-Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
