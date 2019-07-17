@@ -13,6 +13,7 @@
                     <th>قیمت</th>
                     <th>تاریخ</th>
                     <th>وضعیت</th>
+                    <th>جزییات</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,7 +27,7 @@
                         <td>{{ ta_persian_num(number_format($order->getTotalPrice())) }} ریال</td>
                         <td>{{ $order->getOrderDate() }}</td>
                         <td>{{ $order->getStatus() }}</td>
-
+                        <td><a href="{{ route('admin.orders.orderDetail',[$order]) }}" class="btn btn-danger">جزییات</a></td>
                     </tr>
                 @endforeach
                 </tbody>

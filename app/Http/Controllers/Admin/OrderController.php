@@ -19,4 +19,9 @@ class OrderController extends Controller
         $orders = OrderItem::where('status', '>=', 3)->latest()->get();
         return view('admin.orders.finished', ['orders' => $orders]);
     }
+
+    public function orderDetail(orderItem $orderItem)
+    {
+        return view('admin.orders.detail', ['orderItem' => $orderItem]);
+    }
 }
