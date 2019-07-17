@@ -65,8 +65,8 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('paper/{paper}/products', 'PaperController@products')->name('paper.products');
         Route::post('paper/{paper}/products', 'PaperController@updateProducts');
 
-        Route::get('orders','OrderController@index')->name('admin.orders.index');
-        Route::get('orders/finished','OrderController@finished')->name('admin.orders.finished');
+        Route::get('orders','OrderController@index')->name('orders.index');
+        Route::get('orders/finished','OrderController@finished')->name('orders.finished');
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');
