@@ -113,10 +113,11 @@
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                                       style="padding:6px;margin-top: 0.4rem;">@if(Auth::guard('customer')->user()->image) <img
-                                                src="{{ asset('/uploads/usersPicture/'. Auth::guard('customer')->user()->image) }}"
-                                                class="img-circle" style="height:30px;margin-left:5px"> @else<i
-                                                class="flaticon-black"></i>@endif سلام
+                                       style="padding:6px;margin-top: 0.4rem;">@if(Auth::guard('customer')->user()->image)
+                                            <img
+                                                    src="{{ asset('/uploads/usersPicture/'. Auth::guard('customer')->user()->image) }}"
+                                                    class="img-circle" style="height:30px;margin-left:5px"> @else<i
+                                                    class="flaticon-black"></i>@endif سلام
                                         ، {{ Auth::guard('customer')->user()->name }}</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{ url('/customer/orders') }}"
@@ -131,7 +132,7 @@
 
                                 <li style="margin-right: 14px;">
                                     <a href="{{ route('cart') }}" style="padding:6px"><span class="badge"
-                                                                                      style="position: relative;right: 5px;bottom: 15px;">{{ ta_persian_num($cart) }}</span><i
+                                                                                            style="position: relative;right: 5px;bottom: 15px;">{{ ta_persian_num($cart) }}</span><i
                                                 class="fa fa-shopping-cart fa-2x"></i>
                                         <p style="position: relative;display: inline;bottom: 4px;">سبد خرید</p></a>
                                 </li>
@@ -153,9 +154,11 @@
                                 <li class="link have-sub">
                                     <a href=''>محصولات</a>
                                     <ul>
-                                        @foreach($prices as $price)
-                                            <li><a href="{{ url('priceList/'.$price->name) }}"
-                                                   onclick="window.location = '{{ url('priceList/'.$price->name) }}'">{{ $price->name }}</a>
+                                        @foreach($categories as $category)
+                                            <li>
+                                                <a href="{{ url('/') }}"
+                                                   onclick="window.location = '/'">{{ $category->name }}
+                                                </a>
                                             </li>
                                         @endforeach
                                     </ul>

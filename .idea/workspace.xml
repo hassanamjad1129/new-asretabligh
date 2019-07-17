@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebblack.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebbold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebextrablack.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebextrabold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanweblight.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebmedium.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebregular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/eot/iranyekanwebthin.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebblack.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebbold.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebextrablack.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebextrabold.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanweblight.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebmedium.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebregular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/svg/iranyekanwebthin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebblack.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebbold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebextrablack.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebextrabold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanweblight.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebmedium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebregular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/ttf/iranyekanwebthin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebblack.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebbold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebextrablack.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebextrabold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanweblight.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebmedium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebregular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/clientAssets/fonts/woff/iranyekanwebthin.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/clientAssets/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/clientAssets/css/all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +21,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/client/layout/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1075">
+            <state relative-caret-position="3630">
               <caret line="121" column="77" selection-start-line="121" selection-start-column="77" selection-end-line="121" selection-end-column="77" />
             </state>
           </provider>
@@ -62,12 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
+            <state relative-caret-position="2280">
               <caret line="76" selection-start-line="76" selection-end-line="76" />
-              <folding>
-                <element signature="e#3350#3366#0#HTML" expanded="true" />
-                <element signature="e#3400#3420#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -84,67 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
+            <state relative-caret-position="990">
               <caret line="38" column="55" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="55" />
-              <folding>
-                <element signature="e#268#295#0#HTML" expanded="true" />
-                <element signature="e#368#437#0#HTML" expanded="true" />
-                <element signature="e#486#516#0#HTML" expanded="true" />
-                <element signature="e#477#504#0#HTML" expanded="true" />
-                <element signature="e#530#564#0#HTML" expanded="true" />
-                <element signature="e#842#872#0#HTML" expanded="true" />
-                <element signature="e#945#975#0#HTML" expanded="true" />
-                <element signature="e#1034#1064#0#HTML" expanded="true" />
-                <element signature="e#698#725#0#HTML" expanded="true" />
-                <element signature="e#1133#1202#0#HTML" expanded="true" />
-                <element signature="e#1249#1279#0#HTML" expanded="true" />
-                <element signature="e#1360#1387#0#HTML" expanded="true" />
-                <element signature="e#1524#1593#0#HTML" expanded="true" />
-                <element signature="e#1644#1674#0#HTML" expanded="true" />
-                <element signature="e#1639#1666#0#HTML" expanded="true" />
-                <element signature="e#1820#1889#0#HTML" expanded="true" />
-                <element signature="e#1790#1844#0#HTML" expanded="true" />
-                <element signature="e#1964#1991#0#HTML" expanded="true" />
-                <element signature="e#2219#2288#0#HTML" expanded="true" />
-                <element signature="e#2335#2365#0#HTML" expanded="true" />
-                <element signature="e#2582#2609#0#HTML" expanded="true" />
-                <element signature="e#2639#2708#0#HTML" expanded="true" />
-                <element signature="e#2831#2904#0#HTML" expanded="true" />
-                <element signature="e#3065#3084#0#HTML" expanded="true" />
-                <element signature="e#3450#3476#0#HTML" expanded="true" />
-                <element signature="e#3520#3539#0#HTML" expanded="true" />
-                <element signature="e#3936#3962#0#HTML" expanded="true" />
-                <element signature="e#4021#4094#0#HTML" expanded="true" />
-                <element signature="e#4304#4323#0#HTML" expanded="true" />
-                <element signature="e#4634#4660#0#HTML" expanded="true" />
-                <element signature="e#4715#4734#0#HTML" expanded="true" />
-                <element signature="e#5225#5251#0#HTML" expanded="true" />
-                <element signature="e#3109#3156#0#HTML" expanded="true" />
-                <element signature="e#3201#3226#0#HTML" expanded="true" />
-                <element signature="e#3002#3047#0#HTML" expanded="true" />
-                <element signature="e#3066#3093#0#HTML" expanded="true" />
-                <element signature="e#3123#3192#0#HTML" expanded="true" />
-                <element signature="e#3237#3266#0#HTML" expanded="true" />
-                <element signature="e#3527#3554#0#HTML" expanded="true" />
-                <element signature="e#3588#3657#0#HTML" expanded="true" />
-                <element signature="e#3703#3728#0#HTML" expanded="true" />
-                <element signature="e#3840#3865#0#HTML" expanded="true" />
-                <element signature="e#4076#4103#0#HTML" expanded="true" />
-                <element signature="e#4137#4206#0#HTML" expanded="true" />
-                <element signature="e#4256#4285#0#HTML" expanded="true" />
-                <element signature="e#7577#7604#0#HTML" expanded="true" />
-                <element signature="e#7634#7703#0#HTML" expanded="true" />
-                <element signature="e#7825#7898#0#HTML" expanded="true" />
-                <element signature="e#8307#8326#0#HTML" expanded="true" />
-                <element signature="e#8408#8434#0#HTML" expanded="true" />
-                <element signature="e#8793#8812#0#HTML" expanded="true" />
-                <element signature="e#8893#8919#0#HTML" expanded="true" />
-                <element signature="e#9479#9572#0#HTML" expanded="true" />
-                <element signature="e#9743#9762#0#HTML" expanded="true" />
-                <element signature="e#9852#9878#0#HTML" expanded="true" />
-                <element signature="e#10300#10319#0#HTML" expanded="true" />
-                <element signature="e#10408#10434#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -152,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/showAllCarts.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="2640">
               <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
             </state>
           </provider>
@@ -161,12 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="540">
               <caret line="18" column="220" selection-start-line="18" selection-start-column="220" selection-end-line="18" selection-end-column="220" />
-              <folding>
-                <element signature="e#6505#6524#0#HTML" expanded="true" />
-                <element signature="e#6679#6765#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -174,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="11352" column="222" selection-start-line="11352" selection-start-column="222" selection-end-line="11352" selection-end-column="222" />
+            <state relative-caret-position="260">
+              <caret line="11351" column="45" selection-start-line="11351" selection-start-column="45" selection-end-line="11351" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -183,12 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="570">
               <caret line="19" column="132" selection-start-line="19" selection-start-column="132" selection-end-line="19" selection-end-column="132" />
-              <folding>
-                <element signature="e#477#632#0#HTML" expanded="true" />
-                <element signature="e#1003#1038#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -207,11 +104,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="1" column="93" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="93" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -431,7 +323,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -596,6 +487,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -689,12 +581,13 @@
       <workItem from="1561961063986" duration="188000" />
       <workItem from="1562406945084" duration="1615000" />
       <workItem from="1562570165709" duration="28000" />
-      <workItem from="1563261536946" duration="14786000" />
+      <workItem from="1563261536946" duration="14929000" />
+      <workItem from="1563348881529" duration="44000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84532000" />
+    <option name="totallyTimeSpent" value="84719000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -711,9 +604,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2457356" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.24840085" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.3277592" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4989339" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -1121,76 +1014,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/layout/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="38" column="55" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="55" />
-          <folding>
-            <element signature="e#268#295#0#HTML" expanded="true" />
-            <element signature="e#368#437#0#HTML" expanded="true" />
-            <element signature="e#486#516#0#HTML" expanded="true" />
-            <element signature="e#477#504#0#HTML" expanded="true" />
-            <element signature="e#530#564#0#HTML" expanded="true" />
-            <element signature="e#842#872#0#HTML" expanded="true" />
-            <element signature="e#945#975#0#HTML" expanded="true" />
-            <element signature="e#1034#1064#0#HTML" expanded="true" />
-            <element signature="e#698#725#0#HTML" expanded="true" />
-            <element signature="e#1133#1202#0#HTML" expanded="true" />
-            <element signature="e#1249#1279#0#HTML" expanded="true" />
-            <element signature="e#1360#1387#0#HTML" expanded="true" />
-            <element signature="e#1524#1593#0#HTML" expanded="true" />
-            <element signature="e#1644#1674#0#HTML" expanded="true" />
-            <element signature="e#1639#1666#0#HTML" expanded="true" />
-            <element signature="e#1820#1889#0#HTML" expanded="true" />
-            <element signature="e#1790#1844#0#HTML" expanded="true" />
-            <element signature="e#1964#1991#0#HTML" expanded="true" />
-            <element signature="e#2219#2288#0#HTML" expanded="true" />
-            <element signature="e#2335#2365#0#HTML" expanded="true" />
-            <element signature="e#2582#2609#0#HTML" expanded="true" />
-            <element signature="e#2639#2708#0#HTML" expanded="true" />
-            <element signature="e#2831#2904#0#HTML" expanded="true" />
-            <element signature="e#3065#3084#0#HTML" expanded="true" />
-            <element signature="e#3450#3476#0#HTML" expanded="true" />
-            <element signature="e#3520#3539#0#HTML" expanded="true" />
-            <element signature="e#3936#3962#0#HTML" expanded="true" />
-            <element signature="e#4021#4094#0#HTML" expanded="true" />
-            <element signature="e#4304#4323#0#HTML" expanded="true" />
-            <element signature="e#4634#4660#0#HTML" expanded="true" />
-            <element signature="e#4715#4734#0#HTML" expanded="true" />
-            <element signature="e#5225#5251#0#HTML" expanded="true" />
-            <element signature="e#3109#3156#0#HTML" expanded="true" />
-            <element signature="e#3201#3226#0#HTML" expanded="true" />
-            <element signature="e#3002#3047#0#HTML" expanded="true" />
-            <element signature="e#3066#3093#0#HTML" expanded="true" />
-            <element signature="e#3123#3192#0#HTML" expanded="true" />
-            <element signature="e#3237#3266#0#HTML" expanded="true" />
-            <element signature="e#3527#3554#0#HTML" expanded="true" />
-            <element signature="e#3588#3657#0#HTML" expanded="true" />
-            <element signature="e#3703#3728#0#HTML" expanded="true" />
-            <element signature="e#3840#3865#0#HTML" expanded="true" />
-            <element signature="e#4076#4103#0#HTML" expanded="true" />
-            <element signature="e#4137#4206#0#HTML" expanded="true" />
-            <element signature="e#4256#4285#0#HTML" expanded="true" />
-            <element signature="e#7577#7604#0#HTML" expanded="true" />
-            <element signature="e#7634#7703#0#HTML" expanded="true" />
-            <element signature="e#7825#7898#0#HTML" expanded="true" />
-            <element signature="e#8307#8326#0#HTML" expanded="true" />
-            <element signature="e#8408#8434#0#HTML" expanded="true" />
-            <element signature="e#8793#8812#0#HTML" expanded="true" />
-            <element signature="e#8893#8919#0#HTML" expanded="true" />
-            <element signature="e#9479#9572#0#HTML" expanded="true" />
-            <element signature="e#9743#9762#0#HTML" expanded="true" />
-            <element signature="e#9852#9878#0#HTML" expanded="true" />
-            <element signature="e#10300#10319#0#HTML" expanded="true" />
-            <element signature="e#10408#10434#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="3630">
+          <caret line="121" column="77" selection-start-line="121" selection-start-column="77" selection-end-line="121" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/layout/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1075">
-          <caret line="121" column="77" selection-start-line="121" selection-start-column="77" selection-end-line="121" selection-end-column="77" />
+        <state relative-caret-position="2280">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/viewCartDetail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="38" column="55" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/showAllCarts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="18" column="220" selection-start-line="18" selection-start-column="220" selection-end-line="18" selection-end-column="220" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="19" column="132" selection-start-line="19" selection-start-column="132" selection-end-line="19" selection-end-column="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/layout/dashboardMaster.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1206,64 +1082,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/layout/dashboardMaster.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="132" selection-start-line="19" selection-start-column="132" selection-end-line="19" selection-end-column="132" />
-          <folding>
-            <element signature="e#477#632#0#HTML" expanded="true" />
-            <element signature="e#1003#1038#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#3350#3366#0#HTML" expanded="true" />
-            <element signature="e#3400#3420#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/viewCartDetail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/showAllCarts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="220" selection-start-line="18" selection-start-column="220" selection-end-line="18" selection-end-column="220" />
-          <folding>
-            <element signature="e#6505#6524#0#HTML" expanded="true" />
-            <element signature="e#6679#6765#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="11352" column="222" selection-start-line="11352" selection-start-column="222" selection-end-line="11352" selection-end-column="222" />
+        <state relative-caret-position="260">
+          <caret line="11351" column="45" selection-start-line="11351" selection-start-column="45" selection-end-line="11351" selection-end-column="45" />
         </state>
       </provider>
     </entry>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\BestCustomer;
+use App\Models\Category;
 use App\option;
 use App\pricelist;
 use Illuminate\Support\Facades\Schema;
@@ -24,9 +25,9 @@ class AppServiceProvider extends ServiceProvider
             $bestCustomers = BestCustomer::all();
             $phone = option::where('option_name', 'phone')->first()->option_value;
             $email = option::where('option_name', 'email')->first()->option_value;
-            $prices = pricelist::orderBy('priority')->get();
+            $categories = Category::all();
             $cart = Session::get('cart') ? count(Session::get('cart')) : 0;
-            $view->with(['cart' => $cart, 'address' => $address, 'phone' => $phone, 'email' => $email, 'bestCustomers' => $bestCustomers, 'prices' => $prices]);
+            $view->with(['cart' => $cart, 'address' => $address, 'phone' => $phone, 'email' => $email, 'bestCustomers' => $bestCustomers, 'categories' => $categories]);
         });
 
     }
