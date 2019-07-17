@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
     <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
-    <title>چاپ</title>
+    <title>{{ env('APP_NAME') }}</title>
     <link rel="stylesheet" href="{{ asset('adminAssets/css/all.css') }}">
 </head>
 
