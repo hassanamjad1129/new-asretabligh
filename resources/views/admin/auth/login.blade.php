@@ -51,7 +51,7 @@
                 <div class="card card-inverse card-primary p-y-3" style="width:44%">
                     <div class="card-block text-xs-center">
                         <div>
-                            <img src="{{ asset('adminAssets/img/logo.png') }}" class="img-responsive"
+                            <img src="{{ asset('clientAssets/img/logo.png') }}" class="img-responsive"
                                  style="height: 250px" alt="">
                         </div>
                     </div>
