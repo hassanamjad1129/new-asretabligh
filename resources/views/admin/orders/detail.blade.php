@@ -238,7 +238,7 @@
                             @endforeach
                         </select>
                         <label for="">سری سفارش:</label>
-                        <input type="number" class="form-control" min="1" value="{{ ($orderItem->qty) }}"/>
+                        <input type="number" class="form-control" min="1" name="qty" value="{{ ($orderItem->qty) }}"/>
 
                         <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
                         <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
