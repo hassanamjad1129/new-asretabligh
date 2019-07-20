@@ -81,6 +81,13 @@ class UserController extends Controller
             $customer->address = $request->address;
         $customer->gender = $request->gender;
         $customer->type = ($request->type == 0) ? 'credit' : 'cash';
+        if ($request->hasFile('avatar')) {
+            $destinationPath = 'userAvatar'; // upload path
+            $avatarExtension = $request->file('avatar')->getClientOriginalExtension(); // getting image extension
+            $avatarFileName = rand(1111111111, 99999999999) . '.' . $avatarExtension; // rename image
+            $request->file('avatar')->move($destinationPath, $avatarFileName); // uploading file to given path
+            $customer->avatar = $destinationPath . '/' . $avatarFileName;
+        }
         $customer->update();
         return redirect(route('admin.customer.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }

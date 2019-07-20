@@ -95,6 +95,17 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="">تصویر</label>
+                        </div>
+                        <div class="card-body">
+                            <input type="file" name="avatar" id="avatar" class="form-control">
+                        </div>
+                    </div>
+                </div>
                 <div class="clearfix"></div>
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-primary">ویرایش کاربر</button>
