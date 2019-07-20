@@ -231,7 +231,12 @@
                     <input type="number" class="form-control" min="1" value="{{ ($orderItem->qty) }}"/>
 
                     <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
-                    {{ dd($orderItem->getDeliveries()) }}
+                    <select name="delivery" id="" class="form-control">
+                        <option value="">انتخاب کنید ...</option>
+                        @foreach($orderItem->getDeliveries() as $key=>$delivery)
+                            <option value="{{ $key }}" {{ $orderItem->order->delivery_method==$key?"selected":"" }}>{{ $delivery }}</option>
+                        @endforeach
+                    </select>
                     <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
                     @if($orderItem->getAddress())
                         <label for="">آدرس ارسال : </label>
