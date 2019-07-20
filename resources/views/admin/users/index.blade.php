@@ -27,7 +27,7 @@
                         <td>{{$user->phone}}</td>
                         <td>{{$user->telephone}}</td>
                         <td>{{($user->type)=='credit'?'اعتباری':'نقدی'}}</td>
-                        <td>{{ jdate(strtotime($user->created_at))->format('H:i Y/m/d') }}</td>
+                        <td>{{ jdate(strtotime($user->created_at))->format('H:i|Y/m/d') }}</td>
                         <td>
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-primary btn-block dropdown-toggle"
