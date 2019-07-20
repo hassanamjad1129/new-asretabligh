@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/OrderItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrderItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="234" column="80" selection-start-line="234" selection-start-column="80" selection-end-line="234" selection-end-column="80" />
+            <state relative-caret-position="212">
+              <caret line="234" column="65" selection-start-line="234" selection-start-column="65" selection-end-line="234" selection-end-column="65" />
               <folding>
                 <element signature="e#232#1480#0#HTML" />
                 <element signature="e#1497#5955#0#HTML" />
@@ -59,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/OrderItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
+            <state relative-caret-position="752">
               <caret line="118" column="44" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
             </state>
           </provider>
@@ -172,9 +172,9 @@
         <option value="$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" />
         <option value="$PROJECT_DIR$/public/clientAssets/css/all.css" />
         <option value="$PROJECT_DIR$/resources/views/client/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Order.php" />
         <option value="$PROJECT_DIR$/app/OrderItem.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -517,12 +517,12 @@
       <workItem from="1563433222694" duration="16000" />
       <workItem from="1563605175478" duration="2190000" />
       <workItem from="1563607525124" duration="73000" />
-      <workItem from="1563622754797" duration="968000" />
+      <workItem from="1563622754797" duration="1031000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95609000" />
+    <option name="totallyTimeSpent" value="95672000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -768,18 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="234" column="80" selection-start-line="234" selection-start-column="80" selection-end-line="234" selection-end-column="80" />
-          <folding>
-            <element signature="e#232#1480#0#HTML" />
-            <element signature="e#1497#5955#0#HTML" />
-            <element signature="e#12857#12887#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Order.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -789,8 +777,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/OrderItem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
+        <state relative-caret-position="752">
           <caret line="118" column="44" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="234" column="65" selection-start-line="234" selection-start-column="65" selection-end-line="234" selection-end-column="65" />
+          <folding>
+            <element signature="e#232#1480#0#HTML" />
+            <element signature="e#1497#5955#0#HTML" />
+            <element signature="e#12857#12887#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

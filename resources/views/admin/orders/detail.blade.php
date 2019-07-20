@@ -227,12 +227,12 @@
                     <label for="">وضعیت سفارش</label>
                     <select name="status" class="form-control" id="">
                         <option value="">انتخاب کنید...</option>
-                        @foreach($order->getStatusOptions() as $key=>$status)
-                            <option value="{{ $key }}" {{ $key==$order->status?"selected":"" }}>{{ $status }}</option>
+                        @foreach($orderItem->getStatusOptions() as $key=>$status)
+                            <option value="{{ $key }}" {{ $key==$orderItem->status?"selected":"" }}>{{ $status }}</option>
                         @endforeach
                     </select>
-                    <label for="">روش پرداخت : {{ $order->getPaymentType() }}</label>
-                    <label for="">روش ارسال سفارش : {{ $order->getDeliveryType() }}</label>
+                    <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
+                    <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
                 </div>
             </div>
         </div>
