@@ -19602,6 +19602,7 @@ button.close:hover {
     font-size: 1.3rem;
     margin: 0 0.3rem;
     padding: 1.5rem 0.6rem;
+    width: 12%
 }
 
 
@@ -19648,6 +19649,14 @@ button.close:hover {
 
 #gotToLeft, #gotToRight {
     cursor: pointer;
+}
+
+.categoriesHandler {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
 }
 
 .categoriesHandler div {

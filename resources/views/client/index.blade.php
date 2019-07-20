@@ -82,7 +82,6 @@
             </div>
             <div class="img-title wow fadeInUp animated" style="position:relative;top:5px"></div>
         </div>
-        <hr>
         <div class="news-holder cf" style="margin-top: -23px;">
             <center>
                 <ul class="news-headlines">
