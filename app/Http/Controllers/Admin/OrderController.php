@@ -54,6 +54,7 @@ class OrderController extends Controller
 
         $order = $orderItem->order;
         $order->address = $request->address;
+        $order->delivery_method=$request->
         $order->save();
 
         $user = $orderItem->user;
