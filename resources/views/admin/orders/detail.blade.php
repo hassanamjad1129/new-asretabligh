@@ -249,7 +249,7 @@
                                 <option value="{{ $key }}" {{ $key==$orderItem->order->delivery_method?"selected":"" }}>{{ $delivery }}</option>
                             @endforeach
                         </select>
-                        @if($orderItem->getAddress() and $orderItem->order->delivery->take_address)
+                        @if($orderItem->order->delivery->take_address)
                             <label for="">آدرس ارسال : </label>
                             <textarea name="address" id="" rows="4"
                                       class="form-control">{{ $orderItem->getAddress() }}</textarea>
