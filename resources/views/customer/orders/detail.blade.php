@@ -24,7 +24,7 @@
 
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
                         <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
-                        <hr>
+
                     </div>
 
                 </div>
@@ -114,7 +114,7 @@
                     </div>
 
                 </div>
-
+                <hr>
                 <div class="clearfix"></div>
                 <div class="col-xs-12">
                     <h4 style="font-weight: bold;margin-bottom: 1rem">خدمات پس از چاپ</h4>
