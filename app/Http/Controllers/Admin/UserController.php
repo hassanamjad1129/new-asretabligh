@@ -8,15 +8,17 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -27,27 +29,32 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param User $user
-     * @return \Illuminate\Http\Response
+     * @param Customer $customer
+     * @return Response
      */
-    public function edit(User $user)
+    public function edit(Customer $customer)
     {
-        return view('admin.users.edit', ['user' => $user]);
+        return view('admin.users.edit', ['customer' => $customer]);
     }
 
-    public function validationUpdate(Request $request)
+    public function validationUpdate(Request $request, Customer $customer)
     {
         return Validator::make($request->all(),
             [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'mobile' => ['required', 'regex:/(^[0][9][1-9]{9}$)/'],
+                'name' => 'required',
+                'telephone' => 'nullable',
+                'address' => 'nullable',
+                'gender' => ['required', Rule::in(['male', 'female'])],
+                'avatar' => ['nullable', 'image', 'max:2048'],
+                'phone' => ['required', 'regex:/(^[0][9][1-9]{9}$)/', Rule::unique('customers', 'phone')->ignore($customer->id)],
                 'password' => 'same:confirmPassword',
             ], [
-                'first_name.required' => 'نام الزامی است',
-                'last_name.required' => 'نام خانوادگی الزامی است',
-                'mobile.required' => 'موبایل الزامی است',
-                'mobile.regex' => 'فرمت ارسالی موبایل اشتباه می باشد',
+                'name.required' => 'نام الزامی است',
+                'gender.required' => 'جنسیت الزامی است',
+                'gender.in' => 'جنسیت را به درستی انتخاب کنید',
+                'phone.required' => 'موبایل الزامی است',
+                'phone.regex' => 'فرمت ارسالی موبایل اشتباه می باشد',
+                'phone.unique' => 'شماره موبایل ارسالی قبلا ثبت شده است',
                 'password.same' => 'رمز عبور با تکرار رمز عبور تطابق ندارد',
             ]);
     }
@@ -55,25 +62,27 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param User $user
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Customer $customer
+     * @return Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Customer $customer)
     {
-        $validator = $this->validationUpdate($request);
+        $validator = $this->validationUpdate($request, $customer);
         if ($validator->fails())
-            return redirect(route('admin.user.edit', $user))->withErrors($validator, 'failed')->withInput();
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->mobile = $request->mobile;
+            return redirect(route('admin.customer.edit', $customer))->withErrors($validator, 'failed')->withInput();
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
         if ($request->password)
-            $user->password = bcrypt($request->password);
+            $customer->password = bcrypt($request->password);
         if ($request->telephone)
-            $user->telephone = $request->telephone;
-        $user->type = ($request->type == 0) ? 'credit' : 'cash';
-        $user->update();
-        return redirect(route('admin.user.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+            $customer->telephone = $request->telephone;
+        if ($request->address)
+            $customer->address = $request->address;
+        $customer->gender = $request->gender;
+        $customer->type = ($request->type == 0) ? 'credit' : 'cash';
+        $customer->update();
+        return redirect(route('admin.customer.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
     /**

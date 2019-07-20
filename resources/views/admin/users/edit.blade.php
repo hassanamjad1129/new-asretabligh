@@ -5,7 +5,7 @@
             ویرایش کاربر
         </div>
         <div class="card-block">
-            <form action="{{ route('admin.user.update',$user) }}" enctype="multipart/form-data"
+            <form action="{{ route('admin.customer.update',$user) }}" enctype="multipart/form-data"
                   method="post">
                 @csrf
                 @method('patch')
