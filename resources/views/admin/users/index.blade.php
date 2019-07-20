@@ -24,7 +24,7 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $user->name}}</td>
-                        <td><img src="{{ asset($user->avatar) }}" style="width:200px" class="img-circle" alt=""></td>
+                        <td><img src="{{ asset($user->avatar) }}" style="width:100px" class="img-circle" alt=""></td>
                         <td>{{$user->phone}}</td>
                         <td>{{$user->telephone}}</td>
                         <td>{{($user->type)=='credit'?'اعتباری':'نقدی'}}</td>
