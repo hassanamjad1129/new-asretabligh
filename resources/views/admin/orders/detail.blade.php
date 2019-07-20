@@ -234,8 +234,12 @@
                     <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
                     <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
                     @if($orderItem->getAddress())
-                        <label for="">آدرس ارسال : {{ $orderItem->getAddress() }}</label>
+                        <label for="">آدرس ارسال : </label>
+                        <textarea name="address" id="" rows="4" class="form-control">
+                            {{ $orderItem->getAddress() }}
+                        </textarea>
                     @endif
+                    <button class="btn btn-success">بروزرسانی</button>
                 </div>
             </div>
         </div>
