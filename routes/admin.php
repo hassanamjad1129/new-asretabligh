@@ -41,7 +41,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::post('/ajaxSubmitForm', 'ProductPriceController@ajaxSubmitForm');
 
         Route::post('/ajaxProducts', 'ProductPropertyController@ajaxProducts');
-        Route::resource('/customers', 'UserController');
+        Route::resource('/customer', 'UserController');
         Route::resource('/admins', 'AdminController');
         Route::resource('slideshow', 'SlideshowController');
         Route::get('/slideshow/delete/{id}', 'SlideshowController@destroy');
