@@ -116,7 +116,7 @@ class OrderItem extends Model
 
     public function getDeliveryType()
     {
-        return $this->order->
+        return $this->order->delivery->name;
     }
 
 }
