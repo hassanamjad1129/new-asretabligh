@@ -216,6 +216,8 @@
                         <div class="clearfix"></div>
                         <hr>
                     @endforeach
+                @else
+                    <h5>خدماتی ثبت نشده است</h5>
                 @endif
             </div>
         </div>
