@@ -235,11 +235,10 @@
                     <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
                     @if($orderItem->getAddress())
                         <label for="">آدرس ارسال : </label>
-                        <textarea name="address" id="" rows="4" class="form-control">
-                            {{ $orderItem->getAddress() }}
-                        </textarea>
+                        <textarea name="address" id="" rows="4"
+                                  class="form-control">{{ $orderItem->getAddress() }}</textarea>
                     @endif
-                    <button class="btn btn-success">بروزرسانی</button>
+                    <button class="btn btn-success btn-sm" style="margin-top: 1rem">بروزرسانی</button>
                 </div>
             </div>
         </div>

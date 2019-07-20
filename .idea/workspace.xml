@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,21 +36,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="241" column="61" selection-start-line="241" selection-start-column="61" selection-end-line="241" selection-end-column="61" />
+            <state relative-caret-position="362">
+              <caret line="240" column="82" selection-start-line="240" selection-start-column="82" selection-end-line="240" selection-end-column="82" />
               <folding>
                 <element signature="e#232#1480#0#HTML" />
                 <element signature="e#1497#5955#0#HTML" />
                 <element signature="e#12857#12887#0#HTML" expanded="true" />
+                <element signature="e#13906#13930#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -182,8 +183,8 @@
         <option value="$PROJECT_DIR$/resources/views/client/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Order.php" />
         <option value="$PROJECT_DIR$/app/OrderItem.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -525,12 +526,12 @@
       <workItem from="1563433222694" duration="16000" />
       <workItem from="1563605175478" duration="2190000" />
       <workItem from="1563607525124" duration="73000" />
-      <workItem from="1563622754797" duration="1547000" />
+      <workItem from="1563622754797" duration="1624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96188000" />
+    <option name="totallyTimeSpent" value="96265000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -547,9 +548,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.26172706" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.26172706" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49840087" visible="true" weight="0.3277592" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49840087" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50159913" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -780,22 +781,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="241" column="61" selection-start-line="241" selection-start-column="61" selection-end-line="241" selection-end-column="61" />
-          <folding>
-            <element signature="e#232#1480#0#HTML" />
-            <element signature="e#1497#5955#0#HTML" />
-            <element signature="e#12857#12887#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="144" column="85" selection-start-line="144" selection-start-column="85" selection-end-line="144" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="240" column="82" selection-start-line="240" selection-start-column="82" selection-end-line="240" selection-end-column="82" />
+          <folding>
+            <element signature="e#232#1480#0#HTML" />
+            <element signature="e#1497#5955#0#HTML" />
+            <element signature="e#12857#12887#0#HTML" expanded="true" />
+            <element signature="e#13906#13930#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
