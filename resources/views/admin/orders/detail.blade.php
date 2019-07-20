@@ -229,17 +229,17 @@
                     </select>
                     <label for="">سری سفارش:</label>
                     <input type="number" class="form-control" min="1" value="{{ ($orderItem->qty) }}"/>
+
+                    <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
+                    <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
+                    @if($orderItem->getAddress())
+                        <label for="">آدرس ارسال : </label>
+                        <textarea name="address" id="" rows="4"
+                                  class="form-control">{{ $orderItem->getAddress() }}</textarea>
+                    @endif
+                    <button class="btn btn-success btn-sm" style="margin-top: 1rem">بروزرسانی</button>
                 </div>
-                <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
-                <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
-                @if($orderItem->getAddress())
-                    <label for="">آدرس ارسال : </label>
-                    <textarea name="address" id="" rows="4"
-                              class="form-control">{{ $orderItem->getAddress() }}</textarea>
-                @endif
-                <button class="btn btn-success btn-sm" style="margin-top: 1rem">بروزرسانی</button>
             </div>
         </div>
-    </div>
     </div>
 @endsection
