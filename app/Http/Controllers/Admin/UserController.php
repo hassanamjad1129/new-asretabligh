@@ -46,7 +46,7 @@ class UserController extends Controller
                 'address' => 'nullable',
                 'gender' => ['required', Rule::in(['male', 'female'])],
                 'avatar' => ['nullable', 'image', 'max:2048'],
-                'phone' => ['required', 'regex:/(^[0][9][1-9]{9}$)/', Rule::unique('customers', 'phone')->ignore($customer->id)],
+                'phone' => ['required', 'regex:/(^[0][9][0-9]{9}$)/', Rule::unique('customers', 'phone')->ignore($customer->id)],
                 'password' => 'same:confirmPassword',
             ], [
                 'name.required' => 'نام الزامی است',
