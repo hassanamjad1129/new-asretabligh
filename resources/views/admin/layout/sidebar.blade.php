@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.user.index')}}"><i class="icon-user"></i> مدیریت کاربران</a>
+                <a class="nav-link" href="{{route('admin.customer.index')}}"><i class="icon-user"></i> مدیریت کاربران</a>
             </li>
             <li class="nav-title">
                 مدیریت سفارشات
