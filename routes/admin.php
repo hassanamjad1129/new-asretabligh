@@ -68,6 +68,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('orders','OrderController@index')->name('orders.index');
         Route::get('orders/finished','OrderController@finished')->name('orders.finished');
         Route::get('orders/{orderItem}','OrderController@orderDetail')->name('orders.orderDetail');
+        Route::post('orders/{orderItem}','OrderController@updateOrder')->name('orders.updateOrder');
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');
