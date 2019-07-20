@@ -141,7 +141,8 @@
                 <div class="clearfix"></div>
                 <div id="address" style="display: none;margin-top:1rem">
                     <label for="" style="font-size: 1.4rem;">آدرس تحویل سفارش</label>
-                    <textarea name="address" class="form-control" id="" cols="30" rows="4"></textarea>
+                    <textarea name="address" class="form-control" id="" cols="30"
+                              rows="4">{{ auth()->guard('customer')->user()->address }}</textarea>
                 </div>
                 <div class="clearfix"></div>
                 <div style="width: 100%;">
