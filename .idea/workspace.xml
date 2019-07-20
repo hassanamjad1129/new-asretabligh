@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php" line="52" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/clientAssets/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/clientAssets/css/all.css" afterDir="false" />
-    </list>
+    <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="19613" column="21" selection-start-line="19613" selection-start-column="21" selection-end-line="19613" selection-end-column="21" />
+            <state relative-caret-position="350">
+              <caret line="19642" column="34" selection-start-line="19642" selection-start-column="34" selection-end-line="19642" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -498,12 +496,12 @@
       <workItem from="1563348881529" duration="44000" />
       <workItem from="1563361987039" duration="7643000" />
       <workItem from="1563433222694" duration="16000" />
-      <workItem from="1563605175478" duration="1581000" />
+      <workItem from="1563605175478" duration="2010000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93959000" />
+    <option name="totallyTimeSpent" value="94388000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -516,7 +514,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
@@ -765,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19613" column="21" selection-start-line="19613" selection-start-column="21" selection-end-line="19613" selection-end-column="21" />
+        <state relative-caret-position="350">
+          <caret line="19642" column="34" selection-start-line="19642" selection-start-column="34" selection-end-line="19642" selection-end-column="34" />
         </state>
       </provider>
     </entry>

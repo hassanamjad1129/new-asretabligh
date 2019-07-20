@@ -19640,7 +19640,8 @@ button.close:hover {
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
-    box-shadow: 0 5px 5px #EAEAEA;
+    box-shadow: 0 5px 5px #CFCFCF;
+
 }
 
 .categories p {
