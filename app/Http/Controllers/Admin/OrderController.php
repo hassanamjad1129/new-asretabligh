@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\OrderItem;
+use App\shipping;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -54,8 +55,12 @@ class OrderController extends Controller
 
         $order = $orderItem->order;
         $order->address = $request->address;
-        $order->delivery_method=$request->
+        $oldDeliveryMethod = shipping::find($order->delivery_method);
+        $newDeliveryMethod = shipping::find($request->delivery);
+        $diff += $newDeliveryMethod->price - $oldDeliveryMethod->price;
+        $order->delivery_method = $request->delivery;
         $order->save();
+
 
         $user = $orderItem->user;
         $user->credit = $user->credit - $diff;

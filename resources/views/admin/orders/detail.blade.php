@@ -241,6 +241,7 @@
                         <input type="number" class="form-control" min="1" name="qty" value="{{ ($orderItem->qty) }}"/>
 
                         <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
+                        <div class="clearfix"></div>
                         <label for="">روش ارسال سفارش : </label>
                         <select name="delivery" id="" class="form-control">
                             <option value="">انتخاب کنید ...</option>
