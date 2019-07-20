@@ -10,9 +10,9 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>نام</th>
-                    <th>نام خانوادگی</th>
+                    <th>نام و نام خانوادگی</th>
                     <th>موبایل</th>
+                    <th>تلفن</th>
                     <th>نوع کاربر</th>
                     <th>عملیات</th>
                 </tr>
@@ -22,12 +22,9 @@
                 @foreach($users as $user)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $user->first_name }}</td>
-                        <td>
-                            {{$user->last_name}}
-                        </td>
-                        <td>{{$user->mobile}}
-                        </td>
+                        <td>{{ $user->name}}</td>
+                        <td>{{$user->phone}}</td>
+                        <td>{{$user->telephone}}</td>
                         <td>{{($user->type)=='credit'?'اعتباری':'نقدی'}}</td>
                         <td>
                             <div class="input-group-btn">
