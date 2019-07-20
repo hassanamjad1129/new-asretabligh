@@ -223,7 +223,7 @@
                         <hr>
                     @endforeach
                 </div>
-                <div class="col-md-3" style="border: 1px solid #AAA">
+                <div class="col-md-3" style="    border-right: 2px solid #DEDEDE;">
                     <label for="">وضعیت سفارش</label>
                     <select name="status" class="form-control" id="">
                         <option value="">انتخاب کنید...</option>
@@ -233,6 +233,9 @@
                     </select>
                     <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
                     <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
+                    @if($orderItem->getAddress())
+                        <label for="">آدرس ارسال : {{ $orderItem->getAddress() }}</label>
+                    @endif
                 </div>
             </div>
         </div>

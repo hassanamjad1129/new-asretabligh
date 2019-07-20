@@ -119,4 +119,9 @@ class OrderItem extends Model
         return $this->order->delivery->name;
     }
 
+    public function getAddress()
+    {
+        return $this->order->address;
+    }
+
 }
