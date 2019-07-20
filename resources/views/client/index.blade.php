@@ -101,7 +101,7 @@
             @foreach($categories as $key=>$category)
                 <div class="container categories"
                      categoryContent="{{ $category->id }}" {{ $key?"style=display:none":"" }}>
-                    <div class="col-md-3 col-sm-6" style="padding: 0 1rem">
+                    <div class="col-md-3 col-sm-3 col-xs-12" style="padding: 0 1rem">
                         <p style="background: #d60000;color: #FFF;text-align: center;border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     font-size: 1.5rem;
@@ -111,7 +111,7 @@
                              alt="">
                         <p style="margin-top: 1rem">{{ $category->description }}</p>
                     </div>
-                    <div class="col-md-9 col-sm-6">
+                    <div class="col-md-9 col-sm-9 col-xs-12">
                         @foreach($category->products as $product)
                             <div class=" col-md-3 col-sm-6 col-xs-6">
                                 <div class="thumbnail">
