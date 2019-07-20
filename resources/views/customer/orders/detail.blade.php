@@ -21,6 +21,10 @@
                             <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش :</h5>
                             <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
                         </div>
+
+                        <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
+                        <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
+                        <hr>
                     </div>
 
                 </div>
@@ -110,11 +114,7 @@
                     </div>
 
                 </div>
-                <div class="col-xs-12">
-                    <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
-                    <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
-                    <hr>
-                </div>
+
                 <div class="clearfix"></div>
                 <div class="col-xs-12">
                     <h4 style="font-weight: bold;margin-bottom: 1rem">خدمات پس از چاپ</h4>
