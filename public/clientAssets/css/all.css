@@ -18846,6 +18846,8 @@ ul.links li ul li ul li a {
     font-family: Sans;
     font-size: 14px;
     text-align: center;
+    border: 1px solid #CCC;
+    border-radius: 10px;
 }
 
 .nh-anim {
@@ -19608,6 +19610,8 @@ button.close:hover {
 
 .news-headlines li.active, .news-headlines li:hover {
     border-top: 3px solid #d60000;
+    border-bottom: 3px solid #d60000;
+
 }
 
 .news-headlines {
