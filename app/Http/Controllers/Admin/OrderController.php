@@ -40,10 +40,25 @@ class OrderController extends Controller
         if ($validator->fails())
             return back()->withErrors($validator->errors()->all(), 'failed');
         $orderItem->status = $request->status;
+        $ratio = $request->qty / $orderItem->qty;
+        $diff = $orderItem->price * $ratio - $orderItem->price;
+        $orderItem->price = $orderItem->price * $ratio;
         $orderItem->save();
+
+        foreach ($orderItem->services as $service) {
+            $diff += ($service->price * $ratio - $service->price);
+            $service->price = $service->price * $ratio;
+            $service->save();
+        }
+
         $order = $orderItem->order;
         $order->address = $request->address;
         $order->save();
+
+        $user = $orderItem->user;
+        $user->credit = $user->credit - $diff;
+        $user->save();
+
         return back()->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 }
