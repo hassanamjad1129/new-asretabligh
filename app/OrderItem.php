@@ -134,4 +134,9 @@ class OrderItem extends Model
         return shipping::all()->pluck('name', 'id');
     }
 
+    public function getLastUpdateDate()
+    {
+        return jdate(strtotime($this->updated_at))->format('H:i Y/m/d');
+    }
+
 }
