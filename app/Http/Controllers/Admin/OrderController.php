@@ -43,6 +43,7 @@ class OrderController extends Controller
         $ratio = $request->qty / $orderItem->qty;
         $diff = $orderItem->price * $ratio - $orderItem->price;
         $orderItem->price = $orderItem->price * $ratio;
+        $orderItem->qty = $request->qty;
         $orderItem->save();
 
         foreach ($orderItem->services as $service) {
