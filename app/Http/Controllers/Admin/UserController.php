@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Customer;
 use App\User;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -35,7 +38,7 @@ class UserController extends Controller
     {
         return Validator::make($request->all(),
             [
-                'first_name' => 'required',
+                'name' => 'required',
                 'last_name' => 'required',
                 'mobile' => ['required', 'regex:/(^[0][9][1-9]{9}$)/'],
                 'password' => 'required|same:confirmPassword',
@@ -78,7 +81,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\User $user
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -89,7 +92,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\User $user
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -118,7 +121,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\User $user
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -141,13 +144,13 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\User $user
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     * @throws \Exception
+     * @param Customer $customer
+     * @return RedirectResponse|Redirector
+     * @throws Exception
      */
-    public function destroy(User $user)
+    public function destroy(Customer $customer)
     {
-        $user->delete();
+        $customer->delete();
         return redirect(route('admin.user.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 }
