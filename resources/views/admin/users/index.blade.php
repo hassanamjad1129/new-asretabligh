@@ -5,12 +5,12 @@
             مدیریت کاربران
         </div>
         <div class="card-block">
-            <a class="btn btn-success" href="{{route('admin.user.create')}}">افزودن کاربر</a>
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
                     <th>#</th>
                     <th>نام و نام خانوادگی</th>
+                    <th>تصویر</th>
                     <th>موبایل</th>
                     <th>تلفن</th>
                     <th>نوع کاربر</th>
@@ -24,6 +24,7 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $user->name}}</td>
+                        <td><img src="{{ asset($user->avatar) }}" style="width:200px" class="img-circle" alt=""></td>
                         <td>{{$user->phone}}</td>
                         <td>{{$user->telephone}}</td>
                         <td>{{($user->type)=='credit'?'اعتباری':'نقدی'}}</td>
