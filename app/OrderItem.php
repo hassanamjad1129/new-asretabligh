@@ -126,7 +126,7 @@ class OrderItem extends Model
 
     public function getDeliveries()
     {
-        return shipping::all()->pluck('id', 'name');
+        return shipping::all()->pluck('name', 'id');
     }
 
 }
