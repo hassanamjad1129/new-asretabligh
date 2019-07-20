@@ -39,11 +39,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="240" column="82" selection-start-line="240" selection-start-column="82" selection-end-line="240" selection-end-column="82" />
+            <state relative-caret-position="392">
+              <caret line="230" column="80" selection-start-line="230" selection-start-column="80" selection-end-line="230" selection-end-column="80" />
               <folding>
-                <element signature="e#232#1480#0#HTML" />
-                <element signature="e#1497#5955#0#HTML" />
                 <element signature="e#12857#12887#0#HTML" expanded="true" />
                 <element signature="e#13906#13930#0#HTML" expanded="true" />
               </folding>
@@ -526,12 +524,12 @@
       <workItem from="1563433222694" duration="16000" />
       <workItem from="1563605175478" duration="2190000" />
       <workItem from="1563607525124" duration="73000" />
-      <workItem from="1563622754797" duration="1624000" />
+      <workItem from="1563622754797" duration="1850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96265000" />
+    <option name="totallyTimeSpent" value="96491000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -790,11 +788,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="240" column="82" selection-start-line="240" selection-start-column="82" selection-end-line="240" selection-end-column="82" />
+        <state relative-caret-position="392">
+          <caret line="230" column="80" selection-start-line="230" selection-start-column="80" selection-end-line="230" selection-end-column="80" />
           <folding>
-            <element signature="e#232#1480#0#HTML" />
-            <element signature="e#1497#5955#0#HTML" />
             <element signature="e#12857#12887#0#HTML" expanded="true" />
             <element signature="e#13906#13930#0#HTML" expanded="true" />
           </folding>

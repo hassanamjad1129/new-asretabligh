@@ -19,11 +19,7 @@
                             <p style="line-height: 2rem;">سایز فایل : {{ $orderItem->getPaperName() }}</p>
                             <p style="line-height: 2rem;">{!! $orderItem->getData() !!} </p>
                             <p style="line-height: 2rem;">نوع سفارش : {{ $orderItem->getType() }}</p>
-                            <div style="margin-bottom: 1rem">
-                                <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش
-                                    :</h6>
-                                <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
-                            </div>
+
                         </div>
 
                         <h6 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h6>
@@ -231,16 +227,19 @@
                             <option value="{{ $key }}" {{ $key==$orderItem->status?"selected":"" }}>{{ $status }}</option>
                         @endforeach
                     </select>
-                    <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
-                    <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
-                    @if($orderItem->getAddress())
-                        <label for="">آدرس ارسال : </label>
-                        <textarea name="address" id="" rows="4"
-                                  class="form-control">{{ $orderItem->getAddress() }}</textarea>
-                    @endif
-                    <button class="btn btn-success btn-sm" style="margin-top: 1rem">بروزرسانی</button>
+                    <label for="">سری سفارش:</label>
+                    <input type="number" class="form-control" min="1" value="{{ ($orderItem->qty) }}"/>
                 </div>
+                <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
+                <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
+                @if($orderItem->getAddress())
+                    <label for="">آدرس ارسال : </label>
+                    <textarea name="address" id="" rows="4"
+                              class="form-control">{{ $orderItem->getAddress() }}</textarea>
+                @endif
+                <button class="btn btn-success btn-sm" style="margin-top: 1rem">بروزرسانی</button>
             </div>
         </div>
+    </div>
     </div>
 @endsection
