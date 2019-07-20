@@ -124,4 +124,9 @@ class OrderItem extends Model
         return $this->order->address;
     }
 
+    public function getDeliveries()
+    {
+        return shipping::pluck('id', 'name')->get();
+    }
+
 }

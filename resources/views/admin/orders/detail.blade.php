@@ -231,6 +231,7 @@
                     <input type="number" class="form-control" min="1" value="{{ ($orderItem->qty) }}"/>
 
                     <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
+                    {{ dd($orderItem->getDeliveries()) }}
                     <label for="">روش ارسال سفارش : {{ $orderItem->getDeliveryType() }}</label>
                     @if($orderItem->getAddress())
                         <label for="">آدرس ارسال : </label>
