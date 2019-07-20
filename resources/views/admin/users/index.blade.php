@@ -37,10 +37,10 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-left">
-                                    <li><a class="btn btn-sm" href="{{ route('admin.user.edit',[$user]) }}">ویرایش</a>
+                                    <li><a class="btn btn-sm" href="{{ route('admin.customer.edit',[$user]) }}">ویرایش</a>
                                     </li>
                                     <li>
-                                        <form action="{{ route('admin.user.destroy',[$user]) }}"
+                                        <form action="{{ route('admin.customer.destroy',[$user]) }}"
                                               method="post">
                                             @csrf
                                             @method('delete')
