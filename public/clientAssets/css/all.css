@@ -19623,7 +19623,6 @@ button.close:hover {
 
 
 .thumbnail {
-    border: 1px solid rgba(0, 0, 0, .2);
     cursor: pointer;
 }
 
@@ -19635,6 +19634,13 @@ button.close:hover {
     font-size: 1.2rem;
     text-align: center;
     font-weight: bold;
+}
+
+.thumbnail img {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 5px #EAEAEA;
 }
 
 .categories p {
