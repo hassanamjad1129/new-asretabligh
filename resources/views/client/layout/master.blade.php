@@ -272,8 +272,8 @@
                 <span style="color: #e52531">
                 عصر تبلیغ
             </span>
-                محفوظ می باشد.     <a href="http://hugenet.ir/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d8%b3%d8%a7%db%8c%d8%aa-%da%86%d8%a7%d9%be%d8%ae%d8%a7%d9%86%d9%87/">
-                    (<span style="color: #FFF">طراحی سایت چاپخانه</span>
+                محفوظ می باشد.     (<a href="http://hugenet.ir/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d8%b3%d8%a7%db%8c%d8%aa-%da%86%d8%a7%d9%be%d8%ae%d8%a7%d9%86%d9%87/">
+                    <span style="color: #FFF">طراحی سایت چاپخانه</span>
                 </a>
                 و اجرا توسط ایده پردازان تدبیر بنیان)
 
