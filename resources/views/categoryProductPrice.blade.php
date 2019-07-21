@@ -1,4 +1,7 @@
 @extends('client.layout.master')
+@section('title')
+    لیست قیمت {{ $category->name }}
+@endsection
 @section('content')
     <style>
         .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
@@ -66,7 +69,7 @@
                     @if($price->double_price)
                         <tr>
                             <td>{{ ta_persian_num($i++) }}</td>
-                            <td >{{ $product->title." ".ta_persian_num($paper->name) }}</td>
+                            <td>{{ $product->title." ".ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {

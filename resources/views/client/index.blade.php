@@ -1,4 +1,7 @@
 @extends('client.layout.master')
+@section('title')
+    پرینت آنلاین|پرینت سیاه و سفید|پرینت رنگی|پلات|لمینت|چاپ پوستر|چاپ نقشه
+@endsection
 @section('content')
     <!------------------    Slider   ------------------>
     <div id="slider">

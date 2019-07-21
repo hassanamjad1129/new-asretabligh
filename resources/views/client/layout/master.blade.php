@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>چاپ عصر تبلیغ|پرینت آنلاین|پرینت سیاه و سفید|پرینت رنگی|پلات|لمینت|چاپ پوستر|چاپ نقشه</title>
+    <title>چاپ عصر تبلیغ|@yield('title')</title>
 
     <meta name="description" content="مجری کلیه امور چاپی و تبلیغاتی
 چاپ دیجیتال-چاپ افست-خدمات دانشجویی
@@ -272,7 +272,8 @@
                 <span style="color: #e52531">
                 عصر تبلیغ
             </span>
-                محفوظ می باشد.     (<a href="http://hugenet.ir/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d8%b3%d8%a7%db%8c%d8%aa-%da%86%d8%a7%d9%be%d8%ae%d8%a7%d9%86%d9%87/">
+                محفوظ می باشد. (<a
+                        href="http://hugenet.ir/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d8%b3%d8%a7%db%8c%d8%aa-%da%86%d8%a7%d9%be%d8%ae%d8%a7%d9%86%d9%87/">
                     <span style="color: #FFF">طراحی سایت چاپخانه</span>
                 </a>
                 و اجرا توسط ایده پردازان تدبیر بنیان)
