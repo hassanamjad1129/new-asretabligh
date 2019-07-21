@@ -47,7 +47,7 @@
                         <tr>
                             <td>{{ ta_persian_num($i++) }}</td>
                             <td style="    direction: ltr;
-    text-align: right;">{{ ta_persian_num($paper->name) }}</td>
+    text-align: right;">{{ $product->title." ".ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {
@@ -68,7 +68,7 @@
                         <tr>
                             <td>{{ ta_persian_num($i++) }}</td>
                             <td style="    direction: ltr;
-    text-align: right;">{{ ta_persian_num($paper->name) }}</td>
+    text-align: right;">{{ $product->title." ".ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {
