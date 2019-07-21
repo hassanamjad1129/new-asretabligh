@@ -46,8 +46,7 @@
                     @if($price->single_price)
                         <tr>
                             <td>{{ ta_persian_num($i++) }}</td>
-                            <td style="    direction: ltr;
-    text-align: right;">{{ $product->title." ".ta_persian_num($paper->name) }}</td>
+                            <td style="">{{ $product->title." ".ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {
@@ -67,8 +66,7 @@
                     @if($price->double_price)
                         <tr>
                             <td>{{ ta_persian_num($i++) }}</td>
-                            <td style="    direction: ltr;
-    text-align: right;">{{ $product->title." ".ta_persian_num($paper->name) }}</td>
+                            <td >{{ $product->title." ".ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {
