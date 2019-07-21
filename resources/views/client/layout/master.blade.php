@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>چاپ عصر تبلیغ|@yield('title')</title>
+    <title>چاپ عصر تبلیغ-@yield('title')</title>
 
     <meta name="description" content="مجری کلیه امور چاپی و تبلیغاتی
 چاپ دیجیتال-چاپ افست-خدمات دانشجویی
