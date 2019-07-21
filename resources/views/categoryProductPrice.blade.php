@@ -3,7 +3,7 @@
     <div class="container">
         <?php $i = 1; ?>
         @foreach($products as $product)
-            <table class="table table-striped table-bordered">
+            <table class="table-striped table-bordered" style="width: 100%">
                 <thead>
                 <tr>
                     <th>#</th>
