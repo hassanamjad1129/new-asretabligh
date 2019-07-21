@@ -2,6 +2,9 @@
 @section('title')
     لیست قیمت {{ $category->name }}
 @endsection
+@section('description')
+    لیست قیمت@foreach($products as $product) {{ $product->titile }} ارزان، @endforeach
+@endsection
 @section('content')
     <style>
         .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {

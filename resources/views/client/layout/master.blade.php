@@ -8,12 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>چاپ عصر تبلیغ-@yield('title')</title>
 
-    <meta name="description" content="مجری کلیه امور چاپی و تبلیغاتی
-چاپ دیجیتال-چاپ افست-خدمات دانشجویی
-چاپ آنلاین دیجیتال: پرینت رنگی-پرینت سیاه و سفید-چاپ کتاب-چاپ پوستر-پلات-لمینت-صحافی پایان نامه فوری-صحافی گالینگور-صحافی سیمی-صحافی چسب گرم-سلفون حرارتی
-خدمات IT: طراحی سایت-اپلیکیشن-سئو
-خدمات افست: چاپ فرم عمومی-چاپ فرم اختصاصی-کارت ویزیت-سربرگ-کاتالوگ-بروشور-پوستر-مجله-کتاب
-طراحی-لیتوگرافی">
+    <meta name="description" content="@yield('description')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:title" content="چاپ عصر تبلیغ @yield('title')">
     <meta property="og:image" content="{{ asset('/logo.jpg') }}"/>
