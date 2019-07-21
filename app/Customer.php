@@ -96,4 +96,9 @@ class Customer extends Authenticatable
         return null;
     }
 
+    public function moneybagReport()
+    {
+        return $this->hasMany(MoneyBagReport::class, 'user_id');
+    }
+
 }

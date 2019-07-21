@@ -47,6 +47,11 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('/slideshow/delete/{id}', 'SlideshowController@destroy');
         Route::post('/slideshow/setPriority', 'SlideshowController@setPriority')->middleware('admin');
 
+        Route::get('/customer/{customer}/moneybag', 'MoneyBagController@index')->name('moneybag.index');
+        Route::get('/customer/{customer}/moneybag/create', 'MoneyBagController@create')->name('moneybag.create');
+        Route::post('/customer/{customer}/moneybag', 'MoneyBagController@store');
+        Route::delete('/customer/{customer}/moneybag/{report}', 'MoneyBagController@destroy')->name('moneybag.delete');
+
         Route::get('service/{service}/products', 'ServiceController@products')->name('service.products');
         Route::post('service/{service}/products', 'ServiceController@updateProducts');
 
@@ -65,10 +70,10 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('paper/{paper}/products', 'PaperController@products')->name('paper.products');
         Route::post('paper/{paper}/products', 'PaperController@updateProducts');
 
-        Route::get('orders','OrderController@index')->name('orders.index');
-        Route::get('orders/finished','OrderController@finished')->name('orders.finished');
-        Route::get('orders/{orderItem}','OrderController@orderDetail')->name('orders.orderDetail');
-        Route::post('orders/{orderItem}','OrderController@updateOrder')->name('orders.updateOrder');
+        Route::get('orders', 'OrderController@index')->name('orders.index');
+        Route::get('orders/finished', 'OrderController@finished')->name('orders.finished');
+        Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orders.orderDetail');
+        Route::post('orders/{orderItem}', 'OrderController@updateOrder')->name('orders.updateOrder');
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');
