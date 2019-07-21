@@ -80,4 +80,9 @@ class siteController extends Controller
     {
         return view('client.rules');
     }
+
+    public function aboutus()
+    {
+        return view('client.aboutUs');
+    }
 }

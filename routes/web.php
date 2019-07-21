@@ -18,6 +18,7 @@ Route::get('getValuePicture/{value}', 'siteController@getValuePicture')->name('g
 Route::get('getServicePicture/{service}', 'siteController@getServicePicture')->name('getServicePicture');
 Route::get('category/{category}', 'siteController@getCategoryProductPrice')->name('categoryProductPrice');
 Route::get('قوانین-مقررات', 'siteController@rules')->name('rules');
+Route::get('درباره-ما', 'siteController@aboutus')->name('aboutus');
 
 Route::get('product/{product}', 'ProductController@show')->name('showProduct');
 Route::post('checkFiles', 'Customer\OrderController@checkFiles')->name('checkFiles');

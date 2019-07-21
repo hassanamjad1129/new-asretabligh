@@ -100,7 +100,7 @@
                             </li>
 
                             <li><a href="{{ route('rules') }}">قوانین و مقرارت</a></li>
-                            <li><a href="{{ url('/aboutUs') }}">درباره ما</a></li>
+                            <li><a href="{{ route('aboutus') }}">درباره ما</a></li>
                             <li><a href="{{ url('/contactUs') }}">تماس با ما</a></li>
 
                         </ul>
@@ -163,8 +163,8 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li class="link"><a href="{{ url('/rules') }}">قوانین و مقرارت</a></li>
-                                <li class="link"><a href="{{ url('/aboutUs') }}">درباره ما</a></li>
+                                <li class="link"><a href="{{ route('rules') }}">قوانین و مقرارت</a></li>
+                                <li class="link"><a href="{{ route('aboutus') }}">درباره ما</a></li>
                                 <li class="link"><a href="{{ url('/contactUs') }}">تماس با ما</a></li>
                                 <li class="link"><a href="{{ url('/customer/login') }}"><i
                                                 class="flaticon-black"></i></a>
