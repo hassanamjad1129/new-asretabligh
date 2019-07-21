@@ -1,5 +1,18 @@
 @extends('client.layout.master')
 @section('content')
+    <style>
+        .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+            border-bottom-width: 2px;
+            background: #d60000;
+            color: #FFF;
+            padding: 1rem;
+        }
+
+        .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+        }
+    </style>
     <div class="container">
         <?php $i = 1; ?>
         @foreach($products as $product)
