@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/moneybag/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/moneybag/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/moneybag/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/moneybag/create.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,17 +42,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="52" column="116" selection-start-line="52" selection-start-column="101" selection-end-line="52" selection-end-column="116" />
+            <state relative-caret-position="499">
+              <caret line="51" column="50" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/users/moneybag/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="6" column="32" lean-forward="true" selection-start-column="1" selection-end-line="6" selection-end-column="32" />
+            <state relative-caret-position="210">
+              <caret line="7" column="81" selection-start-line="7" selection-start-column="81" selection-end-line="7" selection-end-column="81" />
               <folding>
                 <element signature="e#2204#2249#0#HTML" expanded="true" />
               </folding>
@@ -78,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/users/moneybag/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -188,12 +188,12 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
         <option value="$PROJECT_DIR$/app/Customer.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_21_095820_create_money_bag_reports_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/users/moneybag/create.blade.php" />
         <option value="$PROJECT_DIR$/routes/admin.php" />
         <option value="$PROJECT_DIR$/app/MoneyBagReport.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/MoneyBagController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/users/moneybag/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/users/moneybag/create.blade.php" />
       </list>
     </option>
   </component>
@@ -571,12 +571,12 @@
       <workItem from="1563605175478" duration="2190000" />
       <workItem from="1563607525124" duration="73000" />
       <workItem from="1563622754797" duration="7103000" />
-      <workItem from="1563686671552" duration="4313000" />
+      <workItem from="1563686671552" duration="4485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106057000" />
+    <option name="totallyTimeSpent" value="106229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -909,23 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="52" column="116" selection-start-line="52" selection-start-column="101" selection-end-line="52" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/moneybag/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="32" lean-forward="true" selection-start-column="1" selection-end-line="6" selection-end-column="32" />
-          <folding>
-            <element signature="e#2204#2249#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/MoneyBagReport.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -946,7 +929,24 @@
     <entry file="file://$PROJECT_DIR$/resources/views/admin/users/moneybag/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="51" column="50" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/users/moneybag/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="81" selection-start-line="7" selection-start-column="81" selection-end-line="7" selection-end-column="81" />
+          <folding>
+            <element signature="e#2204#2249#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

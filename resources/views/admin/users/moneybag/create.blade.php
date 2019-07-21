@@ -5,7 +5,7 @@
             <p>ایجاد تراکنش روی کیف پول</p>
         </div>
         <div class="card-block">
-            <form action="" method="post">
+            <form action="/admin/customer/{{ $customer->id }}/moneybag" method="post">
                 @csrf
                 <div class="col-md-6">
                     <label for="">مبلغ</label>
