@@ -66,6 +66,13 @@ class siteController extends Controller
     public function removeFromCart($id)
     {
         Session::forget('cart.' . $id);
-        return back()->withErrors(['عملیات با موفقیت انجام شد'],'success');
+        return back()->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+    }
+
+    public function getCategoryProductPrice($category)
+    {
+        $category = Category::where('name', str_replace("-", " ", $category))->firstOrFail();
+        $products = $category->products;
+        return view('categoryProductPrice', ['products' => $products]);
     }
 }
