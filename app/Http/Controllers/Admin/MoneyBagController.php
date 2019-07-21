@@ -41,7 +41,7 @@ class MoneyBagController extends Controller
         else
             $customer->credit = $customer->credit - $report->price;
         $customer->save();
-        return redirect(route('admin.customer.moneybag.index', [$customer]))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+        return redirect(route('admin.moneybag.index', [$customer]))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
     private function storeValidation(Request $request)
