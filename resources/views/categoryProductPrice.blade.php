@@ -49,10 +49,13 @@
                             <td style="">{{ $product->title." ".ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
-                            foreach ($properties as $key => $property) {
-                                $value = ProductValueAlias::find($data[$key]);
-                                if ($value->property_id == $property) {
-                                    echo "<td>" . ta_persian_num($value->name) . "</td>";
+                            foreach ($data as $val) {
+                                foreach ($properties as $key => $property) {
+                                    $value = ProductValueAlias::find($data[$key]);
+                                    if ($value->property_id == $property) {
+                                        echo "<td>" . ta_persian_num($value->name) . "</td>";
+                                        break;
+                                    }
                                 }
                             }
                             ?>
@@ -66,13 +69,16 @@
                     @if($price->double_price)
                         <tr>
                             <td>{{ ta_persian_num($i++) }}</td>
-                            <td >{{ $product->title." ".ta_persian_num($paper->name) }}</td>
+                            <td>{{ $product->title." ".ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
-                            foreach ($properties as $key => $property) {
-                                $value = ProductValueAlias::find($data[$key]);
-                                if ($value->property_id == $property) {
-                                    echo "<td>" . ta_persian_num($value->name) . "</td>";
+                            foreach ($data as $val) {
+                                foreach ($properties as $key => $property) {
+                                    $value = ProductValueAlias::find($data[$key]);
+                                    if ($value->property_id == $property) {
+                                        echo "<td>" . ta_persian_num($value->name) . "</td>";
+                                        break;
+                                    }
                                 }
                             }
                             ?>
