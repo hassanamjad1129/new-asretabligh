@@ -99,7 +99,7 @@
                                 <a href="{{ url('shop') }}">فروشگاه</a>
                             </li>
 
-                            <li><a href="{{ url('/rules') }}">قوانین و مقرارت</a></li>
+                            <li><a href="{{ route('rules') }}">قوانین و مقرارت</a></li>
                             <li><a href="{{ url('/aboutUs') }}">درباره ما</a></li>
                             <li><a href="{{ url('/contactUs') }}">تماس با ما</a></li>
 

@@ -75,4 +75,9 @@ class siteController extends Controller
         $products = $category->products;
         return view('categoryProductPrice', ['products' => $products, 'category' => $category]);
     }
+
+    public function rules()
+    {
+        return view('client.rules');
+    }
 }
