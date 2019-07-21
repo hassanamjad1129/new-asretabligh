@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="288">
+              <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
               <folding>
                 <element signature="e#202#221#0#HTML" expanded="true" />
               </folding>
@@ -567,12 +567,12 @@
       <workItem from="1563605175478" duration="2190000" />
       <workItem from="1563607525124" duration="73000" />
       <workItem from="1563622754797" duration="7103000" />
-      <workItem from="1563686671552" duration="7641000" />
+      <workItem from="1563686671552" duration="7689000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109385000" />
+    <option name="totallyTimeSpent" value="109433000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -975,8 +975,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        <state relative-caret-position="288">
+          <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
           <folding>
             <element signature="e#202#221#0#HTML" expanded="true" />
           </folding>

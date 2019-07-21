@@ -16,6 +16,8 @@
     <div class="container">
         <?php $i = 1; ?>
         @foreach($products as $product)
+            <h2 style="text-align: center;">{{ $product->title }}</h2>
+            <br>
             <table class="table-striped table-bordered" style="width: 100%">
                 <thead>
                 <tr>
@@ -80,6 +82,7 @@
                 @endforeach
                 </tbody>
             </table>
+            <br>
         @endforeach
     </div>
 @endsection
