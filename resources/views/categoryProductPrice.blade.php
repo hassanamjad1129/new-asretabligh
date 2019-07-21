@@ -14,10 +14,12 @@
         }
     </style>
     <div class="container">
-        <h1>لیست قیمت {{ $category->name }}</h1>
+        <h1 style="text-align: center">لیست قیمت {{ $category->name }}</h1>
+        <br>
         <?php $i = 1; ?>
         @foreach($products as $product)
-            <h2 style="text-align: center;">{{ $product->title }}</h2>
+            <h2 style="text-align: center;">لیست قیمت <a
+                        href="{{ route('showProduct',$product) }}">{{ $product->title }}</a></h2>
             <br>
             <table class="table-striped table-bordered" style="width: 100%">
                 <thead>

@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/siteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/siteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,13 +51,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="103" selection-start-line="18" selection-start-column="83" selection-end-line="18" selection-end-column="103" />
+            <state relative-caret-position="330">
+              <caret line="20" column="76" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/siteController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="482">
@@ -85,12 +84,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+            <state relative-caret-position="150">
+              <caret line="21" column="92" selection-start-line="21" selection-start-column="92" selection-end-line="21" selection-end-column="92" />
               <folding>
+                <element signature="e#641#667#0#HTML" expanded="true" />
                 <element signature="e#710#735#0#HTML" expanded="true" />
                 <element signature="e#202#221#0#HTML" expanded="true" />
                 <element signature="e#1842#1892#0#HTML" expanded="true" />
@@ -217,8 +217,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/client/layout/master.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/siteController.php" />
+        <option value="$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php" />
       </list>
     </option>
   </component>
@@ -571,12 +571,12 @@
       <workItem from="1563605175478" duration="2190000" />
       <workItem from="1563607525124" duration="73000" />
       <workItem from="1563622754797" duration="7103000" />
-      <workItem from="1563686671552" duration="8163000" />
+      <workItem from="1563686671552" duration="8252000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109907000" />
+    <option name="totallyTimeSpent" value="109996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -939,32 +939,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="103" selection-start-line="18" selection-start-column="83" selection-end-line="18" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/layout/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="92" column="104" selection-start-line="92" selection-start-column="104" selection-end-line="92" selection-end-column="104" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding>
-            <element signature="e#710#735#0#HTML" expanded="true" />
-            <element signature="e#202#221#0#HTML" expanded="true" />
-            <element signature="e#1842#1892#0#HTML" expanded="true" />
-            <element signature="e#2813#2863#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -987,6 +967,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="75" column="93" selection-start-line="75" selection-start-column="93" selection-end-line="75" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="20" column="76" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="92" selection-start-line="21" selection-start-column="92" selection-end-line="21" selection-end-column="92" />
+          <folding>
+            <element signature="e#641#667#0#HTML" expanded="true" />
+            <element signature="e#710#735#0#HTML" expanded="true" />
+            <element signature="e#202#221#0#HTML" expanded="true" />
+            <element signature="e#1842#1892#0#HTML" expanded="true" />
+            <element signature="e#2813#2863#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
