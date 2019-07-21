@@ -14,6 +14,7 @@
         }
     </style>
     <div class="container">
+        <h1>لیست قیمت {{ $category->name }}</h1>
         <?php $i = 1; ?>
         @foreach($products as $product)
             <h2 style="text-align: center;">{{ $product->title }}</h2>

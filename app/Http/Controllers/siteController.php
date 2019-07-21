@@ -73,6 +73,6 @@ class siteController extends Controller
     {
         $category = Category::where('name', str_replace("-", " ", $category))->firstOrFail();
         $products = $category->products;
-        return view('categoryProductPrice', ['products' => $products]);
+        return view('categoryProductPrice', ['products' => $products, 'category' => $category]);
     }
 }
