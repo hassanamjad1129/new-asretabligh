@@ -7,10 +7,10 @@
         </div>
         <div class="row" style="margin-top: 65px">
             <div class="col-md-7">
-                <h3 style="background: #f7f8fa;
+                <h3 style="    background: #FFF;
     z-index: 2;
     position: relative;
-    width: 215px;">درباره چاپ عصر تبلیغ</h3>
+    width: 229px;">درباره چاپ عصر تبلیغ</h3>
                 <hr style="position: relative;
     bottom: 30px;border-top: 1px solid #ccc;">
                 <p style="text-align: justify;line-height: 1.7">در عصرحاضر كه انفجار اطلاعات نام گرفته، دو پديده پيش از
