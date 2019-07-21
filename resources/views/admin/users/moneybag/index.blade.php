@@ -6,7 +6,8 @@
         </div>
         <div class="card-block">
             <a href="{{ route('admin.moneybag.create',[$customer]) }}" class="btn btn-success">افزودن تراکنش</a>
-            <h5>موجودی فعلی  {{ number_format($customer->credit) }} ریال</h5>
+            <br>
+            <h5>موجودی فعلی {{ number_format($customer->credit) }} ریال</h5>
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
