@@ -58,8 +58,8 @@
                             }
                             ?>
                             <td>یک رو</td>
-                            <td>{{ $price->min }}</td>
-                            <td>{{ $price->max }}</td>
+                            <td>{{ ta_persian_num($price->min) }}</td>
+                            <td>{{ ta_persian_num($price->max) }}</td>
                             <td>{{ ta_persian_num(number_format($price->single_price)) }} ریال</td>
                         </tr>
                     @endif
