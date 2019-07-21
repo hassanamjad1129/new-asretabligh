@@ -53,7 +53,7 @@
                             }
                             ?>
                             <td>یک رو</td>
-                            <td>{{ ta_persian_num(number_format($price->double_price)) }} ریال</td>
+                            <td>{{ ta_persian_num(number_format($price->single_price)) }} ریال</td>
                         </tr>
                     @endif
 
