@@ -6,14 +6,17 @@
         </div>
         <div class="card-block">
             <a href="{{ route('admin.moneybag.create',[$customer]) }}" class="btn btn-success">افزودن تراکنش</a>
+
             <table class="table table-striped table-bordered table-hover">
                 <thead>
-                <tr>#</tr>
-                <tr>عملیات</tr>
-                <tr>مبلغ</tr>
-                <tr>توضیحات</tr>
-                <tr>تاریخ</tr>
-                <tr>عملیات</tr>
+                <tr>
+                    <th>#</th>
+                    <th>عملیات</th>
+                    <th>مبلغ</th>
+                    <th>توضیحات</th>
+                    <th>تاریخ</th>
+                    <th>عملیات</th>
+                </tr>
                 </thead>
                 <tbody>
                 <?php
