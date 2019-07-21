@@ -40,14 +40,14 @@
                     ?>
                     @if($price->single_price)
                         <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>{{ $paper->name }}</td>
+                            <td>{{ ta_persian_num($i++) }}</td>
+                            <td>{{ ta_persian_num($paper->name) }}</td>
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {
                                 $value = \App\Models\ProductValue::find($data[$key]);
                                 if ($value->property_id == $property) {
-                                    echo "<td>" . $value->name . "</td>";
+                                    echo "<td>" . ta_persian_num($value->name) . "</td>";
                                     break;
                                 }
                             }
