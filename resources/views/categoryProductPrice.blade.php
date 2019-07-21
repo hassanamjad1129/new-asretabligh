@@ -5,7 +5,7 @@
             border-bottom-width: 2px;
             background: #d60000;
             color: #FFF;
-            padding: 1rem;
+            padding: 1rem !important;
         }
 
         .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
