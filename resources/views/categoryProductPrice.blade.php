@@ -16,7 +16,7 @@
     <div class="container">
         <h1 style="text-align: center">لیست قیمت {{ $category->name }}</h1>
         <br>
-        <?php $i = 1; ?>
+        <?php use App\Models\ProductValue as ProductValueAlias;$i = 1; ?>
         @foreach($products as $product)
             <h2 style="text-align: center;">لیست قیمت <a
                         href="{{ route('showProduct',$product) }}">{{ $product->title }}</a></h2>
@@ -32,6 +32,8 @@
                         <th>{{ $property->name }}</th>
                     @endforeach
                     <th>نوع کار</th>
+                    <th>از تعداد</th>
+                    <th>تا تعداد</th>
                     <th>قیمت (ریال)</th>
                 </tr>
                 </thead>
@@ -49,13 +51,15 @@
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {
-                                $value = \App\Models\ProductValue::find($data[$key]);
+                                $value = ProductValueAlias::find($data[$key]);
                                 if ($value->property_id == $property) {
                                     echo "<td>" . ta_persian_num($value->name) . "</td>";
                                 }
                             }
                             ?>
                             <td>یک رو</td>
+                            <td>{{ $price->min }}</td>
+                            <td>{{ $price->max }}</td>
                             <td>{{ ta_persian_num(number_format($price->single_price)) }} ریال</td>
                         </tr>
                     @endif
@@ -68,13 +72,16 @@
                             <?php
                             $data = explode('-', $price->values);
                             foreach ($properties as $key => $property) {
-                                $value = \App\Models\ProductValue::find($data[$key]);
+                                $value = ProductValueAlias::find($data[$key]);
                                 if ($value->property_id == $property) {
                                     echo "<td>" . ta_persian_num($value->name) . "</td>";
                                 }
                             }
                             ?>
                             <td>دو رو</td>
+                            <td>{{ $price->min }}</td>
+                            <td>{{ $price->max }}</td>
+
                             <td>{{ ta_persian_num(number_format($price->double_price)) }} ریال</td>
                         </tr>
                     @endif
