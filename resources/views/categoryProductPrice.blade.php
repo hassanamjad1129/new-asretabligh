@@ -40,7 +40,7 @@
                 <tbody>
                 @foreach($product->Papers as $paper)
                     <?php
-                    $prices = \App\Models\ProductPrice::where('product_id', $product->id)->where('paper_id', $paper->id)->get();
+                    $prices = \App\Models\ProductPrice::where('product_id', $product->id)->where('paper_id', $paper->id)->orderBy('values')->get();
                     foreach ($prices as $price):
                     ?>
                     @if($price->single_price)
