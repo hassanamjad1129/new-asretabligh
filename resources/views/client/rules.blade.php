@@ -10,7 +10,7 @@
     width: 200px;">قوانین و مقررات</h3>
                 <hr style="position: relative;
     bottom: 30px;border-top: 1px solid #ccc;">
-                <p style="text-align: justify;line-height: 1.7">
+                <p style="text-align: justify;line-height: 2.4;">
                      <span style="font-size: 16px">
                         مشتری گرامی لطفاً به نکات زیر توجه فرمائید:
                      </span>
