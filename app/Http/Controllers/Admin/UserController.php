@@ -46,12 +46,15 @@ class UserController extends Controller
                 'address' => 'nullable',
                 'gender' => ['required', Rule::in(['male', 'female'])],
                 'avatar' => ['nullable', 'image', 'max:2048'],
+                'price' => ['required', Rule::in(['normal', 'coworker'])],
                 'phone' => ['required', 'regex:/(^[0][9][0-9]{9}$)/', Rule::unique('customers', 'phone')->ignore($customer->id)],
                 'password' => 'same:confirmPassword',
             ], [
                 'name.required' => 'نام الزامی است',
                 'gender.required' => 'جنسیت الزامی است',
                 'gender.in' => 'جنسیت را به درستی انتخاب کنید',
+                'price.required' => 'نوع محاسبه قیمت الزامی است',
+                'price.in' => 'نوع محاسبه قیمت را به درستی انتخاب کنید',
                 'phone.required' => 'موبایل الزامی است',
                 'phone.regex' => 'فرمت ارسالی موبایل اشتباه می باشد',
                 'phone.unique' => 'شماره موبایل ارسالی قبلا ثبت شده است',
@@ -79,6 +82,7 @@ class UserController extends Controller
             $customer->telephone = $request->telephone;
         if ($request->address)
             $customer->address = $request->address;
+        $customer->price = $request->price;
         $customer->gender = $request->gender;
         $customer->type = ($request->type == 0) ? 'credit' : 'cash';
         if ($request->hasFile('avatar')) {

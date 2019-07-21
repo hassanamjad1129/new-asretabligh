@@ -99,6 +99,21 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
+                            <label for="">نوع محاسبه قیمت</label>
+                        </div>
+                        <div class="card-body">
+                            <select class="form-control" style="height: 2.5rem !important;" name="prcie">
+                                <option value="coworker" {{($customer->price=='coworker')?'selected':''}}>همکاری
+                                </option>
+                                <option value="normal" {{($customer->price=='normal')?'selected':''}}>عادی</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
                             <label for="">تصویر</label>
                         </div>
                         <div class="card-body">
