@@ -1,5 +1,5 @@
 @extends('client.layout.master')
-@section('title') لیست قیمت{{ $category->name }}@endsection
+@section('title') لیست قیمت {{ $category->name }}@endsection
 @section('description')لیست قیمت@foreach($products as $product) {{ $product->title }} ارزان، @endforeach @endsection
 @section('content')
     <style>
