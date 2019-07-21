@@ -52,7 +52,6 @@
                                 $value = \App\Models\ProductValue::find($data[$key]);
                                 if ($value->property_id == $property) {
                                     echo "<td>" . ta_persian_num($value->name) . "</td>";
-                                    break;
                                 }
                             }
                             ?>
@@ -72,7 +71,6 @@
                                 $value = \App\Models\ProductValue::find($data[$key]);
                                 if ($value->property_id == $property) {
                                     echo "<td>" . ta_persian_num($value->name) . "</td>";
-                                    break;
                                 }
                             }
                             ?>
