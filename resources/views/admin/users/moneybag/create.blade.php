@@ -8,7 +8,7 @@
             <form action="/admin/customer/{{ $customer->id }}/moneybag" method="post">
                 @csrf
                 <div class="col-md-6">
-                    <label for="">مبلغ</label>
+                    <label for="">مبلغ (ریال)</label>
                     <input type="text" name="price" class="form-control price"/>
                 </div>
                 <div class="col-md-6">

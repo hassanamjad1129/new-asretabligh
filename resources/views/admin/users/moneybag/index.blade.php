@@ -35,7 +35,7 @@
                             <form action="{{ route('admin.moneybag.delete',[$customer,$report]) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-primary">حذف</button>
+                                <button class="btn btn-primary deleteBTN">حذف</button>
                             </form>
                         </td>
                     </tr>

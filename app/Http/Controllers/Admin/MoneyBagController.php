@@ -64,6 +64,6 @@ class MoneyBagController extends Controller
             $customer->credit = $customer->credit + $report->price;
         $customer->save();
         $report->delete();
-        return redirect(route('admin.customer.moneybag.index', [$customer]))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+        return redirect(route('admin.moneybag.index', [$customer]))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 }
