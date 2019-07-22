@@ -19,7 +19,7 @@
                             <button class="btn btn-danger btn-sm" style="width:25%; margin-top: 3px;float: left;">ورود
                             </button>
                             <div class="clearfix"></div>
-                            <a href="">رمز عبور خود را فراموش کرده اید؟</a>
+                            <a href="{{ route('customer.password.request') }}">رمز عبور خود را فراموش کرده اید؟</a>
                         </div>
                     </form>
                 </div>

@@ -18,7 +18,7 @@ Route::get('/logout', 'CustomerAuth\LoginController@logout')->name('logout');
 Route::get('/register', 'CustomerAuth\RegisterController@showRegistrationForm')->name('register');
 Route::post('/register', 'CustomerAuth\RegisterController@register');
 
-Route::post('/password/email', 'CustomerAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+Route::get('/password/phone', 'Customer\ForgotPasswordController@forgotPasswordView')->name('password.request');
 Route::post('/password/reset', 'CustomerAuth\ResetPasswordController@reset')->name('password.email');
 Route::get('/password/reset', 'CustomerAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
 Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
