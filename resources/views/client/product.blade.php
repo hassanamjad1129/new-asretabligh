@@ -290,6 +290,19 @@
             }
         });
 
+        $("#orderForm").submit(function (e) {
+            $("input[type=file]").each(function () {
+                if ($(this).get(0).files.length === 0) {
+                    e.preventDefault();
+                    swal({
+                        title: 'خطا!',
+                        text: "تمامی فایل های خواسته شده را آپلود کنید",
+                        type: 'error',
+                        confirmButtonText: 'متوجه شدم'
+                    })
+                }
+            })
+        });
 
         $("body").on("change", "input[type=radio]", function (e) {
             const id = $(this).attr('val');
