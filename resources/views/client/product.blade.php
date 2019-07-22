@@ -58,7 +58,7 @@
     color: #D60000;"><i class="fa fa-shopping-bag"></i> ثبت سفارش
                         </h3>
                         <div class="col-md-12">
-                            <label for=""  style="font-weight: bold;font-size:15px;margin-top:10px">عنوان سفارش</label>
+                            <label for="" style="font-weight: bold;font-size:15px;margin-top:10px">عنوان سفارش</label>
                             <input type="text" class="form-control" name="title">
                             <label v="paper" for=""
                                    style="font-weight: bold;font-size:15px;margin-top:10px">سایز فایل
@@ -159,7 +159,9 @@
                             @endif
                         </div>
                         <div class="col-md-12" id="serviceWrapper" style="display: none;">
-                            <label for="" v="service" style="font-weight: bold;font-size:1.65rem;margin-top:10px;margin-bottom:1rem"><i class="fa fa-plus-circle" style="color: #d60000;"></i> خدمات
+                            <label for="" v="service"
+                                   style="font-weight: bold;font-size:1.65rem;margin-top:10px;margin-bottom:1rem"><i
+                                        class="fa fa-plus-circle" style="color: #d60000;"></i> خدمات
                                 اضافی</label>
                             <div>
                                 <input type="checkbox" style="display: none" val="service"
@@ -272,8 +274,13 @@
         var service = {};
         var serviceFiles = {};
 
-        var type = "";
+                @if($product->type=='single')
+        var type = "single";
+                @elseif($product->type=='double')
+        var paper = "double";
+                @else
         var paper = "";
+                @endif
         var services = [];
         $.ajaxSetup({
             headers: {
