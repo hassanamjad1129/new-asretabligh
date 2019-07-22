@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('title') ثبت سفارش {{ $product->title }}@endif
 @section('content')
     <style>
         input[type="radio"] + label > div, input[type="checkbox"] + label > div {
