@@ -278,10 +278,11 @@
                 @if($product->type=='single')
         var type = "single";
                 @elseif($product->type=='double')
-        var paper = "double";
+        var type = "double";
                 @else
-        var paper = "";
+        var type = "";
                 @endif
+        var paper = "";
         var services = [];
         $.ajaxSetup({
             headers: {
