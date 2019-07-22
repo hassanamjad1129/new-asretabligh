@@ -293,6 +293,7 @@
         $("#orderForm").submit(function (e) {
             $("input[type=file]").each(function () {
                 if ($(this).get(0).files.length === 0) {
+                    console.log($(this));
                     e.preventDefault();
                     swal({
                         title: 'خطا!',
