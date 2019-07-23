@@ -24,7 +24,8 @@ class CreateCustomersTable extends Migration
             $table->enum('price', ['coworker', 'normal'])->default('normal');
             $table->bigInteger('credit')->default(0);
             $table->string('password');
-            $table->text('address')->nullable();
+            $table->string('password_token')->nullable();
+            $table->text('address')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });
