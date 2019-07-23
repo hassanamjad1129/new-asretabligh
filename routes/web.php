@@ -30,6 +30,8 @@ Route::post('storeOrder', 'Customer\OrderController@storeCart')->name('storeCart
 Route::get('/cart', 'siteController@cart')->name('cart');
 Route::get('/cart/{id}/remove', 'siteController@removeFromCart');
 
+Route::get('/posts/{post}/{title}', 'siteController@postDetail')->name('post.detail');
+
 Route::group(['middleware' => 'web'], function () {
     Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
     Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');

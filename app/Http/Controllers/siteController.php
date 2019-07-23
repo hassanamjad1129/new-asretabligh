@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductValue;
 use App\Models\Slideshow;
 use App\option;
+use App\pCategory;
 use App\post;
 use App\Service;
 use App\ServiceValue;
@@ -84,5 +85,12 @@ class siteController extends Controller
     public function aboutus()
     {
         return view('client.aboutUs');
+    }
+
+    public function postDetail(post $post, $title)
+    {
+        $categories = pCategory::all();
+        $newPosts = post::latest()->get()->take(4);
+        return view('client.post', ['post' => $post, 'categories' => $categories, 'newPosts' => $newPosts]);
     }
 }

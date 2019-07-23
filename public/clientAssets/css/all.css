@@ -19594,8 +19594,55 @@ button.close:hover {
 }
 
 .card {
-    border: 1px solid #ccc;
+    border: 1px solid #DFDFDF;
     overflow: hidden;
+    background: #F5F5F5;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .08);
+    border-radius: 5px;
+}
+
+#postCategories li a {
+    color: #666
+}
+
+#postCategories li:hover {
+    margin-right: 0.7rem;
+}
+
+#postCategories li {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    border-bottom: 1px solid #888;
+    color: #444;
+    transition: all ease 0.4s
+}
+
+.panel-default {
+    border-color: #D60000;
+}
+
+.panel-default > .panel-heading {
+    background-color: #D60000;
+    border-color: #D60000;
+    color: #FFF;
+}
+
+#postCategories li:last-child {
+    border-bottom: none
+}
+
+.btn-outline.btn-danger {
+    color: #d60000;
+    background: #FFF;
+    border: 1px solid #d60000;
+    border-radius: 2rem;
+    transition: all ease 0.2s
+}
+
+.btn-outline.btn-danger:hover {
+    background: #d60000;
+    color: #FFF;
+    border: 1px solid #d60000;
 
 }
 

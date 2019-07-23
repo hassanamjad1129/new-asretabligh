@@ -267,22 +267,28 @@
                                                  src="{{ asset($new->picture)}}"
                                                  alt="عصر تبلیغ"/>
                                             <div class="overlay">
-                                                <i class="flaticon-mark"></i>
-                                                <a href="{{ url('/news/show/'.$new->id.'/'.mb_substr(strip_tags(trim($new->title)),0,20,'UTF8')) }}">
+                                                <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}">
                                                     <h2>مشاهده جزییات</h2></a>
+                                                <i class="flaticon-mark"></i>
                                             </div>
                                         </div>
                                         <div class="caption">
                                             <div class="col-md-12">
-                                                <a href="{{ url('/news/show/'.$new->id.'/'.mb_substr(strip_tags(trim($new->title)),0,20,'UTF8')) }}"
+                                                <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}"
+
                                                    style="cursor: pointer"><h4 class="h4">{{ $new->title }}</h4></a>
-                                                <h5>
-                                                    <img src="{{ asset('/clientAssets') }}/img/user_bb729832533cec2d08d164e8d624643d.png"
-                                                         class="user">نویسنده: مدیر
-                                                    سایت
-                                                </h5>
+                                                @foreach($new->categories as $category)
+                                                    <div class="badge badge-danger">{{ $category->name }}</div>
+                                                @endforeach
                                                 <p>{!! mb_substr(strip_tags(trim($new->description)),0,150,'UTF8') !!}
                                                     [...]</p>
+                                                <br>
+                                                <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}"
+                                                   class="btn-danger btn-outline btn-sm">ادامه مطلب</a>
+                                                <div class="clearfix"></div>
+                                                <p>
+                                                    <small>{{ ta_persian_num(jdate(strtotime($new->created_at))->ago()) }}</small>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
