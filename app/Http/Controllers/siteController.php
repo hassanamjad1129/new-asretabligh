@@ -89,6 +89,8 @@ class siteController extends Controller
 
     public function postDetail(post $post, $title)
     {
+        $post->increment('seen', 1);
+        $post->save();
         $categories = pCategory::all();
         $newPosts = post::latest()->get()->take(4);
         return view('client.post', ['post' => $post, 'categories' => $categories, 'newPosts' => $newPosts]);
