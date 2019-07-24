@@ -71,10 +71,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/client/archive.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+            <state relative-caret-position="30">
+              <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
               <folding>
                 <element signature="e#868#886#0#HTML" expanded="true" />
+                <element signature="e#2144#2217#0#HTML" expanded="true" />
                 <element signature="e#2366#2398#0#HTML" expanded="true" />
                 <element signature="e#2941#3001#0#HTML" expanded="true" />
                 <element signature="e#3030#3084#0#HTML" expanded="true" />
@@ -576,12 +577,12 @@
       <workItem from="1563731949458" duration="10000" />
       <workItem from="1563733638856" duration="8325000" />
       <workItem from="1563882130254" duration="7183000" />
-      <workItem from="1563949493433" duration="5934000" />
+      <workItem from="1563949493433" duration="6010000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135071000" />
+    <option name="totallyTimeSpent" value="135147000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1047,10 +1048,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/archive.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+        <state relative-caret-position="30">
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
           <folding>
             <element signature="e#868#886#0#HTML" expanded="true" />
+            <element signature="e#2144#2217#0#HTML" expanded="true" />
             <element signature="e#2366#2398#0#HTML" expanded="true" />
             <element signature="e#2941#3001#0#HTML" expanded="true" />
             <element signature="e#3030#3084#0#HTML" expanded="true" />
