@@ -16,8 +16,6 @@
     RewriteCond %{HTTP_HOST} ^www\.chapasretabligh\.com [NC]
     RewriteRule ^(.*)$ http://chapasretabligh.com/$1 [L,R=301]
 
-    Options +FollowSymlinks
-    RewriteEngineOn
     RewriteCond %{HTTP_HOST} ^asretabligh.com [NC]
     RewriteRule^(.*)$ http://chapasretabligh/$1 [L,R=301]
 
