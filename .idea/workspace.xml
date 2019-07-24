@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/client/post.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/siteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/siteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/clientAssets/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/clientAssets/css/all.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +19,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/client/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="269" column="169" lean-forward="true" selection-start-line="269" selection-start-column="169" selection-end-line="269" selection-end-column="169" />
-              <folding>
-                <element signature="e#14484#14507#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="242">
+              <caret line="266" column="72" selection-start-line="266" selection-start-column="72" selection-end-line="266" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -38,17 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/client/post.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
+            <state relative-caret-position="1110">
               <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
-              <folding>
-                <element signature="e#227#315#0#HTML" expanded="true" />
-                <element signature="e#325#385#0#HTML" expanded="true" />
-                <element signature="e#1294#1312#0#HTML" expanded="true" />
-                <element signature="e#1365#1384#0#HTML" expanded="true" />
-                <element signature="e#1489#1507#0#HTML" expanded="true" />
-                <element signature="e#1541#1566#0#HTML" expanded="true" />
-                <element signature="e#1759#1820#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -56,8 +49,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/siteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="93" column="105" selection-start-line="93" selection-start-column="105" selection-end-line="93" selection-end-column="105" />
+            <state relative-caret-position="242">
+              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -74,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="588330">
               <caret line="19611" column="16" selection-start-line="19611" selection-start-column="16" selection-end-line="19611" selection-end-column="16" />
             </state>
           </provider>
@@ -83,11 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/auth/resetPassword.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="360">
               <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-              <folding>
-                <element signature="e#401#427#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -95,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/customer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="690">
               <caret line="23" column="82" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
             </state>
           </provider>
@@ -202,12 +201,12 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/routes/customer.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/ForgotPasswordController.php" />
-        <option value="$PROJECT_DIR$/public/.htaccess" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/public/clientAssets/css/all.css" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/siteController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/post.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/.htaccess" />
       </list>
     </option>
   </component>
@@ -317,10 +316,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="96" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="816" />
+    <option name="height" value="576" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -463,7 +462,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/customer/auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../psychologicaltest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -564,12 +563,13 @@
       <workItem from="1563716126789" duration="1395000" />
       <workItem from="1563731949458" duration="10000" />
       <workItem from="1563733638856" duration="8325000" />
-      <workItem from="1563882130254" duration="6269000" />
+      <workItem from="1563882130254" duration="7183000" />
+      <workItem from="1563949493433" duration="1358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128223000" />
+    <option name="totallyTimeSpent" value="130495000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -586,7 +586,7 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2782516" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.28144988" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4968017" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -885,13 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/aboutUs.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -948,27 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="23" column="82" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/ForgotPasswordController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-210">
@@ -993,6 +965,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="266" column="72" selection-start-line="266" selection-start-column="72" selection-end-line="266" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/client/post.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/post.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1000,53 +986,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/auth/resetPassword.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#401#427#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="588330">
+          <caret line="19611" column="16" selection-start-line="19611" selection-start-column="16" selection-end-line="19611" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/auth/resetPassword.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19611" column="16" selection-start-line="19611" selection-start-column="16" selection-end-line="19611" selection-end-column="16" />
+        <state relative-caret-position="360">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="23" column="82" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/categoryProductPrice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/siteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="93" column="105" selection-start-line="93" selection-start-column="105" selection-end-line="93" selection-end-column="105" />
+        <state relative-caret-position="242">
+          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/post.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
-          <folding>
-            <element signature="e#227#315#0#HTML" expanded="true" />
-            <element signature="e#325#385#0#HTML" expanded="true" />
-            <element signature="e#1294#1312#0#HTML" expanded="true" />
-            <element signature="e#1365#1384#0#HTML" expanded="true" />
-            <element signature="e#1489#1507#0#HTML" expanded="true" />
-            <element signature="e#1541#1566#0#HTML" expanded="true" />
-            <element signature="e#1759#1820#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="269" column="169" lean-forward="true" selection-start-line="269" selection-start-column="169" selection-end-line="269" selection-end-column="169" />
-          <folding>
-            <element signature="e#14484#14507#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="265">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
         </state>
       </provider>
     </entry>
