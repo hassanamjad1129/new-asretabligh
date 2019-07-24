@@ -19617,6 +19617,69 @@ button.close:hover {
     transition: all ease 0.4s
 }
 
+#postCategories .panel-heading h5 {
+    text-align: center
+}
+
+#postCategories:first-child .panel-heading {
+    background: #111;
+    border: 1px solid #111
+
+}
+
+#postCategories.panel-default:first-child {
+    border: 1px solid #111
+
+}
+
+#postCategories.panel-default {
+    border-radius: 1rem;
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+}
+
+.seenBox {
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: #EEE;
+}
+
+
+.seenBoxHeading {
+    text-align: center;
+    background: #d60000;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.seenBox:first-child .seenBoxHeading {
+    background: #111;
+
+}
+
+.seenBoxBody {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+.seenBox:first-child .seenBoxBody {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+#postCategories .panel-heading {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
 .panel-default {
     border-color: #D60000;
 }
