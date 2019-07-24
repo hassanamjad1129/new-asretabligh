@@ -17,7 +17,7 @@
     RewriteRule ^(.*)$ http://chapasretabligh.com/$1 [L,R=301]
 
     RewriteCond %{HTTP_HOST} ^asretabligh.com [NC]
-    RewriteRule^(.*)$ http://chapasretabligh/$1 [L,R=301]
+    RewriteRule ^(.*)$ http://chapasretabligh/$1 [L,R=301]
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
