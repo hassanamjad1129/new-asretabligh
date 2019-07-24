@@ -19657,6 +19657,10 @@ button.close:hover {
     padding: 5px 10px;
 }
 
+.seenBox:first-child {
+    margin-top: 5rem;
+}
+
 .seenBox:first-child .seenBoxHeading {
     background: #111;
 
@@ -19668,6 +19672,7 @@ button.close:hover {
     justify-content: space-between;
     padding: 5px 10px;
 }
+
 .seenBox:first-child .seenBoxBody {
     margin-top: 5px;
     display: flex;
