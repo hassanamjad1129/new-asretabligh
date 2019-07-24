@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/client/archive.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/archive.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/clientAssets/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/clientAssets/css/all.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/client/archive.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -86,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="19704" column="1" selection-start-line="19704" selection-start-column="1" selection-end-line="19704" selection-end-column="1" />
+            <state relative-caret-position="380">
+              <caret line="12148" column="17" selection-start-line="12148" selection-start-column="17" selection-end-line="12148" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -217,9 +217,9 @@
         <option value="$PROJECT_DIR$/resources/views/client/post.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/siteController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/public/clientAssets/css/all.css" />
         <option value="$PROJECT_DIR$/resources/views/client/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/archive.blade.php" />
+        <option value="$PROJECT_DIR$/public/clientAssets/css/all.css" />
       </list>
     </option>
   </component>
@@ -329,8 +329,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="293" />
-    <option name="y" value="-26" />
+    <option name="x" value="225" />
+    <option name="y" value="-8" />
     <option name="width" value="1440" />
     <option name="height" value="780" />
   </component>
@@ -577,12 +577,12 @@
       <workItem from="1563731949458" duration="10000" />
       <workItem from="1563733638856" duration="8325000" />
       <workItem from="1563882130254" duration="7183000" />
-      <workItem from="1563949493433" duration="6010000" />
+      <workItem from="1563949493433" duration="6090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135147000" />
+    <option name="totallyTimeSpent" value="135227000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,7 +595,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
@@ -1025,13 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="19704" column="1" selection-start-line="19704" selection-start-column="1" selection-end-line="19704" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -1059,6 +1051,13 @@
             <element signature="e#3120#3138#0#HTML" expanded="true" />
             <element signature="e#3634#3675#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/clientAssets/css/all.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="12148" column="17" selection-start-line="12148" selection-start-column="17" selection-end-line="12148" selection-end-column="17" />
         </state>
       </provider>
     </entry>

@@ -12146,7 +12146,7 @@ input[type=submit] {
     padding: 0;
     font-size: 17px;
     background: #504f4f;
-    max-width: 37.7%
+    max-width: 40.7%
 }
 
 .parallax .title::after, .parallax .title::before {
@@ -19703,6 +19703,7 @@ button.close:hover {
     border: 1px solid #111
 
 }
+
 .btn-outline.btn-danger {
     color: #d60000;
     background: #FFF;
