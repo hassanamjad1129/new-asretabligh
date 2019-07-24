@@ -295,7 +295,7 @@
                                 </div>
                             @endforeach
                             <div class="clearfix"></div>
-                            <a href="{{ url('/news') }}" class="btn" style="margin-top:1rem">آرشیو خبرها</a>
+                            <a href="{{ route('post.index') }}" class="btn" style="margin-top:1rem">آرشیو خبرها</a>
 
                         </div>
                     </div>

@@ -87,6 +87,15 @@ class siteController extends Controller
         return view('client.aboutUs');
     }
 
+    public function posts()
+    {
+        $posts = post::latest()->paginate(7);
+        $categories = pCategory::all();
+        $newPosts = post::latest()->get()->take(4);
+        return view('client.archive', ['posts' => $posts, 'categories' => $categories, 'newPosts' => $newPosts]);
+
+    }
+
     public function postDetail(post $post, $title)
     {
         $post->increment('seen', 1);

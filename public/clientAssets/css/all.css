@@ -19621,11 +19621,6 @@ button.close:hover {
     text-align: center
 }
 
-#postCategories:first-child .panel-heading {
-    background: #111;
-    border: 1px solid #111
-
-}
 
 #postCategories.panel-default:first-child {
     border: 1px solid #111
@@ -19685,11 +19680,11 @@ button.close:hover {
     border-top-right-radius: 1rem;
 }
 
-.panel-default {
+#postCategories.panel-default {
     border-color: #D60000;
 }
 
-.panel-default > .panel-heading {
+#postCategories.panel-default > .panel-heading {
     background-color: #D60000;
     border-color: #D60000;
     color: #FFF;
@@ -19699,6 +19694,15 @@ button.close:hover {
     border-bottom: none
 }
 
+#posts .panel {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+}
+
+#postCategories:first-child .panel-heading {
+    background: #111;
+    border: 1px solid #111
+
+}
 .btn-outline.btn-danger {
     color: #d60000;
     background: #FFF;
