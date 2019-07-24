@@ -43,9 +43,12 @@
                 @if(!$key)
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div class="col-md-10">
-                                <img src="{{ asset($post->picture) }}"
-                                     style="width: 95%;border-radius: 1rem;box-shadow: 0 0 5px rgba(0,0,0,.1)" alt="">
+                            <div class="col-md-12">
+                                <center>
+                                    <img src="{{ asset($post->picture) }}"
+                                         style="width: 80%;border-radius: 1rem;box-shadow: 0 0 5px rgba(0,0,0,.1)"
+                                         alt="">
+                                </center>
                             </div>
                             <div class="col-md-2">
                             </div>
