@@ -45,8 +45,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/customer/{customer}/orders', 'UserController@orders')->name('customer.orders');
 
         Route::resource('/admins', 'AdminController');
-        Route::get('admins/{admin}/roles', 'adminController@roles')->name('admins.roles');
-        Route::post('admins/{admin}/roles', 'adminController@updateRoles')->name('admins.updateRoles');
+        Route::get('admins/{admin}/roles', 'AdminController@roles')->name('admins.roles');
+        Route::post('admins/{admin}/roles', 'AdminController@updateRoles')->name('admins.updateRoles');
 
         Route::resource('slideshow', 'SlideshowController');
         Route::resource('roles', 'roleController');
