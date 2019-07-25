@@ -31,6 +31,8 @@ Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function (
     Route::post('storeOrder', 'OrderController@storeOrder')->name('storeOrder');
     Route::get('/order/verifyOrder', 'OrderController@verifyOrder');
     Route::post('/order/verifyOrder', 'OrderController@verifyOrder');
+    Route::get('moneybag', 'MoneybagController@index')->name('moneybag');
+    Route::post('moneybag', 'MoneybagController@increaseCredit');
     Route::get('orders', 'OrderController@index')->name('orders');
     Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orderDetail');
 });

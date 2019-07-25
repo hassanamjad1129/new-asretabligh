@@ -44,6 +44,11 @@ class Customer extends Authenticatable
         return order::where('customer_id', $this->id)->count();
     }
 
+    public function totalOrderItems()
+    {
+        return OrderItem::where('user_id', $this->id)->count();
+    }
+
     public function totalCart()
     {
         return cart::where('customer_id', $this->id)->where('status', 0)->count();

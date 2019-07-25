@@ -19704,6 +19704,13 @@ button.close:hover {
 
 }
 
+.profileBox {
+    width: 100%;
+    background: #e6e7e8;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .btn-outline.btn-danger {
     color: #d60000;
     background: #FFF;

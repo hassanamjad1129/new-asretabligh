@@ -45,7 +45,7 @@ class HomeController extends Controller
         if ($request->hasFile('avatar')) {
             $destinationPath = 'userAvatar'; // upload path
             $avatarExtension = $request->file('avatar')->getClientOriginalExtension(); // getting image extension
-            $avatarFileName = rand(1111111111, 99999999999) . '.' . $avatarExtension; // rename image
+            $avatarFileName = rand(11111111, 999999999) . '.' . $avatarExtension; // rename image
             $request->file('avatar')->move($destinationPath, $avatarFileName); // uploading file to given path
             $customer->avatar = $destinationPath . '/' . $avatarFileName;
         }
