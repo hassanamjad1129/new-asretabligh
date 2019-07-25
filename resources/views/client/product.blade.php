@@ -209,17 +209,8 @@
     padding-bottom: 5px;
     text-align: center;">{{ $product->title }}</h4>
                             </div>
-                            <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت
-                                : </h4>
-                            <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
-
-                                <h5 style="color:#FFF;text-align: center"><span
-                                            id="finalPrice">{{ ta_persian_num("0") }} ریال</span></h5>
-                            </div>
-                            <h4 style="margin-bottom: 10px;margin-top: 10px;font-weight: bold;font-size:15px">
-                                مشخصات سفارش :</h4>
                             <div class="orderSpecification"
-                                 style="border:1px solid #CCC;border-radius: 5px; padding: 10px 2rem;">
+                                 style="border-radius: 5px; padding: 10px 1rem;">
                                 <ul>
 
                                 </ul>
@@ -232,6 +223,16 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت
+                                : </h4>
+                            <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
+
+                                <h5 style="color:#FFF;text-align: center"><span
+                                            id="finalPrice">{{ ta_persian_num("0") }} ریال</span></h5>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
