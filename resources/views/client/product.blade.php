@@ -188,13 +188,23 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="panel panel-default" style="border-radius: 1rem;    background-image: linear-gradient(#BFBFBF, #FFF);">
+                    <div class="panel panel-default"
+                         style="border-radius: 1rem;    background-image: linear-gradient(#BFBFBF, #FFF);">
                         <div class="panel-heading"
                              style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
-                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center">مشخصات سفارش شما
+                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center">مشخصات سفارش
+                                شما
                             </h3>
                         </div>
-                        <div class="panel-body"><h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت
+                        <div class="panel-body">
+                            <h4 style="    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 5px;
+    text-align: center;">{{ $product->title }}</h4>
+
+                            <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت
                                 : </h4>
                             <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
 
