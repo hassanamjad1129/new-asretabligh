@@ -223,15 +223,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">جمع سفارش
-                                : </h4>
-                            <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
-
-                                <h5 style="color:#FFF;text-align: center"><span
-                                            id="finalPrice">{{ ta_persian_num("0") }} ریال</span></h5>
+                            <div style="display: flex;justify-content: space-between">
+                                <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
+                                    سفارش
+                                    : </h4>
+                                <span id="finalPrice">{{ ta_persian_num("0") }} ریال</span>
                             </div>
-
 
                         </div>
                     </div>
