@@ -81,7 +81,7 @@
                         <ul class="nav navbar-nav pull-right" style="margin-top: 0.4rem;">
                             <li class="active-menu"><a href="{{ url('/') }}">صفحه اصلی</a></li>
                             <li style="width: 80px" class="dropdown"><a href="#" class="dropdown-toggle"
-                                                                        data-toggle="dropdown" data-hover="dropdown">محصولات</a>
+                                                                        data-toggle="dropdown" data-hover="dropdown">لیست قیمت</a>
                                 <ul class="dropdown-menu">
                                     @foreach($categories as $category)
                                         <li>
@@ -91,6 +91,9 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="#shoping">فروشگاه</a>
+                            </li>
+<li>
                                 <a href="{{ url('shop') }}">فروشگاه</a>
                             </li>
 
@@ -147,7 +150,7 @@
                             <ul class="links">
                                 <li class="link active"><a href="">صفحه اول </a></li>
                                 <li class="link have-sub">
-                                    <a href=''>محصولات</a>
+                                    <a href=''>لیست قیمت</a>
                                     <ul>
                                         @foreach($categories as $category)
                                             <li>
