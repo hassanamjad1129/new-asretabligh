@@ -67,7 +67,7 @@
                                                name="paper"
                                                value="{{ $paper->id }}">
                                         <label for="paper-{{ $paper->id }}" class="col-md-3" style="padding: 0 5px">
-                                            <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                            <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
                                                 <p style="text-align: center">{{ $paper->name }}</p>
                                             </div>
                                         </label>
@@ -93,11 +93,13 @@
                                                    name="property-{{ $property->id }}"
                                                    value="{{ $value->id }}">
                                             <label for="p-{{ $value->id }}" class="col-md-3" style="padding: 0 5px">
-                                                <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                                <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
                                                     @if($value->picture)
-                                                        <img src="{{ route('getValuePicture',[$value]) }}"
-                                                             style="width: 100%"
-                                                             alt="">
+                                                        <center>
+                                                            <img src="{{ route('getValuePicture',[$value]) }}"
+                                                                 style="width: 65%"
+                                                                 alt="">
+                                                        </center>
                                                     @endif
                                                     <p style="text-align: center">{{ $value->name }}</p>
                                                 </div>
@@ -119,7 +121,7 @@
                                                {{ $product->type=='single'?"checked":"" }} type="radio" val="typeOrder"
                                                value="single"/>
                                         <label for="type-1" class="col-md-6" style="padding: 0 5px">
-                                            <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                            <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
                                                 <p style="text-align: center">یک رو</p>
                                             </div>
                                         </label>
@@ -132,7 +134,7 @@
                                                {{ $product->type=='double'?"checked":"" }}
                                                value="double"/>
                                         <label for="type-2" class="col-md-6" style="padding: 0 5px">
-                                            <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                            <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
                                                 <p style="text-align: center">دو رو</p>
                                             </div>
                                         </label>
@@ -175,7 +177,7 @@
                                        name="service[]"
                                        value="none">
                                 <label for="service-0" class="col-md-3" style="padding: 0 5px">
-                                    <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                    <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
                                         <p style="text-align: center">ندارد</p>
                                     </div>
                                 </label>
@@ -455,7 +457,7 @@
                             "name=\"service[]\"\n" +
                             "value=\"" + response[item].id + "\">\n" +
                             "<label for=\"service-" + response[item].id + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
-                            "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                            "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                             "<p style=\"text-align: center\">" + response[item].name + "</p>\n" +
                             "</div>\n" +
                             "</label>\n" +
@@ -522,10 +524,10 @@
                                         "name=\"service-" + service['id'] + "\" class='service' \n" +
                                         "value=\"" + value['id'] + "\">\n" +
                                         "<label for=\"s-" + value['id'] + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
-                                        "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                        "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                                         (value['picture'] ?
-                                            "<img src=\"/getServicePicture/" + value['id'] + "\" style=\"width: 100%\"\n" +
-                                            "alt=\"\">\n" + "\n" : "") +
+                                            "<center><img src=\"/getServicePicture/" + value['id'] + "\" style=\"width: 65%\"\n" +
+                                            "alt=\"\"></center>\n" + "\n" : "") +
                                         "<p style=\"text-align: center\">" + value['name'] + "</p>\n" +
                                         "</div>\n" +
                                         "</label>\n" +
@@ -548,7 +550,7 @@
                                     "type=\"radio\" service='" + thisService + "' val=\"typeService\"\n" +
                                     "value=\"single\"/>\n" +
                                     "<label for=\"service-type-1\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
-                                    "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                    "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                                     "<p style=\"text-align: center\">یک رو</p>\n" +
                                     "</div>\n" +
                                     "</label>\n" +
@@ -558,7 +560,7 @@
                                     "\n" +
                                     "value=\"double\"/>\n" +
                                     "<label for=\"service-type-2\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
-                                    "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                    "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                                     "<p style=\"text-align: center\">دو رو</p>\n" +
                                     "</div>\n" +
                                     "</label>\n" +
@@ -663,11 +665,11 @@
             if ($(this).val() === "single") {
                 serviceFiles[serviceID] = "single";
                 serviceType = "single";
-                $("#service-file-" + serviceID).html("<div class='col-md-6'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none'/></div><div class='clearfix' />");
+                $("#service-file-" + serviceID).html("<div class='col-md-4'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;border-top-left-radius: 0;border-top-right-radius: 0;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none'/></div><div class='clearfix' />");
             } else if ($(this).val() === 'double') {
                 serviceFiles[serviceID] = "double";
                 serviceType = "double";
-                $("#service-file-" + serviceID).html("<div class='col-md-6'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none' /></div><div class='col-md-6'><label for='service-back-file-" + serviceID + "'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='service-back-file-" + serviceID + "' id='service-back-file-" + serviceID + "' style='display: none' /></div><div class='clearfix' />");
+                $("#service-file-" + serviceID).html("<div class='col-md-4'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;border-top-left-radius: 0;border-top-right-radius: 0;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none' /></div><div class='col-md-4'><label for='service-back-file-" + serviceID + "'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;border-top-left-radius: 0;border-top-right-radius: 0;width: 100%\">آپلود فایل پشت</label><input type='file' name='service-back-file-" + serviceID + "' id='service-back-file-" + serviceID + "' style='display: none' /></div><div class='clearfix' />");
 
             }
 
