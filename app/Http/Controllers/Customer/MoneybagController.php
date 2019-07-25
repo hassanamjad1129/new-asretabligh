@@ -27,7 +27,7 @@ class MoneybagController extends Controller
         try {
             $gateway = Gateway::make(new Mellat());
             $gateway->setCallback(route('customer.moneybag.verifyPayment'));
-            $gateway->price($request->price * 10)->ready();
+            $gateway->price($request->price)->ready();
             return $gateway->redirect();
         } catch (Exception $exception) {
             return $exception->getMessage();
