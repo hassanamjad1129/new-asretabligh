@@ -197,13 +197,18 @@
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <h4 style="    margin-bottom: 10px;
+                            <div style="display: flex;
+    -webkit-box-flex: a;
+    align-items: center;
+    align-content: center;
+    justify-content: center;">
+                                <h4 style="    margin-bottom: 10px;
     font-weight: bold;
     font-size: 15px;
     border-bottom: 1px solid #222;
     padding-bottom: 5px;
     text-align: center;">{{ $product->title }}</h4>
-
+                            </div>
                             <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت
                                 : </h4>
                             <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
