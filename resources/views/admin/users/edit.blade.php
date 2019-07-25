@@ -102,7 +102,7 @@
                             <label for="">نوع محاسبه قیمت</label>
                         </div>
                         <div class="card-body">
-                            <select class="form-control" style="height: 2.5rem !important;" name="prcie">
+                            <select class="form-control" style="height: 2.5rem !important;" name="price">
                                 <option value="coworker" {{($customer->price=='coworker')?'selected':''}}>همکاری
                                 </option>
                                 <option value="normal" {{($customer->price=='normal')?'selected':''}}>عادی</option>
