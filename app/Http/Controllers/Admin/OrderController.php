@@ -51,13 +51,13 @@ class OrderController extends Controller
     public function updateOrder(orderItem $orderItem, Request $request)
     {
         $diff = 0;
-        if (auth()->guard('customer')->user()->can('changeOrderStatus')) {
+        if (auth()->guard('admin')->user()->can('changeOrderStatus')) {
             $validator = $this->updateOrderValidation($request);
             if ($validator->fails())
                 return back()->withErrors($validator->errors()->all(), 'failed');
             $orderItem->status = $request->status;
         }
-        if (auth()->guard('customer')->user()->can('changeOrderQTY')) {
+        if (auth()->guard('admin')->user()->can('changeOrderQTY')) {
             $ratio = $request->qty / $orderItem->qty;
             $diff = $orderItem->price * $ratio - $orderItem->price;
             $orderItem->price = $orderItem->price * $ratio;
@@ -71,7 +71,7 @@ class OrderController extends Controller
             }
 
         }
-        if (auth()->guard('customer')->user()->can('changeShipping')) {
+        if (auth()->guard('admin')->user()->can('changeShipping')) {
             $order = $orderItem->order;
             $order->address = $request->address;
             $oldDeliveryMethod = shipping::find($order->delivery_method);
