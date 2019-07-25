@@ -222,14 +222,16 @@
                                     : </h4>
                                 <span id="finalPrice">{{ ta_persian_num("0") }} ریال</span>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="" style="width: 100%;" alt="" id="frontPic">
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="" style="width: 100%;" alt="" id="backPic">
-                                </div>
-                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4>پیش نمایش فایل</h4>
+                        <div class="col-md-6">
+                            <img src="" style="width: 100%;" alt="" id="frontPic">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="" style="width: 100%;" alt="" id="backPic">
                         </div>
                     </div>
                 </div>
