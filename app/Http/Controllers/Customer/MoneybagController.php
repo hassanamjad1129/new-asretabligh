@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Customer;
 
 use App\MoneyBagReport;
 use App\Services\Gateway;
-use App\Services\Mellat\Mellat;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Larautility\Gateway\Mellat\Mellat;
 
 class MoneybagController extends Controller
 {
