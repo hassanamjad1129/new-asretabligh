@@ -247,16 +247,18 @@
                                 style="display: none;    width: 100% !important;
     position: relative;
     bottom: 0px;
-    padding: 0.8rem 0;
+    padding: 0.8rem 3rem;
     float: left;
     font-weight: bold;
     border-radius: 10px;">ثبت سفارش
                         </button>
                     @elseif(!$product->typeRelatedFile or  $product->type=='double' or  $product->type=='single')
-                        <button id="sendOrder" class="btn btn-danger" style="    width: 100% !important;
+                        <button id="sendOrder" class="btn btn-danger" style="
     position: relative;
     bottom: 0px;
-    padding: 0.8rem 0;
+    padding: 0.8rem 3rem;
+        float: left;
+
     font-weight: bold;
     border-radius: 10px;">ثبت
                             سفارش
