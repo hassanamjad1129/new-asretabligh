@@ -84,10 +84,11 @@
                                 </div>
                             </div>
                         </div>
-                        @if($key%2==0)
-                            <div class="clearfix"></div>
-                        @endif
+
                     </div>
+                @endif
+                @if($key%2==0)
+                    <div class="clearfix"></div>
                 @endif
             @endforeach
             <div class="clearfix"></div>
