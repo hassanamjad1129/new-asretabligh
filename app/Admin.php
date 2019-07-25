@@ -16,7 +16,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'level'
     ];
 
     /**
@@ -31,11 +31,31 @@ class Admin extends Authenticatable
     /**
      * Send the password reset notification.
      *
-     * @param  string  $token
+     * @param string $token
      * @return void
      */
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new AdminResetPassword($token));
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'admin_roles');
+    }
+
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->roles->contains('name', $role);
+        }
+        return !!$role->intersect($this->roles)->count();
+    }
+
+    public function isSuperUser()
+    {
+        return $this->level == "superUser";
+    }
+
+
 }

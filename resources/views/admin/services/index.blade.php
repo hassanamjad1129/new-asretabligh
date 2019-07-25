@@ -30,12 +30,19 @@
                                     <li><a class="btn btn-sm"
                                            href="{{ route('admin.service.edit',[$service]) }}">ویرایش</a>
                                     </li>
-                                    <li><a class="btn btn-sm"
-                                           href="{{ route('admin.serviceProperties.index',[$service]) }}">ویژگی خدمات</a>
-                                    </li>
-                                    <li><a class="btn btn-sm"
-                                           href="{{ route('admin.servicePrice.create',[$service]) }}">هزینه خدمات</a>
-                                    </li>
+                                    @can('serviceProperties')
+                                        <li><a class="btn btn-sm"
+                                               href="{{ route('admin.serviceProperties.index',[$service]) }}">ویژگی
+                                                خدمات</a>
+                                        </li>
+                                    @endcan
+                                    @can('servicePrices')
+                                        <li><a class="btn btn-sm"
+                                               href="{{ route('admin.servicePrice.create',[$service]) }}">هزینه
+                                                خدمات</a>
+                                        </li>
+                                    @endcan
+
                                     <li>
                                         <form action="{{ route('admin.service.destroy',[$service]) }}"
                                               method="post">
@@ -46,9 +53,11 @@
                                             </button>
                                         </form>
                                     </li>
-                                    <li><a class="btn btn-sm"
-                                           href="{{ route('admin.service.products',[$service]) }}">محصولات مجاز</a>
-                                    </li>
+                                    @can('serviceProducts')
+                                        <li><a class="btn btn-sm"
+                                               href="{{ route('admin.service.products',[$service]) }}">محصولات مجاز</a>
+                                        </li>
+                                    @endcan
                                 </ul>
                             </div>
                         </td>

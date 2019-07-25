@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Customer;
 use App\User;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,9 +20,12 @@ class UserController extends Controller
      * Display a listing of the resource.
      *
      * @return Response
+     * @throws AuthorizationException
      */
     public function index()
     {
+        $this->authorize('customers');
+
         $users = Customer::all();
         return view('admin.users.index', ['users' => $users]);
     }
@@ -31,9 +35,12 @@ class UserController extends Controller
      *
      * @param Customer $customer
      * @return Response
+     * @throws AuthorizationException
      */
     public function edit(Customer $customer)
     {
+        $this->authorize('customers');
+
         return view('admin.users.edit', ['customer' => $customer]);
     }
 
@@ -68,9 +75,11 @@ class UserController extends Controller
      * @param Request $request
      * @param Customer $customer
      * @return Response
+     * @throws AuthorizationException
      */
     public function update(Request $request, Customer $customer)
     {
+        $this->authorize('customers');
         $validator = $this->validationUpdate($request, $customer);
         if ($validator->fails())
             return redirect(route('admin.customer.edit', $customer))->withErrors($validator, 'failed')->withInput();
@@ -105,7 +114,13 @@ class UserController extends Controller
      */
     public function destroy(Customer $customer)
     {
+        $this->authorize('customers');
         $customer->delete();
         return redirect(route('admin.user.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+    }
+
+    public function orders()
+    {
+        $this->authorize('customerOrders');
     }
 }

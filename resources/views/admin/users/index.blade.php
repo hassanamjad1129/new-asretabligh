@@ -37,9 +37,18 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-left">
-                                    <li><a class="btn btn-sm" href="{{ route('admin.moneybag.index',[$user]) }}">مدیریت
-                                            کیف پول</a></li>
-                                    <li><a class="btn btn-sm"
+                                    @can('moneybag')
+                                        <li><a class="btn btn-sm" href="{{ route('admin.moneybag.index',[$user]) }}">مدیریت
+                                                کیف پول</a></li>
+                                    @endcan
+                                    @can('customerOrders')
+                                        <li>
+                                            <a class="btn btn-sm"
+                                               href="{{ route('admin.customer.orders',[$user]) }}">سفارشات مشتری</a>
+                                        </li>
+                                    @endcan
+                                    <li>
+                                        <a class="btn btn-sm"
                                            href="{{ route('admin.customer.edit',[$user]) }}">ویرایش</a></li>
                                     <li>
                                         <form action="{{ route('admin.customer.destroy',[$user]) }}"

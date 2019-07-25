@@ -6,6 +6,7 @@ use App\Service;
 use App\ServiceProperty;
 use App\ServiceValue;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,9 +25,11 @@ class ServicePropertyController extends Controller
      *
      * @param Service $service
      * @return Response
+     * @throws AuthorizationException
      */
     public function index(Service $service)
     {
+        $this->authorize('serviceProperties');
         $serviceProperties = $service->ServiceProperties;
         return view('admin.services.properties.index', ['serviceProperties' => $serviceProperties, 'service' => $service]);
     }
@@ -36,9 +39,11 @@ class ServicePropertyController extends Controller
      *
      * @param Service $service
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create(Service $service)
     {
+        $this->authorize('serviceProperties');
         $serviceProperties = $service->ServiceProperties()->get();
         return view('admin.services.properties.create', ['service' => $service, 'serviceProperties' => $serviceProperties]);
     }
@@ -70,9 +75,11 @@ class ServicePropertyController extends Controller
      * @param Request $request
      * @param Service $service
      * @return RedirectResponse|Redirector
+     * @throws AuthorizationException
      */
     public function store(Request $request, Service $service)
     {
+        $this->authorize('serviceProperties');
         $validator = $this->validateStore($request);
         if ($validator->fails()) {
             return redirect(route('admin.serviceProperties.create', [$service]))->withErrors($validator, 'failed')->withInput();
@@ -126,17 +133,6 @@ class ServicePropertyController extends Controller
         return redirect(route('admin.serviceProperties.index', [$service]))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param ServiceProperty $serviceProperty
-     * @return void
-     */
-    public function show(ServiceProperty $serviceProperty)
-    {
-        //
-    }
-
     public function ServiceAnswer(ServiceValue $serviceValue)
     {
         return Storage::download($serviceValue->picture);
@@ -148,12 +144,13 @@ class ServicePropertyController extends Controller
      * @param Service $service
      * @param ServiceProperty $serviceProperty
      * @return Factory|View
+     * @throws AuthorizationException
      */
 
 
     public function edit(Service $service, ServiceProperty $serviceProperty)
     {
-
+        $this->authorize('serviceProperties');
         $serviceProperties = $service->ServiceProperties()->where('id', '<>', $serviceProperty->id);
         $serviceProperties = $serviceProperties->get();
         return view('admin.services.properties.edit', ['service' => $service, 'serviceProperties' => $serviceProperties, 'serviceProperty' => $serviceProperty]);
@@ -166,9 +163,12 @@ class ServicePropertyController extends Controller
      * @param Service $service
      * @param ServiceProperty $serviceProperty
      * @return Response
+     * @throws AuthorizationException
      */
     public function update(Request $request, Service $service, ServiceProperty $serviceProperty)
     {
+        $this->authorize('serviceProperties');
+
         $validator = $this->validateStore($request);
         if ($validator->fails()) {
             return redirect(route('admin.serviceProperties.edit', [$service, $serviceProperty]))->withErrors($validator, 'failed')->withInput();
@@ -238,6 +238,7 @@ class ServicePropertyController extends Controller
      */
     public function destroyValue(Service $service, ServiceProperty $serviceProperty, serviceValue $serviceValue)
     {
+        $this->authorize('serviceProperties');
         if ($serviceProperty->ServiceValues()->get()->count() == 1)
             return redirect(route('admin.serviceProperties.edit', [$service, $serviceProperty]))->withErrors(['وجود حداقل یک پاسخ مشخصه الزامی میباشد'], 'failed');
         $serviceValue->delete();
@@ -254,6 +255,7 @@ class ServicePropertyController extends Controller
      */
     public function destroy(Service $service, ServiceProperty $serviceProperty)
     {
+        $this->authorize('serviceProperties');
         $serviceValues = $serviceProperty->ServiceValues()->get();
         foreach ($serviceValues as $key => $item) {
             $item->delete();

@@ -35,6 +35,7 @@ class ProductPriceController extends Controller
      */
     public function create(Category $category, Subcategory $subcategory, Product $product)
     {
+        $this->authorize('productPrice');
         $productProperties = $product->ProductProperties()->where('value_id', null)->get();
         return view('admin.productPrices.create', ['category' => $category, 'subcategory' => $subcategory, 'product' => $product, 'productProperties' => $productProperties]);
     }
@@ -64,6 +65,7 @@ class ProductPriceController extends Controller
 
     public function ajaxRemoveProductPrice(Request $request)
     {
+        $this->authorize('productPrice');
         $productPrice = ProductPrice::findOrFail($request->id);
         $productPrice->delete();
     }
@@ -71,6 +73,7 @@ class ProductPriceController extends Controller
 
     public function ajaxSubmitForm(Request $request)
     {
+        $this->authorize('productPrice');
         $validator = Validator::make($request->all(), [
             'value.*' => 'required',
             'min.*' => 'required',
@@ -139,66 +142,5 @@ class ProductPriceController extends Controller
             'max.required' => 'تعداد حداکثر الزامی است',
             'price' => 'قیمت الزامی است'
         ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param Category $category
-     * @param Subcategory $subcategory
-     * @param Product $product
-     * @return void
-     */
-    public function store(Request $request, Category $category, Subcategory $subcategory, Product $product)
-    {
-        $validator = $this->ValidationStore($request);
-        if ($validator->fails())
-            return redirect(route('admin.productPrice.create', ['category' => $category, 'subcategory' => $subcategory, 'product' => $product]))->withErrors([$validator], 'failed')->withInput();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\ProductPrice $productPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ProductPrice $productPrice)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\ProductPrice $productPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ProductPrice $productPrice)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\ProductPrice $productPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ProductPrice $productPrice)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\ProductPrice $productPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ProductPrice $productPrice)
-    {
-        //
     }
 }

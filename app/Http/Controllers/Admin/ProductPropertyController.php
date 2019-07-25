@@ -6,6 +6,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductProperty;
 use App\Models\ProductValue;
+use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,6 +17,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\View\View;
 
 class ProductPropertyController extends Controller
 {
@@ -25,7 +29,7 @@ class ProductPropertyController extends Controller
      */
     public function index(Product $product)
     {
-        //ToDo clean this code --get subcategory and category by relationship
+        $this->authorize('productProperties');
 
         $category = $product->category;
 
@@ -37,10 +41,12 @@ class ProductPropertyController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Product $product
-     * @return
+     * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create(Product $product)
     {
+        $this->authorize('productProperties');
         $productProperties = $product->ProductProperties()->get();
         return view('admin.productProperties.create', ['product' => $product, 'productProperties' => $productProperties]);
     }
@@ -72,9 +78,11 @@ class ProductPropertyController extends Controller
      * @param Request $request
      * @param Product $product
      * @return RedirectResponse|Redirector
+     * @throws AuthorizationException
      */
     public function store(Request $request, Product $product)
     {
+        $this->authorize('productProperties');
         $validator = $this->validateStore($request);
         if ($validator->fails()) {
             return redirect(route('admin.productProperties.create', [$product]))->withErrors($validator, 'failed')->withInput();
@@ -128,17 +136,6 @@ class ProductPropertyController extends Controller
         return redirect(route('admin.productProperties.index', [$product]))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param ProductProperty $productProperty
-     * @return Response
-     */
-    public function show(ProductProperty $productProperty)
-    {
-        //
-    }
-
     public function ProductAnswer(ProductValue $productAnswer)
     {
         return Storage::download($productAnswer->picture);
@@ -149,13 +146,14 @@ class ProductPropertyController extends Controller
      *
      * @param Product $product
      * @param ProductProperty $productProperty
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
+     * @throws AuthorizationException
      */
 
 
     public function edit(Product $product, ProductProperty $productProperty)
     {
-
+        $this->authorize('productProperties');
         $productProperties = $product->ProductProperties()->where('id', '<>', $productProperty->id)->get();
         $productAnswers = $productProperty->ProductValues()->get();
         return view('admin.productProperties.edit', ['product' => $product, 'productProperty' => $productProperty, 'productAnswers' => $productAnswers, 'productProperties' => $productProperties]);
@@ -168,9 +166,11 @@ class ProductPropertyController extends Controller
      * @param Product $product
      * @param ProductProperty $productProperty
      * @return Response
+     * @throws AuthorizationException
      */
     public function update(Request $request, Product $product, ProductProperty $productProperty)
     {
+        $this->authorize('productProperties');
         $validator = $this->validateStore($request);
         if ($validator->fails()) {
             return redirect(route('admin.productProperties.edit', [$product, $productProperty]))->withErrors($validator, 'failed')->withInput();
@@ -230,28 +230,16 @@ class ProductPropertyController extends Controller
         return redirect(route('admin.productProperties.index', [$product]))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
-
-//    public function ajaxSubcategories()
-//    {
-//        $category = Category::findOrFail($_POST['category_id']);
-//        $subcategories = Subcategory::where('category_id', $category->id)->get();
-//        return $subcategories;
-//    }
-//
-//    public function ajaxProducts()
-//    {
-//        $products = Product::where('subcategory_id', $_POST['subcategory_id'])->get();
-//        return $products;
-//
     /**
      * @param Product $product
      * @param ProductProperty $productProperty
      * @param ProductValue $productValue
      * @return RedirectResponse|Redirector
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroyValue(Product $product, ProductProperty $productProperty, productValue $productValue)
     {
+        $this->authorize('productProperties');
         if ($productProperty->ProductValues()->get()->count() == 1)
             return redirect(route('admin.productProperties.edit', [$product, $productProperty]))->withErrors(['وجود حداقل یک پاسخ مشخصه الزامی میباشد'], 'failed');
         $productValue->delete();
@@ -264,10 +252,11 @@ class ProductPropertyController extends Controller
      * @param Product $product
      * @param ProductProperty $productProperty
      * @return RedirectResponse|Redirector
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy(Product $product, ProductProperty $productProperty)
     {
+        $this->authorize('productProperties');
         $productValues = $productProperty->ProductValues()->get();
         foreach ($productValues as $key => $item) {
             $item->delete();

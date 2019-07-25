@@ -3,12 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 use App\admin;
+use App\Role;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
+    private function createValidation(Request $request)
+    {
+        return Validator::make($request->all(), [
+            'name' => ['required'],
+            'email' => ['required', Rule::unique('admins', 'id')],
+            'password' => ['required', 'min:6', 'confirmed']
+        ]);
+    }
+
+    private function editValidation(Request $request)
+    {
+        return Validator::make($request->all(), [
+            'name' => ['required'],
+            'email' => ['required', Rule::unique('admins', 'id')],
+            'password' => ['nullable', 'min:6', 'confirmed']
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +39,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::all();
+        $admins = Admin::where('level', 'normal')->get();
         return view('admin.admins.index', ['admins' => $admins]);
     }
 
@@ -38,19 +61,17 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = $this->createValidation($request);
+        if ($validator->fails())
+            return back()->withErrors($validator->errors()->all(), 'failed');
+        $admin = new Admin();
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->password = bcrypt($request->password);
+        $admin->save();
+        return redirect(route('admin.admins.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param admin $admin
-     * @return Response
-     */
-    public function show(admin $admin)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -60,7 +81,7 @@ class AdminController extends Controller
      */
     public function edit(admin $admin)
     {
-        //
+        return view('admin.admins.edit', ['admin' => $admin]);
     }
 
     /**
@@ -72,7 +93,15 @@ class AdminController extends Controller
      */
     public function update(Request $request, admin $admin)
     {
-        //
+        $validator = $this->editValidation($request);
+        if ($validator->fails())
+            return back()->withErrors($validator->errors()->all(), 'failed');
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        if ($request->password)
+            $admin->password = bcrypt($request->password);
+        $admin->save();
+        return redirect(route('admin.admins.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
     /**
@@ -80,9 +109,39 @@ class AdminController extends Controller
      *
      * @param admin $admin
      * @return Response
+     * @throws Exception
      */
     public function destroy(admin $admin)
     {
-        //
+        $admin->delete();
+        return redirect(route('admin.admins.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
+
+    public function roles(Admin $admin)
+    {
+        if (Gate::denies('updateRole-admins'))
+            return abort(403, 'Access Denied');
+        $this->checkSuperUser($admin);
+        $roles = Role::all();
+        return view('admin.admins.roles', [
+            'roles' => $roles,
+            'admin' => $admin
+        ]);
+    }
+
+    private function checkSuperUser(Admin $admin)
+    {
+        if ($admin->isSuperUser())
+            return back()->withErrors(['داده نامعتبر'], 'failed');
+    }
+
+    public function updateRoles(Request $request, Admin $admin)
+    {
+        if (Gate::denies('updateRole-admins'))
+            return abort(403, 'Access Denied');
+        $this->checkSuperUser($admin);
+        $admin->roles()->sync($request->role);
+        return back()->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+    }
+
 }

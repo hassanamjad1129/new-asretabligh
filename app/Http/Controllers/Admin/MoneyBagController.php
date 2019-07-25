@@ -4,15 +4,28 @@ namespace App\Http\Controllers\Admin;
 
 use App\Customer;
 use App\MoneyBagReport;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class MoneyBagController extends Controller
 {
+
+    /**
+     * @param Customer $customer
+     * @return Factory|View
+     * @throws AuthorizationException
+     */
     public function index(Customer $customer)
     {
+        $this->authorize('moneybag');
+
         $reports = $customer->moneybagReport;
         return view('admin.users.moneybag.index', [
             'reports' => $reports,
@@ -20,13 +33,28 @@ class MoneyBagController extends Controller
         ]);
     }
 
+    /**
+     * @param Customer $customer
+     * @return Factory|View
+     * @throws AuthorizationException
+     */
     public function create(Customer $customer)
     {
+        $this->authorize('moneybag');
+
         return view('admin.users.moneybag.create', ['customer' => $customer]);
     }
 
+    /**
+     * @param Customer $customer
+     * @param Request $request
+     * @return RedirectResponse|Redirector
+     * @throws AuthorizationException
+     */
     public function store(Customer $customer, Request $request)
     {
+        $this->authorize('moneybag');
+
         $validator = $this->storeValidation($request);
         if ($validator->fails())
             return back()->withErrors($validator->errors()->all(), 'failed');
@@ -56,8 +84,16 @@ class MoneyBagController extends Controller
         ]);
     }
 
+    /**
+     * @param Customer $customer
+     * @param MoneyBagReport $report
+     * @return RedirectResponse|Redirector
+     * @throws AuthorizationException
+     */
     public function destroy(Customer $customer, MoneyBagReport $report)
     {
+        $this->authorize('moneybag');
+
         if ($report->operation == 'increase')
             $customer->credit = $customer->credit - $report->price;
         else

@@ -1,5 +1,5 @@
 <?php
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/home', function () {
         $users[] = Auth::user();
         $users[] = Auth::guard()->user();
@@ -11,7 +11,7 @@ Route::group(['middleware' => 'admin'], function () {
     })->name('home');
 
     //All Routes We Have in Admin Sidebar Panel :|
-    Route::group(['namespace' => 'Admin', 'middleware' => 'admin'], function () {
+    Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('posts', 'PostController');
         Route::resource('categories', 'CategoryController');
         Route::resource('pCategories', 'PostCategoryController');
@@ -42,8 +42,19 @@ Route::group(['middleware' => 'admin'], function () {
 
         Route::post('/ajaxProducts', 'ProductPropertyController@ajaxProducts');
         Route::resource('/customer', 'UserController');
+        Route::get('/customer/{customer}/orders', 'UserController@orders')->name('customer.orders');
+
         Route::resource('/admins', 'AdminController');
+        Route::get('admins/{admin}/roles', 'adminController@roles')->name('admins.roles');
+        Route::post('admins/{admin}/roles', 'adminController@updateRoles')->name('admins.updateRoles');
+
         Route::resource('slideshow', 'SlideshowController');
+        Route::resource('roles', 'roleController');
+        Route::get('rolePermissions/{role}', 'roleController@permissions')->name('rolePermissions');
+        Route::post('rolePermissions/{role}', 'roleController@updatePermissions');
+
+        Route::resource('permissions', 'permissionController');
+
         Route::get('/slideshow/delete/{id}', 'SlideshowController@destroy');
         Route::post('/slideshow/setPriority', 'SlideshowController@setPriority')->middleware('admin');
 
@@ -74,6 +85,9 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('orders/finished', 'OrderController@finished')->name('orders.finished');
         Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orders.orderDetail');
         Route::post('orders/{orderItem}', 'OrderController@updateOrder')->name('orders.updateOrder');
+
+        Route::get('options', 'OptionController@getOptions')->name('getOptions');
+        Route::post('options', 'OptionController@updateOptions');
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');

@@ -231,29 +231,50 @@
                     </div>
                     <div class="col-md-3" style="    border-right: 2px solid #DEDEDE;">
                         <label for="">وضعیت سفارش</label>
-                        <select name="status" class="form-control" id="">
-                            <option value="">انتخاب کنید...</option>
-                            @foreach($orderItem->getStatusOptions() as $key=>$status)
-                                <option value="{{ $key }}" {{ $key==$orderItem->status?"selected":"" }}>{{ $status }}</option>
-                            @endforeach
-                        </select>
+                        @can('changeOrderStatus')
+                            <select name="status" class="form-control" id="">
+                                <option value="">انتخاب کنید...</option>
+                                @foreach($orderItem->getStatusOptions() as $key=>$status)
+                                    <option value="{{ $key }}" {{ $key==$orderItem->status?"selected":"" }}>{{ $status }}</option>
+                                @endforeach
+                            </select>
+                        @endcan
+                        @cannot('changeOrderStatus')
+                            <label for="">{{ $orderItem->getStatus() }}</label>
+                        @endcannot
                         <label for="">سری سفارش:</label>
-                        <input type="number" class="form-control" min="1" name="qty" value="{{ ($orderItem->qty) }}"/>
+                        @can('changeOrderQTY')
+                            <input type="number" class="form-control" min="1" name="qty"
+                                   value="{{ ($orderItem->qty) }}"/>
+                        @endcan
+                        @cannot('changeOrderQTY')
+                            <label for="">{{ $orderItem->qty }}</label>
+                        @endcannot
 
                         <label for="">روش پرداخت : {{ $orderItem->getPaymentType() }}</label>
                         <div class="clearfix"></div>
                         <label for="">روش ارسال سفارش : </label>
-                        <select name="delivery" id="" class="form-control">
-                            <option value="">انتخاب کنید ...</option>
-                            @foreach($orderItem->getDeliveries() as $key=>$delivery)
-                                <option value="{{ $key }}" {{ $key==$orderItem->order->delivery_method?"selected":"" }}>{{ $delivery }}</option>
-                            @endforeach
-                        </select>
-                        @if($orderItem->order->delivery->take_address)
-                            <label for="">آدرس ارسال : </label>
-                            <textarea name="address" id="" rows="4"
-                                      class="form-control">{{ $orderItem->getAddress() }}</textarea>
-                        @endif
+                        @can('changeShipping')
+                            <select name="delivery" id="" class="form-control">
+                                <option value="">انتخاب کنید ...</option>
+                                @foreach($orderItem->getDeliveries() as $key=>$delivery)
+                                    <option value="{{ $key }}" {{ $key==$orderItem->order->delivery_method?"selected":"" }}>{{ $delivery }}</option>
+                                @endforeach
+                            </select>
+                            @if($orderItem->order->delivery->take_address)
+                                <label for="">آدرس ارسال : </label>
+                                <textarea name="address" id="" rows="4"
+                                          class="form-control">{{ $orderItem->getAddress() }}</textarea>
+                            @endif
+                        @endcan
+                        @cannot('changeShipping')
+                            <p>{{ $orderItem->getDeliveryType() }}</p>
+                            @if($orderItem->order->delivery->take_address)
+                                <label for="">آدرس ارسال : </label>
+                                <p>{{ $orderItem->getAddress() }}</p>
+                            @endif
+                        @endcannot
+
                         <button class="btn btn-success btn-sm" style="margin-top: 1rem">بروزرسانی</button>
                     </div>
                 </div>
