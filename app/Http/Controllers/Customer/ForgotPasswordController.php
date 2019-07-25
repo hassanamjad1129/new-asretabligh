@@ -66,7 +66,7 @@ class ForgotPasswordController extends Controller
             return back()->withErrors($validator->errors()->all(), 'failed');
         $customer = Customer::where('phone', $request->phone)->where('password_token', $request->token)->first();
         if ($customer) {
-            $customer->password = $request->password;
+            $customer->password = bcrypt($request->password);
             $customer->save();
             auth()->guard('customer')->loginUsingId($customer->id);
             return redirect('/customer/orders')->withErrors(['عملیات با موفقیت انجام شد'], 'success');
