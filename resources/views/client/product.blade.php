@@ -226,7 +226,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <h4>پیش نمایش فایل</h4>
+                        <div class="col-md-12" style="margin-bottom: 1rem">
+                            <h4>پیش نمایش فایل</h4>
+                        </div>
                         <div class="col-md-6">
                             <img src="" style="width: 100%;" alt="" id="frontPic">
                         </div>
