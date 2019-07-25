@@ -7,6 +7,8 @@ use App\Services\Gateway;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Larautility\Gateway\Exceptions\RetryException;
 use Larautility\Gateway\Mellat\Mellat;
 
 class MoneybagController extends Controller
@@ -29,6 +31,33 @@ class MoneybagController extends Controller
             return $gateway->redirect();
         } catch (Exception $exception) {
             return $exception->getMessage();
+        }
+    }
+
+    public function verifyIncreaseMoneybag(Request $request)
+    {
+        try {
+
+            $gateway = Gateway::verify();
+            $transaction_id = $request->input('transaction_id');
+            $transaction = DB::table('gateway_transactions')->where('id', $transaction_id)->first();
+            $profile = auth()->guard('customer')->user();
+            $profile->increment('credit', $transaction->price);
+            $profile->save();
+
+            $log = new MoneyBagReport();
+            $log->user_id = auth()->guard('customer')->user()->id;
+            $log->price = $transaction->price;
+            $log->operation = "increase";
+            $log->description = "افزایش اعتبار از طریق درگاه";
+            $log->save();
+            return redirect(route('customer.moneybag'))->withErrors(['پرداخت با موفقیت انجام شد'], 'success');
+
+        } catch (RetryException $e) {
+            return redirect(route('customer.moneybag'))->withErrors([$e->getMessage()], 'failed');
+
+        } catch (\Exception $e) {
+            return redirect(route('customer.moneybag'))->withErrors([$e->getMessage()], 'failed');
         }
     }
 }
