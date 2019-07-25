@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/client/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/layout/master.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/client/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="85" column="65" selection-start-line="85" selection-start-column="65" selection-end-line="85" selection-end-column="65" />
+            <state relative-caret-position="2550">
+              <caret line="85" column="107" lean-forward="true" selection-start-line="85" selection-start-column="107" selection-end-line="85" selection-end-column="116" />
             </state>
           </provider>
         </entry>
@@ -133,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/client/layout/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="303" lean-forward="true" selection-start-line="303" selection-end-line="303" />
+            <state relative-caret-position="318">
+              <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -274,8 +272,8 @@
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/client/archive.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/product.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/client/layout/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/client/layout/master.blade.php" />
       </list>
     </option>
   </component>
@@ -615,12 +613,12 @@
       <workItem from="1563733638856" duration="8325000" />
       <workItem from="1563882130254" duration="7183000" />
       <workItem from="1563949493433" duration="6937000" />
-      <workItem from="1564034082851" duration="19799000" />
+      <workItem from="1564034082851" duration="19886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155873000" />
+    <option name="totallyTimeSpent" value="155960000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -637,9 +635,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.2260128" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2260128" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4968017" visible="true" weight="0.3277592" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4968017" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50319827" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32998884" />
@@ -1067,17 +1065,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/layout/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="303" lean-forward="true" selection-start-line="303" selection-end-line="303" />
+        <state relative-caret-position="2550">
+          <caret line="85" column="107" lean-forward="true" selection-start-line="85" selection-start-column="107" selection-end-line="85" selection-end-column="116" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/client/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/client/layout/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="85" column="65" selection-start-line="85" selection-start-column="65" selection-end-line="85" selection-end-column="65" />
+        <state relative-caret-position="318">
+          <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
         </state>
       </provider>
     </entry>

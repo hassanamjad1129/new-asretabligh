@@ -80,8 +80,8 @@
 
                         <ul class="nav navbar-nav pull-right" style="margin-top: 0.4rem;">
                             <li class="active-menu"><a href="{{ url('/') }}">صفحه اصلی</a></li>
-                            <li style="width: 80px" class="dropdown"><a href="#" class="dropdown-toggle"
-                                                                        data-toggle="dropdown" data-hover="dropdown">لیست قیمت</a>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                                    data-toggle="dropdown" data-hover="dropdown">لیست قیمت</a>
                                 <ul class="dropdown-menu">
                                     @foreach($categories as $category)
                                         <li>
@@ -91,9 +91,9 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#shoping">فروشگاه</a>
+                                <a href="#shoping">ثبت سفارش</a>
                             </li>
-<li>
+                            <li>
                                 <a href="{{ url('shop') }}">فروشگاه</a>
                             </li>
 
