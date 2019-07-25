@@ -186,6 +186,8 @@
                             <div id="services"></div>
                         </div>
                     </div>
+                    <textarea name="description" id="" cols="30" rows="4" placeholder="توضیحات سفارش ..."
+                              class="form-control"></textarea>
                 </div>
                 <div class="col-md-3">
                     <div class="panel panel-default"
@@ -198,7 +200,6 @@
                         </div>
                         <div class="panel-body">
                             <div style="display: flex;
-    -webkit-box-flex: a;
     align-items: center;
     align-content: center;
     justify-content: center;">
@@ -240,13 +241,14 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                <div class="col-xs-4" style="margin-top: 1rem;float:left">
+                <div class="col-xs-9" style="margin-top: 1rem;float:right">
                     @if($product->typeRelatedFile)
                         <button id="sendOrder" class="btn btn-danger"
                                 style="display: none;    width: 100% !important;
     position: relative;
     bottom: 0px;
     padding: 0.8rem 0;
+    float: left;
     font-weight: bold;
     border-radius: 10px;">ثبت سفارش
                         </button>
