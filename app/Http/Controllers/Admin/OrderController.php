@@ -56,6 +56,8 @@ class OrderController extends Controller
             if ($validator->fails())
                 return back()->withErrors($validator->errors()->all(), 'failed');
             $orderItem->status = $request->status;
+            $orderItem->save();
+
         }
         if (auth()->guard('admin')->user()->can('changeOrderQTY')) {
             $ratio = $request->qty / $orderItem->qty;
