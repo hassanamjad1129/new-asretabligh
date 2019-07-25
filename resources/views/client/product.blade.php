@@ -216,7 +216,8 @@
                                 </ul>
 
                             </div>
-                            <hr>
+                            <div class="clearfix"></div>
+                            <hr style="border-bottom: 1px solid #999"/>
                             <div style="display: flex;justify-content: space-between">
                                 <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
                                     سفارش
