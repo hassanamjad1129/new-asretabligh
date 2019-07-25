@@ -617,7 +617,7 @@
                 $("#sendOrder").show();
                 $(".files").html("<div class='col-md-4'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;\n" +
                     "    border-top-left-radius: 0;\n" +
-                    "    border-top-right-radius: 0;\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-6'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;\n" +
+                    "    border-top-right-radius: 0;\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-4'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;\n" +
                     "    border-top-left-radius: 0;\n" +
                     "    border-top-right-radius: 0;\">آپلود فایل پشت</label><input type='file' name='back-file' id='back-file' style='display: none' /></div><div class='clearfix' />");
             } else {
