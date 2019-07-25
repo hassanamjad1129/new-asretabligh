@@ -163,7 +163,7 @@
                         <div class="panel-heading"
                              style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
                             <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center"> خدمات
-                                اضافی</h3>
+                                پس از چاپ</h3>
 
                         </div>
                         <div class="panel-body">
