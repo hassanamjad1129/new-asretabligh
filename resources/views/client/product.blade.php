@@ -188,11 +188,10 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="panel panel-default" style="border-radius: 1rem;">
+                    <div class="panel panel-default" style="border-radius: 1rem;    background-image: linear-gradient(#BFBFBF, #FFF);">
                         <div class="panel-heading"
                              style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
-                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center"><i
-                                        class="fa fa-shopping-bag"></i>مشخصات سفارش شما
+                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center">مشخصات سفارش شما
                             </h3>
                         </div>
                         <div class="panel-body"><h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت

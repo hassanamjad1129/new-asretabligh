@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/client/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/product.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="222" column="22" selection-start-line="222" selection-start-column="22" selection-end-line="222" selection-end-column="22" />
+            <state relative-caret-position="320">
+              <caret line="193" column="106" selection-start-line="193" selection-start-column="106" selection-end-line="193" selection-end-column="106" />
               <folding>
                 <element signature="e#1614#1642#0#HTML" expanded="true" />
                 <element signature="e#1666#1769#0#HTML" expanded="true" />
@@ -613,12 +612,12 @@
       <workItem from="1563733638856" duration="8325000" />
       <workItem from="1563882130254" duration="7183000" />
       <workItem from="1563949493433" duration="6937000" />
-      <workItem from="1564034082851" duration="16927000" />
+      <workItem from="1564034082851" duration="17000000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153001000" />
+    <option name="totallyTimeSpent" value="153074000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1018,8 +1017,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="222" column="22" selection-start-line="222" selection-start-column="22" selection-end-line="222" selection-end-column="22" />
+        <state relative-caret-position="320">
+          <caret line="193" column="106" selection-start-line="193" selection-start-column="106" selection-end-line="193" selection-end-column="106" />
           <folding>
             <element signature="e#1614#1642#0#HTML" expanded="true" />
             <element signature="e#1666#1769#0#HTML" expanded="true" />
