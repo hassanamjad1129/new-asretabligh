@@ -1,8 +1,8 @@
 @extends('customer.layout.dashboardMaster')
 @section('dashboardContent')
-    <h4>جزییات سفارش {{ ta_persian_num($orderItem->id) }}</h4>
-    <hr>
-    <div class="col-xs-12">
+    <div class="col-xs-12" style="margin-top: 2rem">
+        <h4 style="width: 250px;background: #444;color: #FFF;text-align: center;padding: 1rem 0;border-radius: 10px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+            جزییات سفارش {{ ta_persian_num($orderItem->id) }}</h4>
         <div class="panel panel-default" id="panel">
             <div class="panel-body">
                 <div class="col-md-6">
