@@ -216,6 +216,7 @@
                                 </ul>
 
                             </div>
+                            <hr>
                             <div style="display: flex;justify-content: space-between">
                                 <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
                                     سفارش
