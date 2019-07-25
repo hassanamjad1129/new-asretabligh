@@ -188,31 +188,39 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت : </h4>
-                    <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
+                    <div class="panel panel-default" style="border-radius: 1rem;">
+                        <div class="panel-heading"
+                             style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
+                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center"><i
+                                        class="fa fa-shopping-bag"></i>مشخصات سفارش شما
+                            </h3>
+                        </div>
+                        <div class="panel-body"><h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت
+                                : </h4>
+                            <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
 
-                        <h5 style="color:#FFF;text-align: center"><span
-                                    id="finalPrice">{{ ta_persian_num("0") }} ریال</span></h5>
-                    </div>
-                    <h4 style="margin-bottom: 10px;margin-top: 10px;font-weight: bold;font-size:15px">
-                        مشخصات سفارش :</h4>
-                    <div class="orderSpecification"
-                         style="border:1px solid #CCC;border-radius: 5px; padding: 10px 2rem;">
-                        <ul>
-
-                        </ul>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="" style="width: 100%;" alt="" id="frontPic">
+                                <h5 style="color:#FFF;text-align: center"><span
+                                            id="finalPrice">{{ ta_persian_num("0") }} ریال</span></h5>
                             </div>
-                            <div class="col-md-6">
-                                <img src="" style="width: 100%;" alt="" id="backPic">
+                            <h4 style="margin-bottom: 10px;margin-top: 10px;font-weight: bold;font-size:15px">
+                                مشخصات سفارش :</h4>
+                            <div class="orderSpecification"
+                                 style="border:1px solid #CCC;border-radius: 5px; padding: 10px 2rem;">
+                                <ul>
+
+                                </ul>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="" style="width: 100%;" alt="" id="frontPic">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="" style="width: 100%;" alt="" id="backPic">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="clearfix"></div>
                 <div class="col-xs-4" style="margin-top: 1rem;float:left">
                     @if($product->typeRelatedFile)
