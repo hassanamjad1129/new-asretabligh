@@ -224,7 +224,7 @@
                                 </div>
                             </div>
 
-                            <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت
+                            <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">جمع سفارش
                                 : </h4>
                             <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
 
