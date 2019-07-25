@@ -214,14 +214,7 @@
                                 <ul>
 
                                 </ul>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="" style="width: 100%;" alt="" id="frontPic">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="" style="width: 100%;" alt="" id="backPic">
-                                    </div>
-                                </div>
+
                             </div>
                             <div style="display: flex;justify-content: space-between">
                                 <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
@@ -229,7 +222,14 @@
                                     : </h4>
                                 <span id="finalPrice">{{ ta_persian_num("0") }} ریال</span>
                             </div>
-
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="" style="width: 100%;" alt="" id="frontPic">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="" style="width: 100%;" alt="" id="backPic">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
