@@ -303,7 +303,7 @@
                     {
                         'product': {{$cart['product']}},
                         'price': {{$cart['price']}},
-                        'services':{{$cart['services']?$cart['services']:null}}},
+                        'services':{{$cart['services']?serialize($cart['services']):null}}},
                         @endforeach]
                 }, success: function (result) {
                     var message = document.getElementById('discountMessage');
