@@ -85,10 +85,12 @@
                                                 <?php
                                                 $sum += $cart['price'];
                                                 $servicePrice = 0;
-                                                foreach ($cart['services'] as $service) {
-                                                    $servicePrice += $service['price'];
+                                                if (isset($cart['services'])) {
+                                                    foreach ($cart['services'] as $service) {
+                                                        $servicePrice += ($service['price'] * $cart['qty']);
+                                                    }
+                                                    $sum += $servicePrice;
                                                 }
-                                                $sum += $servicePrice;
                                                 ?>
                                                 <td>{{ ta_persian_num(number_format($cart['price']+$servicePrice)) }}
                                                     ریال
