@@ -230,7 +230,7 @@
                                     <input type="radio" name="payment_method" value="money_bag" style="display: none"
                                            id="money_bag">
                                     <label style="width: 100%" for="money_bag">
-                                        <div class="profileBox" style="float: left;">
+                                        <div class="profileBox">
                                             <h5 style="width: 75%;float: right;margin-top: 0.8rem"> کیف پول</h5>
                                             <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width:24%"
                                                  alt="">
@@ -242,10 +242,12 @@
                                         <input type="radio" name="payment_method" value="online" style="display: none"
                                                id="online">
                                         <label for="online" style="width: 100%">
-                                            <h5 style="width: 75%;float: right;margin-top: 0.8rem">درگاه بانکی</h5>
-                                            <img src="{{ asset('clientAssets/img/onlinePayment.png') }}"
-                                                 style="width: 22%"
-                                                 alt="">
+                                            <div class="profileBox">
+                                                <h5 style="width: 75%;float: right;margin-top: 0.8rem">درگاه بانکی</h5>
+                                                <img src="{{ asset('clientAssets/img/onlinePayment.png') }}"
+                                                     style="width: 22%"
+                                                     alt="">
+                                            </div>
                                         </label>
                                     </div>
                                 </div>
