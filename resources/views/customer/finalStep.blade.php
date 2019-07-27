@@ -237,18 +237,19 @@
                                         </div>
                                     </label>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="profileBox" style="float: left;">
-                                    <input type="radio" name="payment_method" value="online" style="display: none"
-                                           id="online">
-                                    <label for="online" style="width: 100%">
-                                        <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
-                                        <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
-                                             alt="">
-                                    </label>
+                                <div class="col-md-2">
+                                    <div class="profileBox" style="float: left;">
+                                        <input type="radio" name="payment_method" value="online" style="display: none"
+                                               id="online">
+                                        <label for="online" style="width: 100%">
+                                            <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
+                                            <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
+                                                 alt="">
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
