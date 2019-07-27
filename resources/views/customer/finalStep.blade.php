@@ -305,7 +305,7 @@
                         'price': {{$cart['price']}},
                         'services':{{$cart['services']?serialize($cart['services']):null}},
                         'qty':{{ $cart['qty'] }}
-                    },
+                    }
                         @endforeach]
                 },
                 success: function (result) {
