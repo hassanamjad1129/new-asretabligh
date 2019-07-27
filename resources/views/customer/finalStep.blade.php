@@ -199,13 +199,13 @@
                     <div class="panel panel-default" id="panel">
                         <div class="panel-body">
                             <div class="col-md-9">
-                                <h5>آیا تمایلی به استفاده از اعتبار کیف پول خود دارید؟</h5>
-                                <p>اعتبار فعلی
+                                <h5 style="font-weight: bold;">آیا تمایلی به استفاده از اعتبار کیف پول خود دارید؟</h5>
+                                <p style="margin-top: 1.5rem;">اعتبار فعلی
                                     : {{ ta_persian_num(number_format(auth()->guard('customer')->user()->credit)) }}
                                     ریال</p>
                             </div>
                             <div class="col-md-3">
-                                <a href="{{ route('customer.moneybag') }}" style="color: #111;">
+                                <a href="{{ route('customer.moneybag') }}" target="_blank" style="color: #111;">
                                     <div class="profileBox" style="float: left;">
                                         <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
                                         <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
