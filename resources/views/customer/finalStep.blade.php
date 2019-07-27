@@ -195,6 +195,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xs-12" style="margin-top: 2rem">
+                    <div class="panel panel-default" id="panel">
+                        <div class="panel-body">
+                            <h5>آیا تمایلی به استفاده از اعتبار کیف پول خود دارید؟</h5>
+                            <p>اعتبار فعلی : {{ ta_persian_num(number_format(auth()->guard('customer')->user()->credit)) }} ریال</p>
+                            <a href="{{ route('customer.moneybag') }}" class="btn">
+                                <div class="profileBox" style="float: left;">
+                                    <h4 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h4>
+                                    <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="clearfix"></div>
                 <div style="width: 100%;">
                     <h3 style="margin-top:1rem;">روش پرداخت : </h3>
