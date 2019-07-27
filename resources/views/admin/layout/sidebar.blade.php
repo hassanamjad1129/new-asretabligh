@@ -36,15 +36,6 @@
             @endcan
             @canany(['orders','orderArchives'])
 
-
-            <li class="nav-title">
-                تخفیف
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.discount.index')}}"><i class="icon-tag"></i>لیست تخفیف ها</a>
-            </li>
-
-        @can('مدیریت دسترسی ها')
                 <li class="nav-title">
                     مدیریت سفارشات
                 </li>
@@ -63,6 +54,15 @@
                     </li>
                 @endcan
             @endcanany
+            @can('discounts')
+                <li class="nav-title">
+                    تخفیف
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.discount.index')}}"><i class="icon-tag"></i>لیست تخفیف
+                        ها</a>
+                </li>
+            @endcan
 
             @can('مدیریت دسترسی ها')
                 <li class="nav-item">
