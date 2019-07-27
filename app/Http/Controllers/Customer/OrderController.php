@@ -756,58 +756,84 @@ class OrderController extends Controller
         if ($discount->all_products == 0) {
 
             $products_id = $discount->products->pluck('id')->toArray();
+            $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
                 $product = Product::find($cartItem['product']);
-                if (in_array($product->id, $products_id)) {
-                    if ($discount->minimum_price <= $cartItem['price']) {
-                        $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
-                    }else{
-                        $message2 = 'حداقل سفارش برای این کد تخفیف  '.number_format($discount->minimum_price).' ریال میباشد';
-                    }
-                }else{
+                if (!in_array($product->id, $products_id)) {
+                    $sumOrderPrice += $cartItem['price'];
+                    $products[] = ['product_id' => $product->id, 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
                     $message1 = 'این کد تخفیف متعلق به این محصول نمیباشد';
                 }
             }
+            if ($discount->minimum_price <= $sumOrderPrice) {
+            } else {
+                $message2 = 'حداقل سفارش برای این کد تخفیف  ' . number_format($discount->minimum_price) . ' ریال میباشد';
+            }
         } else {
+            $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
                 $product = Product::find($cartItem['product']);
-                if ($discount->minimum_price <= $cartItem['price']){
-                    $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
-                }else{
-                    $message1 = 'حداقل سفارش برای این کد تخفیف '.number_format($discount->minimum_price).' ریال میباشد';
-                }
+                $sumOrderPrice += $cartItem['price'];
+                $products[] = ['product_id' => $product->id, 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
 
+            }
+            if ($discount->minimum_price <= $sumOrderPrice) {
+            } else {
+                $message1 = 'حداقل سفارش برای این کد تخفیف ' . number_format($discount->minimum_price) . ' ریال میباشد';
             }
         }
 
-        if (!$products){
-            if($message2=='')
+        if (!$products) {
+            if ($message2 == '')
                 return ['message' => $message1, 'status' => '0'];
             return ['message' => $message2, 'status' => '0'];
         }
 
 
         $sum_price = 0;
-        foreach ($products as $product) {
+        foreach ($products as $product)
             $sum_price += $product['price'];
-        }
 
         if ($discount->type_doing == "cash") {
             $discount_value = $discount->value;
-            return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount'=>ta_persian_num(number_format($discount_value)),'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+            $sum_price = 0;
+            $services_price = 0;
+            foreach ($cart as $cartItem) {
+                $sum_price += $cartItem['price'];
+                $services_price += $cartItem['services'];
+            }
+            return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
         } elseif ($discount->type_doing == "percentage") {
 
             if ($discount->maximum_price != '') {
                 if ($discount->maximum_price >= $sum_price) {
                     $discount_value = (($discount->value * $sum_price) / 100);
-                    return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
-                }else {
+                    $sum_price = 0;
+                    $services_price = 0;
+                    foreach ($cart as $cartItem) {
+                        $sum_price += $cartItem['price'];
+                        $services_price += $cartItem['services'];
+                    }
+                    return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                } else {
                     $discount_value = (($discount->value * $discount->maximum_price) / 100);
-                    return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                    $sum_price = 0;
+                    $services_price = 0;
+                    foreach ($cart as $cartItem) {
+                        $sum_price += $cartItem['price'];
+                        $services_price += $cartItem['services'];
+                    }
+                    return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 }
             } else {
                 $discount_value = (($discount->value * $sum_price) / 100);
-                return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount'=>ta_persian_num(number_format($discount_value)),'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                $sum_price = 0;
+                $services_price = 0;
+                foreach ($cart as $cartItem) {
+                    $sum_price += $cartItem['price'];
+                    $services_price += $cartItem['services'];
+                }
+                return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
             }
         }
 
