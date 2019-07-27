@@ -293,9 +293,9 @@
                 }, success: function (result) {
                     var message = document.getElementById('discountMessage');
                     if (result['status'] === '0') {
-                        message.style = 'float:right;color:#e52531';
+                        message.style = 'float:right;color:#e52531;font-size:13px;';
                     } else if (result['status'] === '1') {
-                        message.style = 'float:right;color:green';
+                        message.style = 'float:right;color:green;font-size:13px;';
                     }
                     message.textContent = result['message'];
                 }
