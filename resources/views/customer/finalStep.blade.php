@@ -169,7 +169,7 @@
                         انتخاب آدرس محل دریافت</h4>
                     <div class="panel panel-default" id="panel">
                         <div class="panel-body">
-                            <table class="table-striped table-bordered table-hover">
+                            <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th>ردیف</th>
