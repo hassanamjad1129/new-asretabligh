@@ -563,7 +563,7 @@ class OrderController extends Controller
                 $orderItemService->order_item_id = $orderItem->id;
                 $orderItemService->service_id = $service['id'];
                 $orderItemService->data = implode('-', $service['properties']);
-                $orderItemService->price = ($service['price'] * $orderItem->qty);
+                $orderItemService->price = ($service['price']);
                 if (isset($service['type']))
                     $orderItemService->type = $service['type'];
                 $orderItemService->save();
