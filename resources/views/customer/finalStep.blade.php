@@ -303,7 +303,7 @@
                     {
                         'product': {{$cart['product']}},
                         'price': {{$cart['price']}},
-                        'services': '{{$cart['services']?serialize($cart['services']):""}}',
+                        'services': '{{$cart['services']?serialize($cart['services']):serialize("")}}',
                         'qty':{{ $cart['qty'] }}
                     },
                         @endforeach]
