@@ -759,11 +759,11 @@ class OrderController extends Controller
             $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
                 $cartItem = $request->session()->get('cart.' . $cartItem);
-                $product = Product::find($cartItem['product']);
-                if (!in_array($product->id, $products_id)) {
-                    $sumOrderPrice += $cartItem['price'];
-                    $products[] = ['product_id' => $product->id, 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
+                if (!in_array($cartItem['product'], $products_id)) {
                     $message1 = 'این کد تخفیف متعلق به این محصول نمیباشد';
+                } else {
+                    $sumOrderPrice += $cartItem['price'];
+                    $products[] = ['product_id' => $cartItem['product'], 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
                 }
             }
             if ($discount->minimum_price <= $sumOrderPrice) {
