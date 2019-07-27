@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/client/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,28 +20,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3390">
-              <caret line="123" column="43" selection-start-line="123" selection-start-column="43" selection-end-line="123" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/users/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2940">
-              <caret line="98" column="37" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="258">
               <caret line="104" column="24" selection-start-line="104" selection-start-column="24" selection-end-line="104" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" column="46" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="15" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -99,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="515" selection-start-line="515" selection-end-line="515" />
+            <state relative-caret-position="290">
+              <caret line="517" column="29" lean-forward="true" selection-start-line="517" selection-start-column="29" selection-end-line="517" selection-end-column="29" />
               <folding>
                 <element signature="e#12720#12757#0#HTML" expanded="true" />
                 <element signature="e#12793#12845#0#HTML" expanded="true" />
@@ -151,11 +143,24 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="140" column="40" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
+              <folding>
+                <element signature="e#1469#1493#0#HTML" expanded="true" />
+                <element signature="e#6903#6939#0#HTML" expanded="true" />
+                <element signature="e#6998#7022#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>title</find>
       <find>.title</find>
       <find>username</find>
       <find>input[type=text]:focus</find>
@@ -185,6 +190,7 @@
       <find>adminC</find>
       <find>parse</find>
       <find>fetchOrderPrice</find>
+      <find>0 ریال</find>
     </findStrings>
     <replaceStrings>
       <replace>#d52027</replace>
@@ -198,7 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Admin.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/admins/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/products/index.blade.php" />
@@ -249,6 +254,7 @@
         <option value="$PROJECT_DIR$/routes/customer.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/product.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" />
       </list>
     </option>
   </component>
@@ -528,6 +534,14 @@
             <path>
               <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
               <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+              <item name="orders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -643,12 +657,12 @@
       <workItem from="1563882130254" duration="7183000" />
       <workItem from="1563949493433" duration="6937000" />
       <workItem from="1564034082851" duration="29055000" />
-      <workItem from="1564211305960" duration="4166000" />
+      <workItem from="1564211305960" duration="4826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169295000" />
+    <option name="totallyTimeSpent" value="169955000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -665,9 +679,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.22814499" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.22814499" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49626866" visible="true" weight="0.3277592" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49626866" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50373137" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32998884" />
@@ -689,13 +703,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProductPropertyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="241" selection-start-line="241" selection-end-line="242" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MoneyBagController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -992,13 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" column="36" selection-start-line="10" selection-start-column="3" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1078,8 +1078,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/client/product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="515" selection-start-line="515" selection-end-line="515" />
+        <state relative-caret-position="290">
+          <caret line="517" column="29" lean-forward="true" selection-start-line="517" selection-start-column="29" selection-end-line="517" selection-end-column="29" />
           <folding>
             <element signature="e#12720#12757#0#HTML" expanded="true" />
             <element signature="e#12793#12845#0#HTML" expanded="true" />
@@ -1122,6 +1122,25 @@
             <element signature="n#style#0;n#label#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#center#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="46" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="140" column="40" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
+          <folding>
+            <element signature="e#1469#1493#0#HTML" expanded="true" />
+            <element signature="e#6903#6939#0#HTML" expanded="true" />
+            <element signature="e#6998#7022#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
