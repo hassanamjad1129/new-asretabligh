@@ -232,7 +232,7 @@
                                     <label style="width: 100%" for="money_bag">
                                         <div class="profileBox" style="float: left;">
                                             <h5 style="width: 75%;float: right;margin-top: 0.8rem"> کیف پول</h5>
-                                            <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width:14%"
+                                            <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width:24%"
                                                  alt="">
                                         </div>
                                     </label>
