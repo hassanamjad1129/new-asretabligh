@@ -395,7 +395,7 @@
                     },
                     success: function (response) {
                         $("#orderPrice").text(response);
-                        $("#servicePrice").text("0 ریال");
+                        $("#servicePrice").text("{{ ta_persian_num("0 ریال") }}");
                         $("#finalPrice").text(response);
                     }
                 })
@@ -512,7 +512,7 @@
                             },
                             success: function (response) {
                                 $("#orderPrice").text(response);
-                                $("#servicePrice").text("0 ریال");
+                                $("#servicePrice").text("{{ ta_persian_num("0 ریال") }}");
 
                                 $("#finalPrice").text(response);
                             }
