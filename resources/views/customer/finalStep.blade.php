@@ -13,7 +13,7 @@
         }
 
         input[type="radio"]:checked + label > div, input[type="checkbox"]:checked + label > div {
-            border:3px solid #e52531 !important;
+            border: 3px solid #e52531 !important;
         }
 
 
@@ -152,7 +152,8 @@
                                                     هزینه : {{ ta_persian_num(number_format($shipping->price)) }} ریال
                                                 </small>
                                             </h4>
-                                            <img src="{{ asset($shipping->icon) }}" style="width: 35%" alt="">
+                                            <img src="{{ asset($shipping->icon) }}" style="width: 35%;    float: left;"
+                                                 alt="">
 
                                         </div>
                                     </label>
