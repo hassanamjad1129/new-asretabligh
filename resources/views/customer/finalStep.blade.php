@@ -303,9 +303,12 @@
                     {
                         'product': {{$cart['product']}},
                         'price': {{$cart['price']}},
-                        'services':{{$cart['services']?serialize($cart['services']):null}}},
+                        'services':{{$cart['services']?serialize($cart['services']):null}},
+                        'qty':{{ $cart['qty'] }}
+                    },
                         @endforeach]
-                }, success: function (result) {
+                },
+                success: function (result) {
                     var message = document.getElementById('discountMessage');
                     if (result['status'] === '0') {
                         message.style = 'float:right;color:#e52531;font-size:13px;';
@@ -316,7 +319,8 @@
                     $("#discountField").text(result['discount'] + " ریال");
                     $("#sumPrice").text(result['price'] + " ریال");
                 }
-            });
+            })
+            ;
         }
     </script>
 

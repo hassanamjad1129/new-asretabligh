@@ -800,7 +800,10 @@ class OrderController extends Controller
             $services_price = 0;
             foreach ($cart as $cartItem) {
                 $sum_price += $cartItem['price'];
-                $services_price += $cartItem['services'];
+                $cartItem['services'] = unserialize($cartItem['services']);
+                foreach ($cartItem['services'] as $service) {
+                    $services_price += ($service['price'] * $cartItem['qty']);
+                }
             }
             return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
         } elseif ($discount->type_doing == "percentage") {
@@ -812,7 +815,10 @@ class OrderController extends Controller
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
                         $sum_price += $cartItem['price'];
-                        $services_price += $cartItem['services'];
+                        $cartItem['services'] = unserialize($cartItem['services']);
+                        foreach ($cartItem['services'] as $service) {
+                            $services_price += ($service['price'] * $cartItem['qty']);
+                        }
                     }
                     return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 } else {
@@ -821,7 +827,10 @@ class OrderController extends Controller
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
                         $sum_price += $cartItem['price'];
-                        $services_price += $cartItem['services'];
+                        $cartItem['services'] = unserialize($cartItem['services']);
+                        foreach ($cartItem['services'] as $service) {
+                            $services_price += ($service['price'] * $cartItem['qty']);
+                        }
                     }
                     return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 }
@@ -831,7 +840,10 @@ class OrderController extends Controller
                 $services_price = 0;
                 foreach ($cart as $cartItem) {
                     $sum_price += $cartItem['price'];
-                    $services_price += $cartItem['services'];
+                    $cartItem['services'] = unserialize($cartItem['services']);
+                    foreach ($cartItem['services'] as $service) {
+                        $services_price += ($service['price'] * $cartItem['qty']);
+                    }
                 }
                 return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
             }
