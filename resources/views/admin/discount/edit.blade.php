@@ -14,6 +14,10 @@
                 <form action="{{route('admin.discount.update',$discount->id)}}" method="post">
                     @csrf
                     @method('patch')
+                    <div class="col-md-12" style="margin: 10px 0px;">
+                        <label for="first_order">تخفیف برای اولین سفارش</label>
+                        <input type="checkbox" name="first_order" value="1" id="first_order" {{$discount->first_order==1?'checked':''}}>
+                    </div>
                     <div class="col-md-6">
                         <label for="title">عنوان تخفیف </label>
                         <input type="text" name="title" placeholder="عنوان تخفیف" id="title" class="form-control" value="{{$discount->title}}">
@@ -25,7 +29,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="type_doing">نوع کسر قیمت</label>
+                        <label for="type_doing">نوع تخفیف</label>
                         <select name="type_doing" id="type_doing" class="form-control">
                             <option value="percentage" {{$discount->type_doing=='percentage'?'selected':''}}>درصدی</option>
                             <option value="cash" {{$discount->type_doing=='cash'?'selected':''}}>نقدی</option>
@@ -38,22 +42,22 @@
                     <div class="clearfix"></div>
 
                     <div class="col-md-6">
-                        <label for="started_at">تاریخ آغاز تخفیف</label>
+                        <label for="started_at">تاریخ آغاز تخفیف(اختیاری)</label>
                         <input type="text" onfocus="datePiker('start')" name="started_at" id="started_at"
                                class="form-control datePiker started" value="{{$discount->started_at?$discount->changeDate($discount->started_at):''}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="finished_at">تاریخ پایان تخفیف</label>
+                        <label for="finished_at">تاریخ پایان تخفیف(اختیاری)</label>
                         <input type="text" onfocus="datePiker('finished')" name="finished_at" id="finished_at"
                                class="form-control datePiker finished" value="{{$discount->finished_at?$discount->changeDate($discount->finished_at):''}}">
                     </div>
 
                     <div class="col-md-6">
-                        <label for="minimum_price">حداقل قیمت</label>
+                        <label for="minimum_price">حداقل قیمت(ریال)</label>
                         <input type="text" name="minimum_price" id="minimum_price" class="form-control" value="{{$discount->minimum_price}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="maximum_price">حداکثر قیمت</label>
+                        <label for="maximum_price">حداکثر قیمت(ریال)</label>
                         <input type="text" name="maximum_price" id="maximum_price" class="form-control" value="{{$discount->maximum_price}}">
                     </div>
 
@@ -124,9 +128,6 @@
                                style="font-size: 20px;letter-spacing: 5px" value="{{$discount->code}}">
                         <a class="btn btn-info" onclick="generateCode()">ساخت کد تخفیف</a>
                     </div>
-
-                    <label for="first_order">تخفیف برای اولین سفارش</label>
-                    <input type="checkbox" name="first_order" value="1" id="first_order" {{$discount->first_order==1?'checked':''}}>
                     <br>
                     <input type="submit" class="btn btn-success" value="بروزرسانی" style="margin-top: 20px">
                 </form>

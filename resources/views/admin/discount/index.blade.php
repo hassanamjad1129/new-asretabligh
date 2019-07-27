@@ -12,7 +12,7 @@
                 <tr>
                     <th>#</th>
                     <th>عنوان</th>
-                    <th>نوع کسر مبلغ</th>
+                    <th>نوع تخفیف</th>
                     <th>مقدار</th>
                     <th>تعداد استفاده</th>
                     <th>کد تخفیف</th>
@@ -31,13 +31,13 @@
                         <td>{{$i}}</td>
                         <td>{{$discount->title?$discount->title:'عنوانی ثبت نشده است'}}</td>
                         <td>{{$discount->type_doing == 'percentage'?'درصدی(%)':'نقدی(ریال)'}}</td>
-                        <td>{{$discount->value}}</td>
+                        <td>{{ $discount->type_doing == 'cash'?number_format($discount->value).' ریال':$discount->value.' درصد'}}</td>
                         <td>{{$discount->count_discount==0?'نامحدود':$discount->count_discount}}</td>
                         <td>{{$discount->code}}</td>
                         <td>{{$discount->started_at?$discount->changeDate($discount->started_at):'چیزی ثبت نشده'}}</td>
                         <td>{{$discount->finished_at?$discount->changeDate($discount->finished_at):'چیزی ثبت نشده'}}</td>
-                        <td>{{$discount->minimum_price?$discount->minimum_price:'چیزی ثبت نشده'}}</td>
-                        <td>{{$discount->maximum_price?$discount->maximum_price:'چیزی ثبت نشده'}}</td>
+                        <td>{{$discount->minimum_price?number_format($discount->minimum_price).' ریال':'چیزی ثبت نشده'}}</td>
+                        <td>{{$discount->maximum_price?number_format($discount->maximum_price).' ریال':'چیزی ثبت نشده'}}</td>
                         <td>
                             <a href="{{route('admin.discount.changeStatus',$discount)}}"><button class="btn {{$discount->status == 1?'btn-success':'btn-danger'}}">{{$discount->status == 1?'فعال':'غیرفعال'}}</button></a>
                         </td>

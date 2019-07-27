@@ -13,18 +13,24 @@
             <div class="col-md-12" style="margin-top: 30px;">
                 <form action="{{route('admin.discount.store')}}" method="post">
                     @csrf
+                    <div class="col-md-12" style="margin: 10px 0px">
+                        <label for="first_order">تخفیف برای اولین سفارش</label>
+                        <input type="checkbox" name="first_order" value="1" id="first_order">
+                    </div>
                     <div class="col-md-6">
                         <label for="title">عنوان تخفیف (اختیاری)</label>
-                        <input type="text" name="title" placeholder="عنوان تخفیف" id="title" class="form-control" value="{{old('title')}}">
+                        <input type="text" name="title" placeholder="عنوان تخفیف" id="title" class="form-control"
+                               value="{{old('title')}}">
                     </div>
                     <div class="col-md-6">
                         <label for="count_discount">تعداد استفاده تخفیف (اگر محدودیت ندارد این فیلد را خالی
                             بگذارید)</label>
-                        <input type="text" name="count_discount" id="count_discount" class="form-control" value="{{old('count_discount')}}">
+                        <input type="text" name="count_discount" id="count_discount" class="form-control"
+                               value="{{old('count_discount')}}">
                     </div>
 
                     <div class="col-md-6">
-                        <label for="type_doing">نوع کسر قیمت</label>
+                        <label for="type_doing">نوع تخفیف</label>
                         <select name="type_doing" id="type_doing" class="form-control">
                             <option value="percentage">درصدی</option>
                             <option value="cash">نقدی</option>
@@ -32,28 +38,31 @@
                     </div>
                     <div class="col-md-6">
                         <label for="discount_value">مقدار تخفیف</label>
-                        <input type="text" name="discount_value" id="discount_value" class="form-control" required value="{{old('discount_value')}}">
+                        <input type="text" name="discount_value" id="discount_value" class="form-control" required
+                               value="{{old('discount_value')}}">
                     </div>
                     <div class="clearfix"></div>
 
                     <div class="col-md-6">
-                        <label for="started_at">تاریخ آغاز تخفیف</label>
+                        <label for="started_at">تاریخ آغاز تخفیف(اختیاری)</label>
                         <input type="text" onfocus="datePiker('start')" name="started_at" id="started_at"
                                class="form-control datePiker started" value="{{old('started_at')}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="finished_at">تاریخ پایان تخفیف</label>
+                        <label for="finished_at">تاریخ پایان تخفیف(اختیاری)</label>
                         <input type="text" onfocus="datePiker('finished')" name="finished_at" id="finished_at"
                                class="form-control datePiker finished" value="{{old('finished_at')}}">
                     </div>
 
                     <div class="col-md-6">
-                        <label for="minimum_price">حداقل قیمت</label>
-                        <input type="text" name="minimum_price" id="minimum_price" class="form-control" value="{{old('minimum_price')}}">
+                        <label for="minimum_price">حداقل قیمت(ریال)</label>
+                        <input type="text" name="minimum_price" id="minimum_price" class="form-control"
+                               value="{{old('minimum_price')}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="maximum_price">حداکثر قیمت</label>
-                        <input type="text" name="maximum_price" id="maximum_price" class="form-control" value="{{old('maximum_price')}}">
+                        <label for="maximum_price">حداکثر قیمت(ریال)</label>
+                        <input type="text" name="maximum_price" id="maximum_price" class="form-control"
+                               value="{{old('maximum_price')}}">
                     </div>
 
                     <div class="col-md-2" style="margin-top: 50px">
@@ -76,7 +85,7 @@
                             @foreach($customers as $customer)
                                 <tr>
                                     <td>
-                                    <input type="checkbox" name="customers[]" value="{{$customer->id}}">
+                                        <input type="checkbox" name="customers[]" value="{{$customer->id}}">
                                     </td>
                                     <td>{{$customer->name}}</td>
                                     <td>{{$customer->phone}}</td>
@@ -123,8 +132,7 @@
                                style="font-size: 20px;letter-spacing: 5px" value="{{old('code')}}">
                         <a class="btn btn-info" onclick="generateCode()">ساخت کد تخفیف</a>
                     </div>
-                    <label for="first_order">تخفیف برای اولین سفارش</label>
-                    <input type="checkbox" name="first_order" value="1" id="first_order">
+
 
                     <br>
                     <input type="submit" class="btn btn-success" value="ثبت" style="margin-top: 20px">

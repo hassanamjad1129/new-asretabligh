@@ -774,7 +774,7 @@ class OrderController extends Controller
             return ['message' => 'به شما تخفیفی تعلق نگرفت', 'status' => '0'];
 
         if ($discount->type_doing == "cash") {
-            return ['message' => 'به شما ' . $discount->value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+            return ['message' => 'به شما ' . number_format($discount->value) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
 
         } elseif ($discount->type_doing == "percentage") {
             $sum_price = 0;
@@ -783,11 +783,11 @@ class OrderController extends Controller
             }
             if ($discount->maximum_price != '') {
                 if ($discount->maximum_price >= $sum_price)
-                    return ['message' => 'به شما ' . (($discount->value * $sum_price) / 100) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                    return ['message' => 'به شما ' . number_format((($discount->value * $sum_price) / 100)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 else
-                    return ['message' => 'به شما ' . (($discount->value * $discount->maximum_price) / 100) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                    return ['message' => 'به شما ' . number_format((($discount->value * $discount->maximum_price) / 100)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
             } else {
-                return ['message' => 'به شما ' . (($discount->value * $sum_price) / 100) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                return ['message' => 'به شما ' . number_format((($discount->value * $sum_price) / 100)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
             }
         }
 
