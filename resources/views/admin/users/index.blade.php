@@ -5,15 +5,16 @@
             مدیریت کاربران
         </div>
         <div class="card-block">
-            <a class="btn btn-success" href="{{route('admin.user.create')}}">افزودن کاربر</a>
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>نام</th>
-                    <th>نام خانوادگی</th>
+                    <th>نام و نام خانوادگی</th>
+                    <th>تصویر</th>
                     <th>موبایل</th>
+                    <th>تلفن</th>
                     <th>نوع کاربر</th>
+                    <th>تاریخ عضویت</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
@@ -22,13 +23,12 @@
                 @foreach($users as $user)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $user->first_name }}</td>
-                        <td>
-                            {{$user->last_name}}
-                        </td>
-                        <td>{{$user->mobile}}
-                        </td>
+                        <td>{{ $user->name}}</td>
+                        <td><img src="{{ asset($user->avatar) }}" style="width:100px" class="img-circle" alt=""></td>
+                        <td>{{$user->phone}}</td>
+                        <td>{{$user->telephone}}</td>
                         <td>{{($user->type)=='credit'?'اعتباری':'نقدی'}}</td>
+                        <td>{{ jdate(strtotime($user->created_at))->format('H:i|Y/m/d') }}</td>
                         <td>
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-primary btn-block dropdown-toggle"
@@ -37,10 +37,21 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-left">
-                                    <li><a class="btn btn-sm" href="{{ route('admin.user.edit',[$user]) }}">ویرایش</a>
-                                    </li>
+                                    @can('moneybag')
+                                        <li><a class="btn btn-sm" href="{{ route('admin.moneybag.index',[$user]) }}">مدیریت
+                                                کیف پول</a></li>
+                                    @endcan
+                                    @can('customerOrders')
+                                        <li>
+                                            <a class="btn btn-sm"
+                                               href="{{ route('admin.customer.orders',[$user]) }}">سفارشات مشتری</a>
+                                        </li>
+                                    @endcan
                                     <li>
-                                        <form action="{{ route('admin.user.destroy',[$user]) }}"
+                                        <a class="btn btn-sm"
+                                           href="{{ route('admin.customer.edit',[$user]) }}">ویرایش</a></li>
+                                    <li>
+                                        <form action="{{ route('admin.customer.destroy',[$user]) }}"
                                               method="post">
                                             @csrf
                                             @method('delete')

@@ -6,14 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>چاپ عصر تبلیغ|پرینت آنلاین|پرینت سیاه و سفید|پرینت رنگی|پلات|لمینت|چاپ پوستر|چاپ نقشه</title>
+    <title>چاپ عصر تبلیغ-@yield('title')</title>
 
-    <meta name="description" content="مجری کلیه امور چاپی و تبلیغاتی
-چاپ دیجیتال-چاپ افست-خدمات دانشجویی
-چاپ آنلاین دیجیتال: پرینت رنگی-پرینت سیاه و سفید-چاپ کتاب-چاپ پوستر-پلات-لمینت-صحافی پایان نامه فوری-صحافی گالینگور-صحافی سیمی-صحافی چسب گرم-سلفون حرارتی
-خدمات IT: طراحی سایت-اپلیکیشن-سئو
-خدمات افست: چاپ فرم عمومی-چاپ فرم اختصاصی-کارت ویزیت-سربرگ-کاتالوگ-بروشور-پوستر-مجله-کتاب
-طراحی-لیتوگرافی">
+    <meta name="description" content="@yield('description')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:title" content="چاپ عصر تبلیغ @yield('title')">
     <meta property="og:image" content="{{ asset('/logo.jpg') }}"/>
@@ -85,20 +80,25 @@
 
                         <ul class="nav navbar-nav pull-right" style="margin-top: 0.4rem;">
                             <li class="active-menu"><a href="{{ url('/') }}">صفحه اصلی</a></li>
-                            <li style="width: 80px" class="dropdown"><a href="#" class="dropdown-toggle"
-                                                                        data-toggle="dropdown" data-hover="dropdown">محصولات</a>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                                    data-toggle="dropdown" data-hover="dropdown">لیست قیمت</a>
                                 <ul class="dropdown-menu">
                                     @foreach($categories as $category)
-                                        <li><a href="{{ url('/') }}">{{ $category->name }}</a></li>
+                                        <li>
+                                            <a href="{{ route('categoryProductPrice',[str_replace(" ","-",$category->name)]) }}">{{ $category->name }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="/#shoping">ثبت سفارش</a>
                             </li>
                             <li>
                                 <a href="{{ url('shop') }}">فروشگاه</a>
                             </li>
 
-                            <li><a href="{{ url('/rules') }}">قوانین و مقرارت</a></li>
-                            <li><a href="{{ url('/aboutUs') }}">درباره ما</a></li>
+                            <li><a href="{{ route('rules') }}">قوانین و مقرارت</a></li>
+                            <li><a href="{{ route('aboutus') }}">درباره ما</a></li>
                             <li><a href="{{ url('/contactUs') }}">تماس با ما</a></li>
 
                         </ul>
@@ -150,7 +150,7 @@
                             <ul class="links">
                                 <li class="link active"><a href="">صفحه اول </a></li>
                                 <li class="link have-sub">
-                                    <a href=''>محصولات</a>
+                                    <a href=''>لیست قیمت</a>
                                     <ul>
                                         @foreach($categories as $category)
                                             <li>
@@ -161,8 +161,8 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li class="link"><a href="{{ url('/rules') }}">قوانین و مقرارت</a></li>
-                                <li class="link"><a href="{{ url('/aboutUs') }}">درباره ما</a></li>
+                                <li class="link"><a href="{{ route('rules') }}">قوانین و مقرارت</a></li>
+                                <li class="link"><a href="{{ route('aboutus') }}">درباره ما</a></li>
                                 <li class="link"><a href="{{ url('/contactUs') }}">تماس با ما</a></li>
                                 <li class="link"><a href="{{ url('/customer/login') }}"><i
                                                 class="flaticon-black"></i></a>
@@ -270,7 +270,12 @@
                 <span style="color: #e52531">
                 عصر تبلیغ
             </span>
-                محفوظ می باشد.
+                محفوظ می باشد. (<a
+                        href="http://hugenet.ir/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d8%b3%d8%a7%db%8c%d8%aa-%da%86%d8%a7%d9%be%d8%ae%d8%a7%d9%86%d9%87/">
+                    <span style="color: #FFF">طراحی سایت چاپخانه</span>
+                </a>
+                و اجرا توسط ایده پردازان تدبیر بنیان)
+
             </p>
             <ul class="social">
                 <li>

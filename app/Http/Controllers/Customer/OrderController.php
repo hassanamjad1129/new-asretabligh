@@ -78,7 +78,7 @@ class OrderController extends Controller
         $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
-        if (auth()->guard('customer')->user()) {
+        if (auth()->guard('customer')->user() and auth()->guard('customer')->user()->price=='coworker') {
             if ($request->type == 'single') {
                 return ta_persian_num(number_format($prices->coworker_single_price * $count) . " ریال");
             } else {
@@ -138,7 +138,7 @@ class OrderController extends Controller
         $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $answers)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
-        if (auth()->guard('customer')->user()) {
+        if (auth()->guard('customer')->user() and auth()->guard('customer')->user()->price=='coworker') {
             if ($request->type == 'single') {
                 $sum = 0;
                 foreach ($request->services as $service) {
@@ -345,7 +345,7 @@ class OrderController extends Controller
         $prices = ProductPrice::where('product_id', $request->product)->where('paper_id', $request->paper)->where('values', $data)->where('min', '<=', $count)->where(function ($query) use ($count) {
             $query->where('max', '>=', $count)->whereOr('max', '');
         })->first();
-        if (auth()->guard('customer')->user()) {
+        if (auth()->guard('customer')->user() and auth()->guard('customer')->user()->price=='coworker') {
             if ($request->type == 'single') {
                 $price = $prices->coworker_single_price * $count;
             } else {
@@ -376,7 +376,7 @@ class OrderController extends Controller
                 $services[$key]['properties'] = $values;
                 if ($servicePrices->service->allow_type) {
                     if ($request->input('service-type-' . $service->id) == 'single') {
-                        if (auth()->guard('customer')->user()) {
+                        if (auth()->guard('customer')->user() and auth()->guard('customer')->user()->price=='coworker') {
                             if ($service->paper_count)
                                 $servicePrice = ($servicePrices->coworker_single_price * $count);
                             else

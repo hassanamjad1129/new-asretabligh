@@ -23,11 +23,12 @@
                 @foreach($orders as $order)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $order->category->name." ".$order->product->title }}</td>
+                        <td>{{ $order->category->name."|".$order->product->title }}</td>
                         <td>{{ ta_persian_num(number_format($order->getTotalPrice())) }} ریال</td>
                         <td>{{ $order->getOrderDate() }}</td>
                         <td>{{ $order->getStatus() }}</td>
-                        <td><a href="{{ route('admin.orders.orderDetail',[$order]) }}" class="btn btn-danger">جزییات</a></td>
+                        <td><a href="{{ route('admin.orders.orderDetail',[$order]) }}" class="btn btn-danger">جزییات</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -56,20 +56,21 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'nullable|email|max:255|unique:customers',
             'password' => 'required|min:6|confirmed',
-            'phone' => ['required', Rule::unique('customers', 'phone')],
+            'phone' => ['required', Rule::unique('customers', 'phone'), 'regex:/(^[0][9][0-9]{9}$)/'],
             'telephone' => 'nullable',
             'gender' => ['required', Rule::in(['male', 'female'])]
-        ],[
-            'name.required'=>'وارد کردن نام الزامیست',
-            'email.email'=>'پست الکترونیکی را به درستی وارد کنید',
-            'email.unique'=>'این پست الکترونیکی قبلا ثبت شده است',
-            'password.required'=>'وارد کردن رمز عبور الزامیست',
-            'password.confirmed'=>'رمز عبور با تکرار آن مطابقت ندارد',
-            'password.min'=>'رمز عبور حداقل باید 6 کاراکتر باشد',
-            'phone.required'=>'وارد کردن شماره همراه الزامیست',
-            'phone.unique'=>'این شماره همراه قبلا ثبت شده است',
-            'gender.required'=>'جنسیت الزامیست',
-            'gender.in'=>'جنسیت را بدرستی انتخاب کنید'
+        ], [
+            'name.required' => 'وارد کردن نام الزامیست',
+            'email.email' => 'پست الکترونیکی را به درستی وارد کنید',
+            'email.unique' => 'این پست الکترونیکی قبلا ثبت شده است',
+            'password.required' => 'وارد کردن رمز عبور الزامیست',
+            'password.confirmed' => 'رمز عبور با تکرار آن مطابقت ندارد',
+            'password.min' => 'رمز عبور حداقل باید 6 کاراکتر باشد',
+            'phone.required' => 'وارد کردن شماره همراه الزامیست',
+            'phone.unique' => 'این شماره همراه قبلا ثبت شده است',
+            'phone.regex' => 'فرمت شماره همراه اشتباه است',
+            'gender.required' => 'جنسیت الزامیست',
+            'gender.in' => 'جنسیت را بدرستی انتخاب کنید'
         ]);
     }
 

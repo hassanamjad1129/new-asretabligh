@@ -1,8 +1,8 @@
 @extends('customer.layout.dashboardMaster')
 @section('dashboardContent')
-    <h4>جزییات سفارش {{ ta_persian_num($orderItem->id) }}</h4>
-    <hr>
-    <div class="col-xs-12">
+    <div class="col-xs-12" style="margin-top: 2rem">
+        <h4 style="width: 250px;background: #444;color: #FFF;text-align: center;padding: 1rem 0;border-radius: 10px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+            جزییات سفارش {{ ta_persian_num($orderItem->id) }}</h4>
         <div class="panel panel-default" id="panel">
             <div class="panel-body">
                 <div class="col-md-6">
@@ -17,17 +17,26 @@
                         <p style="line-height: 2rem;">سایز فایل : {{ $orderItem->getPaperName() }}</p>
                         <p style="line-height: 2rem;">{!! $orderItem->getData() !!} </p>
                         <p style="line-height: 2rem;">نوع سفارش : {{ $orderItem->getType() }}</p>
+                        <div style="margin-bottom: 1rem">
+                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش :</h5>
+                            <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
+                        </div>
+
+                        <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
+                        <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
+
                     </div>
-                    <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">قیمت نهایی : </h5>
-                        <p style="display: inline-block">{{ ta_persian_num(number_format($orderItem->getTotalPrice())) }}
-                            ریال</p>
-                    </div>
+
                 </div>
                 <div class="col-md-6">
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">تاریخ ثبت سفارش :</h5>
                         <p style="display: inline-block">{{ $orderItem->getOrderDate() }}</p>
+                    </div>
+                    <div style="margin-bottom: 1rem">
+                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">قیمت نهایی : </h5>
+                        <p style="display: inline-block">{{ ta_persian_num(number_format($orderItem->getTotalPrice())) }}
+                            ریال</p>
                     </div>
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">وضعیت سفارش :</h5>
@@ -38,15 +47,12 @@
     display: inline-block;
     border-radius: 2rem;">{{ $orderItem->getStatus() }}</p>
                     </div>
-                    <div style="margin-bottom: 1rem">
-                        <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">سری سفارش :</h5>
-                        <p style="display: inline-block">{{ ta_persian_num($orderItem->qty) }}</p>
-                    </div>
+
 
                     <div style="margin-bottom: 1rem">
                         <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های سفارش :</h5>
                         <div class="clearfix"></div>
-                        <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
+                        <div class="col-md-3" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
                             <?php
                             $format = explode('.', $orderItem->files->front_file)[1];
@@ -75,7 +81,7 @@
                             ?>
                         </div>
                         @if($orderItem->type=='double' and $orderItem->product->typeRelatedFile)
-                            <div class="col-md-5" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
+                            <div class="col-md-3" style="    padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
                                 <?php
                                 $format = explode('.', $orderItem->files->back_file)[1];
@@ -108,20 +114,22 @@
                     </div>
 
                 </div>
-                <div class="col-xs-12">
-                    <h5 style="margin-bottom: 0.5rem;font-weight: bold">توضیحات مشتری :</h5>
-                    <p style="line-height: 2rem">{!! $orderItem->description?nl2br($orderItem->description):"توضیحات ندارد" !!}</p>
-                    <hr>
-                </div>
                 <div class="clearfix"></div>
+                <hr>
                 <div class="col-xs-12">
                     <h4 style="font-weight: bold;margin-bottom: 1rem">خدمات پس از چاپ</h4>
                 </div>
-
+                <?php
+                $flag = false;
+                ?>
                 @foreach($orderItem->services as $service)
+                    <?php
+                    $flag = true;
+                    ?>
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
-                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">عنوان خدمت :</h5>
+                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">عنوان خدمت
+                                :</h5>
                             <p style="display: inline-block">{{ $service->service->name }}</p>
                         </div>
                         <div style="margin-bottom: 1rem">
@@ -135,16 +143,18 @@
                     </div>
                     <div class="col-md-6">
                         <div style="margin-bottom: 1rem">
-                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">هزینه خدمت :</h5>
+                            <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">هزینه خدمت
+                                :</h5>
                             <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }}
                                 ریال</p>
                         </div>
                         @if($service->type)
                             <div style="margin-bottom: 1rem">
-                                <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های خدمت
+                                <h5 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">فایل های
+                                    خدمت
                                     :</h5>
                                 <div class="clearfix"></div>
-                                <div class="col-md-5" style="padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
+                                <div class="col-md-3" style="padding: 0.5rem;border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;">
                                     <?php
                                     $format = explode('.', $service->files->front_file)[1];
@@ -175,7 +185,7 @@
                                     ?>
                                 </div>
                                 @if($service->type=='double')
-                                    <div class="col-md-5" style="    border: 1px solid rgba(0,0,0,.45);
+                                    <div class="col-md-3" style="    border: 1px solid rgba(0,0,0,.45);
     border-radius: 0.8rem;    padding: 0.5rem;">
                                         <?php
                                         $format = explode('.', $service->files->back_file)[1];
@@ -211,6 +221,11 @@
                     <div class="clearfix"></div>
                     <hr>
                 @endforeach
+                @if($flag==false)
+                    <div class="col-xs-12">
+                        <h5>خدمتی ثبت نشده است</h5>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

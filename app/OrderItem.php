@@ -14,6 +14,16 @@ class OrderItem extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(Customer::class, 'user_id');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);
@@ -86,5 +96,47 @@ class OrderItem extends Model
         return ta_persian_num(jdate(strtotime($this->created_at))->format('H:i Y/m/d'));
     }
 
+    public function getStatusOptions()
+    {
+        return [
+            'در انتظار پرداخت',
+            'تایید مالی',
+            'در حال چاپ',
+            'آماده تحویل',
+            'تحویل داده شده',
+        ];
+    }
+
+    public function getPaymentType()
+    {
+        switch ($this->order->payment_method) {
+            case "online":
+                return "درگاه اینترنتی";
+                break;
+            case "money_bag":
+                return "کیف پول";
+                break;
+        }
+    }
+
+    public function getDeliveryType()
+    {
+        return $this->order->delivery->name;
+    }
+
+    public function getAddress()
+    {
+        return $this->order->address;
+    }
+
+    public function getDeliveries()
+    {
+        return shipping::all()->pluck('name', 'id');
+    }
+
+    public function getLastUpdateDate()
+    {
+        return jdate(strtotime($this->updated_at))->format('H:i Y/m/d');
+    }
 
 }

@@ -12146,7 +12146,7 @@ input[type=submit] {
     padding: 0;
     font-size: 17px;
     background: #504f4f;
-    max-width: 37.7%
+    max-width: 40.7%
 }
 
 .parallax .title::after, .parallax .title::before {
@@ -18846,6 +18846,8 @@ ul.links li ul li ul li a {
     font-family: Sans;
     font-size: 14px;
     text-align: center;
+    border: 1px solid #CCC;
+    border-radius: 10px;
 }
 
 .nh-anim {
@@ -19592,8 +19594,135 @@ button.close:hover {
 }
 
 .card {
-    border: 1px solid #ccc;
+    border: 1px solid #DFDFDF;
     overflow: hidden;
+    background: #F5F5F5;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .08);
+    border-radius: 5px;
+}
+
+#postCategories li a {
+    color: #666
+}
+
+#postCategories li:hover {
+    margin-right: 0.7rem;
+}
+
+#postCategories li {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    border-bottom: 1px solid #888;
+    color: #444;
+    transition: all ease 0.4s
+}
+
+#postCategories .panel-heading h5 {
+    text-align: center
+}
+
+
+#postCategories.panel-default:first-child {
+    border: 1px solid #111
+
+}
+
+#postCategories.panel-default {
+    border-radius: 1rem;
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+}
+
+.seenBox {
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: #EEE;
+}
+
+
+.seenBoxHeading {
+    text-align: center;
+    background: #d60000;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.seenBox:first-child {
+    margin-top: 5rem;
+}
+
+.seenBox:first-child .seenBoxHeading {
+    background: #111;
+
+}
+
+.seenBoxBody {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.seenBox:first-child .seenBoxBody {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+#postCategories .panel-heading {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+#postCategories.panel-default {
+    border-color: #D60000;
+}
+
+#postCategories.panel-default > .panel-heading {
+    background-color: #D60000;
+    border-color: #D60000;
+    color: #FFF;
+}
+
+#postCategories li:last-child {
+    border-bottom: none
+}
+
+#posts .panel {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+}
+
+#postCategories:first-child .panel-heading {
+    background: #111;
+    border: 1px solid #111
+
+}
+
+.profileBox {
+    width: 100%;
+    background: #e6e7e8;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn-outline.btn-danger {
+    color: #d60000;
+    background: #FFF;
+    border: 1px solid #d60000;
+    border-radius: 2rem;
+    transition: all ease 0.2s
+}
+
+.btn-outline.btn-danger:hover {
+    background: #d60000;
+    color: #FFF;
+    border: 1px solid #d60000;
 
 }
 
@@ -19601,12 +19730,16 @@ button.close:hover {
     float: right;
     font-size: 1.3rem;
     margin: 0 0.3rem;
-    padding: 1.5rem 0.6rem;
+    padding: 1.0rem 0.6rem;
+    width: 12%
 }
 
 
 .news-headlines li.active, .news-headlines li:hover {
     border-top: 3px solid #d60000;
+    border-bottom: 3px solid #d60000;
+    background: #EAEAEA;
+
 }
 
 .news-headlines {
@@ -19617,7 +19750,6 @@ button.close:hover {
 
 
 .thumbnail {
-    border: 1px solid rgba(0, 0, 0, .2);
     cursor: pointer;
 }
 
@@ -19629,6 +19761,19 @@ button.close:hover {
     font-size: 1.2rem;
     text-align: center;
     font-weight: bold;
+}
+
+.thumbnail img {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 5px #CFCFCF;
+    transition: all 0.3s ease
+
+}
+
+.thumbnail img:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, .7);
 }
 
 .categories p {
@@ -19648,6 +19793,14 @@ button.close:hover {
 
 #gotToLeft, #gotToRight {
     cursor: pointer;
+}
+
+.categoriesHandler {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
 }
 
 .categoriesHandler div {

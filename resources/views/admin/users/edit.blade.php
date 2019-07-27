@@ -5,7 +5,7 @@
             ویرایش کاربر
         </div>
         <div class="card-block">
-            <form action="{{ route('admin.user.update',$user) }}" enctype="multipart/form-data"
+            <form action="{{ route('admin.customer.update',$customer) }}" enctype="multipart/form-data"
                   method="post">
                 @csrf
                 @method('patch')
@@ -15,28 +15,19 @@
                             <label for="">نام</label>
                         </div>
                         <div class="card-body">
-                            <input type="text" name="first_name" class="form-control"
-                                   value="{{old('first_name')?old('first_name'):$user->first_name}}"/>
+                            <input type="text" name="name" class="form-control"
+                                   value="{{old('name')?old('name'):$customer->name}}"/>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <label for="">نام خانوادگی</label>
+                            <label for="">شماره همراه </label>
                         </div>
                         <div class="card-body">
-                            <input type="text" name="last_name" class="form-control" value="{{old('last_name')?old('last_name'):$user->last_name}}"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <label for="">موبایل </label>
-                        </div>
-                        <div class="card-body">
-                            <input type="number" name="mobile" class="form-control" value="{{old('mobile')?old('mobile'):$user->mobile}}"/>
+                            <input type="text" name="phone" class="form-control"
+                                   value="{{old('phone')?old('phone'):$customer->phone}}"/>
                         </div>
                     </div>
                 </div>
@@ -47,7 +38,23 @@
                             <span class="tag tag-primary">اختیاری</span>
                         </div>
                         <div class="card-body">
-                            <input type="number" name="telephone" class="form-control" value="{{old('telephone')?old('telephone'):$user->telephone}}"/>
+                            <input type="text" name="telephone" class="form-control"
+                                   value="{{old('telephone')?old('telephone'):$customer->telephone}}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="">جنسیت</label>
+                        </div>
+                        <div class="card-body">
+                            <select class="form-control" name="gender">
+                                <option value="">انتخاب کنید ...</option>
+                                <option value="male" {{ $customer->gender=='male'?"selected":"" }}>مرد</option>
+                                <option value="female" {{ $customer->gender=='female'?"selected":"" }}>زن</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -58,7 +65,8 @@
                             <span class="tag tag-primary">اختیاری</span>
                         </div>
                         <div class="card-body">
-                            <input type="password" name="password" class="form-control" value="{{old('password')?old('password'):''}}"/>
+                            <input type="password" name="password" class="form-control"
+                                   value="{{old('password')?old('password'):''}}"/>
                         </div>
                     </div>
                 </div>
@@ -69,7 +77,8 @@
                             <span class="tag tag-primary">اختیاری</span>
                         </div>
                         <div class="card-body">
-                            <input type="password" name="confirmPassword" class="form-control" value="{{old('confirmPassword')?old('confirmPassword'):''}}"/>
+                            <input type="password" name="confirmPassword" class="form-control"
+                                   value="{{old('confirmPassword')?old('confirmPassword'):''}}"/>
                         </div>
                     </div>
                 </div>
@@ -80,9 +89,35 @@
                         </div>
                         <div class="card-body">
                             <select class="form-control" style="height: 2.5rem !important;" name="type">
-                                <option value="0" {{($user->type=='credit')?'selected':''}}>اعتباری</option>
-                                <option value="1" {{($user->type=='cash')?'selected':''}}>نقدی</option>
+                                <option value="0" {{($customer->type=='credit')?'selected':''}}>اعتباری</option>
+                                <option value="1" {{($customer->type=='cash')?'selected':''}}>نقدی</option>
                             </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="">نوع محاسبه قیمت</label>
+                        </div>
+                        <div class="card-body">
+                            <select class="form-control" style="height: 2.5rem !important;" name="price">
+                                <option value="coworker" {{($customer->price=='coworker')?'selected':''}}>همکاری
+                                </option>
+                                <option value="normal" {{($customer->price=='normal')?'selected':''}}>عادی</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="">تصویر</label>
+                        </div>
+                        <div class="card-body">
+                            <input type="file" name="avatar" id="avatar" class="form-control">
                         </div>
                     </div>
                 </div>

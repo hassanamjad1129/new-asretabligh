@@ -13,7 +13,9 @@ use App\ServicePrice;
 use App\ServiceProperty;
 use App\ServiceValue;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,55 +29,76 @@ use Illuminate\View\View;
 class ServicePriceController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @param Service $service
      * @return Response
+     * @throws AuthorizationException
      */
     public function create(Service $service)
     {
+        $this->authorize('servicePrices');
         $serviceProperties = $service->ServiceProperties()->where('value_id', null)->get();
         $papers = $service->Papers;
         return view('admin.services.prices.create', ['service' => $service, 'serviceProperties' => $serviceProperties, 'papers' => $papers]);
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws AuthorizationException
+     */
     public function ajaxServiceProperties(Request $request)
     {
+        $this->authorize('servicePrices');
         $properties = ServiceProperty::where('value_id', $request->value_id)->get();
         return $properties;
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws AuthorizationException
+     */
     public function ajaxServiceAnswers(Request $request)
     {
+        $this->authorize('servicePrices');
         $Answers = ServiceValue::where('property_id', $request->property_id)->get();
         return $Answers;
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws AuthorizationException
+     */
     public function ajaxServicePrices(Request $request)
     {
+        $this->authorize('servicePrices');
         $productPrices = ServicePrice::where('service_id', $request->service)->where('paper_id', $request->paper)->where('values', $request->values_id)->get();
         return $productPrices;
     }
 
+    /**
+     * @param Request $request
+     * @throws AuthorizationException
+     */
     public function ajaxRemoveServicePrice(Request $request)
     {
+        $this->authorize('servicePrices');
         $servicePrice = ServicePrice::findOrFail($request->id);
         $servicePrice->delete();
     }
 
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws AuthorizationException
+     */
     public function ajaxSubmitForm(Request $request)
     {
+        $this->authorize('servicePrices');
         $service = Service::find($request->service);
         $validator = Validator::make($request->all(), [
             'value.*' => 'required',

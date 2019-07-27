@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
@@ -17,9 +18,11 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      *
      * @return Response
+     * @throws AuthorizationException
      */
     public function index()
     {
+        $this->authorize('categories');
         $categories = Category::all();
         return view('admin.categories.index', ['categories' => $categories]);
     }
@@ -28,16 +31,18 @@ class CategoryController extends Controller
      * Show the form for creating a new resource.
      *
      * @return Response
+     * @throws AuthorizationException
      */
     public function create()
     {
+        $this->authorize('categories');
         return view('admin.categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public function validationStore(Request $request)
@@ -64,6 +69,7 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('categories');
         $validator = $this->validationStore($request);
         if ($validator->fails()) {
             return redirect(route('admin.categories.create'))->withErrors($validator, 'failed')->withInput();
@@ -84,24 +90,15 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param \App\Category $category
-     * @return Response
-     */
-    public function show(Category $category)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param \App\Category $category
      * @return Response
+     * @throws AuthorizationException
      */
     public function edit(Category $category)
     {
+        $this->authorize('categories');
         return view('admin.categories.edit', ['category' => $category]);
     }
 
@@ -117,12 +114,14 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Category $category
+     * @param Request $request
+     * @param Category $category
      * @return Response
+     * @throws AuthorizationException
      */
     public function update(Request $request, Category $category)
     {
+        $this->authorize('categories');
         $validator = $this->validationUpdate($request);
         if ($validator->fails()) {
             return redirect(route('admin.categories.create'))->withErrors($validator, 'failed')->withInput();
@@ -147,6 +146,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        $this->authorize('categories');
         $category->delete();
         return redirect(route('admin.categories.index'))->withErrors('عملیات با موفقیت انجام شد', 'failed');
     }

@@ -49,18 +49,24 @@
                                             </button>
                                         </form>
                                     </li>
-                                    <li><a class="btn btn-sm"
-                                           href="{{ route('admin.productPrice.create',[$category,$product]) }}">
-                                            قیمت محصول</a>
-                                    </li>
-                                    <li><a class="btn btn-sm"
-                                           href="{{ route('admin.productProperties.index',[$product]) }}">مشخصات
-                                            محصول</a>
-                                    </li>
-                                    <li><a class="btn btn-sm"
-                                           href="{{ route('admin.products.papers',[$category,$product]) }}">کاغذهای
-                                            محصول</a>
-                                    </li>
+                                    @can('productPrice')
+                                        <li><a class="btn btn-sm"
+                                               href="{{ route('admin.productPrice.create',[$category,$product]) }}">
+                                                قیمت محصول</a>
+                                        </li>
+                                    @endcan
+                                    @can('productProperties')
+                                        <li><a class="btn btn-sm"
+                                               href="{{ route('admin.productProperties.index',[$product]) }}">مشخصات
+                                                محصول</a>
+                                        </li>
+                                    @endcan
+                                    @can('paperProducts')
+                                        <li><a class="btn btn-sm"
+                                               href="{{ route('admin.products.papers',[$category,$product]) }}">کاغذهای
+                                                محصول</a>
+                                        </li>
+                                    @endcan
                                 </ul>
                             </div>
                         </td>

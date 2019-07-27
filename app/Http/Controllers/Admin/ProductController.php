@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Paper;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,9 +34,11 @@ class ProductController extends Controller
      *
      * @param Category $category
      * @return Response
+     * @throws AuthorizationException
      */
     public function index(Category $category)
     {
+        $this->authorize('products');
         $products = Product::where('category_id', $category->id)->get();
         return view('admin.products.index', ['category' => $category, 'products' => $products]);
     }
@@ -46,9 +49,11 @@ class ProductController extends Controller
      *
      * @param Category $category
      * @return Response
+     * @throws AuthorizationException
      */
     public function create(Category $category)
     {
+        $this->authorize('products');
         //Get All Subcategories From their Category Except This Subcategory
         $allCategories = Category::all();
         return view('admin.products.create', ['category' => $category, 'allCategories' => $allCategories]);
@@ -85,6 +90,7 @@ class ProductController extends Controller
 
     public function store(Request $request, Category $category)
     {
+        $this->authorize('products');
         $validator = $this->validateStore($request);
         if ($validator->fails()) {
             return redirect(route('admin.products.create', [$category]))->withErrors($validator, 'failed')->withInput();
@@ -102,25 +108,16 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param Product $product
-     * @return void
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Category $category
      * @param Product $product
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Category $category, Product $product)
     {
+        $this->authorize('products');
         //Get All Subcategories From their Category Except This Subcategory
         $allCategories = Category::all();
         return view('admin.products.edit', ['category' => $category, 'allCategories' => $allCategories, 'product' => $product]);
@@ -144,9 +141,11 @@ class ProductController extends Controller
      * @param Category $category
      * @param Product $product
      * @return Response
+     * @throws AuthorizationException
      */
     public function update(Request $request, Category $category, Product $product)
     {
+        $this->authorize('products');
         $validator = $this->validateUpdate($request);
         if ($validator->fails()) {
             return redirect(route('admin.products.edit', [$category, $product]))->withErrors($validator, 'failed')->withInput();
@@ -173,6 +172,7 @@ class ProductController extends Controller
      */
     public function destroy(Category $category, Product $product)
     {
+        $this->authorize('products');
         $product->delete();
         return redirect(route('admin.products.index', ['category' => $category]))->withErrors('عملیات با موفقیت انجام شد', 'success');
     }
@@ -180,12 +180,14 @@ class ProductController extends Controller
 
     public function papers(Category $category, Product $product)
     {
+        $this->authorize('paperProducts');
         $papers = Paper::all();
         return view('admin.products.papers', ['papers' => $papers, 'product' => $product]);
     }
 
     public function updatePapers(Category $category, Product $product, Request $request)
     {
+        $this->authorize('paperProducts');
         $product->Papers()->sync($request->papers);
         return redirect(route('admin.products.index', ['category' => $product->category_id]))->withErrors('عملیات با موفقیت انجام شد', 'success');
     }

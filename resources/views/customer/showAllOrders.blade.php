@@ -1,7 +1,6 @@
 @extends('client.layout.master')
 @section('content')
-    <h3>سفارشات شما</h3>
-    <hr>
+
     @if(count($errors->feild)>0)
         <div class="alert alert-danger">
             <ul>
@@ -22,7 +21,9 @@
     @endif
 
     <div class="col-xs-12">
+
         <div class="panel panel-body">
+            <h3>سفارشات شما</h3>
             <table class="table table-striped table-bordered table-hover datatable" id="dataTables-example">
                 <thead>
                 <tr>
@@ -43,11 +44,15 @@
                         <td>{{ $i++ }}</td>
                         <td>AT-{{ $order->id }}</td>
                         <td>{{ $order->cart->category->catName }}</td>
-                        <td>@if($order->status==0) تایید نشده@elseif($order->status==1) تایید اولیه @elseif($order->status==2) در دست چاپ @else آماده تحویل@endif</td>
-                        <td>{{ number_format((str_replace(",","",$order->cart->total_price))*(1+(0.01*\App\option::where('option_name','tax')->first()->option_value))) }} ریال</td>
+                        <td>@if($order->status==0) تایید نشده@elseif($order->status==1) تایید
+                            اولیه @elseif($order->status==2) در دست چاپ @else آماده تحویل@endif</td>
+                        <td>{{ number_format((str_replace(",","",$order->cart->total_price))*(1+(0.01*\App\option::where('option_name','tax')->first()->option_value))) }}
+                            ریال
+                        </td>
                         <td>{{ $order->tracking_code }}</td>
                         <td>{{ jdate(strtotime($order->created_at))->format('date') }}</td>
-                        <td><a href="{{ url('/customer/orders/'.$order->id.'/detail') }}" class="btn btn-info"><i class="fa fa-eye"></i> مشاهده جزییات ...</a></td>
+                        <td><a href="{{ url('/customer/orders/'.$order->id.'/detail') }}" class="btn btn-info"><i
+                                        class="fa fa-eye"></i> مشاهده جزییات ...</a></td>
                     </tr>
                 @endforeach
                 </tbody>

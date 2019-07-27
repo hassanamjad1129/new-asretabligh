@@ -12,6 +12,7 @@
                     <th>#</th>
                     <th>نام</th>
                     <th>ایمیل</th>
+                    <th>تاریخ ثبت نام</th>
                     <th>
                         عملیات
                     </th>
@@ -24,6 +25,7 @@
                         <td>{{ $i++ }}</td>
                         <td>{{ $admin->name }}</td>
                         <td>{{ $admin->email }}</td>
+                        <td>{{ jdate(strtotime($admin->created_at))->format('H:i|Y/m/d') }}</td>
                         <td>
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-primary btn-block dropdown-toggle"
@@ -32,6 +34,9 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-left">
+                                    <li>
+                                        <a href="{{ route('admin.admins.roles',[$admin]) }}">مدیریت گروه های کاربر</a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('admin.admins.edit',[$admin]) }}">ویرایش</a>
                                     </li>

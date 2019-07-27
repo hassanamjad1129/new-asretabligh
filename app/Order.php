@@ -10,4 +10,10 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public function delivery()
+    {
+        return $this->belongsTo(shipping::class, 'delivery_method');
+    }
+
 }

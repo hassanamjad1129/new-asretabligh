@@ -1,4 +1,5 @@
 @extends('client.layout.master')
+@section('title') ثبت سفارش {{ $product->title }}@endsection
 @section('content')
     <style>
         input[type="radio"] + label > div, input[type="checkbox"] + label > div {
@@ -7,7 +8,7 @@
         }
 
         input[type="radio"]:checked + label > div, input[type="checkbox"]:checked + label > div {
-            background-color: #e52531 !important;
+            background-color: #777 !important;
         }
 
         input[type="radio"]:checked + label > div > p, input[type="checkbox"]:checked + label > div > p {
@@ -38,136 +39,145 @@
         }
     </style>
     <div class="container">
-        <div class="col-md-3">
-            <div style="padding: 1rem;background: #FFF;box-shadow: 0 0 10px #BBB">
-                <img src="{{ url('getProductPicture/'.$product->id) }}" style="width: 100%;padding: 2rem" alt="">
-                <h4 style="text-align: center;color:#d60000;font-weight: bold">{{ $product->title }}</h4>
-                <div style="margin-top: 1rem">
-                    <p style="text-align:justify;line-height: 22px;font-size:0.95rem">{!! nl2br($product->description) !!}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <form action="{{ route('storeCart') }}" id="orderForm" method="post" enctype="multipart/form-data">
-                @csrf
-                <input type="hidden" name="product" value="{{$product->id}}">
-                <div style="padding: 1rem;background: #FFF;box-shadow: 0 0 10px #BBB;overflow: hidden;">
-                    <div class="col-md-8">
-                        <h3 style="margin-bottom: 2rem;font-weight: bold;    font-size: 1.65rem;
-    margin-top: 1rem;
-    color: #D60000;"><i class="fa fa-shopping-bag"></i> ثبت سفارش
-                        </h3>
-                        <div class="col-md-12">
-                            <label for=""  style="font-weight: bold;font-size:15px;margin-top:10px">عنوان سفارش</label>
-                            <input type="text" class="form-control" name="title">
-                            <label v="paper" for=""
-                                   style="font-weight: bold;font-size:15px;margin-top:10px">سایز فایل
-                            </label>
-                            <div class="clearfix"></div>
-                            @foreach($papers as $paper)
-                                <div>
-                                    <input type="radio" style="display: none" val="paper"
-                                           id="paper-{{ $paper->id }}"
-                                           name="paper"
-                                           value="{{ $paper->id }}">
-                                    <label for="paper-{{ $paper->id }}" class="col-md-3" style="padding: 0 5px">
-                                        <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
-                                            <p style="text-align: center">{{ $paper->name }}</p>
-                                        </div>
-                                    </label>
-                                </div>
-                            @endforeach
-
+        <form action="{{ route('storeCart') }}" id="orderForm" method="post" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="product" value="{{$product->id}}">
+            <div style="padding: 1rem;background: #FFF;box-shadow: 0 0 10px #BBB;overflow: hidden;">
+                <div class="col-md-9">
+                    <div class="panel panel-default" style="border-radius: 1rem;">
+                        <div class="panel-heading"
+                             style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
+                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center"><i
+                                        class="fa fa-shopping-bag"></i> ثبت سفارش
+                            </h3>
                         </div>
-
-                        <div class="clearfix"></div>
-                        @foreach($properties as $index=>$property)
+                        <div class="panel-body">
                             <div class="col-md-12">
-                                <label v="p-{{ $property->id }}" for=""
-                                       style="font-weight: bold;font-size:15px;margin-top:10px">{{ $property->name }}
-                                    <i
-                                            class="fa fa-info-circle" data-toggle="modal"
-                                            data-target="#pro-{{$property->id}}" style="cursor: pointer;"></i></label>
+                                <label for="" style="font-weight: bold;font-size:15px;margin-top:10px">عنوان
+                                    سفارش</label>
+                                <input type="text" class="form-control" name="title">
+                                <label v="paper" for=""
+                                       style="font-weight: bold;font-size:15px;margin-top:10px">سایز فایل
+                                </label>
                                 <div class="clearfix"></div>
-                                @foreach($property->ProductValues as $value)
+                                @foreach($papers as $paper)
                                     <div>
-                                        <input type="radio" style="display: none" val="p-{{ $property->id }}"
-                                               id="p-{{ $value->id }}"
-                                               name="property-{{ $property->id }}"
-                                               value="{{ $value->id }}">
-                                        <label for="p-{{ $value->id }}" class="col-md-3" style="padding: 0 5px">
-                                            <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
-                                                @if($value->picture)
-                                                    <img src="{{ route('getValuePicture',[$value]) }}"
-                                                         style="width: 100%"
-                                                         alt="">
-                                                @endif
-                                                <p style="text-align: center">{{ $value->name }}</p>
+                                        <input type="radio" style="display: none" val="paper"
+                                               id="paper-{{ $paper->id }}"
+                                               name="paper"
+                                               value="{{ $paper->id }}">
+                                        <label for="paper-{{ $paper->id }}" class="col-md-3" style="padding: 0 5px">
+                                            <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
+                                                <p style="text-align: center">{{ $paper->name }}</p>
                                             </div>
                                         </label>
                                     </div>
                                 @endforeach
 
                             </div>
-                            <div class="clearfix"></div>
-                        @endforeach
-                        <div class="clearfix"></div>
-                        <div class="col-md-6">
-                            <label for="" v="typeOrder" style="font-weight: bold;font-size:15px;margin-top:10px">نوع
-                                کار</label>
-                            <div class="clearfix"></div>
-                            @if($product->type=='all' or $product->type=='single')
-                                <div>
-                                    <input name="type" style="display: none" id="type-1"
-                                           {{ $product->type=='single'?"checked":"" }} type="radio" val="typeOrder"
-                                           value="single"/>
-                                    <label for="type-1" class="col-md-6" style="padding: 0 5px">
-                                        <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
-                                            <p style="text-align: center">یک رو</p>
-                                        </div>
-                                    </label>
-                                </div>
-                            @endif
-                            @if($product->type=='all' or $product->type=='double')
-                                <div>
-                                    <input name="type" style="display: none" id="type-2" type="radio" val="typeOrder"
-                                           {{ $product->type=='double'?"checked":"" }}
-                                           value="double"/>
-                                    <label for="type-2" class="col-md-6" style="padding: 0 5px">
-                                        <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
-                                            <p style="text-align: center">دو رو</p>
-                                        </div>
-                                    </label>
-                                </div>
-                            @endif
-                        </div>
 
-                        <div class="col-md-6">
-                            <label for="" style="font-weight: bold;font-size:15px;margin-top:10px">تعداد سری:</label>
-                            <input type="number" name="qty" id="qty" min="1" value="1" class="form-control">
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="files" style="margin-top: 1rem;">
-                            @if(!$product->typeRelatedFile)
-                                <div class='col-md-6'><label for="front-file"
-                                                             style="font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;    cursor: pointer;">آپلود
-                                        فایل
-                                        ارسالی</label><input type='file' id="front-file"
-                                                             style="display: none;"
-                                                             name='front-file'/></div>
+                            <div class="clearfix"></div>
+                            @foreach($properties as $index=>$property)
+                                <div class="col-md-12">
+                                    <label v="p-{{ $property->id }}" for=""
+                                           style="font-weight: bold;font-size:15px;margin-top:10px">{{ $property->name }}
+                                        <i
+                                                class="fa fa-info-circle" data-toggle="modal"
+                                                data-target="#pro-{{$property->id}}"
+                                                style="cursor: pointer;"></i></label>
+                                    <div class="clearfix"></div>
+                                    @foreach($property->ProductValues as $value)
+                                        <div>
+                                            <input type="radio" style="display: none" val="p-{{ $property->id }}"
+                                                   id="p-{{ $value->id }}"
+                                                   name="property-{{ $property->id }}"
+                                                   value="{{ $value->id }}">
+                                            <label for="p-{{ $value->id }}" class="col-md-3" style="padding: 0 5px">
+                                                <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
+                                                    @if($value->picture)
+                                                        <center>
+                                                            <img src="{{ route('getValuePicture',[$value]) }}"
+                                                                 style="width: 65%"
+                                                                 alt="">
+                                                        </center>
+                                                    @endif
+                                                    <p style="text-align: center">{{ $value->name }}</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    @endforeach
 
-                            @endif
+                                </div>
+                                <div class="clearfix"></div>
+                            @endforeach
+                            <div class="clearfix"></div>
+                            <div class="col-md-6">
+                                <label for="" v="typeOrder" style="font-weight: bold;font-size:15px;margin-top:10px">نوع
+                                    کار</label>
+                                <div class="clearfix"></div>
+                                @if($product->type=='all' or $product->type=='single')
+                                    <div>
+                                        <input name="type" style="display: none" id="type-1"
+                                               {{ $product->type=='single'?"checked":"" }} type="radio" val="typeOrder"
+                                               value="single"/>
+                                        <label for="type-1" class="col-md-6" style="padding: 0 5px">
+                                            <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
+                                                <p style="text-align: center">یک رو</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                @endif
+                                @if($product->type=='all' or $product->type=='double')
+                                    <div>
+                                        <input name="type" style="display: none" id="type-2" type="radio"
+                                               val="typeOrder"
+                                               {{ $product->type=='double'?"checked":"" }}
+                                               value="double"/>
+                                        <label for="type-2" class="col-md-6" style="padding: 0 5px">
+                                            <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
+                                                <p style="text-align: center">دو رو</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="" style="font-weight: bold;font-size:15px;margin-top:10px">تعداد
+                                    سری:</label>
+                                <input type="number" name="qty" id="qty" min="1" value="1" class="form-control">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="files" style="margin-top: 1rem;display: flex;justify-content: center">
+                                @if(!$product->typeRelatedFile)
+                                    <div class='col-md-6'><label for="front-file"
+                                                                 style="font-weight: bold;font-size:15px;margin-top:10px;background:#e52531;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;    cursor: pointer;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;">آپلود
+                                            فایل
+                                            ارسالی</label><input type='file' id="front-file"
+                                                                 style="display: none;"
+                                                                 name='front-file'/></div>
+
+                                @endif
+                            </div>
                         </div>
-                        <div class="col-md-12" id="serviceWrapper" style="display: none;">
-                            <label for="" v="service" style="font-weight: bold;font-size:1.65rem;margin-top:10px;margin-bottom:1rem"><i class="fa fa-plus-circle" style="color: #d60000;"></i> خدمات
-                                اضافی</label>
+                    </div>
+                    <div class="panel panel-default" style="border-radius: 1rem;">
+                        <div class="panel-heading"
+                             style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
+                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center"> خدمات
+                                پس از چاپ</h3>
+
+                        </div>
+                        <div class="panel-body">
                             <div>
                                 <input type="checkbox" style="display: none" val="service"
                                        id="service-0"
                                        name="service[]"
                                        value="none">
                                 <label for="service-0" class="col-md-3" style="padding: 0 5px">
-                                    <div style="padding: 0.5rem;background: #EEE;border-radius: 10px">
+                                    <div style="padding: 0.65rem;background: #EEE;border-radius: 10px">
                                         <p style="text-align: center">ندارد</p>
                                     </div>
                                 </label>
@@ -177,60 +187,89 @@
                             </div>
                             <div id="services"></div>
                         </div>
-
                     </div>
-                    <div class="col-md-4">
-                        <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px">قیمت : </h4>
-                        <div style="background: #111;padding: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
-
-                            <h5 style="color:#FFF;text-align: center"><span
-                                        id="finalPrice">{{ ta_persian_num("0") }} ریال</span></h5>
+                    <textarea name="description" id="" cols="30" rows="4" placeholder="توضیحات سفارش ..."
+                              class="form-control"></textarea>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default"
+                         style="border-radius: 1rem;    background-image: linear-gradient(#BFBFBF, #FFF);">
+                        <div class="panel-heading"
+                             style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
+                            <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center">مشخصات سفارش
+                                شما
+                            </h3>
                         </div>
-                        <h4 style="margin-bottom: 10px;margin-top: 10px;font-weight: bold;font-size:15px">
-                            مشخصات سفارش :</h4>
-                        <div class="orderSpecification"
-                             style="border:1px solid #CCC;border-radius: 5px; padding: 10px 2rem;">
-                            <ul>
-
-                            </ul>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="" style="width: 100%;" alt="" id="frontPic">
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="" style="width: 100%;" alt="" id="backPic">
-                                </div>
+                        <div class="panel-body">
+                            <div style="display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;">
+                                <h4 style="    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 5px;
+    text-align: center;">{{ $product->title }}</h4>
                             </div>
+                            <div class="orderSpecification"
+                                 style="border-radius: 5px; padding: 10px 1rem;">
+                                <ul>
+
+                                </ul>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr style="border-bottom: 1px solid #999"/>
+                            <div style="display: flex;justify-content: space-between">
+                                <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
+                                    سفارش
+                                    : </h4>
+                                <span id="finalPrice">{{ ta_persian_num("0") }} ریال</span>
+                            </div>
+
                         </div>
-
                     </div>
-
-                    <div class="clearfix"></div>
-                    <div class="col-xs-4" style="margin-top: 1rem;float:left">
-                        @if($product->typeRelatedFile)
-                            <button id="sendOrder" class="btn btn-danger"
-                                    style="display: none;    width: 100% !important;
-    position: relative;
-    bottom: 0px;
-    padding: 0.8rem 0;
-    font-weight: bold;
-    border-radius: 10px;">ثبت سفارش
-                            </button>
-                        @elseif(!$product->typeRelatedFile or  $product->type=='double' or  $product->type=='single')
-                            <button id="sendOrder" class="btn btn-danger" style="    width: 100% !important;
-    position: relative;
-    bottom: 0px;
-    padding: 0.8rem 0;
-    font-weight: bold;
-    border-radius: 10px;">ثبت
-                                سفارش
-                            </button>
-                        @endif
+                    <div class="row">
+                        <div class="col-md-12" style="margin-bottom: 1rem">
+                            <h5>پیش نمایش فایل</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="" style="width: 100%;" alt="" id="frontPic">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="" style="width: 100%;" alt="" id="backPic">
+                        </div>
                     </div>
                 </div>
-            </form>
+                <div class="clearfix"></div>
+                <div class="col-xs-9" style="margin-top: 1rem;float:right">
+                    @if($product->typeRelatedFile)
+                        <button id="sendOrder" class="btn btn-danger"
+                                style="display: none;    width: 100% !important;
+    position: relative;
+    bottom: 0px;
+    padding: 0.8rem 3rem;
+    float: left;
+    font-weight: bold;
+    border-radius: 10px;">ثبت سفارش
+                        </button>
+                    @elseif(!$product->typeRelatedFile or  $product->type=='double' or  $product->type=='single')
+                        <button id="sendOrder" class="btn btn-danger" style="
+    position: relative;
+    bottom: 0px;
+    padding: 0.8rem 3rem;
+        float: left;
 
-        </div>
+    font-weight: bold;
+    border-radius: 10px;">ثبت
+                            سفارش
+                        </button>
+                    @endif
+                </div>
+            </div>
+        </form>
+
     </div>
     @foreach($properties as $property)
         <div id="pro-{{ $property->id }}" class="modal fade" role="dialog">
@@ -272,7 +311,13 @@
         var service = {};
         var serviceFiles = {};
 
+                @if($product->type=='single')
+        var type = "single";
+                @elseif($product->type=='double')
+        var type = "double";
+                @else
         var type = "";
+                @endif
         var paper = "";
         var services = [];
         $.ajaxSetup({
@@ -281,6 +326,20 @@
             }
         });
 
+        $("#orderForm").submit(function (e) {
+            $("#orderForm input[type=file]").each(function () {
+                if ($(this).get(0).files.length === 0) {
+                    console.log($(this));
+                    e.preventDefault();
+                    swal({
+                        title: 'خطا!',
+                        text: "تمامی فایل های خواسته شده را آپلود کنید",
+                        type: 'error',
+                        confirmButtonText: 'متوجه شدم'
+                    })
+                }
+            })
+        });
 
         $("body").on("change", "input[type=radio]", function (e) {
             const id = $(this).attr('val');
@@ -398,7 +457,7 @@
                             "name=\"service[]\"\n" +
                             "value=\"" + response[item].id + "\">\n" +
                             "<label for=\"service-" + response[item].id + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
-                            "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                            "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                             "<p style=\"text-align: center\">" + response[item].name + "</p>\n" +
                             "</div>\n" +
                             "</label>\n" +
@@ -465,10 +524,10 @@
                                         "name=\"service-" + service['id'] + "\" class='service' \n" +
                                         "value=\"" + value['id'] + "\">\n" +
                                         "<label for=\"s-" + value['id'] + "\" class=\"col-md-3\" style=\"padding: 0 5px\">\n" +
-                                        "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                        "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                                         (value['picture'] ?
-                                            "<img src=\"/getServicePicture/" + value['id'] + "\" style=\"width: 100%\"\n" +
-                                            "alt=\"\">\n" + "\n" : "") +
+                                            "<center><img src=\"/getServicePicture/" + value['id'] + "\" style=\"width: 65%\"\n" +
+                                            "alt=\"\"></center>\n" + "\n" : "") +
                                         "<p style=\"text-align: center\">" + value['name'] + "</p>\n" +
                                         "</div>\n" +
                                         "</label>\n" +
@@ -491,7 +550,7 @@
                                     "type=\"radio\" service='" + thisService + "' val=\"typeService\"\n" +
                                     "value=\"single\"/>\n" +
                                     "<label for=\"service-type-1\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
-                                    "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                    "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                                     "<p style=\"text-align: center\">یک رو</p>\n" +
                                     "</div>\n" +
                                     "</label>\n" +
@@ -501,7 +560,7 @@
                                     "\n" +
                                     "value=\"double\"/>\n" +
                                     "<label for=\"service-type-2\" class=\"col-md-6\" style=\"padding: 0 5px\">\n" +
-                                    "<div style=\"padding: 0.5rem;background: #EEE;border-radius: 10px\">\n" +
+                                    "<div style=\"padding: 0.65rem;background: #EEE;border-radius: 10px\">\n" +
                                     "<p style=\"text-align: center\">دو رو</p>\n" +
                                     "</div>\n" +
                                     "</label>\n" +
@@ -582,11 +641,17 @@
             if ($(this).val() == "single") {
                 type = "single";
                 $("#sendOrder").show();
-                $(".files").html("<div class='col-md-6'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none'/></div><div class='clearfix' />");
+                $(".files").html("<div class='col-md-4'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#e52531;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;\n" +
+                    "    border-top-left-radius: 0;\n" +
+                    "    border-top-right-radius: 0;\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none'/></div><div class='clearfix' />");
             } else if ($(this).val() == 'double') {
                 type = "double";
                 $("#sendOrder").show();
-                $(".files").html("<div class='col-md-6'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-6'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='back-file' id='back-file' style='display: none' /></div><div class='clearfix' />");
+                $(".files").html("<div class='col-md-4'><label for='front-file' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#e52531;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;\n" +
+                    "    border-top-left-radius: 0;\n" +
+                    "    border-top-right-radius: 0;\">آپلود فایل رو</label><input type='file' name='front-file' id='front-file'  style='display: none' /></div><div class='col-md-4'><label for='back-file'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#e52531;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%;\n" +
+                    "    border-top-left-radius: 0;\n" +
+                    "    border-top-right-radius: 0;\">آپلود فایل پشت</label><input type='file' name='back-file' id='back-file' style='display: none' /></div><div class='clearfix' />");
             } else {
                 $("#sendOrder").hide();
             }
@@ -600,11 +665,11 @@
             if ($(this).val() === "single") {
                 serviceFiles[serviceID] = "single";
                 serviceType = "single";
-                $("#service-file-" + serviceID).html("<div class='col-md-6'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none'/></div><div class='clearfix' />");
+                $("#service-file-" + serviceID).html("<div class='col-md-4'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;border-top-left-radius: 0;border-top-right-radius: 0;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none'/></div><div class='clearfix' />");
             } else if ($(this).val() === 'double') {
                 serviceFiles[serviceID] = "double";
                 serviceType = "double";
-                $("#service-file-" + serviceID).html("<div class='col-md-6'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none' /></div><div class='col-md-6'><label for='service-back-file-" + serviceID + "'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;width: 100%\">آپلود فایل پشت</label><input type='file' name='service-back-file-" + serviceID + "' id='service-back-file-" + serviceID + "' style='display: none' /></div><div class='clearfix' />");
+                $("#service-file-" + serviceID).html("<div class='col-md-4'><label for='service-front-file-" + serviceID + "' style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;border-top-left-radius: 0;border-top-right-radius: 0;width: 100%\">آپلود فایل رو</label><input type='file' name='service-front-file-" + serviceID + "' id='service-front-file-" + serviceID + "'  style='display: none' /></div><div class='col-md-4'><label for='service-back-file-" + serviceID + "'  style=\"    cursor: pointer;font-weight: bold;font-size:15px;margin-top:10px;background:#676767;padding:0.8rem 2rem;text-align: center;color:#FFF;border-radius: 10px;border-top-left-radius: 0;border-top-right-radius: 0;width: 100%\">آپلود فایل پشت</label><input type='file' name='service-back-file-" + serviceID + "' id='service-back-file-" + serviceID + "' style='display: none' /></div><div class='clearfix' />");
 
             }
 

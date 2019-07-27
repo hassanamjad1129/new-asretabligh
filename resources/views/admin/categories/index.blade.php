@@ -53,8 +53,10 @@
                                             </button>
                                         </form>
                                     </li>
-                                    <li><a class="btn btn-sm"
-                                            href="{{ route('admin.products.index',[$category]) }}">محصولات</a></li>
+                                    @can('products')
+                                        <li><a class="btn btn-sm"
+                                               href="{{ route('admin.products.index',[$category]) }}">محصولات</a></li>
+                                    @endcan
                                 </ul>
                             </div>
                         </td>

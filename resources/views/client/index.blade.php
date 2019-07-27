@@ -1,4 +1,10 @@
 @extends('client.layout.master')
+@section('title')
+    -پرینت سیاه سفید-پرینت رنگی-چاپ پوستر-02166971578
+@endsection
+@section('description')
+    چاپ دیجیتال آنلاین چاپ سربرگ کارت ویزیت بروشور ارزان در تهران و پرینت آنلاین رنگی و سیاه سفید
+@endsection
 @section('content')
     <!------------------    Slider   ------------------>
     <div id="slider">
@@ -77,12 +83,11 @@
 
     <div class="news-demo" style="margin-top: 2rem">
         <div class="about" style="margin-bottom: 25px;">
-            <div class=" title wow fadeInUp animated" style=""><h2 style="text-align: center">ثبت سفارش
+            <div class=" title wow fadeInUp animated" id="shoping" style=""><h2 style="text-align: center">ثبت سفارش
                     <span>سریع</span></h2>
             </div>
             <div class="img-title wow fadeInUp animated" style="position:relative;top:5px"></div>
         </div>
-        <hr>
         <div class="news-holder cf" style="margin-top: -23px;">
             <center>
                 <ul class="news-headlines">
@@ -102,7 +107,7 @@
             @foreach($categories as $key=>$category)
                 <div class="container categories"
                      categoryContent="{{ $category->id }}" {{ $key?"style=display:none":"" }}>
-                    <div class="col-md-3 col-sm-6" style="padding: 0 1rem">
+                    <div class="col-md-3 col-sm-3 col-xs-12" style="padding: 0 1rem">
                         <p style="background: #d60000;color: #FFF;text-align: center;border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     font-size: 1.5rem;
@@ -112,7 +117,7 @@
                              alt="">
                         <p style="margin-top: 1rem">{{ $category->description }}</p>
                     </div>
-                    <div class="col-md-9 col-sm-6">
+                    <div class="col-md-9 col-sm-9 col-xs-12">
                         @foreach($category->products as $product)
                             <div class=" col-md-3 col-sm-6 col-xs-6">
                                 <div class="thumbnail">
@@ -262,29 +267,35 @@
                                                  src="{{ asset($new->picture)}}"
                                                  alt="عصر تبلیغ"/>
                                             <div class="overlay">
-                                                <i class="flaticon-mark"></i>
-                                                <a href="{{ url('/news/show/'.$new->id.'/'.mb_substr(strip_tags(trim($new->title)),0,20,'UTF8')) }}">
+                                                <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}">
                                                     <h2>مشاهده جزییات</h2></a>
+                                                <i class="flaticon-mark"></i>
                                             </div>
                                         </div>
                                         <div class="caption">
                                             <div class="col-md-12">
-                                                <a href="{{ url('/news/show/'.$new->id.'/'.mb_substr(strip_tags(trim($new->title)),0,20,'UTF8')) }}"
+                                                <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}"
+
                                                    style="cursor: pointer"><h4 class="h4">{{ $new->title }}</h4></a>
-                                                <h5>
-                                                    <img src="{{ asset('/clientAssets') }}/img/user_bb729832533cec2d08d164e8d624643d.png"
-                                                         class="user">نویسنده: مدیر
-                                                    سایت
-                                                </h5>
+                                                @foreach($new->categories as $category)
+                                                    <div class="badge badge-danger">{{ $category->name }}</div>
+                                                @endforeach
                                                 <p>{!! mb_substr(strip_tags(trim($new->description)),0,150,'UTF8') !!}
                                                     [...]</p>
+                                                <br>
+                                                <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}"
+                                                   class="btn-danger btn-outline btn-sm">ادامه مطلب</a>
+                                                <div class="clearfix"></div>
+                                                <p>
+                                                    <small>{{ ta_persian_num(jdate(strtotime($new->created_at))->ago()) }}</small>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                             <div class="clearfix"></div>
-                            <a href="{{ url('/news') }}" class="btn" style="margin-top:1rem">آرشیو خبرها</a>
+                            <a href="{{ route('post.index') }}" class="btn" style="margin-top:1rem">آرشیو خبرها</a>
 
                         </div>
                     </div>

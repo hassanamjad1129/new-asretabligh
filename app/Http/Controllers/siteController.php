@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductValue;
 use App\Models\Slideshow;
 use App\option;
+use App\pCategory;
 use App\post;
 use App\Service;
 use App\ServiceValue;
@@ -66,6 +67,41 @@ class siteController extends Controller
     public function removeFromCart($id)
     {
         Session::forget('cart.' . $id);
-        return back()->withErrors(['عملیات با موفقیت انجام شد'],'success');
+        return back()->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+    }
+
+    public function getCategoryProductPrice($category)
+    {
+        $category = Category::where('name', str_replace("-", " ", $category))->firstOrFail();
+        $products = $category->products;
+        return view('categoryProductPrice', ['products' => $products, 'category' => $category]);
+    }
+
+    public function rules()
+    {
+        return view('client.rules');
+    }
+
+    public function aboutus()
+    {
+        return view('client.aboutUs');
+    }
+
+    public function posts()
+    {
+        $posts = post::latest()->paginate(7);
+        $categories = pCategory::all();
+        $newPosts = post::latest()->get()->take(4);
+        return view('client.archive', ['posts' => $posts, 'categories' => $categories, 'newPosts' => $newPosts]);
+
+    }
+
+    public function postDetail(post $post, $title)
+    {
+        $post->increment('seen', 1);
+        $post->save();
+        $categories = pCategory::all();
+        $newPosts = post::latest()->get()->take(4);
+        return view('client.post', ['post' => $post, 'categories' => $categories, 'newPosts' => $newPosts]);
     }
 }

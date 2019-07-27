@@ -9,12 +9,11 @@
             border: none;
         }
     </style>
-    <h3>پروفایل کاربری</h3>
-    <hr>
     <div class="col-xs-12">
+        <h4 style="width: 250px;background: #444;color: #FFF;text-align: center;padding: 1rem 0;border-radius: 10px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+            پروفایل کاربری</h4>
         <div class="panel panel-default" id="panel">
-            <h4>مشخصات شما</h4>
-            <hr>
+
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-9">

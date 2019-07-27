@@ -18,10 +18,10 @@ Route::get('/logout', 'CustomerAuth\LoginController@logout')->name('logout');
 Route::get('/register', 'CustomerAuth\RegisterController@showRegistrationForm')->name('register');
 Route::post('/register', 'CustomerAuth\RegisterController@register');
 
-Route::post('/password/email', 'CustomerAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
-Route::post('/password/reset', 'CustomerAuth\ResetPasswordController@reset')->name('password.email');
-Route::get('/password/reset', 'CustomerAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
-Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
+Route::get('/password/phone', 'Customer\ForgotPasswordController@forgotPasswordView')->name('password.request');
+Route::post('/password/phone', 'Customer\ForgotPasswordController@forgotPassword');
+Route::get('/password/reset', 'Customer\ForgotPasswordController@resetPasswordView')->name('password.reset');
+Route::post('/password/reset', 'Customer\ForgotPasswordController@resetPassword');
 
 
 Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function () {
@@ -31,6 +31,9 @@ Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function (
     Route::post('storeOrder', 'OrderController@storeOrder')->name('storeOrder');
     Route::get('/order/verifyOrder', 'OrderController@verifyOrder');
     Route::post('/order/verifyOrder', 'OrderController@verifyOrder');
+    Route::get('moneybag', 'MoneybagController@index')->name('moneybag');
+    Route::post('moneybag', 'MoneybagController@increaseCredit');
+    Route::post('verifyIncreaseMoneybag', 'MoneybagController@verifyIncreaseMoneybag')->name('moneybag.verifyPayment');
     Route::get('orders', 'OrderController@index')->name('orders');
     Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orderDetail');
 

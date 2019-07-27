@@ -1,5 +1,5 @@
 <?php
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/home', function () {
         $users[] = Auth::user();
         $users[] = Auth::guard()->user();
@@ -11,7 +11,7 @@ Route::group(['middleware' => 'admin'], function () {
     })->name('home');
 
     //All Routes We Have in Admin Sidebar Panel :|
-    Route::group(['namespace' => 'Admin', 'middleware' => 'admin'], function () {
+    Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('posts', 'PostController');
         Route::resource('categories', 'CategoryController');
         Route::resource('pCategories', 'PostCategoryController');
@@ -41,11 +41,27 @@ Route::group(['middleware' => 'admin'], function () {
         Route::post('/ajaxSubmitForm', 'ProductPriceController@ajaxSubmitForm');
 
         Route::post('/ajaxProducts', 'ProductPropertyController@ajaxProducts');
-        Route::resource('/user', 'UserController');
+        Route::resource('/customer', 'UserController');
+        Route::get('/customer/{customer}/orders', 'UserController@orders')->name('customer.orders');
+
         Route::resource('/admins', 'AdminController');
+        Route::get('admins/{admin}/roles', 'AdminController@roles')->name('admins.roles');
+        Route::post('admins/{admin}/roles', 'AdminController@updateRoles')->name('admins.updateRoles');
+
         Route::resource('slideshow', 'SlideshowController');
+        Route::resource('roles', 'roleController');
+        Route::get('rolePermissions/{role}', 'roleController@permissions')->name('rolePermissions');
+        Route::post('rolePermissions/{role}', 'roleController@updatePermissions');
+
+        Route::resource('permissions', 'permissionController');
+
         Route::get('/slideshow/delete/{id}', 'SlideshowController@destroy');
         Route::post('/slideshow/setPriority', 'SlideshowController@setPriority')->middleware('admin');
+
+        Route::get('/customer/{customer}/moneybag', 'MoneyBagController@index')->name('moneybag.index');
+        Route::get('/customer/{customer}/moneybag/create', 'MoneyBagController@create')->name('moneybag.create');
+        Route::post('/customer/{customer}/moneybag', 'MoneyBagController@store');
+        Route::delete('/customer/{customer}/moneybag/{report}', 'MoneyBagController@destroy')->name('moneybag.delete');
 
         Route::get('service/{service}/products', 'ServiceController@products')->name('service.products');
         Route::post('service/{service}/products', 'ServiceController@updateProducts');
@@ -65,9 +81,11 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('paper/{paper}/products', 'PaperController@products')->name('paper.products');
         Route::post('paper/{paper}/products', 'PaperController@updateProducts');
 
+
         Route::get('orders','OrderController@index')->name('orders.index');
         Route::get('orders/finished','OrderController@finished')->name('orders.finished');
         Route::get('orders/{orderItem}','OrderController@orderDetail')->name('orders.orderDetail');
+        Route::post('orders/{orderItem}', 'OrderController@updateOrder')->name('orders.updateOrder');
 
         //start discount
         Route::get('discount','DiscountController@index')->name('discount.index');
@@ -79,6 +97,9 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('discount/{discount}/edit','DiscountController@edit')->name('discount.edit');
         Route::patch('discount/{discount}/update','DiscountController@update')->name('discount.update');
         //end discount
+
+        Route::get('options', 'OptionController@getOptions')->name('getOptions');
+        Route::post('options', 'OptionController@updateOptions');
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');
