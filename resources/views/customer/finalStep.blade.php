@@ -226,7 +226,7 @@
                         <div class="panel-body"
                              style="min-height: 130px;background: url({{ asset('clinetAssets/img/l1.png') }})">
                             <div class="col-md-4" style="float: left">
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <input type="radio" name="payment_method" value="money_bag" style="display: none"
                                            id="money_bag">
                                     <label style="width: 100%" for="money_bag">
@@ -237,7 +237,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <div class="profileBox" style="float: left;">
                                         <input type="radio" name="payment_method" value="online" style="display: none"
                                                id="online">
