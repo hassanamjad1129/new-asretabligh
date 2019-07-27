@@ -107,6 +107,11 @@
                                     <tfoot>
                                     <tr>
                                         <td colspan="4" style="text-align: left;border:none"></td>
+                                        <td colspan="1" style="text-align: left">میزان تخفیف :</td>
+                                        <td colspan="1" id="discountField">{{ ta_persian_num(0) }} ریال</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="text-align: left;border:none"></td>
                                         <td colspan="1" style="text-align: left">جمع کل :</td>
                                         <td colspan="1">{{ ta_persian_num(number_format($sum)) }} ریال</td>
                                     </tr>
@@ -298,6 +303,7 @@
                         message.style = 'float:right;color:green;font-size:13px;';
                     }
                     message.textContent = result['message'];
+                    $("#discountField").text(result['discount']+" ریال")
                 }
             });
         }
