@@ -205,7 +205,9 @@
                                     ریال</p>
                             </div>
                             <div class="col-md-3">
+
                                 <a href="{{ route('customer.moneybag') }}" target="_blank" style="color: #111;">
+
                                     <div class="profileBox" style="float: left;">
                                         <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
                                         <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
@@ -218,42 +220,46 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <div style="width: 100%;">
-                    <h3 style="margin-top:1rem;">روش پرداخت : </h3>
-                    <div class="clearfix"></div>
-                    <div style="display: flex;justify-items: center;justify-content: center;align-items: center;align-content: center">
-                        <div class="col-md-3">
-                            <input type="radio" name="payment_method" value="money_bag" style="display: none"
-                                   id="money_bag">
-                            <label style="width: 100%" for="money_bag">
-                                <div style="background:rgba(0,0,0,.1);border-radius: 5px;padding: 1rem ">
-                                    <img src="" alt="">
-                                    <h4 style="text-align: center">کیف پول</h4>
-                                    <h4 style="text-align: center;font-size: 1.1rem;margin-top:1rem">اعتبار فعلی
-                                        :{{ ta_persian_num(number_format(auth()->guard('customer')->user()->credit)) }}
-                                        ریال</h4>
+
+                <div class="col-md-12" style="margin-top: 2rem">
+                    <div class="panel panel-default" id="panel">
+                        <div class="panel-body"
+                             style="min-height: 130px;background: url({{ asset('clinetAssets/img/l1.png') }})">
+                            <div class="col-md-4" style="float: left">
+                                <div class="col-md-2">
+                                    <input type="radio" name="payment_method" value="money_bag" style="display: none"
+                                           id="money_bag">
+                                    <label style="width: 100%" for="money_bag">
+                                        <div class="profileBox" style="float: left;">
+                                            <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
+                                            <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
+                                                 alt="">
+                                        </div>
+                                    </label>
                                 </div>
-                            </label>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="radio" name="payment_method" value="online" style="display: none" id="online">
-                            <label for="online" style="width: 100%">
-                                <div style="background:rgba(0,0,0,.1);border-radius: 5px;padding: 1rem ">
-                                    <img src="" alt="">
-                                    <h4 style="text-align: center">درگاه بانک ملت</h4>
-                                    <h4 style="text-align: center;font-size: 1.1rem;margin-top:1rem">پرداخت آنلاین</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="profileBox" style="float: left;">
+                                    <input type="radio" name="payment_method" value="online" style="display: none"
+                                           id="online">
+                                    <label for="online" style="width: 100%">
+                                        <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
+                                        <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
+                                             alt="">
+                                    </label>
                                 </div>
-                            </label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="clearfix"></div>
-                <center>
-                    <button class="btn btn-danger btn-md"
-                            style="width: 25%;margin-top:1rem;font-size:1.2rem;font-weight:bold;background: #d60000;">
-                        تایید نهایی و پرداخت
-                    </button>
-                </center>
+
+
+                    <div class="clearfix"></div>
+                    <center>
+                        <button class="btn btn-danger btn-md"
+                                style="width: 25%;margin-top:1rem;font-size:1.2rem;font-weight:bold;background: #d60000;">
+                            تایید نهایی و پرداخت
+                        </button>
+                    </center>
             </form>
         </div>
     </div>
