@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fdf57b-4fa1-4e6b-9623-3880b3c7552d" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/new-asretabligh.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/discount/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/discount/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/discount/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/discount/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/discount/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/discount/index.blade.php" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" afterDir="false" />
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,43 +16,10 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/discount/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="34" column="96" lean-forward="true" selection-start-line="34" selection-start-column="96" selection-end-line="34" selection-end-column="96" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/discount/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-84">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-              <folding>
-                <element signature="e#697#714#0#HTML" expanded="true" />
-              </folding>
-=======
-        <entry file="file://$PROJECT_DIR$/routes/admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="104" column="24" selection-start-line="104" selection-start-column="24" selection-end-line="104" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-=======
->>>>>>> 49a242e3ea432adf567182a017a2bf53044276cb
         <entry file="file://$PROJECT_DIR$/resources/views/customer/orders/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -87,27 +42,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-240">
               <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/layout/sidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1902">
-              <caret line="106" column="49" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="49" />
+            <state relative-caret-position="90">
+              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="766" column="67" lean-forward="true" selection-start-line="766" selection-start-column="67" selection-end-line="766" selection-end-column="67" />
-=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/customer.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -174,7 +121,6 @@
                 <element signature="n#style#0;n#input#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#center#0;n#!!top" expanded="true" />
               </folding>
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
             </state>
           </provider>
         </entry>
@@ -182,8 +128,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="207" column="89" selection-start-line="207" selection-start-column="89" selection-end-line="207" selection-end-column="89" />
+            <state relative-caret-position="122">
+              <caret line="227" column="85" selection-start-line="227" selection-start-column="85" selection-end-line="227" selection-end-column="85" />
               <folding>
                 <element signature="e#1469#1493#0#HTML" expanded="true" />
                 <element signature="e#6903#6939#0#HTML" expanded="true" />
@@ -193,6 +139,12 @@
                 <element signature="e#12656#12687#0#HTML" expanded="true" />
                 <element signature="e#12991#13011#0#HTML" expanded="true" />
                 <element signature="e#12839#12859#0#HTML" expanded="true" />
+                <element signature="e#13868#13911#0#HTML" expanded="true" />
+                <element signature="e#14032#14068#0#HTML" expanded="true" />
+                <element signature="e#14259#14280#0#HTML" expanded="true" />
+                <element signature="e#14170#14190#0#HTML" expanded="true" />
+                <element signature="e#14401#14419#0#HTML" expanded="true" />
+                <element signature="e#14670#14690#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -223,11 +175,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-<<<<<<< HEAD
-      <find>discount_58f5a7b351d9d649c44e22778e5072ee</find>
-      <find>title</find>
-=======
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
       <find>.title</find>
       <find>username</find>
       <find>input[type=text]:focus</find>
@@ -255,13 +202,9 @@
       <find>strt</find>
       <find>gatewa</find>
       <find>adminC</find>
-<<<<<<< HEAD
-      <find>discountMessage</find>
-=======
       <find>parse</find>
       <find>fetchOrderPrice</find>
       <find>0 ریال</find>
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
     </findStrings>
     <replaceStrings>
       <replace>#d52027</replace>
@@ -275,11 +218,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
-=======
         <option value="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/admins/index.blade.php" />
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
         <option value="$PROJECT_DIR$/resources/views/admin/products/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/orders/detail.blade.php" />
@@ -326,16 +266,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layout/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/routes/customer.php" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/resources/views/admin/discount/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/discount/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/discount/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" />
-=======
         <option value="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customer/finalStep.blade.php" />
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
       </list>
     </option>
   </component>
@@ -445,9 +378,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="732" />
+    <option name="y" value="110" />
+    <option name="width" value="1440" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -487,7 +421,89 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
               <item name="Customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomerAuth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+              <item name="Mellat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="clientAssets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="clientAssets" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
@@ -499,6 +515,28 @@
               <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
@@ -507,8 +545,6 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="customer" type="462c0819:PsiDirectoryNode" />
             </path>
-<<<<<<< HEAD
-=======
             <path>
               <item name="new-asretabligh" type="b2602c69:ProjectViewProjectNode" />
               <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
@@ -530,7 +566,6 @@
               <item name="new-asretabligh" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
           </expand>
           <select />
         </subPane>
@@ -540,23 +575,23 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/clientAssets/img" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\new-asretabligh\resources\views\admin\users\moneybag" />
-      <recent name="C:\Projects\new-asretabligh\resources\views\client" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\new-asretabligh\public\clientAssets\img" />
       <recent name="C:\Projects\new-asretabligh\resources\views" />
       <recent name="C:\Projects\new-asretabligh\resources\views\admin" />
       <recent name="C:\Projects\new-asretabligh\resources\views\admin\admins" />
       <recent name="C:\Projects\new-asretabligh\app\Http\Controllers\Admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\new-asretabligh\resources\views\admin\users\moneybag" />
+      <recent name="C:\Projects\new-asretabligh\resources\views\client" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -571,7 +606,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.phpunit.xml">
+  <component name="RunManager" selected="Laravel.Run Server">
     <configuration name="Run Server" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
       <option name="host" value="localhost" />
       <option name="port" value="8001" />
@@ -585,6 +620,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Laravel.Run Server" />
       <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
   </component>
@@ -643,29 +679,12 @@
       <workItem from="1563882130254" duration="7183000" />
       <workItem from="1563949493433" duration="6937000" />
       <workItem from="1564034082851" duration="29055000" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <workItem from="1564211305960" duration="1814000" />
-      <workItem from="1564214972202" duration="2051000" />
-=======
-      <workItem from="1564211305960" duration="4826000" />
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
-=======
-      <workItem from="1564211305960" duration="6217000" />
->>>>>>> 49a242e3ea432adf567182a017a2bf53044276cb
+      <workItem from="1564211305960" duration="7554000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="169424000" />
-=======
-    <option name="totallyTimeSpent" value="169955000" />
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
-=======
-    <option name="totallyTimeSpent" value="171346000" />
->>>>>>> 49a242e3ea432adf567182a017a2bf53044276cb
+    <option name="totallyTimeSpent" value="172683000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -677,19 +696,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-<<<<<<< HEAD
-      <window_info content_ui="combo" id="Project" order="2" weight="0.25302014" />
-      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49626866" visible="true" weight="0.32719547" />
-=======
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.22814499" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49520257" visible="true" weight="0.3277592" />
->>>>>>> 49a242e3ea432adf567182a017a2bf53044276cb
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50479746" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32998884" />
@@ -711,8 +725,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MoneyBagController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -741,7 +753,6 @@
         </state>
       </provider>
     </entry>
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ShippingController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
@@ -1107,25 +1118,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/discount/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
-          <folding>
-            <element signature="e#647#671#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/discount/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#697#714#0#HTML" expanded="true" />
-=======
     <entry file="file://$PROJECT_DIR$/resources/views/customer/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1139,37 +1131,14 @@
           <caret line="44" column="66" lean-forward="true" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
           <folding>
             <element signature="e#2396#2416#0#HTML" expanded="true" />
->>>>>>> 49a242e3ea432adf567182a017a2bf53044276cb
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1902">
-          <caret line="106" column="49" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DiscountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="170" column="20" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-=======
-=======
->>>>>>> 49a242e3ea432adf567182a017a2bf53044276cb
-    <entry file="file://$PROJECT_DIR$/resources/views/customer/finalStep.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="207" column="89" selection-start-line="207" selection-start-column="89" selection-end-line="207" selection-end-column="89" />
+        <state relative-caret-position="122">
+          <caret line="227" column="85" selection-start-line="227" selection-start-column="85" selection-end-line="227" selection-end-column="85" />
           <folding>
             <element signature="e#1469#1493#0#HTML" expanded="true" />
             <element signature="e#6903#6939#0#HTML" expanded="true" />
@@ -1179,22 +1148,13 @@
             <element signature="e#12656#12687#0#HTML" expanded="true" />
             <element signature="e#12991#13011#0#HTML" expanded="true" />
             <element signature="e#12839#12859#0#HTML" expanded="true" />
+            <element signature="e#13868#13911#0#HTML" expanded="true" />
+            <element signature="e#14032#14068#0#HTML" expanded="true" />
+            <element signature="e#14259#14280#0#HTML" expanded="true" />
+            <element signature="e#14170#14190#0#HTML" expanded="true" />
+            <element signature="e#14401#14419#0#HTML" expanded="true" />
+            <element signature="e#14670#14690#0#HTML" expanded="true" />
           </folding>
->>>>>>> 591c47fef918137bcce35f1f701c3c078fdb84f4
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/discount/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="34" column="96" lean-forward="true" selection-start-line="34" selection-start-column="96" selection-end-line="34" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="766" column="67" lean-forward="true" selection-start-line="766" selection-start-column="67" selection-end-line="766" selection-end-column="67" />
         </state>
       </provider>
     </entry>

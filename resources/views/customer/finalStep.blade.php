@@ -224,14 +224,14 @@
                 <div class="col-md-12" style="margin-top: 2rem">
                     <div class="panel panel-default" id="panel">
                         <div class="panel-body"
-                             style="min-height: 130px;background: url({{ asset('clientAssets/img/l1.png') }})">
-                            <div class="col-md-4" style="float: left">
+                             style="min-height: 160px;background: url({{ asset('clientAssets/img/l1.png') }})">
+                            <div class="col-md-5" style="float: left;margin-top: 2rem">
                                 <div class="col-md-6">
                                     <input type="radio" name="payment_method" value="money_bag" style="display: none"
                                            id="money_bag">
                                     <label style="width: 100%" for="money_bag">
                                         <div class="profileBox" style="float: left;">
-                                            <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
+                                            <h5 style="width: 84%;float: right;margin-top: 0.8rem"> کیف پول</h5>
                                             <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
                                                  alt="">
                                         </div>
@@ -242,8 +242,9 @@
                                         <input type="radio" name="payment_method" value="online" style="display: none"
                                                id="online">
                                         <label for="online" style="width: 100%">
-                                            <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
-                                            <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
+                                            <h5 style="width: 84%;float: right;margin-top: 0.8rem">درگاه بانکی</h5>
+                                            <img src="{{ asset('clientAssets/img/onlinePayment.png') }}"
+                                                 style="width: 15%"
                                                  alt="">
                                         </label>
                                     </div>
