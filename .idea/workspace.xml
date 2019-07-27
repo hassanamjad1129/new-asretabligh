@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="805" column="20" selection-start-line="805" selection-start-column="20" selection-end-line="805" selection-end-column="20" />
+            <state relative-caret-position="520">
+              <caret line="809" column="60" selection-start-line="809" selection-start-column="60" selection-end-line="809" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -492,7 +492,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176782000" />
+    <option name="totallyTimeSpent" value="177920000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -511,7 +511,7 @@
       <window_info id="npm" order="1" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.22814499" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49520257" weight="0.32719547" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49520257" weight="0.45609066" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50479746" side_tool="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32998884" />
@@ -991,8 +991,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="805" column="20" selection-start-line="805" selection-start-column="20" selection-end-line="805" selection-end-column="20" />
+        <state relative-caret-position="520">
+          <caret line="809" column="60" selection-start-line="809" selection-start-column="60" selection-end-line="809" selection-end-column="60" />
         </state>
       </provider>
     </entry>

@@ -787,25 +787,27 @@ class OrderController extends Controller
         }
 
 
+        $sum_price = 0;
+        foreach ($products as $product) {
+            $sum_price += $product['price'];
+        }
+
         if ($discount->type_doing == "cash") {
-            $discount_value = ta_persian_num(number_format($discount->value));
-            return ['discount'=>$discount_value,'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+            $discount_value = $discount->value;
+            return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount'=>ta_persian_num(number_format($discount_value)),'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
         } elseif ($discount->type_doing == "percentage") {
-            $sum_price = 0;
-            foreach ($products as $product) {
-                $sum_price += $product['price'];
-            }
+
             if ($discount->maximum_price != '') {
                 if ($discount->maximum_price >= $sum_price) {
-                    $discount_value = ta_persian_num(number_format((($discount->value * $sum_price) / 100)));
-                    return ['discount' => $discount_value, 'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                    $discount_value = (($discount->value * $sum_price) / 100);
+                    return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 }else {
-                    $discount_value = ta_persian_num(number_format((($discount->value * $discount->maximum_price) / 100)));
-                    return ['discount' => $discount_value, 'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                    $discount_value = (($discount->value * $discount->maximum_price) / 100);
+                    return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 }
             } else {
-                $discount_value = ta_persian_num(number_format((($discount->value * $sum_price) / 100)));
-                return ['discount'=>$discount_value,'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                $discount_value = (($discount->value * $sum_price) / 100);
+                return ['price'=>ta_persian_num(number_format($sum_price-$discount_value)),'discount'=>ta_persian_num(number_format($discount_value)),'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
             }
         }
 
