@@ -301,7 +301,7 @@
                     code: document.getElementById('discount').value,
                     carts: [@if($indexes)
                         @foreach($indexes as $cart)
-                        {{ $cart }}
+                        {{ $cart }},
                         @endforeach
                         @endif
                     ]
