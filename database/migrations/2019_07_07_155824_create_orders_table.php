@@ -23,6 +23,9 @@ class CreateOrdersTable extends Migration
             $table->foreign('delivery_method')->references('id')->on('shippings')->onDelete('cascade');
             $table->string('discount')->nullable();
 
+            $table->unsignedBigInteger('discount_id')->nullable();
+            $table->foreign('discount_id')->references('id')->on('discounts')->onDelete('cascade');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('customers')->onDelete('cascade');
 

@@ -68,6 +68,17 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('orders','OrderController@index')->name('orders.index');
         Route::get('orders/finished','OrderController@finished')->name('orders.finished');
         Route::get('orders/{orderItem}','OrderController@orderDetail')->name('orders.orderDetail');
+
+        //start discount
+        Route::get('discount','DiscountController@index')->name('discount.index');
+        Route::get('discount/{discount}/status','DiscountController@changeStatus')->name('discount.changeStatus')->where('discount','[0-9]+');
+        Route::delete('discount/{discount}/delete','DiscountController@delete')->name('discount.delete')->where('discount','[0-9]+');
+        Route::get('discount/create','DiscountController@create')->name('discount.create');
+        Route::post('discount/store','DiscountController@store')->name('discount.store');
+        Route::post('discount/generate/code','DiscountController@generateCode')->name('discount.generate.code');
+        Route::get('discount/{discount}/edit','DiscountController@edit')->name('discount.edit');
+        Route::patch('discount/{discount}/update','DiscountController@update')->name('discount.update');
+        //end discount
     });
 });
 Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login')->middleware('web');

@@ -103,11 +103,13 @@
                         <td colspan="1">{{ ta_persian_num(number_format($sum)) }} ریال</td>
                     </tr>
                     <tr>
-                        <td colspan="5" style="text-align: left">کد تخفیف دارید؟</td>
+                        <td colspan="5" style="text-align: left">کد تخفیف دارید؟
+                        <span id="discountMessage"></span>
+                        </td>
                         <td colspan="1">
                             <div style="display: inline-block" class="form-inline">
-                                <input name="discount" class="form-control"/>
-                                <button type="button" class="btn btn-danger">اعمال</button>
+                                <input name="code" class="form-control" id="discount"/>
+                                <button type="button" class="btn btn-danger" onclick="checkDiscount()">اعمال</button>
                             </div>
                         </td>
                     </tr>
@@ -193,6 +195,30 @@
                 $("#address").hide();
             }
         })
+    </script>
+
+    <script>
+        function checkDiscount() {
+            $.ajax({
+                type: 'POST',
+                url: '{{route('customer.checkDiscount')}}',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    code: document.getElementById('discount').value,
+                    carts: [@foreach($carts as $cart)
+                        {'product': {{$cart['product']}},'price': {{$cart['price']}}},
+                    @endforeach]
+                }, success: function (result) {
+                    var message = document.getElementById('discountMessage');
+                    if(result['status'] === '0') {
+                        message.style = 'float:right;color:#e52531';
+                    }else if(result['status'] === '1'){
+                        message.style = 'float:right;color:green';
+                    }
+                    message.textContent = result['message'];
+                }
+            });
+        }
     </script>
 
 @endsection

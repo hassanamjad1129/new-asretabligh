@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\discount;
 use App\Models\Product;
 use App\Models\ProductPrice;
 use App\Order;
@@ -15,6 +16,7 @@ use App\ServiceProperty;
 use App\Services\Gateway;
 use App\Services\IranKishPayment\Irankish;
 use App\shipping;
+use Carbon\Carbon;
 use Exception;
 use Howtomakeaturn\PDFInfo\PDFInfo;
 use Illuminate\Http\Request;
@@ -470,20 +472,30 @@ class OrderController extends Controller
             return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();*/
         $sum = $this->getSumOfOrderPrices($request);
 
-        if ($request->payment_method == 'money_bag' and !$this->checkCredit($sum))
+
+        $validateDiscount = $this->validateDiscount($request);
+        if ($validateDiscount == true) {
+            $discountModel = $this->getDiscount($request);
+            $discount = $this->discountValue($request);
+        }
+
+
+        if ($request->payment_method == 'money_bag' and !$this->checkCredit($validateDiscount==true?$sum - $discount:$sum ))
             return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
 
         $shipping = shipping::find($request->shipping);
         if ($shipping->take_address and !$request->address)
             return redirect(route('cart'))->withErrors(['خطا! آدرس را وارد کنید'], 'failed')->withInput();
 
-        $order = $this->storeOrderObject($request, $sum);
+        $order = $this->storeOrderObject($request, $sum,null,$validateDiscount==true?$discount:false,$validateDiscount==true?$discountModel:null);
         $this->storeItems($request, $order);
 
         if ($request->payment_method == 'money_bag') {
-            $this->reduceMoneyBag($sum);
+            $this->reduceMoneyBag($validateDiscount==true?$sum - $discount:$sum);
             $order->payed = 1;
             $order->save();
+            $discountModel->usage = $discountModel->usage + 1;
+            $discountModel->save();
             foreach ($order->orderItems as $orderItem) {
                 $orderItem->status = 1;
                 $orderItem->save();
@@ -496,7 +508,7 @@ class OrderController extends Controller
                 $gateway = Gateway::make(new Mellat());
 
 
-                $gateway->price($sum)->ready();
+                $gateway->price($validateDiscount==true?$sum-$discount:$sum)->ready();
                 $transID = $gateway->transactionId();
                 $order->transaction_id = $transID;
                 $order->save();
@@ -509,7 +521,7 @@ class OrderController extends Controller
         }
     }
 
-    private function storeOrderObject(Request $request, $sum, $transaction_id = null)
+    private function storeOrderObject(Request $request, $sum, $transaction_id = null,$discount_value = null,$discount=null)
     {
         $order = new Order();
         $order->transaction_id = $transaction_id;
@@ -518,7 +530,8 @@ class OrderController extends Controller
         $order->payed = 0;
         $order->address = $request->address;
         $order->delivery_method = $request->shipping;
-        $order->discount = null;
+        $order->discount = $discount_value ? $discount_value:null;
+        $order->discount_id = $discount ? $discount->id:null;
         $order->payment_method = $request->payment_method;
         $order->save();
         return $order;
@@ -682,6 +695,188 @@ class OrderController extends Controller
     public function orderDetail(OrderItem $orderItem)
     {
         return view('customer.orders.detail', ['orderItem' => $orderItem]);
+    }
+
+
+    public function checkDiscount(Request $request)
+    {
+
+        if ($request->code == '')
+            return ['message' => 'لطفا کد تخفیف را وارد کنید', 'status' => '0'];
+
+        $code = $request->code;
+        $discount = discount::where('code', strtoupper($code))->first();
+
+        if (!$discount)
+            return ['message' => 'همچین کد تخفیفی وجود ندارد', 'status' => '0'];
+
+        if ($discount->all_users == 0) {
+            $customers_id = $discount->customers->pluck('id')->toArray();
+            if (!in_array(auth()->guard('customer')->user()->id, $customers_id))
+                return ['message' => 'این کد تخفیف متعلق به شما نمی باشد', 'status' => '0'];
+        }
+
+        if ($discount->status == 0)
+            return ['message' => 'این کد تخفیف غیر فعال میباشد', 'status' => '0'];
+
+        if($discount->started_at) {
+            $now = Carbon::now()->toDateTimeString();
+            if ($discount->started_at > $now)
+                return ['message' => 'زمان کد تخفیف هنوز نرسیده است', 'status' => '0'];
+        }
+
+        if($discount->finished_at) {
+            if ($discount->finished_at < $now)
+                return ['message' => 'زمان کد تخفیف تمام شده است', 'status' => '0'];
+        }
+
+        if ($discount->first_order == 1) {
+            $orders = Order::where('user_id', auth()->guard('customer')->user()->id)->where('payed', 1)->get();
+            if (count($orders) >= 1) {
+                return ['message' => 'این کد تخفیف برای اولین سفارش است و شما اولین سفارشتان را انجام داده اید', 'status' => '0'];
+            }
+        }
+
+        if ($discount->count_discount != 0) {
+            $orders = Order::where('user_id', auth()->guard('customer')->user()->id)->where('discount_id', $discount->id)->where('payed', 1)->get();
+            if (count($orders) >= $discount->count_discount)
+                return ['message' => 'شما دیگر نمی توانید از این کد تخفیف استفاده کنید', 'status' => '0'];
+        }
+
+        $cart = $request->carts;
+
+        $products = [];
+        if ($discount->all_products == 0) {
+
+            $products_id = $discount->products->pluck('id')->toArray();
+            foreach ($cart as $cartItem) {
+                $product = Product::find($cartItem['product']);
+                if (in_array($product->id, $products_id)) {
+                    if ($discount->minimum_price <= $cartItem['price'])
+                        $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+                }
+            }
+        } else {
+            foreach ($cart as $cartItem) {
+                $product = Product::find($cartItem['product']);
+                if ($discount->minimum_price <= $cartItem['price'])
+                    $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+
+            }
+        }
+
+        if (!$products)
+            return ['message' => 'به شما تخفیفی تعلق نگرفت', 'status' => '1'];
+
+        if ($discount->type_doing == "cash") {
+                return ['message' => 'به شما ' . $discount->value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+
+        } elseif ($discount->type_doing == "percentage") {
+            $sum_price = 0;
+            foreach ($products as $product) {
+                $sum_price += $product['price'];
+            }
+            if($discount->maximum_price != '') {
+                if ($discount->maximum_price >= $sum_price)
+                    return ['message' => 'به شما ' . (($discount->value * $sum_price) / 100) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                else
+                    return ['message' => 'به شما ' . (($discount->value * $discount->maximum_price) / 100) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+            }else{
+                return ['message' => 'به شما ' . (($discount->value * $sum_price) / 100) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+            }
+        }
+
+    }
+
+
+    private function validateDiscount(Request $request)
+    {
+        if ($request->code == '')
+            return false;
+        $code = $request->code;
+        $discount = discount::where('code', strtoupper($code))->first();
+        if (!$discount)
+            return false;
+        if ($discount->all_users == 0) {
+            $customers_id = $discount->customers->pluck('id')->toArray();
+            if (!in_array(auth()->guard('customer')->user()->id, $customers_id))
+                return false;
+        }
+        if ($discount->status == 0)
+            return false;
+        if($discount->started_at) {
+            $now = Carbon::now()->toDateTimeString();
+            if ($discount->started_at > $now)
+                return false;
+        }
+        if($discount->finished_at) {
+            if ($discount->finished_at < $now)
+                return false;
+        }
+        if ($discount->first_order == 1) {
+            $orders = Order::where('user_id', auth()->guard('customer')->user()->id)->where('payed', 1)->get();
+            if (count($orders) >= 1) {
+                return false;
+            }
+        }
+        if ($discount->count_discount != 0) {
+            $orders = Order::where('user_id', auth()->guard('customer')->user()->id)->where('discount_id', $discount->id)->where('payed', 1)->get();
+            if (count($orders) >= $discount->count_discount)
+                return false;
+        }
+        return true;
+    }
+
+    private function discountValue(Request $request)
+    {
+        $cart = $request->cart;
+        $discount = discount::where('code', strtoupper($request->code))->first();
+
+        $products = [];
+        if ($discount->all_products == 0) {
+
+            $products_id = $discount->products->pluck('id')->toArray();
+            foreach ($cart as $cartItem) {
+                $cartItem = $request->session()->get('cart.' . $cartItem);
+                $product = Product::find($cartItem['product']);
+                if (in_array($product->id, $products_id)) {
+                    if ($discount->minimum_price <= $cartItem['price'])
+                        $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+                }
+            }
+        } else {
+            foreach ($cart as $cartItem) {
+                $cartItem = $request->session()->get('cart.' . $cartItem);
+                $product = Product::find($cartItem['product']);
+                if ($discount->minimum_price <= $cartItem['price'])
+                    $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+
+            }
+        }
+
+        if (!$products)
+            return 0;
+
+        if ($discount->type_doing == "cash") {
+            return $discount->value;
+        } elseif ($discount->type_doing == "percentage") {
+            $sum_price = 0;
+            foreach ($products as $product) {
+                $sum_price += $product['price'];
+            }
+            if($discount->maximum_price != '') {
+                if ($discount->maximum_price >= $sum_price)
+                    return (($discount->value * $sum_price) / 100);
+                else
+                    return (($discount->value * $discount->maximum_price) / 100);
+            }else{
+                return (($discount->value * $sum_price) / 100);
+            }
+        }
+    }
+
+    private function getDiscount(Request $request){
+        return discount::where('code', $request->code)->first();
     }
 
 }
