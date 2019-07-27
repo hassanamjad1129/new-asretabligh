@@ -169,7 +169,7 @@
                         انتخاب آدرس محل دریافت</h4>
                     <div class="panel panel-default" id="panel">
                         <div class="panel-body">
-                            <table class="table table-striped table-bordered table-hover">
+                            <table class=" table-striped table-bordered table-hover" style="width: 100%">
                                 <thead>
                                 <tr>
                                     <th>ردیف</th>
@@ -184,7 +184,7 @@
                                     <td>{{ ta_persian_num('1') }}</td>
                                     <td>{{ auth()->guard('customer')->user()->name }}</td>
                                     <td><textarea name="address" class="form-control" id="" cols="30"
-                                                  rows="4">{{ auth()->guard('customer')->user()->address }}</textarea>
+                                                  rows="3">{{ auth()->guard('customer')->user()->address }}</textarea>
                                     </td>
                                     <td>{{ auth()->guard('customer')->user()->telephone }}</td>
                                     <td>{{ auth()->guard('customer')->user()->phone }}</td>
