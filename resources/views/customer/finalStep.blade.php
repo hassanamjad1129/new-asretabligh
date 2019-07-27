@@ -13,7 +13,7 @@
         }
 
         input[type="radio"]:checked + label > div, input[type="checkbox"]:checked + label > div {
-            background-color: #e52531 !important;
+            border:2px solid #e52531 !important;
         }
 
         input[type="radio"]:checked + label > div > h4, input[type="radio"]:checked + label > div > h4 > small, input[type="checkbox"]:checked + label > div > h4, input[type="checkbox"]:checked + label > div > h4 > small {
