@@ -164,10 +164,36 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                <div id="address" style="display: none;margin-top:1rem">
-                    <label for="" style="font-size: 1.4rem;">آدرس تحویل سفارش</label>
-                    <textarea name="address" class="form-control" id="" cols="30"
-                              rows="4">{{ auth()->guard('customer')->user()->address }}</textarea>
+                <div class="col-xs-12" style="margin-top: 2rem">
+                    <h4 style="width: 250px;background: #444;color: #FFF;text-align: center;padding: 1rem 0;border-radius: 10px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+                        انتخاب آدرس محل دریافت</h4>
+                    <div class="panel panel-default" id="panel">
+                        <div class="panel-body">
+                            <table class="table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>ردیف</th>
+                                    <th>دریافت کننده</th>
+                                    <th>آدرس محل دریافت</th>
+                                    <th>تلفن</th>
+                                    <th> همراه</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ ta_persian_num('1') }}</td>
+                                    <td>{{ auth()->guard('customer')->user()->name }}</td>
+                                    <td><textarea name="address" class="form-control" id="" cols="30"
+                                                  rows="4">{{ auth()->guard('customer')->user()->address }}</textarea>
+                                    </td>
+                                    <td>{{ auth()->guard('customer')->user()->telephone }}</td>
+                                    <td>{{ auth()->guard('customer')->user()->phone }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
                 <div style="width: 100%;">
