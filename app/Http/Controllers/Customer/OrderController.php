@@ -762,7 +762,7 @@ class OrderController extends Controller
                     if ($discount->minimum_price <= $cartItem['price']) {
                         $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
                     }else{
-                        $message2 = 'حداقل قیمت کد تخفیف '.number_format($discount->minimum_price).' ریال میباشد';
+                        $message2 = 'حداقل سفارش برای این کد تخفیف  '.number_format($discount->minimum_price).' ریال میباشد';
                     }
                 }else{
                     $message1 = 'این کد تخفیف متعلق به این محصول نمیباشد';
@@ -774,7 +774,7 @@ class OrderController extends Controller
                 if ($discount->minimum_price <= $cartItem['price']){
                     $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
                 }else{
-                    $message1 = 'حداقل قیمت کد تخفیف '.number_format($discount->minimum_price).' ریال میباشد';
+                    $message1 = 'حداقل سفارش برای این کد تخفیف '.number_format($discount->minimum_price).' ریال میباشد';
                 }
 
             }
