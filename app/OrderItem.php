@@ -59,7 +59,7 @@ class OrderItem extends Model
     {
         $sum = $this->price;
         foreach ($this->services as $service)
-            $sum += $service->price;
+            $sum += ($service->price * $this->qty);
         return $sum;
     }
 
