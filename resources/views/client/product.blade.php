@@ -394,6 +394,7 @@
                         type: type,
                     },
                     success: function (response) {
+                        $("#orderPrice").text(response);
                         $("#finalPrice").text(response);
                     }
                 })
@@ -418,7 +419,6 @@
 
                     },
                     success: function (response) {
-                        response = JSON.parse(response);
                         $("#orderPrice").text(response[0]);
                         $("#servicePrice").text(response[1]);
                         $("#finalPrice").text(response[2]);
@@ -460,6 +460,7 @@
                                 type: type,
                             },
                             success: function (response) {
+                                $("#orderPrice").text(response);
                                 $("#finalPrice").text(response);
                             }
                         })
@@ -509,6 +510,7 @@
                                 type: type,
                             },
                             success: function (response) {
+                                $("#orderPrice").text(response);
                                 $("#finalPrice").text(response);
                             }
                         })
@@ -616,6 +618,7 @@
                         type: type
                     },
                     success: function (response) {
+                        $("#orderPrice").text(response);
                         $("#finalPrice").text(response);
                     }
                 })
@@ -639,7 +642,6 @@
                         serviceFiles: serviceFiles
                     },
                     success: function (response) {
-                        response = JSON.parse(response);
                         $("#orderPrice").text(response[0]);
                         $("#servicePrice").text(response[1]);
                         $("#finalPrice").text(response[2]);
@@ -713,8 +715,6 @@
 
                 },
                 success: function (response) {
-
-                    response = JSON.parse(response);
                     $("#orderPrice").text(response[0]);
                     $("#servicePrice").text(response[1]);
                     $("#finalPrice").text(response[2]);
@@ -792,6 +792,7 @@
                                 type: type
                             },
                             success: function (response) {
+                                $("#orderPrice").text(response);
                                 $("#finalPrice").text(response);
                             }
                         })
@@ -816,8 +817,6 @@
 
                             },
                             success: function (response) {
-
-                                response = JSON.parse(response);
                                 $("#orderPrice").text(response[0]);
                                 $("#servicePrice").text(response[1]);
                                 $("#finalPrice").text(response[2]);
