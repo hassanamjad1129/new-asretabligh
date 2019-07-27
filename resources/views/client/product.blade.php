@@ -220,7 +220,21 @@
 
                             </div>
                             <div class="clearfix"></div>
-                            <hr style="border-bottom: 1px solid #999"/>
+                            <hr style="border-bottom: 1px solid #AAA"/>
+                            <div style="display: flex;justify-content: space-between">
+                                <h5 style="margin-bottom: 0px;font-weight: bold;font-size:12px;display: inline">قیمت
+                                    سفارش
+                                    : </h5>
+                                <span id="orderPrice">{{ ta_persian_num("0") }} ریال</span>
+                            </div>
+                            <hr style="border-bottom: 1px solid #AAA;margin:4px 0"/>
+                            <div style="display: flex;justify-content: space-between">
+                                <h5 style="margin-bottom: 0px;font-weight: bold;font-size:12px;display: inline">خدمات
+                                    پس از چاپ
+                                    : </h5>
+                                <span id="servicePrice">{{ ta_persian_num("0") }} ریال</span>
+                            </div>
+                            <hr style="border-bottom: 1px solid #999;margin:4px 0"/>
                             <div style="display: flex;justify-content: space-between">
                                 <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
                                     سفارش
@@ -404,7 +418,10 @@
 
                     },
                     success: function (response) {
-                        $("#finalPrice").text(response);
+                        response = JSON.parse(response);
+                        $("#orderPrice").text(response[0]);
+                        $("#servicePrice").text(response[1]);
+                        $("#finalPrice").text(response[2]);
                     }
                 })
             }
@@ -622,7 +639,10 @@
                         serviceFiles: serviceFiles
                     },
                     success: function (response) {
-                        $("#finalPrice").text(response);
+                        response = JSON.parse(response);
+                        $("#orderPrice").text(response[0]);
+                        $("#servicePrice").text(response[1]);
+                        $("#finalPrice").text(response[2]);
                     }
                 })
             }
@@ -693,7 +713,11 @@
 
                 },
                 success: function (response) {
-                    $("#finalPrice").text(response);
+
+                    response = JSON.parse(response);
+                    $("#orderPrice").text(response[0]);
+                    $("#servicePrice").text(response[1]);
+                    $("#finalPrice").text(response[2]);
                 }
             })
         });
@@ -792,7 +816,11 @@
 
                             },
                             success: function (response) {
-                                $("#finalPrice").text(response);
+
+                                response = JSON.parse(response);
+                                $("#orderPrice").text(response[0]);
+                                $("#servicePrice").text(response[1]);
+                                $("#finalPrice").text(response[2]);
                             }
                         })
                     }

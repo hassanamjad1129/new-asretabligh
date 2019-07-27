@@ -172,7 +172,7 @@ class OrderController extends Controller
                             $sum += ($servicePrices->coworker_price * $request->qty);
                     }
                 }
-                return ta_persian_num(number_format((($prices->coworker_single_price * $count) + $sum)) . " ریال");
+                return [ta_persian_num(number_format((($prices->coworker_single_price * $count))) . " ریال"), ta_persian_num(number_format($sum)) . " ریال", ta_persian_num(number_format((($prices->coworker_single_price * $count) + $sum)) . " ریال")];
             } else {
                 $sum = 0;
                 foreach ($request->services as $service) {
@@ -206,7 +206,7 @@ class OrderController extends Controller
                             $sum += ($servicePrices->coworker_price * $request->qty);
                     }
                 }
-                return ta_persian_num(number_format((($prices->coworker_double_price * $count) + $sum)) . " ریال");
+                return [number_format((($prices->coworker_double_price * $count)) . " ریال"), number_format((($sum)) . " ریال"), ta_persian_num(number_format((($prices->coworker_double_price * $count) + $sum)) . " ریال")];
             }
         } else {
             if ($request->type == 'single') {
@@ -242,7 +242,7 @@ class OrderController extends Controller
                             $sum += ($servicePrices->coworker_price * $request->qty);
                     }
                 }
-                return ta_persian_num(number_format((($prices->single_price * $count) + $sum)) . " ریال");
+                return [ta_persian_num(number_format((($prices->single_price * $count))) . " ریال"), ta_persian_num(number_format(($sum)) . " ریال"), ta_persian_num(number_format((($prices->single_price * $count) + $sum)) . " ریال")];
 
             } else {
                 $values = [];
@@ -280,7 +280,7 @@ class OrderController extends Controller
 
                     }
                 }
-                return ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال");
+                return [ta_persian_num(number_format(($prices->double_price * $count)) . " ریال"), ta_persian_num(number_format($sum) . " ریال"), ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال")];
 
             }
 
