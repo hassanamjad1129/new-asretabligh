@@ -172,7 +172,7 @@ class OrderController extends Controller
                             $sum += ($servicePrices->coworker_price * $request->qty);
                     }
                 }
-                return ta_persian_num(number_format((($prices->coworker_single_price * $count) + $sum)) . " ریال");
+                return [ta_persian_num(number_format((($prices->coworker_single_price * $count))) . " ریال"), ta_persian_num(number_format($sum)) . " ریال", ta_persian_num(number_format((($prices->coworker_single_price * $count) + $sum)) . " ریال")];
             } else {
                 $sum = 0;
                 foreach ($request->services as $service) {
@@ -206,7 +206,7 @@ class OrderController extends Controller
                             $sum += ($servicePrices->coworker_price * $request->qty);
                     }
                 }
-                return ta_persian_num(number_format((($prices->coworker_double_price * $count) + $sum)) . " ریال");
+                return [number_format((($prices->coworker_double_price * $count)) . " ریال"), number_format((($sum)) . " ریال"), ta_persian_num(number_format((($prices->coworker_double_price * $count) + $sum)) . " ریال")];
             }
         } else {
             if ($request->type == 'single') {
@@ -242,7 +242,7 @@ class OrderController extends Controller
                             $sum += ($servicePrices->coworker_price * $request->qty);
                     }
                 }
-                return ta_persian_num(number_format((($prices->single_price * $count) + $sum)) . " ریال");
+                return [ta_persian_num(number_format((($prices->single_price * $count))) . " ریال"), ta_persian_num(number_format(($sum)) . " ریال"), ta_persian_num(number_format((($prices->single_price * $count) + $sum)) . " ریال")];
 
             } else {
                 $values = [];
@@ -280,7 +280,7 @@ class OrderController extends Controller
 
                     }
                 }
-                return ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال");
+                return [ta_persian_num(number_format(($prices->double_price * $count)) . " ریال"), ta_persian_num(number_format($sum) . " ریال"), ta_persian_num(number_format(($prices->double_price * $count) + $sum) . " ریال")];
 
             }
 
@@ -751,27 +751,41 @@ class OrderController extends Controller
         $cart = $request->carts;
 
         $products = [];
+        $message1 = '';
+        $message2 = '';
         if ($discount->all_products == 0) {
 
             $products_id = $discount->products->pluck('id')->toArray();
             foreach ($cart as $cartItem) {
                 $product = Product::find($cartItem['product']);
                 if (in_array($product->id, $products_id)) {
-                    if ($discount->minimum_price <= $cartItem['price'])
+                    if ($discount->minimum_price <= $cartItem['price']) {
                         $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+                    }else{
+                        $message2 = 'حداقل قیمت کد تخفیف '.number_format($discount->minimum_price).' ریال میباشد';
+                    }
+                }else{
+                    $message1 = 'این کد تخفیف متعلق به این محصول نمیباشد';
                 }
             }
         } else {
             foreach ($cart as $cartItem) {
                 $product = Product::find($cartItem['product']);
-                if ($discount->minimum_price <= $cartItem['price'])
+                if ($discount->minimum_price <= $cartItem['price']){
                     $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+                }else{
+                    $message1 = 'حداقل قیمت کد تخفیف '.number_format($discount->minimum_price).' ریال میباشد';
+                }
 
             }
         }
 
-        if (!$products)
-            return ['message' => 'به شما تخفیفی تعلق نگرفت', 'status' => '0'];
+        if (!$products){
+            if($message2=='')
+                return ['message' => $message1, 'status' => '0'];
+            return ['message' => $message2, 'status' => '0'];
+        }
+
 
         if ($discount->type_doing == "cash") {
             return ['message' => 'به شما ' . number_format($discount->value) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
