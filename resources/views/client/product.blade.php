@@ -512,6 +512,8 @@
                             },
                             success: function (response) {
                                 $("#orderPrice").text(response);
+                                $("#servicePrice").text("0 ریال");
+
                                 $("#finalPrice").text(response);
                             }
                         })
