@@ -120,8 +120,7 @@
                                     <tr>
                                         <td colspan="4" style="text-align: left;border:none"></td>
                                         <td colspan="1" style="text-align: left">جمع کل :</td>
-                                        <td colspan="1" id="sumPrice">{{ ta_persian_num(number_format($sum)) }}ریال
-                                        </td>
+                                        <td colspan="1" id="sumPrice">{{ ta_persian_num(number_format($sum)) }} ریال</td>
                                     </tr>
                                     <tr>
                                         <td colspan="5" style="text-align: left">کد تخفیف دارید؟
@@ -301,7 +300,7 @@
                     code: document.getElementById('discount').value,
                     carts: [@foreach($carts as $cart)
                     {
-                        'product': {{$cart['product']}}, 'price': {{$cart['price']}}},
+                        'product': {{$cart['product']}}, 'price': {{$cart['price']}},'services':{{$cart['services']?$cart['services']['price']:'0'}}},
                         @endforeach]
                 }, success: function (result) {
                     var message = document.getElementById('discountMessage');
@@ -311,7 +310,7 @@
                         message.style = 'float:right;color:green;font-size:13px;';
                     }
                     message.textContent = result['message'];
-                    $("#discountField").text(result['discount'] + " ریال");
+                    $("#discountField").text(result['discount']+" ریال");
                     $("#sumPrice").text(result['price'] + " ریال");
                 }
             });
