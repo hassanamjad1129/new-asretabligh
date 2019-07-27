@@ -224,7 +224,7 @@
                 <div class="col-md-12" style="margin-top: 2rem">
                     <div class="panel panel-default" id="panel">
                         <div class="panel-body"
-                             style="min-height: 130px;background: url({{ asset('clinetAssets/img/l1.png') }})">
+                             style="min-height: 130px;background: url({{ asset('clientAssets/img/l1.png') }})">
                             <div class="col-md-4" style="float: left">
                                 <div class="col-md-6">
                                     <input type="radio" name="payment_method" value="money_bag" style="display: none"
