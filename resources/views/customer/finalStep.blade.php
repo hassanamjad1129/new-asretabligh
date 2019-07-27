@@ -164,11 +164,59 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                <div id="address" style="display: none;margin-top:1rem">
-                    <label for="" style="font-size: 1.4rem;">آدرس تحویل سفارش</label>
-                    <textarea name="address" class="form-control" id="" cols="30"
-                              rows="4">{{ auth()->guard('customer')->user()->address }}</textarea>
+                <div class="col-xs-12" style="margin-top: 2rem">
+                    <h4 style="width: 250px;background: #444;color: #FFF;text-align: center;padding: 1rem 0;border-radius: 10px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+                        انتخاب آدرس محل دریافت</h4>
+                    <div class="panel panel-default" id="panel">
+                        <div class="panel-body">
+                            <table class=" table-striped table-bordered table-hover" style="width: 100%">
+                                <thead>
+                                <tr>
+                                    <th>ردیف</th>
+                                    <th>دریافت کننده</th>
+                                    <th>آدرس محل دریافت</th>
+                                    <th>تلفن</th>
+                                    <th> همراه</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ ta_persian_num('1') }}</td>
+                                    <td>{{ auth()->guard('customer')->user()->name }}</td>
+                                    <td><textarea name="address" class="form-control" id="" cols="30"
+                                                  rows="3">{{ auth()->guard('customer')->user()->address }}</textarea>
+                                    </td>
+                                    <td>{{ auth()->guard('customer')->user()->telephone }}</td>
+                                    <td>{{ auth()->guard('customer')->user()->phone }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
+                <div class="col-md-12" style="margin-top: 2rem">
+                    <div class="panel panel-default" id="panel">
+                        <div class="panel-body">
+                            <div class="col-md-9">
+                                <h5 style="font-weight: bold;">آیا تمایلی به استفاده از اعتبار کیف پول خود دارید؟</h5>
+                                <p style="margin-top: 1.5rem;">اعتبار فعلی
+                                    : {{ ta_persian_num(number_format(auth()->guard('customer')->user()->credit)) }}
+                                    ریال</p>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="{{ route('customer.moneybag') }}" target="_blank" style="color: #111;">
+                                    <div class="profileBox" style="float: left;">
+                                        <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
+                                        <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
+                                             alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="clearfix"></div>
                 <div style="width: 100%;">
                     <h3 style="margin-top:1rem;">روش پرداخت : </h3>
