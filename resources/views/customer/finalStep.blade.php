@@ -299,14 +299,12 @@
                 data: {
                     _token: "{{ csrf_token() }}",
                     code: document.getElementById('discount').value,
-                    carts: [@foreach($carts as $cart)
-                    {
-                        'product': {{$cart['product']}},
-                        'price': {{$cart['price']}},
-                        'services': '{{$cart['services']?serialize($cart['services']):serialize("")}}',
-                        'qty':{{ $cart['qty'] }}
-                    },
-                        @endforeach]
+                    carts: [@if($indexes)
+                        @foreach($indexes as $cart)
+                        {{ $cart }}
+                        @endforeach
+                        @endif
+                    ]
                 },
                 success: function (result) {
                     var message = document.getElementById('discountMessage');

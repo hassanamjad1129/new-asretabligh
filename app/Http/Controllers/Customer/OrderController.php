@@ -758,6 +758,7 @@ class OrderController extends Controller
             $products_id = $discount->products->pluck('id')->toArray();
             $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
+                $cartItem = $request->session()->get('cart.' . $cartItem);
                 $product = Product::find($cartItem['product']);
                 if (!in_array($product->id, $products_id)) {
                     $sumOrderPrice += $cartItem['price'];
@@ -772,6 +773,7 @@ class OrderController extends Controller
         } else {
             $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
+                $cartItem = $request->session()->get('cart.' . $cartItem);
                 $product = Product::find($cartItem['product']);
                 $sumOrderPrice += $cartItem['price'];
                 $products[] = ['product_id' => $product->id, 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
@@ -799,10 +801,9 @@ class OrderController extends Controller
             $sum_price = 0;
             $services_price = 0;
             foreach ($cart as $cartItem) {
+                $cartItem = $request->session()->get('cart.' . $cartItem);
                 $sum_price += $cartItem['price'];
                 if ($cartItem['services'])
-                    $cartItem['services'] = unserialize($cartItem['services']);
-                if (is_array($cartItem['services']))
                     foreach ($cartItem['services'] as $service) {
                         $services_price += ($service['price'] * $cartItem['qty']);
                     }
@@ -816,10 +817,9 @@ class OrderController extends Controller
                     $sum_price = 0;
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
+                        $cartItem = $request->session()->get('cart.' . $cartItem);
                         $sum_price += $cartItem['price'];
                         if ($cartItem['services'])
-                            $cartItem['services'] = unserialize($cartItem['services']);
-                        if (is_array($cartItem['services']))
                             foreach ($cartItem['services'] as $service) {
                                 $services_price += ($service['price'] * $cartItem['qty']);
                             }
@@ -830,10 +830,10 @@ class OrderController extends Controller
                     $sum_price = 0;
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
+                        $cartItem = $request->session()->get('cart.' . $cartItem);
+
                         $sum_price += $cartItem['price'];
                         if ($cartItem['services'])
-                            $cartItem['services'] = unserialize($cartItem['services']);
-                        if (is_array($cartItem['services']))
                             foreach ($cartItem['services'] as $service) {
                                 $services_price += ($service['price'] * $cartItem['qty']);
                             }
@@ -846,10 +846,9 @@ class OrderController extends Controller
                 $sum_price = 0;
                 $services_price = 0;
                 foreach ($cart as $cartItem) {
+                    $cartItem = $request->session()->get('cart.' . $cartItem);
                     $sum_price += $cartItem['price'];
                     if ($cartItem['services'])
-                        $cartItem['services'] = unserialize($cartItem['services']);
-                    if (is_array($cartItem['services']))
                         foreach ($cartItem['services'] as $service) {
                             $services_price += ($service['price'] * $cartItem['qty']);
                         }
