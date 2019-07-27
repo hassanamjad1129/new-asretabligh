@@ -238,18 +238,17 @@
                                     </label>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="profileBox" style="float: left;">
-                                        <input type="radio" name="payment_method" value="online" style="display: none"
-                                               id="online">
-                                        <label for="online" style="width: 100%">
-                                            <div class="profileBox">
-                                                <h5 style="width: 75%;float: right;margin-top: 0.8rem">درگاه بانکی</h5>
-                                                <img src="{{ asset('clientAssets/img/onlinePayment.png') }}"
-                                                     style="width: 22%"
-                                                     alt="">
-                                            </div>
-                                        </label>
-                                    </div>
+
+                                    <input type="radio" name="payment_method" value="online" style="display: none"
+                                           id="online">
+                                    <label for="online" style="width: 100%">
+                                        <div class="profileBox">
+                                            <h5 style="width: 75%;float: right;margin-top: 0.8rem">درگاه بانکی</h5>
+                                            <img src="{{ asset('clientAssets/img/onlinePayment.png') }}"
+                                                 style="width: 22%"
+                                                 alt="">
+                                        </div>
+                                    </label>
                                 </div>
                             </div>
 
