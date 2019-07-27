@@ -800,7 +800,8 @@ class OrderController extends Controller
             $services_price = 0;
             foreach ($cart as $cartItem) {
                 $sum_price += $cartItem['price'];
-                $cartItem['services'] = unserialize($cartItem['services']);
+                if ($cartItem['services'])
+                    $cartItem['services'] = unserialize($cartItem['services']);
                 if (is_array($cartItem['services']))
                     foreach ($cartItem['services'] as $service) {
                         $services_price += ($service['price'] * $cartItem['qty']);
@@ -816,7 +817,8 @@ class OrderController extends Controller
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
                         $sum_price += $cartItem['price'];
-                        $cartItem['services'] = unserialize($cartItem['services']);
+                        if ($cartItem['services'])
+                            $cartItem['services'] = unserialize($cartItem['services']);
                         if (is_array($cartItem['services']))
                             foreach ($cartItem['services'] as $service) {
                                 $services_price += ($service['price'] * $cartItem['qty']);
@@ -829,7 +831,8 @@ class OrderController extends Controller
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
                         $sum_price += $cartItem['price'];
-                        $cartItem['services'] = unserialize($cartItem['services']);
+                        if ($cartItem['services'])
+                            $cartItem['services'] = unserialize($cartItem['services']);
                         if (is_array($cartItem['services']))
                             foreach ($cartItem['services'] as $service) {
                                 $services_price += ($service['price'] * $cartItem['qty']);
@@ -844,7 +847,8 @@ class OrderController extends Controller
                 $services_price = 0;
                 foreach ($cart as $cartItem) {
                     $sum_price += $cartItem['price'];
-                    $cartItem['services'] = unserialize($cartItem['services']);
+                    if ($cartItem['services'])
+                        $cartItem['services'] = unserialize($cartItem['services']);
                     if (is_array($cartItem['services']))
                         foreach ($cartItem['services'] as $service) {
                             $services_price += ($service['price'] * $cartItem['qty']);
