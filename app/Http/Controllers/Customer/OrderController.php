@@ -788,20 +788,24 @@ class OrderController extends Controller
 
 
         if ($discount->type_doing == "cash") {
-            return ['message' => 'به شما ' . number_format($discount->value) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
-
+            $discount_value = ta_persian_num(number_format($discount->value));
+            return ['discount'=>$discount_value,'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
         } elseif ($discount->type_doing == "percentage") {
             $sum_price = 0;
             foreach ($products as $product) {
                 $sum_price += $product['price'];
             }
             if ($discount->maximum_price != '') {
-                if ($discount->maximum_price >= $sum_price)
-                    return ['message' => 'به شما ' . number_format((($discount->value * $sum_price) / 100)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
-                else
-                    return ['message' => 'به شما ' . number_format((($discount->value * $discount->maximum_price) / 100)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                if ($discount->maximum_price >= $sum_price) {
+                    $discount_value = ta_persian_num(number_format((($discount->value * $sum_price) / 100)));
+                    return ['discount' => $discount_value, 'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                }else {
+                    $discount_value = ta_persian_num(number_format((($discount->value * $discount->maximum_price) / 100)));
+                    return ['discount' => $discount_value, 'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                }
             } else {
-                return ['message' => 'به شما ' . number_format((($discount->value * $sum_price) / 100)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
+                $discount_value = ta_persian_num(number_format((($discount->value * $sum_price) / 100)));
+                return ['discount'=>$discount_value,'message' => 'به شما ' . $discount_value . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
             }
         }
 
