@@ -41,14 +41,14 @@
                 </li>
                 @can('orders')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.orders.index')}}"><i class="icon-user"></i> سفارشات در
+                        <a class="nav-link" href="{{route('admin.orders.index')}}"><i class="icon-user"></i>  در
                             حال
                             انجام</a>
                     </li>
                 @endcan
                 @can('orderArchives')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.orders.finished')}}"><i class="icon-user"></i> سفارشات
+                        <a class="nav-link" href="{{route('admin.orders.finished')}}"><i class="icon-user"></i>
                             تحویل
                             داده شده</a>
                     </li>
