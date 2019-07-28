@@ -1,14 +1,7 @@
 <?php
 Route::group(['middleware' => 'auth:admin'], function () {
-    Route::get('/home', function () {
-        $users[] = Auth::user();
-        $users[] = Auth::guard()->user();
-        $users[] = Auth::guard('admin')->user();
-
-        //dd($users);
-
-        return view('admin.home');
-    })->name('home');
+    Route::get('/home', 'HomeController@dashboard')->name('home');
+    Route::post('/home', 'HomeController@updateDashboard');
 
     //All Routes We Have in Admin Sidebar Panel :|
     Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
@@ -82,20 +75,20 @@ Route::group(['middleware' => 'auth:admin'], function () {
         Route::post('paper/{paper}/products', 'PaperController@updateProducts');
 
 
-        Route::get('orders','OrderController@index')->name('orders.index');
-        Route::get('orders/finished','OrderController@finished')->name('orders.finished');
-        Route::get('orders/{orderItem}','OrderController@orderDetail')->name('orders.orderDetail');
+        Route::get('orders', 'OrderController@index')->name('orders.index');
+        Route::get('orders/finished', 'OrderController@finished')->name('orders.finished');
+        Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orders.orderDetail');
         Route::post('orders/{orderItem}', 'OrderController@updateOrder')->name('orders.updateOrder');
 
         //start discount
-        Route::get('discount','DiscountController@index')->name('discount.index');
-        Route::get('discount/{discount}/status','DiscountController@changeStatus')->name('discount.changeStatus')->where('discount','[0-9]+');
-        Route::delete('discount/{discount}/delete','DiscountController@delete')->name('discount.delete')->where('discount','[0-9]+');
-        Route::get('discount/create','DiscountController@create')->name('discount.create');
-        Route::post('discount/store','DiscountController@store')->name('discount.store');
-        Route::post('discount/generate/code','DiscountController@generateCode')->name('discount.generate.code');
-        Route::get('discount/{discount}/edit','DiscountController@edit')->name('discount.edit');
-        Route::patch('discount/{discount}/update','DiscountController@update')->name('discount.update');
+        Route::get('discount', 'DiscountController@index')->name('discount.index');
+        Route::get('discount/{discount}/status', 'DiscountController@changeStatus')->name('discount.changeStatus')->where('discount', '[0-9]+');
+        Route::delete('discount/{discount}/delete', 'DiscountController@delete')->name('discount.delete')->where('discount', '[0-9]+');
+        Route::get('discount/create', 'DiscountController@create')->name('discount.create');
+        Route::post('discount/store', 'DiscountController@store')->name('discount.store');
+        Route::post('discount/generate/code', 'DiscountController@generateCode')->name('discount.generate.code');
+        Route::get('discount/{discount}/edit', 'DiscountController@edit')->name('discount.edit');
+        Route::patch('discount/{discount}/update', 'DiscountController@update')->name('discount.update');
         //end discount
 
         Route::get('options', 'OptionController@getOptions')->name('getOptions');
