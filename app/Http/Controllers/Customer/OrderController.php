@@ -481,7 +481,8 @@ class OrderController extends Controller
 
 
         if ($request->payment_method == 'money_bag' and !$this->checkCredit($validateDiscount == true ? $sum - $discount : $sum))
-            return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
+            if(auth()->guard('customer')->user()->type == 'cash')
+                return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
 
         $shipping = shipping::find($request->shipping);
         if ($shipping->take_address and !$request->address)
@@ -491,11 +492,14 @@ class OrderController extends Controller
         $this->storeItems($request, $order);
 
         if ($request->payment_method == 'money_bag') {
-            $this->reduceMoneyBag($validateDiscount == true ? $sum - $discount : $sum);
+            if(auth()->guard('customer')->user()->type == 'cash')
+                $this->reduceMoneyBag($validateDiscount == true ? $sum - $discount : $sum);
             $order->payed = 1;
             $order->save();
-            $discountModel->usage = $discountModel->usage + 1;
-            $discountModel->save();
+            if($validateDiscount == true) {
+                $discountModel->usage = $discountModel->usage + 1;
+                $discountModel->save();
+            }
             foreach ($order->orderItems as $orderItem) {
                 $orderItem->status = 1;
                 $orderItem->save();
@@ -505,6 +509,25 @@ class OrderController extends Controller
             return redirect(route('customer.orders'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
         } else {
             try {
+
+                if(auth()->guard('customer')->user()->type == 'credit') {
+
+                    $order->payed = 1;
+                    $order->save();
+                    if($validateDiscount == true) {
+                        $discountModel->usage = $discountModel->usage + 1;
+                        $discountModel->save();
+                    }
+                    foreach ($order->orderItems as $orderItem) {
+                        $orderItem->status = 1;
+                        $orderItem->save();
+                    }
+                    foreach ($request->cart as $cart)
+                        $request->session()->forget('cart.' . $cart);
+                    return redirect(route('customer.orders'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+
+                }
+
                 $gateway = Gateway::make(new Mellat());
 
 
