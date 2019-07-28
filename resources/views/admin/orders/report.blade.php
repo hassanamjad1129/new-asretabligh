@@ -1,5 +1,7 @@
 @extends('admin.layout.master')
 @section('content')
+    <link rel="stylesheet" href="https://unpkg.com/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+
     <div class="card">
         <div class="card-header">
             <p>گزارش سفارشات</p>
