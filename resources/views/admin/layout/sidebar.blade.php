@@ -11,7 +11,7 @@
                onkeyup="myFunction()" class="form-control">
         <ul class="nav" id="sidebarNav">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-speedometer"></i> داشبورد </a>
+                <a class="nav-link" href="{{ route('admin.home') }}"><i class="icon-speedometer"></i> داشبورد </a>
             </li>
             @can('categories')
                 <li class="nav-item">
