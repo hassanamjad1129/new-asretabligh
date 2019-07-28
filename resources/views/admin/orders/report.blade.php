@@ -24,16 +24,17 @@
                         <label for="">وضعیت</label>
                         <select name="status" id="" class="form-control">
                             <option value="" {{ request()->has('status')?"":"selected" }}>همه</option>
-                            <option value="1" {{ request()->has('status') and  request()->status==1?"selected":"" }}>
+                            <option value="1" {{ (request()->has('status') and  request()->status==1)?"selected":"" }}>
                                 تایید مالی
                             </option>
-                            <option value="2" {{ request()->has('status') and  request()->status==2?"selected":"" }}>در
+                            <option value="2" {{ (request()->has('status') and  request()->status==2)?"selected":"" }}>
+                                در
                                 حال انجام
                             </option>
-                            <option value="3" {{ request()->has('status') and  request()->status==3?"selected":"" }}>
+                            <option value="3" {{ (request()->has('status') and  request()->status==3)?"selected":"" }}>
                                 آماده تحویل
                             </option>
-                            <option value="4" {{ request()->has('status') and  request()->status==4?"selected":"" }}>
+                            <option value="4" {{ (request()->has('status') and  request()->status==4)?"selected":"" }}>
                                 تحویل داده شده
                             </option>
                         </select>
