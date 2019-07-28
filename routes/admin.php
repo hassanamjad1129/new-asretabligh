@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
         Route::post('/ajaxProducts', 'ProductPropertyController@ajaxProducts');
         Route::resource('/customer', 'UserController');
         Route::get('/customer/{customer}/orders', 'UserController@orders')->name('customer.orders');
+        Route::post('/customer/{customer}/orders', 'UserController@filterOrders');
 
         Route::resource('/admins', 'AdminController');
         Route::get('admins/{admin}/roles', 'AdminController@roles')->name('admins.roles');

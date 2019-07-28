@@ -106,4 +106,9 @@ class Customer extends Authenticatable
         return $this->hasMany(MoneyBagReport::class, 'user_id');
     }
 
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'user_id');
+    }
+
 }

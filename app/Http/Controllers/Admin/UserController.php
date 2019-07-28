@@ -13,6 +13,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Morilog\Jalali\CalendarUtils;
 
 class UserController extends Controller
 {
@@ -119,8 +120,27 @@ class UserController extends Controller
         return redirect(route('admin.user.index'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');
     }
 
-    public function orders()
+    public function orders(Customer $customer)
     {
         $this->authorize('customerOrders');
+        $orders = $customer->orderItems()->where('status', '>', 0)->latest()->get();
+        return view('admin.users.orders', ['orders' => $orders]);
+    }
+
+    public function filterOrders(Customer $customer, Request $request)
+    {
+        $this->authorize('customerOrders');
+        $orders = $customer->orderItems()->where('status', '>', 0);
+
+        if ($request->has('start_date')) {
+            $startTime = CalendarUtils::createCarbonFromFormat('Y/m/d', $request->start_date)->toDateTimeString();
+            $orders = $orders->where('created_at', '>=', $startTime);
+        }
+        if ($request->has('finish_date')) {
+            $finishTime = CalendarUtils::createCarbonFromFormat('Y/m/d', $request->finish_date)->addDays(1)->toDateTimeString();
+            $orders = $orders->where('created_at', '<', $finishTime);
+        }
+        $orders = $orders->latest()->get();
+        return view('admin.users.orders', ['orders' => $orders]);
     }
 }
