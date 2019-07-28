@@ -478,12 +478,11 @@ class OrderController extends Controller
             $discount = $this->discountValue($request);
         }
 
-
-        if ($request->payment_method == 'money_bag' and !$this->checkCredit($validateDiscount == true ? $sum - $discount : $sum))
+        $shipping = shipping::find($request->shipping);
+        if ($request->payment_method == 'money_bag' and !$this->checkCredit($validateDiscount == true ? ($sum - $discount)+$shipping->price : $sum+$shipping->price))
             if(auth()->guard('customer')->user()->type == 'cash')
                 return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
 
-        $shipping = shipping::find($request->shipping);
         if ($shipping->take_address and !$request->address)
             return redirect(route('cart'))->withErrors(['خطا! آدرس را وارد کنید'], 'failed')->withInput();
 
@@ -492,7 +491,7 @@ class OrderController extends Controller
 
         if ($request->payment_method == 'money_bag') {
             if(auth()->guard('customer')->user()->type == 'cash')
-                $this->reduceMoneyBag($validateDiscount == true ? $sum - $discount : $sum);
+                $this->reduceMoneyBag($validateDiscount == true ? ($sum - $discount)+$shipping->price : $sum+$shipping->price);
             $order->payed = 1;
             $order->save();
             if($validateDiscount == true) {
@@ -530,7 +529,7 @@ class OrderController extends Controller
                 $gateway = Gateway::make(new Mellat());
 
 
-                $gateway->price($validateDiscount == true ? $sum - $discount : $sum)->ready();
+                $gateway->price($validateDiscount == true ? ($sum - $discount)+$shipping->price : $sum+$shipping->price)->ready();
                 $transID = $gateway->transactionId();
                 $order->transaction_id = $transID;
                 $order->save();
