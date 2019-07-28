@@ -79,6 +79,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
         Route::get('orders', 'OrderController@index')->name('orders.index');
         Route::get('orders/finished', 'OrderController@finished')->name('orders.finished');
+
+        Route::get('orders/report', 'OrderController@report')->name('orders.report');
+        Route::post('orders/report', 'OrderController@filterReport');
+
         Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orders.orderDetail');
         Route::post('orders/{orderItem}', 'OrderController@updateOrder')->name('orders.updateOrder');
 

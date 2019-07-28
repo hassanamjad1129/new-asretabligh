@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use Morilog\Jalali\CalendarUtils;
 
 class OrderController extends Controller
 {
@@ -89,5 +90,27 @@ class OrderController extends Controller
             $user->save();
         }
         return back()->withErrors(['عملیات با موفقیت انجام شد'], 'success');
+    }
+
+    public function report()
+    {
+        return view('admin.orders.report');
+    }
+
+    public function filterReport(Request $request)
+    {
+        $orders = OrderItem::where('status', '>', 0);
+
+        if ($request->has('start_date')) {
+            $startTime = CalendarUtils::createCarbonFromFormat('Y/m/d', $request->start_date)->toDateTimeString();
+            $orders = $orders->where('created_at', '>=', $startTime);
+        }
+        if ($request->has('finish_date')) {
+            $finishTime = CalendarUtils::createCarbonFromFormat('Y/m/d', $request->finish_date)->addDays(1)->toDateTimeString();
+            $orders = $orders->where('created_at', '<', $finishTime);
+        }
+        $orders = $orders->latest()->get();
+        return view('admin.users.orders', ['orders' => $orders]);
+
     }
 }
