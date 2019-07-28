@@ -113,7 +113,7 @@ class OrderController extends Controller
             $orders = $orders->where('created_at', '<', $finishTime);
         }
         $orders = $orders->latest()->get();
-        return view('admin.users.orders', ['orders' => $orders]);
+        return view('admin.orders.report', ['orders' => $orders]);
 
     }
 }
