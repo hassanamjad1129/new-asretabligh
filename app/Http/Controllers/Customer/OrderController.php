@@ -468,8 +468,7 @@ class OrderController extends Controller
         $validator = $this->storeOrderValidation($request);
         if ($validator->fails())
             return redirect(route('cart'))->withErrors($validator->errors()->all(), 'failed');
-        /*if ($this->checkCart($request))
-            return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();*/
+
         $sum = $this->getSumOfOrderPrices($request);
 
 
@@ -587,7 +586,7 @@ class OrderController extends Controller
                 $orderItemService->order_item_id = $orderItem->id;
                 $orderItemService->service_id = $service['id'];
                 $orderItemService->data = implode('-', $service['properties']);
-                $orderItemService->price = $service['price'];
+                $orderItemService->price = ($service['price']);
                 if (isset($service['type']))
                     $orderItemService->type = $service['type'];
                 $orderItemService->save();
@@ -654,7 +653,7 @@ class OrderController extends Controller
             $sum += $cart['price'];
             $servicePrice = 0;
             foreach ($cart['services'] as $service) {
-                $servicePrice += $service['price'];
+                $servicePrice += ($service['price'] * $cart['qty']);
             }
             $sum += $servicePrice;
         }
@@ -781,11 +780,12 @@ class OrderController extends Controller
             $products_id = $discount->products->pluck('id')->toArray();
             $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
-                $product = Product::find($cartItem['product']);
-                if (!in_array($product->id, $products_id)) {
-                    $sumOrderPrice += $cartItem['price'];
-                    $products[] = ['product_id' => $product->id, 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
+                $cartItem = $request->session()->get('cart.' . $cartItem);
+                if (!in_array($cartItem['product'], $products_id)) {
                     $message1 = 'این کد تخفیف متعلق به این محصول نمیباشد';
+                } else {
+                    $sumOrderPrice += $cartItem['price'];
+                    $products[] = ['product_id' => $cartItem['product'], 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
                 }
             }
             if ($discount->minimum_price <= $sumOrderPrice) {
@@ -795,6 +795,7 @@ class OrderController extends Controller
         } else {
             $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
+                $cartItem = $request->session()->get('cart.' . $cartItem);
                 $product = Product::find($cartItem['product']);
                 $sumOrderPrice += $cartItem['price'];
                 $products[] = ['product_id' => $product->id, 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
@@ -822,8 +823,12 @@ class OrderController extends Controller
             $sum_price = 0;
             $services_price = 0;
             foreach ($cart as $cartItem) {
+                $cartItem = $request->session()->get('cart.' . $cartItem);
                 $sum_price += $cartItem['price'];
-                $services_price += $cartItem['services'];
+                if ($cartItem['services'])
+                    foreach ($cartItem['services'] as $service) {
+                        $services_price += ($service['price'] * $cartItem['qty']);
+                    }
             }
             return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
         } elseif ($discount->type_doing == "percentage") {
@@ -834,8 +839,12 @@ class OrderController extends Controller
                     $sum_price = 0;
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
+                        $cartItem = $request->session()->get('cart.' . $cartItem);
                         $sum_price += $cartItem['price'];
-                        $services_price += $cartItem['services'];
+                        if ($cartItem['services'])
+                            foreach ($cartItem['services'] as $service) {
+                                $services_price += ($service['price'] * $cartItem['qty']);
+                            }
                     }
                     return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 } else {
@@ -843,8 +852,14 @@ class OrderController extends Controller
                     $sum_price = 0;
                     $services_price = 0;
                     foreach ($cart as $cartItem) {
+                        $cartItem = $request->session()->get('cart.' . $cartItem);
+
                         $sum_price += $cartItem['price'];
-                        $services_price += $cartItem['services'];
+                        if ($cartItem['services'])
+                            foreach ($cartItem['services'] as $service) {
+                                $services_price += ($service['price'] * $cartItem['qty']);
+                            }
+
                     }
                     return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
                 }
@@ -853,8 +868,12 @@ class OrderController extends Controller
                 $sum_price = 0;
                 $services_price = 0;
                 foreach ($cart as $cartItem) {
+                    $cartItem = $request->session()->get('cart.' . $cartItem);
                     $sum_price += $cartItem['price'];
-                    $services_price += $cartItem['services'];
+                    if ($cartItem['services'])
+                        foreach ($cartItem['services'] as $service) {
+                            $services_price += ($service['price'] * $cartItem['qty']);
+                        }
                 }
                 return ['price' => ta_persian_num(number_format(($sum_price + $services_price) - $discount_value)), 'discount' => ta_persian_num(number_format($discount_value)), 'message' => 'به شما ' . ta_persian_num(number_format($discount_value)) . ' ریال تخفیف تعلق گرفت', 'status' => '1'];
             }
@@ -910,20 +929,19 @@ class OrderController extends Controller
         if ($discount->all_products == 0) {
 
             $products_id = $discount->products->pluck('id')->toArray();
+            $sumOrderPrice = 0;
             foreach ($cart as $cartItem) {
                 $cartItem = $request->session()->get('cart.' . $cartItem);
-                $product = Product::find($cartItem['product']);
-                if (in_array($product->id, $products_id)) {
-                    if ($discount->minimum_price <= $cartItem['price'])
-                        $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+                if (in_array($cartItem['product'], $products_id)) {
+                    $sumOrderPrice += $cartItem['price'];
+                    $products[] = ['product_id' => $cartItem['product'], 'price' => $cartItem['price'], 'services_price' => $cartItem['services']];
                 }
             }
         } else {
             foreach ($cart as $cartItem) {
                 $cartItem = $request->session()->get('cart.' . $cartItem);
-                $product = Product::find($cartItem['product']);
                 if ($discount->minimum_price <= $cartItem['price'])
-                    $products[] = ['product_id' => $product->id, 'price' => $cartItem['price']];
+                    $products[] = ['product_id' => $cartItem['product'], 'price' => $cartItem['price']];
 
             }
         }

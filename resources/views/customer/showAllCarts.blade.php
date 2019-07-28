@@ -97,11 +97,13 @@
                                     $sum += $cart['price'];
                                     $servicePrice = 0;
                                     foreach ($cart['services'] as $service) {
-                                        $servicePrice += $service['price'];
+                                        $servicePrice += ($service['price'] * $cart['qty']);
                                     }
                                     $sum += $servicePrice;
                                     ?>
-                                    <td>{{ ta_persian_num(number_format($cart['price']+$servicePrice)) }} ریال</td>
+                                    <td>{{ ta_persian_num(number_format($cart['price']+($servicePrice))) }}
+                                        ریال
+                                    </td>
                                     <td><a href="{{ url('/cart/'.$key.'/remove') }}" class="deleteBTN"><i
                                                     class="fa fa-trash-o"
                                                     style="font-size: 23px;color:#d60000"

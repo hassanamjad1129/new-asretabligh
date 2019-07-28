@@ -150,7 +150,7 @@
                                 <div style="margin-bottom: 1rem">
                                     <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">هزینه خدمت
                                         :</h6>
-                                    <p style="display: inline-block">{{ ta_persian_num(number_format($service->price)) }}
+                                    <p style="display: inline-block">{{ ta_persian_num(number_format($service->price*$orderItem->qty)) }}
                                         ریال</p>
                                 </div>
                                 @if($service->type)

@@ -85,10 +85,12 @@
                                                 <?php
                                                 $sum += $cart['price'];
                                                 $servicePrice = 0;
-                                                foreach ($cart['services'] as $service) {
-                                                    $servicePrice += $service['price'];
+                                                if (isset($cart['services'])) {
+                                                    foreach ($cart['services'] as $service) {
+                                                        $servicePrice += ($service['price'] * $cart['qty']);
+                                                    }
+                                                    $sum += $servicePrice;
                                                 }
-                                                $sum += $servicePrice;
                                                 ?>
                                                 <td>{{ ta_persian_num(number_format($cart['price']+$servicePrice)) }}
                                                     ریال
@@ -118,7 +120,8 @@
                                     <tr>
                                         <td colspan="4" style="text-align: left;border:none"></td>
                                         <td colspan="1" style="text-align: left">جمع کل :</td>
-                                        <td colspan="1" id="sumPrice">{{ ta_persian_num(number_format($sum)) }} ریال</td>
+                                        <td colspan="1" id="sumPrice">{{ ta_persian_num(number_format($sum)) }}ریال
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="5" style="text-align: left">کد تخفیف دارید؟
@@ -296,11 +299,14 @@
                 data: {
                     _token: "{{ csrf_token() }}",
                     code: document.getElementById('discount').value,
-                    carts: [@foreach($carts as $cart)
-                    {
-                        'product': {{$cart['product']}}, 'price': {{$cart['price']}},'services':{{$cart['services']?$cart['services']['price']:'0'}}},
-                        @endforeach]
-                }, success: function (result) {
+                    carts: [@if($indexes)
+                        @foreach($indexes as $cart)
+                        {{ $cart }},
+                        @endforeach
+                        @endif
+                    ]
+                },
+                success: function (result) {
                     var message = document.getElementById('discountMessage');
                     if (result['status'] === '0') {
                         message.style = 'float:right;color:#e52531;font-size:13px;';
@@ -308,10 +314,11 @@
                         message.style = 'float:right;color:green;font-size:13px;';
                     }
                     message.textContent = result['message'];
-                    $("#discountField").text(result['discount']+" ریال");
+                    $("#discountField").text(result['discount'] + " ریال");
                     $("#sumPrice").text(result['price'] + " ریال");
                 }
-            });
+            })
+            ;
         }
     </script>
 
