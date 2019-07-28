@@ -8,7 +8,7 @@
                     <div class="card-block">
                         <form action="" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="">نام نام خانوادگی</label>
