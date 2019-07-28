@@ -52,7 +52,7 @@
                         <td><a href="{{ route('admin.orders.orderDetail',[$order]) }}" class="btn btn-danger">جزییات</a>
                         </td>
                         <?php
-                        $sum += $order->price;
+                        $sum += $order->getTotalPrice();
                         ?>
                     </tr>
                 @endforeach
