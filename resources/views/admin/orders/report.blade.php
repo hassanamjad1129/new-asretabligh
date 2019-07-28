@@ -10,15 +10,33 @@
             <form action="" method="post">
                 @csrf
                 <div style="display: flex;justify-content: center;margin-bottom: 2rem">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="">شروع :</label>
                         <input type="text" class="form-control date"
                                value="{{ request()->has('start_date')?request()->start_date:"" }}" name="start_date">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="">پایان :</label>
                         <input type="text" class="form-control date"
                                value="{{ request()->has('finish_date')?request()->finish_date:"" }}" name="finish_date">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">وضعیت</label>
+                        <select name="status" id="" class="form-control">
+                            <option value="" {{ request()->has('status')?"":"selected" }}>همه</option>
+                            <option value="1" {{ request()->has('status') and  request()->status==1?"selected":"" }}>
+                                تایید مالی
+                            </option>
+                            <option value="2" {{ request()->has('status') and  request()->status==2?"selected":"" }}>در
+                                حال انجام
+                            </option>
+                            <option value="3" {{ request()->has('status') and  request()->status==3?"selected":"" }}>
+                                آماده تحویل
+                            </option>
+                            <option value="4" {{ request()->has('status') and  request()->status==4?"selected":"" }}>
+                                تحویل داده شده
+                            </option>
+                        </select>
                     </div>
                     <div class="col-md-2">
                         <label for="" style="color: #FFF;">HI</label>

@@ -99,7 +99,10 @@ class OrderController extends Controller
 
     public function filterReport(Request $request)
     {
-        $orders = OrderItem::where('status', '>', 0);
+        if ($request->has('status'))
+            $orders = OrderItem::where('status', '==', $request->status);
+        else
+            $orders = OrderItem::where('status', '>', 0);
 
         if ($request->has('start_date')) {
             $startTime = CalendarUtils::createCarbonFromFormat('Y/m/d', $request->start_date)->toDateTimeString();
