@@ -100,7 +100,7 @@ class OrderController extends Controller
     public function filterReport(Request $request)
     {
         if ($request->has('status'))
-            $orders = OrderItem::where('status', '==', $request->status);
+            $orders = OrderItem::where('status', $request->status);
         else
             $orders = OrderItem::where('status', '>', 0);
 
