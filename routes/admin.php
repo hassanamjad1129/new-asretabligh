@@ -1,10 +1,11 @@
 <?php
 Route::group(['middleware' => 'auth:admin'], function () {
-    Route::get('/home', 'HomeController@dashboard')->name('home');
-    Route::post('/home', 'HomeController@updateDashboard');
-
-    //All Routes We Have in Admin Sidebar Panel :|
     Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
+        Route::get('/home', 'HomeController@dashboard')->name('home');
+        Route::post('/home', 'HomeController@updateDashboard');
+
+        //All Routes We Have in Admin Sidebar Panel :|
+
         Route::resource('posts', 'PostController');
         Route::resource('categories', 'CategoryController');
         Route::resource('pCategories', 'PostCategoryController');
