@@ -60,6 +60,7 @@
                 <tbody>
                 <?php
                 $i = 1;
+                $sum = 0;
                 ?>
                 @if(request()->has('start_date') or request()->has('finish_date'))
                     @foreach($orders as $order)
@@ -76,6 +77,12 @@
                     @endforeach
                 @endif
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="4">مجموع مبلغ سفارشات:</th>
+                    <th colspan="2">{{ number_format($sum) }} ریال</th>
+                </tr>
+                </tfoot>
             </table>
         </div>
     </div>
