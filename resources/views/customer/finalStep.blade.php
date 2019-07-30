@@ -153,7 +153,7 @@
                     <div class="panel panel-default" id="panel">
                         <div class="panel-body">
                             @foreach($shippings as $shipping)
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <input type="radio" take_address="{{ $shipping->take_address }}" name="shipping"
                                            value="{{ $shipping->id }}" style="display: none;"
                                            id="shipping-{{ $shipping->id }}">
@@ -161,8 +161,9 @@
                                         <div style="background:rgba(0,0,0,.1);padding:1rem;margin-top:1rem;border-radius:5px">
                                             <h4 style="display:inline-block;text-align: center;    line-height: 3rem;vertical-align:middle">{{  $shipping->name }}
                                                 <br>
-                                                <small>
-                                                    هزینه : {{ ta_persian_num(number_format($shipping->price)) }} ریال
+                                                <small>{{--
+                                                    هزینه : {{ ta_persian_num(number_format($shipping->price)) }} ریال--}}
+                                                    {{ $shipping->description }}
                                                 </small>
                                             </h4>
                                             <img src="{{ asset($shipping->icon) }}" style="width: 35%;    float: left;"
