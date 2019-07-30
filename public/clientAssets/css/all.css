@@ -12448,14 +12448,14 @@ input[type=submit] {
 }
 
 #owl-demo2 .col-md-2 {
-    margin: 50px 0 20px;
+    margin: 23px 0 20px;
     width: 170px;
     height: 80px;
     display: block
 }
 
 #owl-demo2 .col-md-2 .article-item img {
-    width: 170px;
+    width: 120px;
 }
 
 #owl-demo2 .col-md-2 .article-item a {
