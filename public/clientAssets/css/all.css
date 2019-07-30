@@ -12458,10 +12458,6 @@ input[type=submit] {
     width: 120px;
 }
 
-#owl-demo2 .col-md-2 .article-item a {
-    filter: opacity(.4) grayscale(100%);
-    -webkit-filter: opacity(.3) grayscale(100%)
-}
 
 #owl-demo2 .col-md-2 .article-item a:hover {
     opacity: 1;
