@@ -718,6 +718,18 @@ class OrderController extends Controller
         return view('customer.orders.detail', ['orderItem' => $orderItem]);
     }
 
+    public function getOrderStatus($status){
+        if($status == 'prepared'){
+            $orders = OrderItem::whereIn('status', [3,4])->where('user_id', auth()->guard('customer')->user()->id)->latest()->get();
+            return view('customer.orders.prepared',compact('orders'));
+        }elseif($status == 'doing'){
+            $orders = OrderItem::where('status', 2)->where('user_id', auth()->guard('customer')->user()->id)->latest()->get();
+            return view('customer.orders.doing',compact('orders'));
+        }else{
+            return abort(404);
+        }
+    }
+
 
     public function checkDiscount(Request $request)
     {

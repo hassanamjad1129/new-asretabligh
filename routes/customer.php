@@ -36,6 +36,7 @@ Route::group(['middleware' => 'customer', 'namespace' => 'Customer'], function (
     Route::post('verifyIncreaseMoneybag', 'MoneybagController@verifyIncreaseMoneybag')->name('moneybag.verifyPayment');
     Route::get('orders', 'OrderController@index')->name('orders');
     Route::get('orders/{orderItem}', 'OrderController@orderDetail')->name('orderDetail');
+    Route::get('order/{status}/get','OrderController@getOrderStatus')->name('getOrderStatus')->where('status','doing|prepared');
 
     Route::post('checkDiscount','OrderController@checkDiscount')->name('checkDiscount');
 });
