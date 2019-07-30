@@ -123,19 +123,22 @@
                                         <td colspan="1" id="sumPrice">{{ ta_persian_num(number_format($sum)) }}ریال
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="5" style="text-align: left">کد تخفیف دارید؟
-                                            <span id="discountMessage"></span>
-                                        </td>
-                                        <td colspan="1">
-                                            <div style="display: inline-block" class="form-inline">
-                                                <input name="code" class="form-control" id="discount"/>
-                                                <button type="button" class="btn btn-danger" onclick="checkDiscount()">
-                                                    اعمال
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @if(auth()->guard('customer')->user()->type=='cash')
+                                        <tr>
+                                            <td colspan="5" style="text-align: left">کد تخفیف دارید؟
+                                                <span id="discountMessage"></span>
+                                            </td>
+                                            <td colspan="1">
+                                                <div style="display: inline-block" class="form-inline">
+                                                    <input name="code" class="form-control" id="discount"/>
+                                                    <button type="button" class="btn btn-danger"
+                                                            onclick="checkDiscount()">
+                                                        اعمال
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endif
                                     </tfoot>
                                 </table>
                             </div>
