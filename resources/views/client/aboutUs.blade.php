@@ -6,7 +6,7 @@
             <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / درباره ما</span>
         </div>
         <div class="row" style="margin-top: 65px">
-            <div class="col-md-7">
+            <div class="col-md-12">
                 <h3 style="    background: #FFF;
     z-index: 2;
     position: relative;
@@ -40,10 +40,7 @@
                     ما در عصرتبليغ، بهترين سود را در نتيجه ديگران مي‌دانيم و همزمان به سود خود و سفارش دهندگان محترم،
                     يكسان مي‌انديشيم و مهم تر اينكه يكديگر را عضو خانوادگي هم بدانيم.</p>
             </div>
-            <div class="col-md-5">
-                <img src="http://www.practicesupplies.co.uk/images/slide-pics/sl2-t3.png" class="img-responsive"
-                     style="width: 100%;margin-top: 50px" alt="">
-            </div>
+
         </div>
     </div>
 
