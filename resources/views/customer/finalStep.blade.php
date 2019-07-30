@@ -13,7 +13,7 @@
         }
 
         input[type="radio"]:checked + label > div, input[type="checkbox"]:checked + label > div {
-            border: 3px solid #e52531 !important;
+            border: 2px solid #e52531 !important;
         }
 
 
