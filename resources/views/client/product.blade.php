@@ -49,6 +49,24 @@
         }
 
 
+        .servieFileWrapper {
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .servieFileWrapper label {
+            transition: all 0.4s ease;
+            color: #FFF !important;
+            background: #d60000 !important;
+        }
+
+        .servieFileWrapper label:hover {
+            color: #d60000 !important;
+            background: #FFF !important;
+            border: 2px solid #d60000 !important;
+        }
+
     </style>
     <div class="container">
         <form action="{{ route('storeCart') }}" id="orderForm" method="post" enctype="multipart/form-data">
@@ -598,7 +616,7 @@
                                     "<p style=\"text-align: center\">دو رو</p>\n" +
                                     "</div>\n" +
                                     "</label>\n" +
-                                    "</div></div><div class='clearfix'></div><div class='row' id='service-file-" + thisService + "'></div>";
+                                    "</div></div><div class='clearfix'></div><div class='row servieFileWrapper' id='service-file-" + thisService + "'></div>";
 
                                 /*
                                 str += "<div class=\"col-md-12\">\n" +
