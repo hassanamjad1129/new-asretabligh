@@ -86,6 +86,24 @@ class OrderItem extends Model
         }
     }
 
+    public function getBadgeClass()
+    {
+        switch ($this->status) {
+            case 1:
+                return "badge-success";
+                break;
+            case 2:
+                return "badge-primary";
+                break;
+            case 3:
+                return "badge-success";
+                break;
+            case 4:
+                return "badge-dark";
+                break;
+        }
+    }
+
     public function getPaperName()
     {
         return ta_persian_num($this->paper->name);
