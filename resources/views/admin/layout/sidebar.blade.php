@@ -43,7 +43,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.orders.index')}}"><i class="icon-user"></i> در
                             حال
-                            انجام</a>
+                            انجام <span class="badge badge-danger">{{ $notStartedOrders }}</span></a>
                     </li>
                 @endcan
                 @can('orderArchives')

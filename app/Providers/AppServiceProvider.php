@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\BestCustomer;
 use App\Models\Category;
 use App\option;
+use App\OrderItem;
 use App\pricelist;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Session;
@@ -28,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::all();
             $cart = Session::get('cart') ? count(Session::get('cart')) : 0;
             $view->with(['cart' => $cart, 'address' => $address, 'phone' => $phone, 'email' => $email, 'bestCustomers' => $bestCustomers, 'categories' => $categories]);
+        });
+        view()->composer('admin.layout.sidebar', function ($view) {
+            $notStartedOrders = OrderItem::where('status', 1)->get()->count();
+            $view->with(['notStartedOrders' => $notStartedOrders]);
         });
 
     }
