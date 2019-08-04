@@ -10,6 +10,11 @@
                     <div class="col-md-9">
                         <div class="col-md-6">
                             <div style="margin-bottom: 1rem">
+                                <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">مشتری
+                                    :</h6>
+                                <p style="display: inline-block">{{ $orderItem->user->name }}</p>
+                            </div>
+                            <div style="margin-bottom: 1rem">
                                 <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">محصول انتخابی
                                     :</h6>
                                 <p style="display: inline-block">{{ $orderItem->category->name." ".$orderItem->product->title }}</p>
