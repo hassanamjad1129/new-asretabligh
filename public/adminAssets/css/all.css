@@ -8533,3 +8533,6 @@ base-chart.chart {
   color: #fff;
   background-color: #dc3545;
 }
+
+.badge-primary{color:#fff;background-color:#4040c8}
+.badge-dark{color:#fff;background-color:#343a40}
