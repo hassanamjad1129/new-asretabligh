@@ -35,6 +35,11 @@
                         </div>
                         <div class="col-md-6">
                             <div style="margin-bottom: 1rem">
+                                <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">عنوان سفارش
+                                    :</h6>
+                                <p style="display: inline-block">{{ $orderItem->title }}</p>
+                            </div>
+                            <div style="margin-bottom: 1rem">
                                 <h6 style="margin-bottom: 0.5rem;font-weight: bold;display: inline-block">تاریخ ثبت
                                     سفارش
                                     :</h6>

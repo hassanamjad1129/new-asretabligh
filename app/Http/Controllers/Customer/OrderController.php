@@ -430,6 +430,8 @@ class OrderController extends Controller
                 }
             }
         $request->session()->push('cart', [
+            'title' => $request->title,
+            'description' => $request->description,
             'files' => [
                 'front' => $request->session()->get('file.' . $request->product . '.front-file'),
                 'back' => $request->session()->get('file.' . $request->product . '.back-file')
@@ -479,8 +481,8 @@ class OrderController extends Controller
         }
 
         $shipping = shipping::find($request->shipping);
-        if ($request->payment_method == 'money_bag' and !$this->checkCredit($validateDiscount == true ? ($sum - $discount)+$shipping->price : $sum+$shipping->price))
-            if(auth()->guard('customer')->user()->type == 'cash')
+        if ($request->payment_method == 'money_bag' and !$this->checkCredit($validateDiscount == true ? ($sum - $discount) + $shipping->price : $sum + $shipping->price))
+            if (auth()->guard('customer')->user()->type == 'cash')
                 return redirect(route('cart'))->withErrors(['خطا! داده نامعتبر'], 'failed')->withInput();
 
         if ($shipping->take_address and !$request->address)
@@ -490,11 +492,11 @@ class OrderController extends Controller
         $this->storeItems($request, $order);
 
         if ($request->payment_method == 'money_bag') {
-            if(auth()->guard('customer')->user()->type == 'cash')
-                $this->reduceMoneyBag($validateDiscount == true ? ($sum - $discount)+$shipping->price : $sum+$shipping->price);
+            if (auth()->guard('customer')->user()->type == 'cash')
+                $this->reduceMoneyBag($validateDiscount == true ? ($sum - $discount) + $shipping->price : $sum + $shipping->price);
             $order->payed = 1;
             $order->save();
-            if($validateDiscount == true) {
+            if ($validateDiscount == true) {
                 $discountModel->usage = $discountModel->usage + 1;
                 $discountModel->save();
             }
@@ -508,11 +510,11 @@ class OrderController extends Controller
         } else {
             try {
 
-                if(auth()->guard('customer')->user()->type == 'credit') {
+                if (auth()->guard('customer')->user()->type == 'credit') {
 
                     $order->payed = 1;
                     $order->save();
-                    if($validateDiscount == true) {
+                    if ($validateDiscount == true) {
                         $discountModel->usage = $discountModel->usage + 1;
                         $discountModel->save();
                     }
@@ -529,7 +531,7 @@ class OrderController extends Controller
                 $gateway = Gateway::make(new Mellat());
 
 
-                $gateway->price($validateDiscount == true ? ($sum - $discount)+$shipping->price : $sum+$shipping->price)->ready();
+                $gateway->price($validateDiscount == true ? ($sum - $discount) + $shipping->price : $sum + $shipping->price)->ready();
                 $transID = $gateway->transactionId();
                 $order->transaction_id = $transID;
                 $order->save();
@@ -562,6 +564,8 @@ class OrderController extends Controller
     {
         $product = Product::find($cart['product']);
         $orderItem = new OrderItem();
+        $orderItem->title = $cart['title'];
+        $orderItem->description = $cart['description'];
         $orderItem->order_id = $order->id;
         $orderItem->product_id = $product->id;
         $orderItem->category_id = $product->category_id;
@@ -718,14 +722,15 @@ class OrderController extends Controller
         return view('customer.orders.detail', ['orderItem' => $orderItem]);
     }
 
-    public function getOrderStatus($status){
-        if($status == 'prepared'){
-            $orders = OrderItem::whereIn('status', [3,4])->where('user_id', auth()->guard('customer')->user()->id)->latest()->get();
-            return view('customer.orders.prepared',compact('orders'));
-        }elseif($status == 'doing'){
+    public function getOrderStatus($status)
+    {
+        if ($status == 'prepared') {
+            $orders = OrderItem::whereIn('status', [3, 4])->where('user_id', auth()->guard('customer')->user()->id)->latest()->get();
+            return view('customer.orders.prepared', compact('orders'));
+        } elseif ($status == 'doing') {
             $orders = OrderItem::where('status', 2)->where('user_id', auth()->guard('customer')->user()->id)->latest()->get();
-            return view('customer.orders.doing',compact('orders'));
-        }else{
+            return view('customer.orders.doing', compact('orders'));
+        } else {
             return abort(404);
         }
     }

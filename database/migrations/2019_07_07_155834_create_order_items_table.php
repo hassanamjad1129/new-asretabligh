@@ -16,6 +16,8 @@ class CreateOrderItemsTable extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->string('title', 255)->nullable();
+
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 
@@ -39,6 +41,7 @@ class CreateOrderItemsTable extends Migration
             $table->integer('status')->default(0);
             $table->unsignedInteger('qty')->default(1);
 
+            $table->string('description', 2048)->nullable();
 
             $table->timestamps();
         });
