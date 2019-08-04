@@ -260,7 +260,7 @@
                 <div class="col-xs-9" style="margin-top: 1rem;float:right">
                     @if($product->typeRelatedFile)
                         <button id="sendOrder" class="btn btn-danger"
-                                style="display: none;    width: 100% !important;
+                                style="display: none;    width: auto !important;
     position: relative;
     bottom: 0px;
     padding: 0.8rem 3rem;
