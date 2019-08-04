@@ -37,6 +37,17 @@
             list-style-type: disc;
             margin-bottom: 10px;
         }
+
+        .files label {
+            transition: all 0.4s ease;
+        }
+
+        .files label:hover {
+            color: #d60000 !important;
+            background: #FFF !important;
+        }
+
+
     </style>
     <div class="container">
         <form action="{{ route('storeCart') }}" id="orderForm" method="post" enctype="multipart/form-data">
