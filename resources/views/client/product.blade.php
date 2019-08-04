@@ -45,6 +45,7 @@
         .files label:hover {
             color: #d60000 !important;
             background: #FFF !important;
+            border: 2px solid #d60000 !important;
         }
 
 
