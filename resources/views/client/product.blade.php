@@ -223,7 +223,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="panel panel-default"
-                         style="border-radius: 1rem;    background-image: linear-gradient(#BFBFBF, #FFF);">
+                         style="border-radius: 1rem;    background-image: linear-gradient(#EEE, #FFF);">
                         <div class="panel-heading"
                              style="background: #444;border-radius: 1rem;border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
                             <h3 style="padding:0.3rem 0;font-size: 1.3rem;color: #FFF;text-align: center">مشخصات سفارش
