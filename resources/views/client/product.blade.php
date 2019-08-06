@@ -240,7 +240,8 @@
     font-size: 15px;
     border-bottom: 1px solid #222;
     padding-bottom: 5px;
-    text-align: center;">{{ $product->title }}</h4>
+    text-align: center;
+    color: #D60000;">{{ $product->title }}</h4>
                             </div>
                             <div class="orderSpecification"
                                  style="border-radius: 5px; padding: 10px 1rem;">
@@ -255,21 +256,21 @@
                                 <h5 style="margin-bottom: 0px;font-weight: bold;font-size:12px;display: inline">قیمت
                                     سفارش
                                     : </h5>
-                                <span id="orderPrice">{{ ta_persian_num("0") }} ریال</span>
+                                <span id="orderPrice" style="color: green;">{{ ta_persian_num("0") }} ریال</span>
                             </div>
                             <hr style="border-bottom: 1px solid #AAA;margin:4px 0"/>
                             <div style="display: flex;justify-content: space-between">
                                 <h5 style="margin-bottom: 0px;font-weight: bold;font-size:12px;display: inline">خدمات
                                     پس از چاپ
                                     : </h5>
-                                <span id="servicePrice">{{ ta_persian_num("0") }} ریال</span>
+                                <span id="servicePrice"  style="color: green;">{{ ta_persian_num("0") }} ریال</span>
                             </div>
                             <hr style="border-bottom: 1px solid #999;margin:4px 0"/>
                             <div style="display: flex;justify-content: space-between">
                                 <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
                                     سفارش
                                     : </h4>
-                                <span id="finalPrice">{{ ta_persian_num("0") }} ریال</span>
+                                <span id="finalPrice" style="color:#D6000;font-weight: bold;font-size: 1.1rem">{{ ta_persian_num("0") }} ریال</span>
                             </div>
 
                         </div>
