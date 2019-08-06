@@ -270,7 +270,7 @@
                                 <h4 style="margin-bottom: 10px;font-weight: bold;font-size:15px;display: inline">جمع
                                     سفارش
                                     : </h4>
-                                <span id="finalPrice" style="color:#D6000;font-weight: bold;font-size: 1.1rem">{{ ta_persian_num("0") }} ریال</span>
+                                <span id="finalPrice" style="color:#D60000;font-weight: bold;font-size: 1.1rem">{{ ta_persian_num("0") }} ریال</span>
                             </div>
 
                         </div>
