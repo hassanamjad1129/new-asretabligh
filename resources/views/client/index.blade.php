@@ -248,6 +248,8 @@
                                      style="width: 100%">
                                 <h3 style="text-align: center;font-weight: bold;margin-top: 1rem">تخفیف ویژه</h3>
                             @else
+                                <h3 style="text-align: center;font-weight: bold">تخفیف ویژه</h3>
+
                                 <img src="/clientAssets/img/-10-.gif" style="width: 100%;" alt="">
 
                             @endif
