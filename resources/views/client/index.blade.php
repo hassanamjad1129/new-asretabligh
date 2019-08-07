@@ -248,9 +248,8 @@
                                      style="width: 100%">
                                 <h3 style="text-align: center;font-weight: bold;margin-top: 1rem">تخفیف ویژه</h3>
                             @else
-                                <img src="/clientAssets/img/icons8-sale-128.png" style="width: 100%;" alt="">
-                                <h3 style="text-align: center;font-weight: bold;margin-top: 1rem;line-height: 2.1rem;">
-                                    امروز تخفیفی نداریم</h3>
+                                <img src="/clientAssets/img/-10-.gif" style="width: 100%;" alt="">
+
                             @endif
                         </div>
                     </div>
