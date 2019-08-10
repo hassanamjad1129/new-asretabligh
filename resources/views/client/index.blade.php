@@ -112,7 +112,7 @@
     border-bottom-right-radius: 1rem;
     font-size: 1.5rem;
     padding: 0.7rem 0;">{{ $category->name }}</p>
-                        <img src="{{ url('/getCategoryPicture/'.$category->id) }}" style="width: 100%;margin-top: 2rem;    border-radius: 10px;
+                        <img src="{{ url('/getCategoryThumbnailPicture/'.$category->id) }}" style="width: 100%;margin-top: 2rem;    border-radius: 10px;
     box-shadow: 0 3px 5px rgba(0,0,0,0.3);"
                              alt="">
                         <p style="margin-top: 1rem">{{ $category->description }}</p>
@@ -122,7 +122,7 @@
                             <div class=" col-md-3 col-sm-6 col-xs-6">
                                 <div class="thumbnail">
                                     <a href="{{ route('showProduct',[$product]) }}">
-                                        <img src='{{ url('/getProductPicture/'.$product->id) }}'>
+                                        <img src='{{ url('/getProductThumbnailPicture/'.$product->id) }}'>
                                         <div class="caption">
                                             <h2>{{ $product->title }}</h2>
 
@@ -265,7 +265,7 @@
                                     <div class="card">
                                         <div class="hovereffect">
                                             <img class="img-responsive newsImage"
-                                                 src="{{ asset($new->picture)}}"
+                                                 src="{{ asset($new->thumbnail_picture)}}"
                                                  alt="عصر تبلیغ"/>
                                             <div class="overlay">
                                                 <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}">

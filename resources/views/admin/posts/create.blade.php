@@ -123,7 +123,6 @@
                                         <input type="checkbox" name="categories[]" value="{{ $category->id }}"
                                                id="item-{{ $category->id }}"/>
                                         <label for="item-{{ $category->id }}">{{ $category->name }}</label>
-                                        {{ ($category->fetchSubCategories('checkbox')) }}
                                     </li>
                                 @endforeach
                             </ul>
