@@ -43,9 +43,19 @@ class siteController extends Controller
         return Storage::download($product->picture);
     }
 
+    public function getProductThumbnailPicture(Product $product)
+    {
+        return Storage::download($product->thumbnail_picture);
+    }
+
     public function getCategoryPicture(Category $category)
     {
         return Storage::download($category->picture);
+    }
+
+    public function getCategoryThumbnailPicture(Category $category)
+    {
+        return Storage::download($category->thumbnail_picture);
     }
 
     public function getValuePicture(ProductValue $value)

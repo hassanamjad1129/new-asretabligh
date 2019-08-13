@@ -212,74 +212,80 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12" style="margin-top: 2rem">
-                    <div class="panel panel-default" id="panel">
-                        <div class="panel-body">
-                            <div class="col-md-9">
-                                <h5 style="font-weight: bold;">آیا تمایلی به استفاده از اعتبار کیف پول خود دارید؟</h5>
-                                <p style="margin-top: 1.5rem;">اعتبار فعلی
-                                    : {{ ta_persian_num(number_format(auth()->guard('customer')->user()->credit)) }}
-                                    ریال</p>
-                            </div>
-                            <div class="col-md-3">
+                @if(auth()->guard('customer')->user()->type != 'credit')
+                    <div class="col-md-12" style="margin-top: 2rem">
+                        <div class="panel panel-default" id="panel">
+                            <div class="panel-body">
+                                <div class="col-md-9">
+                                    <h5 style="font-weight: bold;">آیا تمایلی به استفاده از اعتبار کیف پول خود
+                                        دارید؟</h5>
+                                    <p style="margin-top: 1.5rem;">اعتبار فعلی
+                                        : {{ ta_persian_num(number_format(auth()->guard('customer')->user()->credit)) }}
+                                        ریال</p>
+                                </div>
+                                <div class="col-md-3">
 
-                                <a href="{{ route('customer.moneybag') }}" target="_blank" style="color: #111;">
+                                    <a href="{{ route('customer.moneybag') }}" target="_blank" style="color: #111;">
 
-                                    <div class="profileBox" style="float: left;">
-                                        <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
-                                        <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
-                                             alt="">
-                                    </div>
-                                </a>
+                                        <div class="profileBox" style="float: left;">
+                                            <h5 style="width: 84%;float: right;margin-top: 0.8rem">شارژ کیف پول</h5>
+                                            <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width: 15%"
+                                                 alt="">
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="clearfix"></div>
-
-                <div class="col-md-12" style="margin-top: 2rem">
-                    <div class="panel panel-default" id="panel">
-                        <div class="panel-body"
-                             style="min-height: 160px;background: url({{ asset('clientAssets/img/l1.png') }});-webkit-background-size: 100% 100%;background-size: 100% 100%;">
-                            <div class="col-md-5" style="float: left;margin-top: 2rem">
-                                <div class="col-md-6">
-                                    <input type="radio" name="payment_method" value="money_bag" style="display: none"
-                                           id="money_bag">
-                                    <label style="width: 100%" for="money_bag">
-                                        <div class="profileBox" style="background: #FFF">
-                                            <h5 style="width: 75%;float: right;margin-top: 0.8rem"> کیف پول</h5>
-                                            <img src="{{ asset('clientAssets/img/moneybag.png') }}" style="width:24%"
-                                                 alt="">
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-md-6">
-
-                                    <input type="radio" name="payment_method" value="online" style="display: none"
-                                           id="online">
-                                    <label for="online" style="width: 100%">
-                                        <div class="profileBox" style="background: #FFF">
-                                            <h5 style="width: 75%;float: right;margin-top: 0.8rem">درگاه بانکی</h5>
-                                            <img src="{{ asset('clientAssets/img/onlinePayment.png') }}"
-                                                 style="width: 22%"
-                                                 alt="">
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
 
                     <div class="clearfix"></div>
-                    <center>
-                        <button class="btn btn-danger btn-md"
-                                style="width: 25%;margin-top:1rem;font-size:1.2rem;font-weight:bold;background: #d60000;">
-                            تایید نهایی و پرداخت
-                        </button>
-                    </center>
+
+                    <div class="col-md-12" style="margin-top: 2rem">
+                        <div class="panel panel-default" id="panel">
+                            <div class="panel-body"
+                                 style="min-height: 160px;background: url({{ asset('clientAssets/img/l1.png') }});-webkit-background-size: 100% 100%;background-size: 100% 100%;">
+                                <div class="col-md-5" style="float: left;margin-top: 2rem">
+                                    <div class="col-md-6">
+                                        <input type="radio" name="payment_method" value="money_bag"
+                                               style="display: none"
+                                               id="money_bag">
+                                        <label style="width: 100%" for="money_bag">
+                                            <div class="profileBox" style="background: #FFF">
+                                                <h5 style="width: 75%;float: right;margin-top: 0.8rem"> کیف پول</h5>
+                                                <img src="{{ asset('clientAssets/img/moneybag.png') }}"
+                                                     style="width:24%"
+                                                     alt="">
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <input type="radio" name="payment_method" value="online" style="display: none"
+                                               id="online">
+                                        <label for="online" style="width: 100%">
+                                            <div class="profileBox" style="background: #FFF">
+                                                <h5 style="width: 75%;float: right;margin-top: 0.8rem">درگاه بانکی</h5>
+                                                <img src="{{ asset('clientAssets/img/onlinePayment.png') }}"
+                                                     style="width: 22%"
+                                                     alt="">
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <input type="hidden" name="payment_method" value="online">
+                @endif
+
+                <div class="clearfix"></div>
+                <center>
+                    <button class="btn btn-danger btn-md"
+                            style="width: 25%;margin-top:1rem;font-size:1.2rem;font-weight:bold;background: #d60000;">
+                        تایید نهایی و پرداخت
+                    </button>
+                </center>
             </form>
         </div>
     </div>
@@ -316,10 +322,11 @@
                         message.style = 'float:right;color:#e52531;font-size:13px;';
                     } else if (result['status'] === '1') {
                         message.style = 'float:right;color:green;font-size:13px;';
+                        $("#discountField").text(result['discount'] + " ریال");
+                        $("#sumPrice").text(result['price'] + " ریال");
                     }
                     message.textContent = result['message'];
-                    $("#discountField").text(result['discount'] + " ریال");
-                    $("#sumPrice").text(result['price'] + " ریال");
+
                 }
             })
             ;

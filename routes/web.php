@@ -13,7 +13,9 @@
 
 Route::get('/', 'siteController@index');
 Route::get('getProductPicture/{product}', 'siteController@getProductPicture');
+Route::get('getProductThumbnailPicture/{product}', 'siteController@getProductThumbnailPicture');
 Route::get('getCategoryPicture/{category}', 'siteController@getCategoryPicture');
+Route::get('getCategoryThumbnailPicture/{category}', 'siteController@getCategoryThumbnailPicture');
 Route::get('getValuePicture/{value}', 'siteController@getValuePicture')->name('getValuePicture');
 Route::get('getServicePicture/{service}', 'siteController@getServicePicture')->name('getServicePicture');
 Route::get('category/{category}', 'siteController@getCategoryProductPrice')->name('categoryProductPrice');
