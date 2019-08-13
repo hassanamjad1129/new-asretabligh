@@ -62,12 +62,15 @@
                                     <?php
                                     $data = explode('-', $price->values);
                                     foreach ($properties as $key => $property) {
+                                        foreach ($data as $d) {
+                                            $value = ProductValueAlias::find($d);
+                                            if ($value->property_id == $property) {
+                                                echo "<td>" . ta_persian_num($value->name) . "</td>";
 
-                                        $value = ProductValueAlias::find($data[$key]);
-
-                                        if ($value->property_id == $property) {
-                                            echo "<td>" . ta_persian_num($value->name) . "</td>";
+                                            }
                                         }
+
+
                                     }
                                     ?>
                                     <td>یک رو</td>
@@ -84,10 +87,12 @@
                                     <?php
                                     $data = explode('-', $price->values);
                                     foreach ($properties as $key => $property) {
+                                        foreach ($data as $d) {
+                                            $value = ProductValueAlias::find($d);
+                                            if ($value->property_id == $property) {
+                                                echo "<td>" . ta_persian_num($value->name) . "</td>";
 
-                                        $value = ProductValueAlias::find($data[$key]);
-                                        if ($value->property_id == $property) {
-                                            echo "<td>" . ta_persian_num($value->name) . "</td>";
+                                            }
                                         }
                                     }
                                     ?>
