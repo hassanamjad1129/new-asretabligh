@@ -62,8 +62,10 @@
                                     <?php
                                     $data = explode('-', $price->values);
                                     foreach ($properties as $key => $property) {
-                                        if (!isset($data[$key]))
+                                        if (!isset($data[$key])) {
+                                            dd($product);
                                             dd($property);
+                                        }
                                         $value = ProductValueAlias::find($data[$key]);
 
                                         if ($value->property_id == $property) {
