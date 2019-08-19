@@ -1,9 +1,10 @@
-@extends('newHeader')
+@extends('client.layout.master')
 @section('content')
     <style>
-        h5{
+        h5 {
             line-height: 24px;
         }
+
         .about {
             margin: 45px 0 -0;
         }
@@ -14,10 +15,10 @@
     <div class="about" style="background-color: #f7f8fa;overflow: hidden">
         <div class="container">
             <div class="col-xs-12">
-              
-                <div id ="youAreHere">
-                  <div class="gps_ring"></div>
-                  <p class = "youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
+
+                <div id="youAreHere">
+                    <div class="gps_ring"></div>
+                    <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
                 </div>
                 <br>
                 <h1>تماس با ما</h1>
