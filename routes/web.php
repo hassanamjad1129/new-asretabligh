@@ -21,6 +21,7 @@ Route::get('getServicePicture/{service}', 'siteController@getServicePicture')->n
 Route::get('category/{category}', 'siteController@getCategoryProductPrice')->name('categoryProductPrice');
 Route::get('قوانین-مقررات', 'siteController@rules')->name('rules');
 Route::get('درباره-ما', 'siteController@aboutus')->name('aboutus');
+Route::get('تماس-با-ما', 'siteController@contact')->name('contact');
 
 Route::get('product/{product}', 'ProductController@show')->name('showProduct');
 Route::post('checkFiles', 'Customer\OrderController@checkFiles')->name('checkFiles');

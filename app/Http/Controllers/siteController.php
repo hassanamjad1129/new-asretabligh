@@ -114,4 +114,12 @@ class siteController extends Controller
         $newPosts = post::latest()->get()->take(4);
         return view('client.post', ['post' => $post, 'categories' => $categories, 'newPosts' => $newPosts]);
     }
+
+    public function contact()
+    {
+        $address = option::where('option_name', 'address')->first()->option_value;
+        $phone = option::where('option_name', 'phone')->first()->option_value;
+        $email = option::where('option_name', 'email')->first()->option_value;
+        return view('client.contactUs', ['address' => $address, 'phone' => $phone, 'email' => $email]);
+    }
 }
