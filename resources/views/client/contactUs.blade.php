@@ -4,10 +4,6 @@
         h5 {
             line-height: 24px;
         }
-
-        .about {
-            margin: 45px 0 -0;
-        }
     </style>
     <br>
     <br>
