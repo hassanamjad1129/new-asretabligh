@@ -1,18 +1,13 @@
 @extends('client.layout.master')
 @section('content')
-    <style>
-        h5 {
-            line-height: 24px;
-        }
-    </style>
-    <div class="about" style="background-color: #f7f8fa;overflow: hidden;margin: 0">
-        <div class="container">
+    <div class="container">
+        <div id="youAreHere">
+            <div class="gps_ring"></div>
+            <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
+        </div>
+        <div class="about" style="background-color: #f7f8fa;overflow: hidden;margin: 0">
             <div class="col-xs-12">
 
-                <div id="youAreHere">
-                    <div class="gps_ring"></div>
-                    <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
-                </div>
                 <br>
                 <h1>تماس با ما</h1>
                 <hr>
@@ -26,7 +21,8 @@
                             <div class="alert alert-danger">
                                 <ul>
                                     @foreach($errors->feild->all() as $error)
-                                        <li style="list-style: none"><i class="fa fa-warning"></i> {!! $error !!}</li>
+                                        <li style="list-style: none"><i class="fa fa-warning"></i> {!! $error !!}
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -67,7 +63,8 @@
                     <br>
                     <h4>چاپ عصر تبلیغ</h4>
                     <br>
-                    <h5 style="display: inline-block">شماره تماس : </h5><span style="direction: ltr">{{ $phone }}</span>
+                    <h5 style="display: inline-block">شماره تماس : </h5><span
+                            style="direction: ltr">{{ $phone }}</span>
                     <br>
                     <h5>ایمیل : {{ $email }}</h5>
                     <br>
@@ -81,5 +78,4 @@
                     height="320" frameborder="0" style="border:0;width: 100%" allowfullscreen></iframe>
         </div>
     </div>
-
 @endsection
