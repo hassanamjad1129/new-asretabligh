@@ -8,7 +8,7 @@
     <br>
     <br>
     <br>
-    <div class="about" style="background-color: #f7f8fa;overflow: hidden">
+    <div class="about" style="background-color: #f7f8fa;overflow: hidden;margin: 0">
         <div class="container">
             <div class="col-xs-12">
 
