@@ -99,7 +99,7 @@
 
                             <li><a href="{{ route('rules') }}">قوانین و مقرارت</a></li>
                             <li><a href="{{ route('aboutus') }}">درباره ما</a></li>
-                            <li><a href="{{ url('/contact') }}">تماس با ما</a></li>
+                            <li><a href="{{ route('contact') }}">تماس با ما</a></li>
 
                         </ul>
                         <ul class="nav navbar-nav pull-left">
@@ -163,7 +163,7 @@
                                 </li>
                                 <li class="link"><a href="{{ route('rules') }}">قوانین و مقرارت</a></li>
                                 <li class="link"><a href="{{ route('aboutus') }}">درباره ما</a></li>
-                                <li class="link"><a href="{{ url('/contact') }}">تماس با ما</a></li>
+                                <li class="link"><a href="{{ route('contact') }}">تماس با ما</a></li>
                                 <li class="link"><a href="{{ url('/customer/login') }}"><i
                                                 class="flaticon-black"></i></a>
                                 </li>
