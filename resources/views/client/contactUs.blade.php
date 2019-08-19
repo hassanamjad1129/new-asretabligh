@@ -6,68 +6,69 @@
     </div>
     <div class="about" style="overflow: hidden;margin: 0">
         <div class="col-xs-12">
+            <div class="container">
+                <br>
+                <h1>تماس با ما</h1>
+                <hr>
+                <div class="col-md-8">
+                    <form action="" method="post">
+                        {{ csrf_field() }}
+                        <h3>ارسال پیام </h3>
 
-            <br>
-            <h1>تماس با ما</h1>
-            <hr>
-            <div class="col-md-8">
-                <form action="" method="post">
-                    {{ csrf_field() }}
-                    <h3>ارسال پیام </h3>
+                        <br>
+                        @if(count($errors->feild)>0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->feild->all() as $error)
+                                        <li style="list-style: none"><i class="fa fa-warning"></i> {!! $error !!}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if(count($errors->success)>0)
+                            <div class="alert alert-success">
+                                <ul>
+                                    @foreach($errors->success->all() as $error)
+                                        <li style="list-style: none"><i class="fa fa-check"></i> {!! $error !!}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label for="">نام و نام خانوادگی : </label>
+                                <input type="text"
+                                       style="position: relative;background-color: #FFF;width: 100%;display: block;    height: 35px;border: 1px solid #DDD;"
+                                       name="name" class="form-control" id="name"/>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">پست الکترونیکی : </label>
+                                <input type="email" name="email" class="form-control" id="email"/>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">پیام : </label>
+                                <textarea name="message" class="form-control" rows="6" id="address"></textarea>
+                                <br>
+                                <button class="btn btn-danger" type="submit">ارسال پیام</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>اطلاعات تماس </h3>
                     <br>
-                    @if(count($errors->feild)>0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach($errors->feild->all() as $error)
-                                    <li style="list-style: none"><i class="fa fa-warning"></i> {!! $error !!}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if(count($errors->success)>0)
-                        <div class="alert alert-success">
-                            <ul>
-                                @foreach($errors->success->all() as $error)
-                                    <li style="list-style: none"><i class="fa fa-check"></i> {!! $error !!}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="">نام و نام خانوادگی : </label>
-                            <input type="text"
-                                   style="position: relative;background-color: #FFF;width: 100%;display: block;    height: 35px;border: 1px solid #DDD;"
-                                   name="name" class="form-control" id="name"/>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="">پست الکترونیکی : </label>
-                            <input type="email" name="email" class="form-control" id="email"/>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="">پیام : </label>
-                            <textarea name="message" class="form-control" rows="6" id="address"></textarea>
-                            <br>
-                            <button class="btn btn-danger" type="submit">ارسال پیام</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="col-md-4">
-                <h3>اطلاعات تماس </h3>
-                <br>
-                <h4>چاپ عصر تبلیغ</h4>
-                <br>
-                <h5 style="display: inline-block">شماره تماس : </h5><span
-                        style="direction: ltr">{{ $phone }}</span>
-                <br>
-                <h5>ایمیل : {{ $email }}</h5>
-                <br>
-                <h5>آدرس : {{ $address }}</h5>
+                    <h4>چاپ عصر تبلیغ</h4>
+                    <br>
+                    <h5 style="display: inline-block">شماره تماس : </h5><span
+                            style="direction: ltr">{{ $phone }}</span>
+                    <br>
+                    <h5>ایمیل : {{ $email }}</h5>
+                    <br>
+                    <h5>آدرس : {{ $address }}</h5>
+                </div>
             </div>
         </div>
     </div>
