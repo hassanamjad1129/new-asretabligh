@@ -252,12 +252,12 @@
                 <img id="drftnbpelbrhrgvllbrh" style="cursor:pointer;height: 130px;display: inline;float: left"
                      class="img-responsive"
                      onclick="window.open(&quot;https://trustseal.enamad.ir/Verify.aspx?id=12757&amp;p=nbpdwkynqgwlyncrqgwl&quot;, &quot;Popup&quot;,&quot;toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30&quot;)"
-                     alt="" src="{{ asset('/clientAssets/img/enamad.png') }}"/>
+                     alt="" src="{{ asset('/clientAssets/img/enamd.png') }}"/>
                 <img id='fukznbqesizpwlaorgvj' style='cursor:pointer;height: 130px;float: left'
                      onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=62943&p=gvkauiwkpfvlaodsxlao", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
                      alt='logo-samandehi'
                      src='{{ asset('/clientAssets/img/samandehi.png') }}'/>
-                <img src="{{ url('/clientAssets/img/logo-footer3_c14102fd323f0cd11b1241a2b32dcf00.png') }}" alt="درگاه"
+                <img src="{{ url('/clientAssets/img/behpardakht.png') }}" alt="درگاه"
                      style="width: 26%;display: inline;float: left"
                      class="img-responsive"/>
             </div>
