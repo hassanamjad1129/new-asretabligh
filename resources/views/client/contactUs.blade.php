@@ -1,12 +1,12 @@
 @extends('client.layout.master')
 @section('content')
-    <div id="youAreHere">
-        <div class="gps_ring"></div>
-        <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
-    </div>
     <div class="about" style="overflow: hidden;margin: 0">
         <div class="col-xs-12">
             <div class="container">
+                <div id="youAreHere">
+                    <div class="gps_ring"></div>
+                    <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
+                </div>
                 <br>
                 <h1>تماس با ما</h1>
                 <hr>
