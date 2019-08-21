@@ -281,10 +281,19 @@
 
                 <div class="clearfix"></div>
                 <center>
-                    <button class="btn btn-danger btn-md"
-                            style="width: 25%;margin-top:1rem;font-size:1.2rem;font-weight:bold;background: #d60000;">
-                        تایید نهایی و پرداخت
-                    </button>
+                    @if(auth()->guard('customer')->user()->type != 'credit')
+
+                        <button class="btn btn-danger btn-md"
+                                style="width: 25%;margin-top:1rem;font-size:1.2rem;font-weight:bold;background: #d60000;">
+                            تایید نهایی و پرداخت
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-md"
+                                style="width: 25%;margin-top:1rem;font-size:1.2rem;font-weight:bold;background: #d60000;">
+                            تایید نهایی و ثبت سفارش
+                        </button>
+
+                    @endif
                 </center>
             </form>
         </div>
