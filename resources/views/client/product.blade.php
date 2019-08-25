@@ -73,9 +73,9 @@
 
     </style>
     <div class="container">
-        <div id="youAreHere" style="margin-bottom: 2rem;">
+        <div id="youAreHere" style="margin-bottom: 3rem;">
             <div class="gps_ring"></div>
-            <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / <a href="{{ route('order') }}">ثبت سفارش</a> /
+            <p class="youAreHereText" style="margin-right: 5px">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / <a href="{{ route('order') }}">ثبت سفارش</a> /
                 <a href="{{ route('categoryProductPrice',[str_replace(" ","-",$product->category->name)]) }}">{{ $product->category->name }} </a>
                 / {{ $product->title }}</p>
         </div>
