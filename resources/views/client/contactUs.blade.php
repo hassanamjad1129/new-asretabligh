@@ -100,7 +100,7 @@
             minZoom: 7,
             maxZoom: 19,
             maxBounds: [[25.064, 44.039], [39.771, 63.322]],  // Iran's bounding box
-        }).setView([35.704308, 51.392861], 15);
+        }).setView([35.704308, 51.392861], 16);
         var zoomControl = new L.Control.Zoom({position: 'topleft'});
         zoomControl.addTo(map);
         /**
