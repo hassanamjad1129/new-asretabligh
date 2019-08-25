@@ -126,6 +126,6 @@
             closeButton: false,
             autoPan: false
         };
-        marker.bindPopup('Hello World!', popupOptions).openPopup();
+        marker.bindPopup('چاپ عصر تبلیغ!', popupOptions).openPopup();
     </script>
 @endsection
