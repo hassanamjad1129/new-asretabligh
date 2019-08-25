@@ -12,7 +12,7 @@
         }
 
         .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
-            border: 1px solid #777;
+
             padding: 0.5rem 1rem;
             text-align: center;
         }
@@ -28,7 +28,7 @@
         .nav-tabs > li > a:hover {
             border-color: #eee #eee #ddd;
         }
-        .nav > li > a:hover, .nav > li > a:focus {
+        #priceTB.nav > li > a:hover,#priceTB.nav > li > a:focus {
             text-decoration: none;
             background-color: #d60000;
             color: #FFF;
@@ -49,11 +49,15 @@
             transform: scale(1.02);
             transition: all 0.3s ease 0s;
         }
+
+        .table-striped > tbody > tr:nth-child(odd) {
+            background-color: #EAEAEA !important;
+        }
     </style>
     <div class="container">
         <h1 style="text-align: center">لیست قیمت {{ $category->name }}</h1>
         <br>
-        <ul class="nav nav-tabs" style="display: flex;
+        <ul class="nav nav-tabs" id="priceTB" style="display: flex;
     justify-content: center;
     border: none;">
             <?php $i = 0;?>
