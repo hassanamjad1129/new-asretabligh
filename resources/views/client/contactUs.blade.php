@@ -82,32 +82,34 @@
     <script type="text/javascript">
         L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979";
 
-        // Setting up our layer
-        var tileJSONUrl = 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=' + L.cedarmaps.accessToken;
-
-        // Initilizing map into div#map
-        var map = L.cedarmaps.map('map', tileJSONUrl, {
-            scrollWheelZoom: true
-        }).setView([35.757448286487595, 51.40876293182373], 15);
+        try {
+            L.cedarmaps.accessToken = accessToken;
+        } catch (err) {
+            throw new Error('You need to get an access token to be able to use cedarmaps SDK. ' +
+                'Send us an email to <info@cedar.ir>');
+        }
         /**
-         * Adding a Leaflet marker with custom image
+         * Initilizing Map View
          */
+            // Getting maps info from a tileJSON source
+        var tileJSONUrl = 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=' + L.cedarmaps.accessToken;
+        // initilizing map into div#map
         var map = L.cedarmaps.map('map', tileJSONUrl, {
             scrollWheelZoom: true,
             zoomControl: false,
             minZoom: 7,
             maxZoom: 17,
-            maxBounds: [[25.064, 44.039], [39.771, 63.322]],  // Iran's bounding box
+            maxBounds: [[25.064, 44.039],[39.771, 63.322]],  // Iran's bounding box
         }).setView([35.757448286487595, 51.40876293182373], 7);
-        var zoomControl = new L.Control.Zoom({position: 'topleft'});
+        var zoomControl = new L.Control.Zoom({position:'topleft'});
         zoomControl.addTo(map);
         /**
          * Adding a Leaflet marker with custom image
          */
             // see: http://leafletjs.com/reference.html#marker
         var myIcon = L.icon({
-                iconUrl: '/marker.png',
-                iconRetinaUrl: '/marker.png',
+                iconUrl: '../dist/v1.8.0/images/pin-taxi.png',
+                iconRetinaUrl: '../dist/v1.8.0/images/pin-taxi@2x.png',
                 iconSize: [34, 46],
                 iconAnchor: [17, 41],
                 popupAnchor: [-3, -46],
@@ -119,6 +121,11 @@
         var marker = new L.marker([35.757448286487595, 51.40876293182373], {
             icon: myIcon
         }).addTo(map);
-
+        var popupOptions = {
+            offset: new L.Point(2, 14),
+            closeButton: false,
+            autoPan: false
+        };
+        marker.bindPopup('Hello World!', popupOptions).openPopup();
     </script>
 @endsection
