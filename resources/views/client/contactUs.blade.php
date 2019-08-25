@@ -7,7 +7,7 @@
             <div class="container">
                 <div id="youAreHere">
                     <div class="gps_ring"></div>
-                    <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
+                    <p class="youAreHereText" style="margin-right: 5px;">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
                 </div>
                 <br>
                 <h1>تماس با ما</h1>
