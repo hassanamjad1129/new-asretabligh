@@ -82,7 +82,7 @@
     <script type="text/javascript">
         L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979\n"; // See the note below on how to get an access token
 
-        var map = CedarMaps.map(eebca82823f6c1484f7d3bcec944d9b590bfc979, {
+        var map = CedarMaps.map("eebca82823f6c1484f7d3bcec944d9b590bfc979", {
             style: 'style://streets-light',
             container: 'map',
             center: [51.3789253, 35.709987],
