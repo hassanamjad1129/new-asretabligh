@@ -28,6 +28,6 @@ class finishOrderListener
     public function handle(finishOrderEvent $event)
     {
         $smsService = new SMSService([$event->order->user->phone]);
-        $smsService->sendPatternSMS(398, ['password' => "\"چاپ عصر تبلیغ\"\nمشترک گرامی سفارش شما به شماره " . $event->order->id . ' آماده تحویل است.']);
+        $smsService->sendPatternSMS(398, ['password' => "\"چاپ عصر تبلیغ\"\nمشترک گرامی سفارش شما به شماره پیگیری " . $event->order->id . ' آماده تحویل است.']);
     }
 }
