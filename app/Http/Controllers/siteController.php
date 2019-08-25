@@ -122,4 +122,10 @@ class siteController extends Controller
         $email = option::where('option_name', 'email')->first()->option_value;
         return view('client.contactUs', ['address' => $address, 'phone' => $phone, 'email' => $email]);
     }
+
+    public function order()
+    {
+        $categories = Category::with('products')->get();
+        return view('client.order', ['categories' => $categories]);
+    }
 }

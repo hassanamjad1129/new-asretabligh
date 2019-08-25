@@ -12,7 +12,7 @@
         }
 
         .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
-            border: 1px solid #ddd;
+            border: 1px solid #777;
             padding: 0.5rem 1rem;
             text-align: center;
         }

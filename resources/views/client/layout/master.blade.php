@@ -91,7 +91,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="/#shoping">ثبت سفارش</a>
+                                <a href="{{ route('order') }}">ثبت سفارش</a>
                             </li>
                             <li>
                                 <a href="{{ url('shop') }}">فروشگاه</a>
