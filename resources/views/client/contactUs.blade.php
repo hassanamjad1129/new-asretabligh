@@ -98,9 +98,9 @@
             scrollWheelZoom: true,
             zoomControl: false,
             minZoom: 7,
-            maxZoom: 17,
+            maxZoom: 19,
             maxBounds: [[25.064, 44.039], [39.771, 63.322]],  // Iran's bounding box
-        }).setView([35.757448286487595, 51.40876293182373], 7);
+        }).setView([35.704308, 51.392861], 15);
         var zoomControl = new L.Control.Zoom({position: 'topleft'});
         zoomControl.addTo(map);
         /**
@@ -118,7 +118,7 @@
                 shadowSize: [26, 6],
                 shadowAnchor: [13, 3]
             });
-        var marker = new L.marker([35.757448286487595, 51.40876293182373], {
+        var marker = new L.marker([35.704308, 51.392861], {
             icon: myIcon
         }).addTo(map);
         var popupOptions = {
