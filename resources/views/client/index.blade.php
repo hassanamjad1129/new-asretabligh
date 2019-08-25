@@ -121,10 +121,10 @@
                         @foreach($category->products as $product)
                             <div class=" col-md-3 col-sm-6 col-xs-6">
                                 <div class="thumbnail">
-                                    <a href="{{ route('showProduct',[$product]) }}">
+
                                         <img src='{{ url('/getProductThumbnailPicture/'.$product->id) }}'>
                                         <div class="overlay">
-                                            <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}">
+                                            <a href="{{ route('showProduct',[$product]) }}">
                                                 <h2>مشاهده جزییات</h2></a>
                                             <i class="flaticon-mark"></i>
                                         </div>
