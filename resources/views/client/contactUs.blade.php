@@ -80,38 +80,45 @@
         <div id='map' style='width: 100%; height: 320px;'></div>
     </div>
     <script type="text/javascript">
-        L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979\n"; // See the note below on how to get an access token
+        L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979";
 
-        var map = CedarMaps.map("eebca82823f6c1484f7d3bcec944d9b590bfc979", {
-            style: 'style://streets-light',
-            container: 'map',
-            center: [51.3789253, 35.709987],
-            zoom: 15,
+        // Setting up our layer
+        var tileJSONUrl = 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=' + L.cedarmaps.accessToken;
+
+        // Initilizing map into div#map
+        var map = L.cedarmaps.map('map', tileJSONUrl, {
+            scrollWheelZoom: true
+        }).setView([35.757448286487595, 51.40876293182373], 15);
+        /**
+         * Adding a Leaflet marker with custom image
+         */
+        var map = L.cedarmaps.map('map', tileJSONUrl, {
             scrollWheelZoom: true,
             zoomControl: false,
             minZoom: 7,
             maxZoom: 17,
-        })
-
+            maxBounds: [[25.064, 44.039], [39.771, 63.322]],  // Iran's bounding box
+        }).setView([35.757448286487595, 51.40876293182373], 7);
+        var zoomControl = new L.Control.Zoom({position: 'topleft'});
+        zoomControl.addTo(map);
         /**
          * Adding a Leaflet marker with custom image
          */
+            // see: http://leafletjs.com/reference.html#marker
+        var myIcon = L.icon({
+                iconUrl: '/marker.png',
+                iconRetinaUrl: '/marker.png',
+                iconSize: [34, 46],
+                iconAnchor: [17, 41],
+                popupAnchor: [-3, -46],
+                shadowUrl: '../dist/v1.8.0/images/pin-shadow.png',
+                shadowRetinaUrl: '../dist/v1.8.0/images/pin-shadow@2x.png',
+                shadowSize: [26, 6],
+                shadowAnchor: [13, 3]
+            });
+        var marker = new L.marker([35.757448286487595, 51.40876293182373], {
+            icon: myIcon
+        }).addTo(map);
 
-        var element = document.createElement('div')
-        element.className = 'marker'
-        element.style.backgroundImage = 'url(/marker.png)'
-        element.style.width = '34px'
-        element.style.height = '46px'
-
-        var marker = new CedarMaps.gl.Marker(element).setLngLat([51.3789253, 35.709987]).addTo(map)
-        var controles = new CedarMaps.gl.NavigationControl()
-        var popup = new CedarMaps.gl.Popup({
-            closeButton: true,
-            closeOnClick: true,
-            offset: [0, -14],
-        }).setHTML('Hello World!')
-            .setLngLat([51.3789253, 35.709987])
-            .addTo(map)
-        map.addControl(controles)
     </script>
 @endsection
