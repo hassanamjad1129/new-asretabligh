@@ -85,9 +85,10 @@
         var tileJSONUrl = 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=' + L.cedarmaps.accessToken;
 
         // initilizing map into div#map
+
         var map = L.cedarmaps.map('map', tileJSONUrl, {
             scrollWheelZoom: true
-        }).setView([35.757448286487595, 51.40876293182373], 15);
-
+        }).setView([35.704315, 51.392781], 15);
+        var marker = new CedarMaps.gl.Marker().setLngLat([35.704315, 51.392781]).addTo(map);
     </script>
 @endsection
