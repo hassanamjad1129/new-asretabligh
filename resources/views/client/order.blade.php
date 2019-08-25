@@ -1,6 +1,11 @@
 @extends('client.layout.master')
 @section('content')
-    <div class="news-demo" style="margin-top: 2rem">
+    <style>
+        #youAreHere a{
+            color:#D60000;
+        }
+    </style>
+    <div class="news-demo" style="">
 
         <br>
         <div class="about" style="margin-bottom: 25px;">
