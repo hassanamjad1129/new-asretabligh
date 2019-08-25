@@ -82,15 +82,36 @@
     <script type="text/javascript">
         L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979\n"; // See the note below on how to get an access token
 
-        // Getting maps info from a tileJSON source
-        var tileJSONUrl = 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=' + L.cedarmaps.accessToken;
+        var map = CedarMaps.map(eebca82823f6c1484f7d3bcec944d9b590bfc979, {
+            style: 'style://streets-light',
+            container: 'map',
+            center: [51.3789253, 35.709987],
+            zoom: 15,
+            scrollWheelZoom: true,
+            zoomControl: false,
+            minZoom: 7,
+            maxZoom: 17,
+        })
 
-        // initilizing map into div#map
+        /**
+         * Adding a Leaflet marker with custom image
+         */
 
-        var map = L.cedarmaps.map('map', tileJSONUrl, {
-            scrollWheelZoom: true
-        });
-        var marker = new CedarMaps.gl.Marker().setLngLat([35.704315, 51.392781]).addTo(map);
-        map.setView([35.704315, 51.392781], 15);
+        var element = document.createElement('div')
+        element.className = 'marker'
+        element.style.backgroundImage = 'url(/marker.png)'
+        element.style.width = '34px'
+        element.style.height = '46px'
+
+        var marker = new CedarMaps.gl.Marker(element).setLngLat([51.3789253, 35.709987]).addTo(map)
+        var controles = new CedarMaps.gl.NavigationControl()
+        var popup = new CedarMaps.gl.Popup({
+            closeButton: true,
+            closeOnClick: true,
+            offset: [0, -14],
+        }).setHTML('Hello World!')
+            .setLngLat([51.3789253, 35.709987])
+            .addTo(map)
+        map.addControl(controles)
     </script>
 @endsection
