@@ -62,15 +62,14 @@
                 <div class="col-md-4">
                     <h3>اطلاعات تماس </h3>
                     <br>
-                    <h4>چاپ عصر تبلیغ</h4>
+                    <h4>چاپ دیجیتال عصر تبلیغ</h4>
                     <br>
-                    <h5 style="display: inline-block">شماره تماس : </h5><h5
+                    <h5 style="display: inline-block;    margin-bottom: 1rem;">شماره تماس : </h5><h5
                             style="color:#D60000;direction: ltr;display: inline-block"
                             style="direction: ltr">{{ $phone }}</h5>
                     <br>
-                    <h5>ایمیل : {{ $email }}</h5>
-                    <br>
-                    <h5>آدرس : {{ $address }}</h5>
+                    <h5 style="margin-bottom: 1rem;">ایمیل : {{ $email }}</h5>
+                    <h5 style="line-height: 27px">آدرس : {{ $address }}</h5>
                 </div>
             </div>
         </div>
