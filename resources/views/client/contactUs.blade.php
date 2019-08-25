@@ -110,7 +110,7 @@
         var myIcon = L.icon({
                 iconUrl: '/marker.png',
                 iconRetinaUrl: '/marker.png',
-                iconSize: [34, 46],
+                iconSize: [46, 46],
                 iconAnchor: [17, 41],
                 popupAnchor: [-3, -46],
                 shadowUrl: '../dist/v1.8.0/images/pin-shadow.png',
