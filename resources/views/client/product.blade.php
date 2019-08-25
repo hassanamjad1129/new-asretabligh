@@ -69,6 +69,12 @@
 
     </style>
     <div class="container">
+        <div id="youAreHere">
+            <div class="gps_ring"></div>
+            <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / <a href="">ثبت سفارش</a> /
+                <a href="{{ route('categoryProductPrice',[str_replace(" ","-",$product->category->name)]) }}">{{ $product->category->name }} </a>
+                / {{ $product->title }}</p>
+        </div>
         <form action="{{ route('storeCart') }}" id="orderForm" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="product" value="{{$product->id}}">
@@ -263,7 +269,7 @@
                                 <h5 style="margin-bottom: 0px;font-weight: bold;font-size:12px;display: inline">خدمات
                                     پس از چاپ
                                     : </h5>
-                                <span id="servicePrice"  style="color: green;">{{ ta_persian_num("0") }} ریال</span>
+                                <span id="servicePrice" style="color: green;">{{ ta_persian_num("0") }} ریال</span>
                             </div>
                             <hr style="border-bottom: 1px solid #999;margin:4px 0"/>
                             <div style="display: flex;justify-content: space-between">

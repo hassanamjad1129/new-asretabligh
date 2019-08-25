@@ -130,7 +130,7 @@
                                         </div>
                                     </div>
                                     <div class="caption">
-                                        <h2>{{ $product->title }}</h2>
+                                        <a href="{{ route('showProduct',[$product]) }}"><h2>{{ $product->title }}</h2></a>
 
                                     </div>
                                     </a>

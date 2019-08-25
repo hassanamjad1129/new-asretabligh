@@ -1,6 +1,11 @@
 @extends('client.layout.master')
 @section('content')
     <div class="news-demo" style="margin-top: 2rem">
+        <div id="youAreHere">
+            <div class="gps_ring"></div>
+            <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / ثبت سفارش</p>
+        </div>
+        <br>
         <div class="about" style="margin-bottom: 25px;">
             <div class=" title wow fadeInUp animated" id="shoping" style=""><h2 style="text-align: center">ثبت سفارش
                     <span>سریع</span></h2>
@@ -41,9 +46,17 @@
                             <div class=" col-md-3 col-sm-6 col-xs-6">
                                 <div class="thumbnail">
                                     <a href="{{ route('showProduct',[$product]) }}">
-                                        <img src='{{ url('/getProductThumbnailPicture/'.$product->id) }}'>
+                                        <div class="hovereffect">
+                                            <img src='{{ url('/getProductThumbnailPicture/'.$product->id) }}'>
+                                            <div class="overlay">
+                                                <a href="{{ route('showProduct',[$product]) }}">
+                                                    <h2 style="padding: 0.5rem;">ثبت سفارش</h2></a>
+                                                <i class="flaticon-mark"></i>
+                                            </div>
+                                        </div>
                                         <div class="caption">
-                                            <h2>{{ $product->title }}</h2>
+                                            <a href="{{ route('showProduct',[$product]) }}">
+                                                <h2>{{ $product->title }}</h2></a>
 
                                         </div>
                                     </a>
