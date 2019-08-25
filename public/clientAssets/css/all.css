@@ -19878,3 +19878,8 @@ button.close:hover {
         margin-bottom: 1rem;
     }
 }
+
+a {
+    color: #5b5b5b;
+    text-decoration: none;
+}
