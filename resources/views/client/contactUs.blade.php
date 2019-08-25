@@ -1,7 +1,7 @@
 @extends('client.layout.master')
 @section('content')
     <script src='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.js'></script>
-    <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet' />
+    <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet'/>
     <div class="about" style="overflow: hidden;margin: 0">
         <div class="col-xs-12">
             <div class="container">
@@ -64,7 +64,8 @@
                     <br>
                     <h4>چاپ عصر تبلیغ</h4>
                     <br>
-                    <h5 style="display: inline-block">شماره تماس : </h5><h5 style="direction: ltr;display: inline-block"
+                    <h5 style="display: inline-block">شماره تماس : </h5><h5
+                            style="color:#D60000;direction: ltr;display: inline-block"
                             style="direction: ltr">{{ $phone }}</h5>
                     <br>
                     <h5>ایمیل : {{ $email }}</h5>
