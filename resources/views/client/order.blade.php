@@ -1,9 +1,11 @@
 @extends('client.layout.master')
 @section('content')
     <div class="news-demo" style="margin-top: 2rem">
-        <div id="youAreHere">
-            <div class="gps_ring"></div>
-            <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / ثبت سفارش</p>
+        <div class="container">
+            <div id="youAreHere">
+                <div class="gps_ring"></div>
+                <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / ثبت سفارش</p>
+            </div>
         </div>
         <br>
         <div class="about" style="margin-bottom: 25px;">
