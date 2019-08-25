@@ -19757,8 +19757,8 @@ button.close:hover {
 }
 
 .thumbnail img {
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
+    -webkit-border-radius:15px 0 0 15px;
+    -moz-border-radius: 15px 0 0 15px;
     transition: all 0.3s ease
 
 }
