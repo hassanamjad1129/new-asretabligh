@@ -123,6 +123,11 @@
                                 <div class="thumbnail">
                                     <a href="{{ route('showProduct',[$product]) }}">
                                         <img src='{{ url('/getProductThumbnailPicture/'.$product->id) }}'>
+                                        <div class="overlay">
+                                            <a href="{{ route('post.detail',[$new->id,mb_substr(strip_tags(trim(str_replace(" ","-",$new->title))),0,20,'UTF8')]) }}">
+                                                <h2>مشاهده جزییات</h2></a>
+                                            <i class="flaticon-mark"></i>
+                                        </div>
                                         <div class="caption">
                                             <h2>{{ $product->title }}</h2>
 
