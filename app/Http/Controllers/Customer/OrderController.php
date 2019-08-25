@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\discount;
+use App\Events\orderEvent;
 use App\Models\Product;
 use App\Models\ProductPrice;
 use App\Order;
@@ -503,6 +504,7 @@ class OrderController extends Controller
             foreach ($order->orderItems as $orderItem) {
                 $orderItem->status = 1;
                 $orderItem->save();
+                event(new OrderEvent(auth()->guard('customer')->user(), $orderItem->id));
             }
             foreach ($request->cart as $cart)
                 $request->session()->forget('cart.' . $cart);
@@ -521,6 +523,8 @@ class OrderController extends Controller
                     foreach ($order->orderItems as $orderItem) {
                         $orderItem->status = 1;
                         $orderItem->save();
+                        event(new OrderEvent(auth()->guard('customer')->user(), $orderItem->id));
+
                     }
                     foreach ($request->cart as $cart)
                         $request->session()->forget('cart.' . $cart);
@@ -691,6 +695,7 @@ class OrderController extends Controller
             foreach ($order->orderItems as $orderItem) {
                 $orderItem->status = 1;
                 $orderItem->save();
+                event(new OrderEvent(auth()->guard('customer')->user(), $orderItem->id));
                 $request->session()->forget('cart');
             }
             return redirect(route('customer.orders'))->withErrors(['عملیات با موفقیت انجام شد'], 'success');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\finishOrderEvent;
 use App\OrderItem;
 use App\shipping;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -58,7 +59,8 @@ class OrderController extends Controller
                 return back()->withErrors($validator->errors()->all(), 'failed');
             $orderItem->status = $request->status;
             $orderItem->save();
-
+            if ($request->status == 3)
+                event(new finishOrderEvent($orderItem));
         }
         if (auth()->guard('admin')->user()->can('changeOrderQTY')) {
             $ratio = $request->qty / $orderItem->qty;

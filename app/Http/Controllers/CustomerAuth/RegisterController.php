@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\CustomerAuth;
 
 use App\Customer;
+use App\Events\registerEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -134,7 +135,7 @@ class RegisterController extends Controller
         if ($validator->fails())
             return back()->withErrors($validator->errors()->all(), 'failed');
         event(new Registered($user = $this->create($request->all())));
-
+        event(new registerEvent($user));
         $this->guard()->login($user);
 
         return $this->registered($request, $user)

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\CustomerAuth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\sendWelcomeSMSJob;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
+use Illuminate\Support\Facades\Request;
 
 class LoginController extends Controller
 {
@@ -33,11 +35,19 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
+
         if (request()->has('previous')) {
             $this->redirectTo = request()->get('previous');
         }
 
         return $this->redirectTo ?? '/customer/orders';
+    }
+
+
+    protected function authenticated(Request $request, $user)
+    {
+        dispatch(new sendWelcomeSMSJob($user->phone));
+        return redirect($this->redirectTo());
     }
 
     /**
