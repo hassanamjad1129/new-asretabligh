@@ -7,7 +7,8 @@
             <div class="container">
                 <div id="youAreHere">
                     <div class="gps_ring"></div>
-                    <p class="youAreHereText" style="margin-right: 5px;">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / تماس با ما</p>
+                    <p class="youAreHereText" style="margin-right: 5px;">شما اینجا هستید : <a
+                                href="{{ url('/') }}">خانه</a> / تماس با ما</p>
                 </div>
                 <br>
                 <h1>تماس با ما</h1>
@@ -88,7 +89,8 @@
 
         var map = L.cedarmaps.map('map', tileJSONUrl, {
             scrollWheelZoom: true
-        }).setView([35.704315, 51.392781], 15);
+        });
         var marker = new CedarMaps.gl.Marker().setLngLat([35.704315, 51.392781]).addTo(map);
+        map.setView([35.704315, 51.392781], 15);
     </script>
 @endsection
