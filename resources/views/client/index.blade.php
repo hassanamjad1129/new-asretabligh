@@ -125,7 +125,7 @@
                                         <img src='{{ url('/getProductThumbnailPicture/'.$product->id) }}'>
                                         <div class="overlay">
                                             <a href="{{ route('showProduct',[$product]) }}">
-                                                <h2>مشاهده جزییات</h2></a>
+                                                <h2>ثبت سفارش</h2></a>
                                             <i class="flaticon-mark"></i>
                                         </div>
                                     </div>
