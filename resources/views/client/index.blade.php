@@ -121,17 +121,18 @@
                         @foreach($category->products as $product)
                             <div class=" col-md-3 col-sm-6 col-xs-6">
                                 <div class="thumbnail">
-
+                                    <div class="hovereffect">
                                         <img src='{{ url('/getProductThumbnailPicture/'.$product->id) }}'>
                                         <div class="overlay">
                                             <a href="{{ route('showProduct',[$product]) }}">
                                                 <h2>مشاهده جزییات</h2></a>
                                             <i class="flaticon-mark"></i>
                                         </div>
-                                        <div class="caption">
-                                            <h2>{{ $product->title }}</h2>
+                                    </div>
+                                    <div class="caption">
+                                        <h2>{{ $product->title }}</h2>
 
-                                        </div>
+                                    </div>
                                     </a>
                                 </div>
                             </div>
