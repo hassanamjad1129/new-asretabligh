@@ -8,7 +8,7 @@
     <div class="news-demo" style="">
 
         <br>
-        <div class="about" style="margin-bottom: 25px;">
+        <div class="about" style="margin-bottom: 25px;margin-top: 0">
             <div class="container">
                 <div id="youAreHere">
                     <div class="gps_ring"></div>
