@@ -36,10 +36,9 @@
         }
 
         .nav-tabs > li > a {
-            margin-left: auto;
-            margin-right: -2px;
             border-radius: 4px 4px 0 0;
             margin: 0 0.4rem;
+            text-align: center;
         }
 
         h2{
