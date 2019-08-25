@@ -1,5 +1,7 @@
 @extends('client.layout.master')
 @section('content')
+    <script src='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.js'></script>
+    <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.0/cedarmaps.css' rel='stylesheet' />
     <div class="about" style="overflow: hidden;margin: 0">
         <div class="col-xs-12">
             <div class="container">
@@ -62,8 +64,8 @@
                     <br>
                     <h4>چاپ عصر تبلیغ</h4>
                     <br>
-                    <h5 style="display: inline-block">شماره تماس : </h5><span
-                            style="direction: ltr">{{ $phone }}</span>
+                    <h5 style="display: inline-block">شماره تماس : </h5><h5 style="direction: ltr;display: inline-block"
+                            style="direction: ltr">{{ $phone }}</h5>
                     <br>
                     <h5>ایمیل : {{ $email }}</h5>
                     <br>
@@ -74,7 +76,18 @@
     </div>
     <br>
     <div class="col-md-12" style="margin-top: 10px;padding:0">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.979450092633!2d51.392374658259484!3d35.70262899504738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQyJzA5LjUiTiA1McKwMjMnMzYuNSJF!5e0!3m2!1sen!2sir!4v1480962140937"
-                height="320" frameborder="0" style="border:0;width: 100%" allowfullscreen></iframe>
+        <div id='map' style='width: 100%; height: 320px;'></div>
     </div>
+    <script type="text/javascript">
+        L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979\n"; // See the note below on how to get an access token
+
+        // Getting maps info from a tileJSON source
+        var tileJSONUrl = 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=' + L.cedarmaps.accessToken;
+
+        // initilizing map into div#map
+        var map = L.cedarmaps.map('map', tileJSONUrl, {
+            scrollWheelZoom: true
+        }).setView([35.757448286487595, 51.40876293182373], 15);
+
+    </script>
 @endsection
