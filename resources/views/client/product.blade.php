@@ -67,9 +67,13 @@
             border: 2px solid #d60000 !important;
         }
 
+        #youAreHere a {
+            color: #d60000;
+        }
+
     </style>
     <div class="container">
-        <div id="youAreHere">
+        <div id="youAreHere" style="margin-bottom: 2rem;">
             <div class="gps_ring"></div>
             <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / <a href="">ثبت سفارش</a> /
                 <a href="{{ route('categoryProductPrice',[str_replace(" ","-",$product->category->name)]) }}">{{ $product->category->name }} </a>
