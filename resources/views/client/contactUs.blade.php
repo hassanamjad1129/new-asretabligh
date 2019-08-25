@@ -99,17 +99,17 @@
             zoomControl: false,
             minZoom: 7,
             maxZoom: 17,
-            maxBounds: [[25.064, 44.039],[39.771, 63.322]],  // Iran's bounding box
+            maxBounds: [[25.064, 44.039], [39.771, 63.322]],  // Iran's bounding box
         }).setView([35.757448286487595, 51.40876293182373], 7);
-        var zoomControl = new L.Control.Zoom({position:'topleft'});
+        var zoomControl = new L.Control.Zoom({position: 'topleft'});
         zoomControl.addTo(map);
         /**
          * Adding a Leaflet marker with custom image
          */
             // see: http://leafletjs.com/reference.html#marker
         var myIcon = L.icon({
-                iconUrl: '../dist/v1.8.0/images/pin-taxi.png',
-                iconRetinaUrl: '../dist/v1.8.0/images/pin-taxi@2x.png',
+                iconUrl: '/marker.png',
+                iconRetinaUrl: '/marker.png',
                 iconSize: [34, 46],
                 iconAnchor: [17, 41],
                 popupAnchor: [-3, -46],
