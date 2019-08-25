@@ -83,7 +83,7 @@
         L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979";
 
         try {
-            L.cedarmaps.accessToken = accessToken;
+            L.cedarmaps.accessToken = "eebca82823f6c1484f7d3bcec944d9b590bfc979";
         } catch (err) {
             throw new Error('You need to get an access token to be able to use cedarmaps SDK. ' +
                 'Send us an email to <info@cedar.ir>');
