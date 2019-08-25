@@ -12,7 +12,7 @@
             <div class="container">
                 <div id="youAreHere">
                     <div class="gps_ring"></div>
-                    <p class="youAreHereText">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / ثبت سفارش</p>
+                    <p class="youAreHereText" style="margin-right: 5px">شما اینجا هستید : <a href="{{ url('/') }}">خانه</a> / ثبت سفارش</p>
                 </div>
             </div>
             <div class=" title wow fadeInUp animated" id="shoping" style=""><h2 style="text-align: center">ثبت سفارش
