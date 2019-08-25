@@ -7,7 +7,8 @@ use App\Jobs\sendWelcomeSMSJob;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+
 
 class LoginController extends Controller
 {
